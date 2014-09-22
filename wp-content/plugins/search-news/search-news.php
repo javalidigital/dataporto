@@ -8,9 +8,8 @@ Author: Javali Digital
 Author URI: http://javalidigital.com.br
 License: MIT
 */
-?>
 
-<?php class search_dataporto_news extends WP_Widget {
+class search_dataporto_news extends WP_Widget {
 
 	// constructor
 	function search_dataporto_news() {
