@@ -12,7 +12,7 @@
 if(!$ad_edit_id) {
 	$edit_id = $wpdb->get_var("SELECT `id` FROM `".$wpdb->prefix."adrotate` WHERE `type` = 'empty' ORDER BY `id` DESC LIMIT 1;");
 	if($edit_id == 0) {
-	    $wpdb->insert($wpdb->prefix."adrotate", array('title' => '', 'bannercode' => '', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => 'dropdown', 'image' => '', 'link' => '', 'tracker' => 'N', 'responsive' => 'N', 'timeframe' => '', 'timeframelength' => 0, 'timeframeclicks' => 0, 'timeframeimpressions' => 0, 'type' => 'empty', 'weight' => 6, 'sortorder' => 0, 'cbudget' => 0, 'ibudget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
+	    $wpdb->insert($wpdb->prefix."adrotate", array('title' => '', 'bannercode' => '', 'thetime' => $now, 'updated' => $now, 'author' => $current_user->user_login, 'imagetype' => 'dropdown', 'image' => '', 'link' => '', 'tracker' => 'N', 'responsive' => 'N', 'type' => 'empty', 'weight' => 6, 'sortorder' => 0, 'cbudget' => 0, 'ibudget' => 0, 'crate' => 0, 'irate' => 0, 'cities' => serialize(array()), 'countries' => serialize(array())));
 	    $edit_id = $wpdb->insert_id;
 		$wpdb->insert($wpdb->prefix.'adrotate_schedule', array('name' => 'Schedule for ad '.$edit_id, 'starttime' => $now, 'stoptime' => $in84days, 'maxclicks' => 0, 'maximpressions' => 0));
 	    $schedule_id = $wpdb->insert_id;
@@ -145,6 +145,7 @@ if($edit_banner->imagetype == "field") {
       	</tr>
 		</tbody>
 	</table>
+	<center><?php _e('Get more features with AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('More information', 'adrotate'); ?></a>.</center>
 
 	<p class="submit">
 		<input tabindex="0" type="submit" name="adrotate_ad_submit" class="button-primary" value="<?php _e('Save Advert', 'adrotate'); ?>" />
@@ -240,6 +241,18 @@ if($edit_banner->imagetype == "field") {
 			</td>
 		</tr>
       	<tr>
+		    <th valign="top"><?php _e('Weight:', 'adrotate'); ?><br /><em><?php _e('AdRotate Pro only', 'adrotate'); ?></em></th>
+	        <td colspan="3">
+	        	<label for="adrotate_weight">
+	        	&nbsp;<input type="radio" name="adrotate_weight" value="2" disabled />&nbsp;&nbsp;&nbsp;2, <?php _e('Barely visible', 'adrotate'); ?><br />
+	        	&nbsp;<input type="radio" name="adrotate_weight" value="4" disabled />&nbsp;&nbsp;&nbsp;4, <?php _e('Less than average', 'adrotate'); ?><br />
+	        	&nbsp;<input type="radio" name="adrotate_weight" value="6" disabled checked />&nbsp;&nbsp;&nbsp;6, <?php _e('Normal coverage', 'adrotate'); ?><br />
+	        	&nbsp;<input type="radio" name="adrotate_weight" value="8" disabled />&nbsp;&nbsp;&nbsp;8, <?php _e('More than average', 'adrotate'); ?><br />
+	        	&nbsp;<input type="radio" name="adrotate_weight" value="10" disabled />&nbsp;&nbsp;&nbsp;10, <?php _e('Best visibility', 'adrotate'); ?>
+	        	</label>
+			</td>
+		</tr>
+      	<tr>
 	        <th><?php _e('Sortorder:', 'adrotate'); ?></th>
 	        <td colspan="3">
 		        <label for="adrotate_sortorder"><input tabindex="4" name="adrotate_sortorder" type="text" size="5" class="search-input" autocomplete="off" value="<?php echo $edit_banner->sortorder;?>" /> <em><?php _e('For administrative purposes set a sortorder.', 'adrotate'); ?> <?php _e('Leave empty or 0 to skip this. Will default to ad id.', 'adrotate'); ?></em></label>
@@ -247,6 +260,56 @@ if($edit_banner->imagetype == "field") {
       	</tr>
 		</tbody>
 	</table>
+	<center><?php _e('With AdRotate Pro you can also set a weight to give adverts more or less attention.', 'adrotate'); ?>  <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today', 'adrotate'); ?></a>!</center>
+
+	<h3><?php _e('Geo Location in AdRotate Pro', 'adrotate'); ?></h3>
+	<p><em><?php _e('This works if you assign the advert to a group and enable that group to use Geo Targeting.', 'adrotate'); ?></em></p>
+	<table class="widefat" style="margin-top: .5em">			
+		<tbody>
+	    <tr>
+			<th width="15%" valign="top"><?php _e('Cities:', 'adrotate'); ?></strong></th>
+			<td colspan="2"><textarea tabindex="14" name="adrotate_geo_cities" cols="65" rows="3" disabled>Amsterdam, New York, Tokyo, London</textarea></td>
+			<td>
+		        <p><strong><?php _e('Usage:', 'adrotate'); ?></strong></p>
+		        <p><em><?php _e('A comma separated list of cities', 'adrotate'); ?> (Alkmaar, Philadelphia, Melbourne)<br /><?php _e('AdRotate does not check the validity of names so make sure you spell them correctly!', 'adrotate'); ?></em></p>
+			</td>
+		</tr>
+	    <tr>
+			<th valign="top"><?php _e('Countries:', 'adrotate'); ?></strong></th>
+	        <td colspan="2">
+	        <label for="adrotate_geo_countries">
+		        <div class="adrotate-select">
+
+					<table width="100%">
+						<tbody>
+						<tr>
+							<td class="check-column" style="padding: 0px;"><input type="checkbox" name="adrotate_geo_countries[]" value="" disabled></td><td style="padding: 0px;">United States</td>
+						</tr>
+						<tr>
+							<td class="check-column" style="padding: 0px;"><input type="checkbox" name="adrotate_geo_countries[]" value="" disabled></td><td style="padding: 0px;">Australia</td>
+						</tr>
+						<tr>
+							<td class="check-column" style="padding: 0px;"><input type="checkbox" name="adrotate_geo_countries[]" value="" disabled></td><td style="padding: 0px;">Germany</td>
+						</tr>
+						<tr>
+							<td class="check-column" style="padding: 0px;"><input type="checkbox" name="adrotate_geo_countries[]" value="" disabled></td><td style="padding: 0px;">Brazil</td>
+						</tr>
+						<tr>
+							<td class="check-column" style="padding: 0px;"><input type="checkbox" name="adrotate_geo_countries[]" value="" disabled></td><td style="padding: 0px;">Japan</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+	        </label>
+	        </td>
+			<td>
+		        <p><strong><?php _e('Usage:', 'adrotate'); ?></strong></p>
+		        <p><em><?php _e('Select the countries you want the adverts to show in.', 'adrotate'); ?><br /><?php _e('Cities take priority and will be filtered first.', 'adrotate'); ?></em></p>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<center><?php _e('Target your audience with Geo Location in AdRotate Pro', 'adrotate'); ?>, <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today', 'adrotate'); ?></a>.</center>
 
 	<h3><?php _e('Usage', 'adrotate'); ?></h3>
 	<p><em><?php _e('Copy the shortcode in a post or page. The PHP code goes in a theme file where you want the advert to show up.', 'adrotate'); ?></em></p>
@@ -348,6 +411,54 @@ if($edit_banner->imagetype == "field") {
 		</tr>
 		</tbody>					
 	</table>
+	<center><?php _e('Create multiple schedules for each advert with AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today', 'adrotate'); ?></a>.</center>
+
+	<h3><?php _e('Choose Multiple Schedules in AdRotate Pro', 'adrotate'); ?></h3>
+	<p><em><?php _e('You can add, edit or delete schedules from the', 'adrotate'); ?>  '<a href="admin.php?page=adrotate-schedules"><?php _e('Manage Schedules', 'adrotate'); ?></a>' <?php _e('dashboard. Save your advert first!', 'adrotate'); ?></em></p>
+	<table class="widefat" style="margin-top: .5em">
+
+		<thead>
+		<tr>
+			<th scope="col" class="manage-column column-cb check-column"><input type="checkbox" disabled /></th>
+	        <th width="4%"><?php _e('ID', 'adrotate'); ?></th>
+	        <th width="17%"><?php _e('From / Until', 'adrotate'); ?></th>
+	        <th>&nbsp;</th>
+	        <th width="12%"><center><?php _e('Clicks', 'adrotate'); ?></center></th>
+	        <th width="8%"><center><?php _e('Used', 'adrotate'); ?></center></th>
+	        <th width="12%"><center><?php _e('Impressions', 'adrotate'); ?></center></th>
+	        <th width="8%"><center><?php _e('Used', 'adrotate'); ?></center></th>
+		</tr>
+		</thead>
+
+		<tbody>
+      	<tr id='schedule-1'>
+			<th class="check-column"><input type="checkbox" name="scheduleselect[]" value="" disabled /></th>
+			<td>1</td>
+			<td><?php echo date_i18n("F d, Y H:i", 1408233600);?><br /><span style="color: <?php echo adrotate_prepare_color(1416614400);?>;"><?php echo date_i18n("F d, Y H:i", 1416614400);?></span></td>
+	        <td>Schedule for trekking campaign <span style="color:#999;"><br /><span style="font-weight:bold;">Spread:</span> Max. 342 <?php _e('impressions per hour', 'adrotate'); ?></span></td>
+	        <td><center>100000</center></td>
+	        <td><center>12372</center></td>
+	        <td><center>Unlimited</center></td>
+	        <td><center>N/a</center></td>
+      	</tr>
+      	<tr id='schedule-2' class='alternate'>
+			<th class="check-column"><input type="checkbox" name="scheduleselect[]" value="" disabled /></th>
+			<td>1</td>
+			<td><?php echo date_i18n("F d, Y H:i", 1405641600);?><br /><span style="color: <?php echo adrotate_prepare_color(1415750400);?>;"><?php echo date_i18n("F d, Y H:i", 1415750400);?></span></td>
+	        <td>Generic schedule</td>
+	        <td><center>Unlimited</center></td>
+	        <td><center>N/a</center></td>
+	        <td><center>Unlimited</center></td>
+	        <td><center>N/a</center></td>
+      	</tr>
+		</tbody>
+
+	</table>
+	<p><center>
+		<?php if($adrotate_config['hide_schedules'] == "Y") { ?><?php _e("Schedules not in use by this advert are hidden.", "adrotate"); ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php } ?>
+		<span style="border: 1px solid #518257; height: 12px; width: 12px; background-color: #e5faee">&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php _e("In use by this advert.", "adrotate"); ?>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span style="border: 1px solid #c00; height: 12px; width: 12px; background-color: #ffebe8">&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php _e("Expires soon.", "adrotate"); ?>
+	</center></p>
 
 	<p class="submit">
 		<input tabindex="23" type="submit" name="adrotate_ad_submit" class="button-primary" value="<?php _e('Save Advert', 'adrotate'); ?>" />

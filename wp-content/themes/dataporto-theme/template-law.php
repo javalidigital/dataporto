@@ -77,21 +77,25 @@ get_header(); ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
-				<?php wp_reset_postdata(); ?>				
+				<?php wp_reset_postdata(); ?>
 			</div>
-			<div class="archive clearfix">
+			<div class="archive-container clearfix">
 				<div class="title-category">
 					<h4>Arquivo</h4>
 				</div>
 				<?php
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;					
 					$args = array(
-						'post__not_in'=>get_option('sticky_posts'),
-						'category_name' => 'regulacao-legislacao',
-						'posts_per_page' => -1
+						'cat' => 11,
+				    	'post__not_in' => get_option( 'sticky_posts' ),
+				    	'posts_per_page' => 10,
+						'paged' => $paged
 					);
-					$posts_array = get_posts( $args );
-				?>							
-				<?php foreach ( $posts_array as $post ) : setup_postdata( $post );?>
+				   $category_posts = new WP_Query($args);
+				   if($category_posts->have_posts()) : 
+				      while($category_posts->have_posts()) : 
+				         $category_posts->the_post();
+				?>
 					<div class="archive-item">
 						<span class="archive-item-date">
 							<?php the_time('l\, j \d\e F \d\e Y'); ?>
@@ -103,12 +107,16 @@ get_header(); ?>
 								<?php global $more;
 								$more = 0;
 								the_content('');
-								?>
-								
+								?>								
 						</div>						
-					</div>
-				<?php endforeach; ?>
-				<?php wp_reset_postdata(); ?>
+					</div>				
+				<?php endwhile; ?>
+				<nav class="site-navigation">
+					<?php wp_pagenavi( array( 'query' => $category_posts ) ); ?>
+				</nav>
+				<?php else: ?>				
+				     <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>				
+				<?php endif; ?>				
 			</div>
 		</main><!-- #main -->
 		<div class="site-sidebar" role="complementary">

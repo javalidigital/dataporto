@@ -35,6 +35,24 @@ jQuery(document).ready(function(){
 		return this.nodeType === 3;
 }).remove();
 });
+
+jQuery(function() {
+    var availableTags = [
+      "Porto de Santos",
+      "Porto XYZ",
+      "Porto QWE",
+      "Porto ASD",
+      "Porto zxc",
+      "Porto poi",
+      "Porto LKJ",
+      "Porto MNB"
+    ];
+    jQuery( "#nome-porto" ).autocomplete({
+      source: availableTags,
+      autoFocus: true,
+      appendTo: "#nome-porto-options"
+    });
+  });
 </script>
 </head>
 

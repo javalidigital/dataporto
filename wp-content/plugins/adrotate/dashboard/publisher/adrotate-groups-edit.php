@@ -50,11 +50,11 @@ if(!is_array($meta_array)) $meta_array = array();
 		<tbody>
 	    <tr>
 			<th width="15%"><?php _e('ID:', 'adrotate'); ?></th>
-			<td colspan="3"><?php echo $edit_group->id; ?></td>
+			<td colspan="2"><?php echo $edit_group->id; ?></td>
 		</tr>
 	    <tr>
 			<th width="15%"><?php _e('Name:', 'adrotate'); ?></th>
-			<td colspan="3">
+			<td colspan="2">
 				<label for="adrotate_groupname"><input tabindex="1" name="adrotate_groupname" type="text" class="search-input" size="80" value="<?php echo $edit_group->name; ?>" autocomplete="off" /></label>
 			</td>
 		</tr>
@@ -67,12 +67,13 @@ if(!is_array($meta_array)) $meta_array = array();
 		        	<option value="2" <?php if($edit_group->modus == 2) { echo 'selected'; } ?>><?php _e('Block Mode - Show a block of ads', 'adrotate'); ?></option>
 		        </select> 
 			</td>
-			<td colspan="2">
-		        <p><em><?php _e('\'Dynamic\' and \'Block\' mode require \'jQuery\' and \'jQuery Dynamic Groups\' to be loaded. You can enable this in AdRotate Settings.', 'adrotate'); ?></em></p>
+			<td>
+		        <p><em><?php _e('Dynamic mode requires jQuery and jQuery Dynamic Groups to be loaded. You can enable this in AdRotate Settings.', 'adrotate'); ?></em></p>
 			</td>
 		</tr>
 		</tbody>
 	</table>
+	<center><?php _e('Get more features with AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('More information', 'adrotate'); ?></a>.</center>
 
 	<h3><?php _e('Dynamic and Block Mode', 'adrotate'); ?></h3>
 	<p><em><?php _e('Only required if your group is in Dynamic or Block mode.', 'adrotate'); ?></em></p>
@@ -188,6 +189,7 @@ if(!is_array($meta_array)) $meta_array = array();
       	</tr>
 		</tbody>
 	</table>
+	<center><?php _e('Set up a fallback group and use Geo Location in AdRotate Pro', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today', 'adrotate'); ?></a>.</center>
 	
    	<h3><?php _e('Post Injection', 'adrotate'); ?></h3>
    	<p><em><?php _e('Insert ads to the begin or end of a post/page.', 'adrotate'); ?></em></p>

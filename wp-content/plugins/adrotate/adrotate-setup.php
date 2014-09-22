@@ -51,7 +51,7 @@ function adrotate_activate_setup() {
 	global $wpdb, $current_user, $userdata;
 
 	if(!current_user_can('activate_plugins')) {
-		deactivate_plugins(plugin_basename('adrotate.php'));
+		deactivate_plugins(plugin_basename('adrotate/adrotate.php'));
 		wp_die('You do not have appropriate access to activate this plugin! Contact your administrator!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to plugins</a>.'); 
 		return; 
 	} else {
@@ -152,9 +152,9 @@ function adrotate_check_activated() {
 function adrotate_check_upgrade() {
 	global $wpdb, $current_user, $userdata;
 	
-	if(version_compare(PHP_VERSION, '5.2.0', '<') == -1) { 
-		deactivate_plugins(plugin_basename('adrotate.php'));
-		wp_die('AdRotate 3.6 and up requires PHP 5.2 or higher. Consider upgrading your server!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to plugins</a>.'); 
+	if(version_compare(PHP_VERSION, '5.3.0', '<') == -1) { 
+		deactivate_plugins(plugin_basename('adrotate/adrotate.php'));
+		wp_die('AdRotate 3.10.8 and up requires PHP 5.3 or higher. You have version '.PHP_VERSION.'. Contact your hosting provider about upgrading your server!<br /><a href="'. get_option('siteurl').'/wp-admin/plugins.php">Back to plugins</a>.'); 
 		return; 
 	} else {
 		$adrotate_db_version = get_option("adrotate_db_version");
@@ -315,10 +315,6 @@ function adrotate_database_install() {
 		  	`link` longtext NOT NULL,
 		  	`tracker` varchar(5) NOT NULL default 'N',
 		  	`responsive` varchar(5) NOT NULL default 'N',
-		  	`timeframe` varchar(6) NOT NULL default '',
-		  	`timeframelength` int(15) NOT NULL default '0',
-		  	`timeframeclicks` int(15) NOT NULL default '0',
-		  	`timeframeimpressions` int(15) NOT NULL default '0',
 		  	`type` varchar(10) NOT NULL default '0',
 		  	`weight` int(3) NOT NULL default '6',
 			`sortorder` int(5) NOT NULL default '0',
@@ -565,6 +561,15 @@ function adrotate_database_upgrade() {
 		$wpdb->query("ALTER TABLE `".$tables['adrotate_groups']."` CHANGE `admargin_right` `admargin_right` int(2) NOT NULL default '0';");
 	}
 
+	// Database: 	44
+	// AdRotate:	3.10.8
+	if($adrotate_db_version['current'] < 44) {
+		adrotate_del_column($tables['adrotate'], 'timeframe');
+		adrotate_del_column($tables['adrotate'], 'timeframelength');
+		adrotate_del_column($tables['adrotate'], 'timeframeclicks');
+		adrotate_del_column($tables['adrotate'], 'timeframeimpressions');
+	}
+
 	update_option("adrotate_db_version", array('current' => ADROTATE_DB_VERSION, 'previous' => $adrotate_db_version['current']));
 }
 
@@ -748,15 +753,21 @@ function adrotate_uninstall() {
 	$wpdb->query("DROP TABLE IF EXISTS `".$wpdb->prefix."adrotate_schedule`");
 
 	// Delete Options	
+	delete_option('adrotate_active');
+	delete_option('adrotate_advert_status');
 	delete_option('adrotate_config');
 	delete_option('adrotate_crawlers');
-	delete_option('adrotate_roles');
-	delete_option('adrotate_version');
+	delete_option('adrotate_db_timer');
 	delete_option('adrotate_db_version');
 	delete_option('adrotate_debug');
-	delete_option('adrotate_advert_status');
+	delete_option('adrotate_geo_required');
+	delete_option('adrotate_hide_license');
+	delete_option('adrotate_notifications');
+	delete_option('adrotate_responsive_required');
+	delete_option('adrotate_roles');
 	delete_option('adrotate_server');
 	delete_option('adrotate_server_hide');
+	delete_option('adrotate_version');
 	if(is_multisite()) delete_site_option('adrotate_multisite');
 
 	// Clear out userroles

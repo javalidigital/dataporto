@@ -121,10 +121,20 @@ function dataporto_theme_widgets_init() {
 	) );
 	
 	register_sidebar( array(
+		'name'          => __( 'Sidebar - Relatórios', 'dataporto-theme' ),
+		'id'            => 'sidebar-reports',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="title-sidebar"><h4 class="widget-title">',
+		'after_title'   => '</h4></div>',
+	) );
+	
+	register_sidebar( array(
 		'name'          => __( 'Home - Serviços', 'dataporto-theme' ),
 		'id'            => 'sidebar-services-home',
 		'description'   => '',
-		'before_widget' => '<div id="%1$s" class="services-home-box %2$s">',
+		'before_widget' => '<div id="%1$s" class="services-home-box-container %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
@@ -168,6 +178,8 @@ add_action( 'widgets_init', 'dataporto_theme_widgets_init' );
 function dataporto_theme_scripts() {
 	wp_enqueue_script("jquery");
 	
+	wp_enqueue_script("jquery-ui-autocomplete");
+	
 	wp_enqueue_style( 'dataporto-theme-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'dataporto-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -208,4 +220,48 @@ require get_template_directory() . '/inc/jetpack.php';
 add_filter( "the_excerpt", "add_class_to_excerpt" );
 function add_class_to_excerpt( $excerpt ) {
     return str_replace('<p', '<p class="excerpt"', $excerpt);
+	function fb_filter_query( $query, $error = true ) {
+		if ( is_search() ) {
+			$query->is_search = false;
+			$query->query_vars[s] = false;
+			$query->query[s] = false;
+			// to error
+			if ( $error == true )
+				$query->is_404 = true;
+		}
+	}
+	add_action( 'parse_query', 'fb_filter_query' );
+	add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+}
+
+/**
+ * WooCommerce
+ */
+ 
+add_theme_support( 'woocommerce' );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+
+add_filter( 'add_to_cart_text', 'woo_custom_cart_button_text' );                                // < 2.1
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+ 
+function woo_custom_cart_button_text() { 
+	return __( 'Acessar relat&oacute;rio', 'woocommerce' );
+}
+
+
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) { 
+	$tabs['description']['title'] = __( 'Tabela de Conte&uacute;dos' );		// Rename the description tab 
+	return $tabs; 
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_custom_description_tab', 98 );
+function woo_custom_description_tab( $tabs ) { 
+	$tabs['description']['callback'] = 'woo_custom_description_tab_content';	// Custom description callback 
+	return $tabs;
+}
+ 
+function woo_custom_description_tab_content() {	
+	echo the_content();
 }

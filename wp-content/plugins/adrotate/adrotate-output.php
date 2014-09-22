@@ -175,7 +175,7 @@ function adrotate_group($group_ids, $fallback = 0, $weight = 0, $site = 0) {
 				unset($ads);
 				
 				if($adrotate_debug['general'] == true) {
-					echo "<p><strong>[DEBUG][adrotate_group] Reduced array based on schedule and timeframe restrictions</strong><pre>"; 
+					echo "<p><strong>[DEBUG][adrotate_group] Reduced array based on schedule restrictions</strong><pre>"; 
 					print_r($selected); 
 					echo "</pre></p>"; 
 				}			
@@ -191,7 +191,6 @@ function adrotate_group($group_ids, $fallback = 0, $weight = 0, $site = 0) {
 					$output .= '<div class="g g-'.$group->id.'">';
 
 					if($group->modus == 1) { // Slider ads
-						$selected = adrotate_shuffle($selected);
 						$i = 1;
 						foreach($selected as $key => $value) {
 							$output .= '<div class="g-dyn a-'.$key.' c-'.$i.'">';
@@ -260,12 +259,15 @@ function adrotate_inject_pages($post_content) {
 		// Inject ads into page
 		$ids = $wpdb->get_results("SELECT `id`, `page`, `page_loc`, `page_par` FROM `".$wpdb->prefix."adrotate_groups` WHERE `page_loc` > 0;");
 		
-		$page_array = array();
+		$page_array = $group_array = array();
 		foreach($ids as $id) {
 			$pages = explode(",", $id->page);
 			// Build array of groups for pages
 			if(in_array($post->ID, $pages)) {
 				$page_array[] = array('group' => $id->id, 'location' => $id->page_loc, 'paragraph' => $id->page_par, 'pages' => $pages);
+				if($id->page_loc == 4) {
+					$group_array[] = $id->id;
+				}
 			}
 		}
 	
@@ -296,49 +298,58 @@ function adrotate_inject_pages($post_content) {
 				echo "Group choices<br />";
 				print_r($page_choice); 
 				echo "</pre></p>"; 
-			}			
-	
-			// Advert in front of content
-			if($page_array[$page_choice[0]]['location'] == 1 OR $page_array[$page_choice[0]]['location'] == 3) {
-				if(is_page($page_array[$page_choice[0]]['pages'])) {
-					$advert_before = adrotate_group($page_array[$page_choice[0]]['group']);
-			   		$post_content = $advert_before.$post_content;
-				}
 			}
-		
-			// Advert behind the content
-			if($page_array[$page_choice[1]]['location'] == 2 OR $page_array[$page_choice[1]]['location'] == 3) {
-				if(is_page($page_array[$page_choice[1]]['pages'])) {
-					$advert_after = adrotate_group($page_array[$page_choice[1]]['group']);
-			   		$post_content = $post_content.$advert_after;
+
+			foreach($page_array as $page_output) {
+				// Advert in front of content
+				if($page_output['location'] == 1 OR $page_output['location'] == 3) {
+					if(is_page($page_output['pages'])) {
+						$advert_before = adrotate_group($page_output['group']);
+				   		$post_content = $advert_before.$post_content;
+					}
 				}
-			}
 	
-			// Adverts inside the content
-			if($page_array[$page_choice[0]]['location'] == 4 AND is_page($page_array[$page_choice[0]]['pages'])) {
-				$paragraphs = explode("</p>", $post_content);
-				$par = $advert = 1;
-				$post_content = '';
-				foreach($paragraphs as $paragraph) {
-					if($par == $page_array[$page_choice[$advert]]['paragraph']
-					  OR ($par == 2 AND $page_array[$page_choice[$advert]]['paragraph'] == 20) 
-					  OR ($par == 3 AND $page_array[$page_choice[$advert]]['paragraph'] == 30) 
-					  OR ($par == 4 AND $page_array[$page_choice[$advert]]['paragraph'] == 40)) {
-						$paragraph = $paragraph.adrotate_group($page_array[$page_choice[$advert]]['group']);
-						if($page_array[$page_choice[$advert]]['paragraph'] > 1 AND $page_array[$page_choice[$advert]]['paragraph'] < 10) {
-							$par = 1;
+				// Advert behind the content
+				if($page_output['location'] == 2 OR $page_output['location'] == 3) {
+					if(is_page($page_output['pages'])) {
+						$advert_after = adrotate_group($page_output['group']);
+				   		$post_content = $post_content.$advert_after;
+					}
+				}
+
+				// Adverts inside the content
+				if($page_output['location'] == 4 AND is_page($page_output['pages'])) {
+					$paragraphs = explode("</p>", $post_content);
+					$par = 1;
+					$advert = 0;
+					$post_content = '';
+					foreach($paragraphs as $paragraph) {
+						if($par == $page_output['paragraph']
+						  OR ($par == 2 AND $page_output['paragraph'] == 20) 
+						  OR ($par == 3 AND $page_output['paragraph'] == 30) 
+						  OR ($par == 4 AND $page_output['paragraph'] == 40)) {
+							$paragraph = $paragraph.'</p>'.adrotate_group($page_output['group']);
+
+							if(count($paragraphs) > $advert) {
+								$advert++;
+							} else {
+								$advert = 0;
+							}
+
+							if($page_output['paragraph'] > 1 AND $page_output['paragraph'] < 10) {
+								$par = 1;
+							} else {
+								$par++;
+							}
 						} else {
 							$par++;
 						}
-					} else {
-						$par++;
+						$post_content .= $paragraph;
 					}
-					$post_content .= $paragraph.'</p>';
-					if(count($page_choice)-1 > $advert) $advert++;
 				}
 			}
 		}
-		unset($page_choice, $page_array, $paragraph, $advert);
+		unset($page_choice, $page_array, $group_array, $paragraph, $advert);
 	}
 	return $post_content;
 }
@@ -360,12 +371,15 @@ function adrotate_inject_posts($post_content) {
 		$ids = $wpdb->get_results("SELECT `id`, `cat`, `cat_loc`, `cat_par` FROM `".$wpdb->prefix."adrotate_groups` WHERE `cat_loc` > 0;");
 		$category = get_the_category();
 		
-		$cat_array = array();
+		$cat_array = $group_array = array();
 		foreach($ids as $id) {
 			$cats = explode(",", $id->cat);
 			// Build array of groups for categories
 			if(in_array($category[0]->cat_ID, $cats)) {
 				$cat_array[] = array('group' => $id->id, 'location' => $id->cat_loc, 'paragraph' => $id->cat_par, 'categories' => $cats);
+				if($id->cat_loc == 4) {
+					$group_array[] = $id->id;
+				}
 			}
 		}
 	
@@ -391,52 +405,94 @@ function adrotate_inject_posts($post_content) {
 				$cat_choice = array(0,0);
 			}
 	
+			if(count($group_array) > 0) {
+				$group_select = '';
+				foreach($group_array as $key => $value) {
+					$group_select .= ' `'.$wpdb->prefix.'adrotate_linkmeta`.`group` = '.$value.' OR';
+				}
+				$group_select = rtrim($group_select, " OR");
+		
+				// Get all ads in all selected groups
+				$ads = $wpdb->get_results(
+					"SELECT 
+						`".$wpdb->prefix."adrotate`.`id`, 
+						`".$wpdb->prefix."adrotate_linkmeta`.`group`
+					FROM
+						`".$wpdb->prefix."adrotate`, 
+						`".$wpdb->prefix."adrotate_linkmeta` 
+					WHERE 
+						(".$group_select.") 
+						AND `".$wpdb->prefix."adrotate_linkmeta`.`block` = 0 
+						AND `".$wpdb->prefix."adrotate_linkmeta`.`user` = 0 
+						AND `".$wpdb->prefix."adrotate`.`id` = `".$wpdb->prefix."adrotate_linkmeta`.`ad` 
+						AND (`".$wpdb->prefix."adrotate`.`type` = 'active' 
+							OR `".$wpdb->prefix."adrotate`.`type` = '2days'
+							OR `".$wpdb->prefix."adrotate`.`type` = '7days')
+					GROUP BY `".$wpdb->prefix."adrotate`.`id` 
+					ORDER BY `".$wpdb->prefix."adrotate`.`id`;", ARRAY_A);
+				shuffle($ads);
+			}
+
 			if($adrotate_debug['general'] == true) {
 				echo "<p><strong>[DEBUG][adrotate_inject_posts()] Arrays</strong><pre>"; 
 				echo "Group choices<br />";
 				print_r($cat_choice); 
+				echo "Ads in group<br />";
+				print_r($ads); 
 				echo "</pre></p>"; 
-			}			
-	
-			if($cat_array[$cat_choice[0]]['location'] == 1 OR $cat_array[$cat_choice[0]]['location'] == 3) {
-				if(in_category($cat_array[$cat_choice[0]]['categories'])) {
-					$advert_before = adrotate_group($cat_array[$cat_choice[0]]['group']);
-					$post_content = $advert_before.$post_content;
-				}
-			}
-			
-			if($cat_array[$cat_choice[1]]['location'] == 2 OR $cat_array[$cat_choice[1]]['location'] == 3) {
-				if(in_category($cat_array[$cat_choice[1]]['categories'])) {
-					$advert_after = adrotate_group($cat_array[$cat_choice[1]]['group']);
-			   		$post_content = $post_content.$advert_after;
-				}
 			}
 	
-			// Adverts inside the content
-			if($cat_array[$cat_choice[0]]['location'] == 4 AND in_category($cat_array[$cat_choice[0]]['pages'])) {
-				$paragraphs = explode("</p>", $post_content);
-				$par = $advert = 1;
-				$post_content = '';
-				foreach($paragraphs as $paragraph) {
-					if($par == $cat_array[$cat_choice[$par]]['paragraph']
-					  OR ($par == 2 AND $cat_array[$cat_choice[$par]]['paragraph'] == 20) 
-					  OR ($par == 3 AND $cat_array[$cat_choice[$par]]['paragraph'] == 30) 
-					  OR ($par == 4 AND $cat_array[$cat_choice[$par]]['paragraph'] == 40)) {
-						$paragraph = $paragraph.adrotate_group($cat_array[$cat_choice[$par]]['group']);
-						if($cat_array[$cat_choice[$par]]['paragraph'] > 1 AND $cat_array[$cat_choice[$par]]['paragraph'] < 10) {
-							$par = 1;
+			foreach($cat_array as $cat_output) {
+				// Advert in front of content
+				if($cat_output['location'] == 1 OR $cat_output['location'] == 3) {
+					if(in_category($cat_output['categories'])) {
+						$advert_before = adrotate_group($cat_output['group']);
+						$post_content = $advert_before.$post_content;
+					}
+				}
+				
+				// Advert behind content
+				if($cat_output['location'] == 2 OR $cat_output['location'] == 3) {
+					if(in_category($cat_output['categories'])) {
+						$advert_after = adrotate_group($cat_output['group']);
+				   		$post_content = $post_content.$advert_after;
+					}
+				}
+
+				// Adverts inside the content
+				if($cat_output['location'] == 4 AND in_category($cat_output['categories'])) {
+					$paragraphs = explode("</p>", $post_content);
+					$adcount = count($ads);
+					$par = 1;
+					$advert = 0;
+					$post_content = '';
+					foreach($paragraphs as $paragraph) {
+						if(($par == $cat_output['paragraph']
+						  OR ($par == 2 AND $cat_output['paragraph'] == 20) 
+						  OR ($par == 3 AND $cat_output['paragraph'] == 30) 
+						  OR ($par == 4 AND $cat_output['paragraph'] == 40)) AND $adcount > 0) {
+							$paragraph = $paragraph.'</p>'.adrotate_ad($ads[$advert]['id'], 0, $ads[$advert]['group']);
+
+							if(count($paragraphs) > $advert AND $advert < $adcount-1) {
+								$advert++;
+							} else {
+								$advert = 0;
+							}
+
+							if($cat_output['paragraph'] > 1 AND $cat_output['paragraph'] < 10) {
+								$par = 1;
+							} else {
+								$par++;
+							}
 						} else {
 							$par++;
 						}
-					} else {
-						$par++;
+						$post_content .= $paragraph;
 					}
-					$post_content .= $paragraph.'</p>';
-					if(count($cat_choice)-1 > $advert) $advert++;
 				}
 			}
 		}
-		unset($cat_choice, $cat_array, $paragraph, $advert);
+		unset($cat_choice, $cat_array, $group_array, $paragraph, $advert);
 	}
 
 	return $post_content;
@@ -601,7 +657,7 @@ function adrotate_custom_scripts() {
 	}
 	
 	if($adrotate_config['jquery'] == 'Y') wp_enqueue_script('jquery', false, false, false, $in_footer);
-	if($adrotate_config['jshowoff'] == 'Y') wp_enqueue_script('jshowoff-adrotate', plugins_url('/library/jquery.adrotate.dyngroup.js', __FILE__), false, '0.5.1', $in_footer);
+	if($adrotate_config['jshowoff'] == 'Y') wp_enqueue_script('jshowoff-adrotate', plugins_url('/library/jquery.adrotate.dyngroup.js', __FILE__), false, '0.5.3', $in_footer);
 	if($adrotate_config['clicktracking'] == 'Y') wp_enqueue_script('clicktrack-adrotate', plugins_url('/library/jquery.adrotate.clicktracker.js', __FILE__), false, '0.6', $in_footer);
 	if(get_option('adrotate_responsive_required') > 0) wp_enqueue_script('responsive-adrotate', plugins_url('/library/jquery.adrotate.responsive.js', __FILE__), false, '0.4', $in_footer);
 
@@ -675,7 +731,6 @@ function adrotate_custom_css() {
 	$groups = $wpdb->get_results("SELECT `id`, `modus`, `gridrows`, `gridcolumns`, `adwidth`, `adheight`, `admargin` FROM `".$wpdb->prefix."adrotate_groups` WHERE `name` != '' ORDER BY `id` ASC;");
 	if($groups) {
 		$output_css = "\t.g { margin:0px; padding:0px; overflow:hidden; line-height:1; zoom:1; }\n";
-		$output_css .= "\t.g-dyn { display:none; }\n";
 		$output_css .= "\t.g-col { position:relative; float:left; }\n";
 		$output_css .= "\t.g-col:first-child { margin-left: 0; }\n";
 		$output_css .= "\t.g-col:last-child { margin-right: 0; }\n";
@@ -686,19 +741,18 @@ function adrotate_custom_css() {
 	
 			if($group->modus == 1) { // Dynamic group
 				if($group->adwidth != 'auto') {
-					$width_sum = $group->admargin + $group->adwidth + $group->admargin;
-					$width = "min-width:".$group->admargin."px; max-width:".$width_sum."px;";
+					$width = "min-width:".$group->admargin."px; max-width:".$group->adwidth."px;";
 				} else {
 					$width = "width:auto;";
 				}
 				
 				if($group->adheight != 'auto') {
-					$height_sum = $group->admargin + $group->adheight + $group->admargin; 
-					$height = "min-height:".$group->admargin."px; max-height:".$height_sum."px;";
+					$height = "min-height:".$group->admargin."px; max-height:".$group->adheight."px;";
 				} else {
 					$height = "height:auto;";
 				}
 				$output_css .= "\t.g-".$group->id." { margin:".$group->admargin."px; ".$width." ".$height." }\n";
+
 				unset($width_sum, $width, $height_sum, $height);
 			}
 	
@@ -899,14 +953,13 @@ function adrotate_credits() {
 
 	echo '<tbody>';
 	echo '<tr>';
-	echo '<td><center><a href="https://www.adrotateplugin.com" title="AdRotate plugin for WordPress"><img src="'.plugins_url('/images/adrotate-logo-60x60.png', __FILE__).'" alt="adrotate-logo-60x60" width="60" height="60" /></a></center></td>';
-	echo '<td>'.__('Check out the', 'adrotate').' <a href="https://www.adrotateplugin.com/support/knowledgebase/" target="_blank">'.__('manuals', 'adrotate').'</a> '.__('and have the most popular features explained.', 'adrotate').'<br />';
-	echo __('Grab the latest news and updates on the', 'adrotate').' <a href="https://www.adrotateplugin.com/news/" target="_blank">'.__('AdRotate Blog','adrotate').'</a>.<br />';
+	echo '<td><center><a href="https://www.adrotateplugin.com/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" title="AdRotate plugin for WordPress"><img src="'.plugins_url('/images/adrotate-logo-60x60.png', __FILE__).'" alt="adrotate-logo-60x60" width="60" height="60" /></a></center></td>';
+	echo '<td>'.__('Check out the', 'adrotate').' <a href="https://www.adrotateplugin.com/support/knowledgebase/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" target="_blank">'.__('manuals', 'adrotate').'</a> '.__('and have the most popular features explained.', 'adrotate').'<br />';
+	echo __('Grab the latest news and updates on the', 'adrotate').' <a href="https://www.adrotateplugin.com/news/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" target="_blank">'.__('AdRotate Blog','adrotate').'</a>.<br />';
 	echo __('Find my website at', 'adrotate').' <a href="http://meandmymac.net" target="_blank">meandmymac.net</a></td>';
 
 	echo '<td><center><a href="https://ajdg.solutions/" title="AJdG Solutions"><img src="'.plugins_url('/images/ajdg-logo-100x60.png', __FILE__).'" alt="ajdg-logo-100x60" width="100" height="60" /></a></center></td>';
-	echo '<td><a href="https://ajdg.solutions/" title="AJdG Solutions">AJdG Solutions</a> - '.__('Your one stop for Webdevelopment, consultancy and anything WordPress! Find out more about what I can do for you!', 'adrotate').' '.__('Visit the', 'adrotate').' <a href="https://ajdg.solutions/" target="_blank">AJdG Solutions</a> '.__('website', 'adrotate').'.</li>';
-	echo '</ul></td>';
+	echo '<td><a href="https://ajdg.solutions/" title="AJdG Solutions">AJdG Solutions</a> - '.__('Your one stop for Webdevelopment, consultancy and anything WordPress! Find out more about what I can do for you!', 'adrotate').' '.__('Visit the', 'adrotate').' <a href="https://ajdg.solutions/" target="_blank">AJdG Solutions</a> '.__('website', 'adrotate').'</td>';
 	echo '</tr>';
 	echo '</tbody>';
 

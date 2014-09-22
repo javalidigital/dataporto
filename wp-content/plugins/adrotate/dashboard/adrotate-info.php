@@ -139,7 +139,7 @@ $data = get_option("adrotate_advert_status");
 				<div class="postbox-adrotate">
 					<div class="inside">
 						<?php wp_widget_rss_output(array(
-							'url' => array('http://feeds.feedburner.com/AdrotatePluginForWordPress', 'http://meandmymac.net/feed/', 'http://www.ajdg.net/news/rss/'), 
+							'url' => array('http://feeds.feedburner.com/AdrotatePluginForWordPress', 'http://feeds.feedburner.com/meandmymacnet'), 
 							'title' => 'AdRotate Development News', 
 							'items' => 4, 
 							'show_summary' => 1, 
@@ -158,18 +158,18 @@ $data = get_option("adrotate_advert_status");
 				<h3><?php _e('AdRotate Store', 'adrotate'); ?></h3>
 				<div class="postbox-adrotate">
 					<div class="inside">
-						<p><h4><?php _e('AdRotate Pro', 'adrotate'); ?></h4> <?php _e('Get more features! Get AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><h4><?php _e('Get help with installations', 'adrotate'); ?></h4> <?php _e('Not sure how to set up AdRotate? Get me to do it!', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/installations/"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><h4><?php _e('Premium Support', 'adrotate'); ?></h4> <?php _e("Stuck with AdRotate? I'll help!", 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/category/premium-support/"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><a href="https://www.adrotateplugin.com/shop/"><?php _e('Visit store to see all services and products', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('AdRotate Pro', 'adrotate'); ?></h4> <?php _e('Get more features! Get AdRotate Pro.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=upgrade_adrotatefree"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Get help with installations', 'adrotate'); ?></h4> <?php _e('Not sure how to set up AdRotate? Get me to do it!', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/installations/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=installations"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Premium Support', 'adrotate'); ?></h4> <?php _e("Stuck with AdRotate? I'll help!", 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/category/premium-support/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=premium_support"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
+						<p><a href="https://www.adrotateplugin.com/shop/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=shop"><?php _e('Visit store to see all services and products', 'adrotate'); ?> &raquo;</a></p>
 					</div>
 				</div>
 
 				<h3><?php _e('Get more features with AdRotate Pro', 'adrotate'); ?></h3>
 				<div class="postbox-adrotate">
 					<div class="inside">
-						<p><a href="https://www.adrotateplugin.com" title="AdRotate plugin for WordPress"><img src="<?php echo WP_CONTENT_URL; ?>/plugins/adrotate/images/adrotate-logo-60x60.png" alt="adrotate-logo-60x60" width="60" height="60" align="left" style="padding: 0 10px 10px 0;" /></a><?php _e('Benefit from extra features to reinforce your income with advertising campaigns. Make the most of your website with the powerful tools AdRotate Pro offers on top of the trusted features included in the free version.', 'adrotate'); ?></p>
-						<p><?php _e('Learn more about', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro">AdRotate Pro</a> <?php _e('or go to the', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/" target="_blank">AdRotate <?php _e('website', 'adrotate'); ?> &raquo;</a></p>
+						<p><a href="https://www.adrotateplugin.com/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=upgrade_adrotatefree" title="AdRotate plugin for WordPress"><img src="<?php echo WP_CONTENT_URL; ?>/plugins/adrotate/images/adrotate-logo-60x60.png" alt="adrotate-logo-60x60" width="60" height="60" align="left" style="padding: 0 10px 10px 0;" /></a><?php _e('Benefit from extra features to reinforce your income with advertising campaigns. Make the most of your website with the powerful tools AdRotate Pro offers on top of the trusted features included in the free version.', 'adrotate'); ?></p>
+						<p><?php _e('Learn more about', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro">AdRotate Pro</a> <?php _e('or go to the', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=upgrade_adrotatefree" target="_blank">AdRotate <?php _e('website', 'adrotate'); ?> &raquo;</a></p>
 					</div>
 				</div>
 
@@ -177,15 +177,15 @@ $data = get_option("adrotate_advert_status");
 				<div class="postbox-adrotate">
 					<div class="inside">
 						<p><center><?php _e('Your gift will ensure the continued development of AdRotate!', 'adrotate'); ?></center></p>
-						<p><center><a href="https://www.adrotateplugin.com/donate/" target="_blank"><img src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a></center></p>
+						<p><center><a href="https://www.adrotateplugin.com/donate/?utm_source=adrotate_info&utm_medium=adrotate_free&utm_campaign=donate" target="_blank"><img src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a></center></p>
 					</div>
 				</div>
 
 				<h3><?php _e('AdRotate is brought to you by', 'adrotate'); ?></h3>
 				<div class="postbox-adrotate">
 					<div class="inside">
-						<p><a href="http://www.ajdg.net" title="AJdG Solutions"><img src="<?php echo WP_CONTENT_URL; ?>/plugins/adrotate/images/ajdg-logo-100x60.png" alt="ajdg-logo-100x60" width="100" height="60" align="left" style="padding: 0 10px 10px 0;" /></a>
-						<a href="http://www.ajdg.net" title="AJdG Solutions">AJdG Solutions</a> - <?php _e('Your one stop for Webdevelopment, consultancy and anything WordPress! If you need a custom plugin. Theme customizations or have your site moved/migrated entirely. Visit my website for details!', 'adrotate'); ?> <a href="http://www.ajdg.net" title="AJdG Solutions"><?php _e('Find out more', 'adrotate'); ?></a>!</p>
+						<p><a href="https://ajdg.solutions/" title="AJdG Solutions"><img src="<?php echo WP_CONTENT_URL; ?>/plugins/adrotate/images/ajdg-logo-100x60.png" alt="ajdg-logo-100x60" width="100" height="60" align="left" style="padding: 0 10px 10px 0;" /></a>
+						<a href="https://ajdg.solutions/" title="AJdG Solutions">AJdG Solutions</a> - <?php _e('Your one stop for Webdevelopment, consultancy and anything WordPress! If you need a custom plugin. Theme customizations or have your site moved/migrated entirely. Visit my website for details!', 'adrotate'); ?> <a href="https://ajdg.solutions/" title="AJdG Solutions"><?php _e('Find out more', 'adrotate'); ?></a>!</p>
 
 						<p><center><a href="https://twitter.com/AJdGSolutions" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true"><?php _e('Follow', 'adrotate'); ?> @AJdGSolutions</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></center></p>

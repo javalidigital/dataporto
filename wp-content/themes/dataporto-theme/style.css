@@ -332,8 +332,12 @@ button,
 input,
 select,
 textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size:1em;
+	padding:5px;
 	font-family:"Exo";
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 }
@@ -419,7 +423,7 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"] {
-	padding: 2%;
+	padding: 10px;
 }
 
 textarea {
@@ -436,17 +440,18 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #33549e;
+	text-decoration:none;
 }
 
 a:visited {
-	color: purple;
+	color: #33549e;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #121b56;
 }
 
 /*--------------------------------------------------------------
@@ -873,6 +878,11 @@ object {
 				margin-right:10px;
 				float:left;
 			}
+			
+			.login form input[type=text],
+			.login form input[type=password] {
+				padding:4px 8px;
+			}
 		
 		.language {
 			position:absolute;
@@ -964,6 +974,7 @@ object {
 			}
 
 .content-area {
+	display:block;
 	clear:both;
 	width:980px;
 	margin:0 auto;
@@ -1057,6 +1068,61 @@ object {
 	z-index:2;
 }
 
+	.slider-home_box {
+		width:300px;
+		white-space: normal !important;
+	}
+	
+		.slider-home_pattern {
+			background:url(images/pattern-slider-home.png) repeat;
+		    width:100%;
+		    height:100%;
+		    z-index:0;
+		}
+		
+		.tp-caption .slider-home_category {
+			font-family:"Exo";
+			font-weight:700;
+			font-size: 1.3em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);      
+			text-transform:uppercase;
+		}
+		
+		.tp-caption a.slider-home_title {
+			display:block;
+			margin-top:5px;			
+			font-family:"Exo";
+			font-weight:700;
+			font-size: 2em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);
+		}
+		
+			.tp-caption a.slider-home_title:hover {
+				color:#DDD;
+			}
+		
+		.tp-caption a.slider-home_button {
+			margin-top:10px;
+			display:block;
+			width:90px;
+			background:#33549e url(images/arrow_button.png) no-repeat 90% center;
+			border: none;
+			border-radius:3px;
+			color: rgba(255, 255, 255, 1);
+			cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */			
+			font-size: 1em;	
+			padding: 6px 20px 6px 8px;	
+		}
+
+			a.slider-home_button:hover {
+				background-color:#121b56;
+			}
+
+
 .services-home {
 	display:block;
 	width:980px;
@@ -1082,7 +1148,8 @@ object {
 			text-shadow:2px 2px 2px rgba(0,0,0,.8);
 		}
 	
-	.services-home-box {		
+	a.services-home-box {
+		display:block;
 		-webkit-box-shadow: 5px 5px 0 0 #9c9c9c;
 		box-shadow: 5px 5px 0 0 #9c9c9c;
 		-webkit-border-radius: 3px 3px 3px 3px;
@@ -1092,25 +1159,30 @@ object {
 		float:left;
 		margin-right:20px;
 		padding-top:110px;
+		text-decoration:none;
 	}
 	
-		.services-home-box#text-2 {			
+		a.services-home-box:hover {
+			background-color:#DDD !important;
+		}
+	
+		.services-home-box-container#text-2 .services-home-box {			
 			background:#eeeeee url(images/icon_reports_home-box.png) no-repeat center 15px;
 		}
 		
-		.services-home-box#text-3 {			
+		.services-home-box-container#text-3 .services-home-box {			
 			background:#eeeeee url(images/icon_database_home-box.png) no-repeat center 25px;
 		}
 		
-		.services-home-box#text-4 {			
+		.services-home-box-container#text-4 .services-home-box {			
 			background:#eeeeee url(images/icon_law_home-box.png) no-repeat center 25px;
 		}
 		
-		.services-home-box#text-5 {			
+		.services-home-box-container#text-5 .services-home-box {			
 			background:#eeeeee url(images/icon_news_home-box.png) no-repeat center 25px;
 		}
 		
-		.services-home-box#text-5 {
+		.services-home-box-container#text-5 .services-home-box {
 			margin-right:0;
 		}
 		
@@ -1121,7 +1193,8 @@ object {
 			text-transform:uppercase;			
 		}
 		
-		.services-home-box .textwidget {
+		.services-home-box p {
+			margin-bottom:0;
 			margin-top:15px;
 			font-family:"Exo";
 			font-size:1.2em;
@@ -1129,20 +1202,6 @@ object {
 			font-style:italic;
 			color:#444444;
 		}
-		
-			.services-home-box .textwidget a {
-				color:#444444;
-				text-decoration:none;
-			}
-			
-				.services-home-box .textwidget a:visited,
-				.services-home-box .textwidget a:active {
-					color:#444444;
-				}
-				
-				.services-home-box .textwidget a:hover {
-					color:#171717;
-				}
 
 .home .database {
 	clear:both;
@@ -1170,6 +1229,74 @@ object {
 		color:#9c9c9c;
 		text-transform:uppercase;
 	}
+
+/* SEARCH PAGE */
+.search {
+	display:block;
+}
+
+/* REPORTS */
+.woocommerce .site-main .product .images {
+	float:right !important;
+	width:25% !important;
+}
+
+.woocommerce .site-main .product .summary {
+	float:left !important;
+	width:73% !important;
+	margin-right:2% !important;
+}
+
+	.woocommerce .site-main .product .summary div[itemprop="description"] {
+		margin-top:15px;
+		font-family: "Exo";
+		font-size:1.1em;
+		line-height:1em;
+		font-weight:400;
+		font-style:italic;
+	}
+
+	.woocommerce .site-main .product .woocommerce-tabs {
+		background:#f5f5f5;
+		border-radius: 0 0 8px 8px;
+	}
+	
+	.woocommerce .site-main .product .woocommerce-tabs ul.tabs {
+		background:#FFF;
+	}
+	
+		.woocommerce .site-main .product .woocommerce-tabs ul.tabs li.description_tab.active,
+		.woocommerce .site-main .product .woocommerce-tabs ul.tabs li.description_tab {
+			background: #f5f5f5 !important;
+			border-bottom: none !important;
+			padding: 5px 10px !important;
+			text-transform:uppercase;
+		}
+	
+	.woocommerce .site-main .product .woocommerce-tabs .panel.entry-content {
+		padding: 25px !important;
+		
+	}
+
+.woocommerce .site-main .related.products {
+	margin-top:50px;
+}
+
+	.woocommerce .site-main .related.products h2 {
+		font-size: 1.4em;
+		color: #9c9c9c;
+		text-transform: uppercase;
+		margin-bottom:25px;
+	}
+	
+		.woocommerce .site-main .related.products .archive-item h2.archive-item-title {
+			font-size: 1.3em;
+			line-height: 1.2em;
+			text-transform:none;
+			margin-bottom:0;
+		}	
+	
+
 
 /* FEATURED ITEM */
 .featured-item {
@@ -1453,12 +1580,64 @@ object {
 				color:#808385;
 			}	
 
+/* DATABASE */
+.page-id-27 .wpcf7 {
+	clear:both;
+	background: #f5f5f5;
+	border-radius:8px;
+	padding:25px;
+}
+
+	.page-id-27 .wpcf7 em {
+		color:#F04040;
+		display:block;
+		text-align:center;
+		font-size:0.9em;
+	}
+	
+	.page-id-27 .wpcf7 p {
+		margin-bottom:25px;
+	}
+	
+	.page-id-27 .wpcf7 label {
+		font-family: "Exo";
+		font-size: 1.1em;
+		font-weight: 700;
+		color: #2c3e50;
+		padding-bottom: 5px;
+		display: inline-block;
+	}
+	
+	.page-id-27 .wpcf7 span.wpcf7-list-item {
+		margin: 0 20px 0 0;	
+	}
+	
+	.page-id-27 .wpcf7 .wpcf7-checkbox span.wpcf7-list-item {
+		display:block;
+		margin: 0 0 10px 0;
+	}
+	
+	.ui-helper-hidden-accessible {
+		display:none;
+	}
+	
+	.ui-autocomplete {
+		margin: 0;
+		list-style-type: none;
+		padding: 5px 0 0 10px;
+		font-size: 1.1em;
+	}
+	
+		.ui-autocomplete li {
+			margin-bottom:3px;
+		}
+
 /* BLOG */
 .featured {
 	display: block;;
 }
 
-.archive {
+.archive-container {
 	display:block;
 	margin-top:50px;
 }
@@ -1514,7 +1693,8 @@ object {
 	text-transform:uppercase;
 }
 
-.post-title {
+.post-title,
+.product_title {
 	margin-top:15px;
 	font-size:2em;
 	line-height:1.2em;
@@ -1562,8 +1742,26 @@ object {
 		padding-top:10px;
 	}
 
+/* Pagination */
+.site-navigation {
+	margin-top:35px;
+}
+
+.wp-pagenavi a:hover,
+.wp-pagenavi span.current {
+	border-color:#828282;
+}
+
 /* SECTION CUSTOMIZATION */
 /* REPORTS */
+.reports .title-category {
+	background:url(images/bkg_sub-title_reports.png) repeat-x;
+}
+	
+	.reports .title-category h4 {
+		color:#5f7dc0;	
+	}
+
 .reports .featured-item-title a {
 	color:#5f7dc0;	
 }
@@ -1579,6 +1777,18 @@ object {
 	.reports a.featured-item-link:hover {
 		background-color:#2f519f;
 	}
+
+.reports .archive-item-title a {
+	color:#5f7dc0;
+}
+
+	.reports .archive-item-title a:hover {
+		color:#2f519f;
+	}
+
+.reports .product_title {
+	color:#2980b9;
+}
 	
 /* NEWS */
 .news .title-category {
@@ -1663,6 +1873,11 @@ object {
 }
 
 /* DATABASE */
+
+.page-id-27 .featured-item-title {
+	color:#2c3e50;
+}
+
 .database .featured-item-title a {
 	color:#2c3e50;	
 }

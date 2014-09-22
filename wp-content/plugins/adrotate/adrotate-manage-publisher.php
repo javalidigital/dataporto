@@ -32,7 +32,7 @@ function adrotate_insert_input() {
 		if(isset($_POST['adrotate_active'])) $active = strip_tags(htmlspecialchars(trim($_POST['adrotate_active'], "\t\n "), ENT_QUOTES));
 		if(isset($_POST['adrotate_sortorder'])) $sortorder = strip_tags(htmlspecialchars(trim($_POST['adrotate_sortorder'], "\t\n "), ENT_QUOTES));
 
-		// Schedule and timeframe variables
+		// Schedules
 		$sday = $smonth = $syear = $shour = $sminute = '';
 		if(isset($_POST['adrotate_sday'])) $sday = strip_tags(trim($_POST['adrotate_sday'], "\t\n "));
 		if(isset($_POST['adrotate_smonth'])) $smonth = strip_tags(trim($_POST['adrotate_smonth'], "\t\n "));
@@ -353,6 +353,14 @@ function adrotate_request_action() {
 		list($action, $specific) = explode("-", $actions);	
 	
 		if($banner_ids != '') {
+			if($action == 'export') {
+				if(current_user_can('adrotate_moderate')) {
+					adrotate_export($banner_ids);
+					$result_id = 215;
+				} else {
+					adrotate_return($return, 500);
+				}
+			}
 			foreach($banner_ids as $banner_id) {
 				if($action == 'deactivate') {
 					if(current_user_can('adrotate_ad_manage')) {
@@ -536,6 +544,20 @@ function adrotate_renew($id, $howlong = 2592000) {
 			$wpdb->insert($wpdb->prefix.'adrotate_schedule', array('name' => 'Schedule for ad '.$id, 'starttime' => $now, 'stoptime' => $stoptime, 'maxclicks' => 0, 'maximpressions' => 0));
 			$wpdb->insert($wpdb->prefix.'adrotate_linkmeta', array('ad' => $id, 'group' => 0, 'block' => 0, 'user' => 0, 'schedule' => $wpdb->insert_id));
 		}
+	}
+}
+
+/*-------------------------------------------------------------
+ Name:      adrotate_export
+
+ Purpose:   Export selected banners
+ Receive:   $id
+ Return:    -none-
+ Since:		3.8.5
+-------------------------------------------------------------*/
+function adrotate_export($ids) {
+	if(is_array($ids)) {
+		adrotate_export_ads($ids);
 	}
 }
 

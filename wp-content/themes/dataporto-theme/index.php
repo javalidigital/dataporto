@@ -30,39 +30,41 @@ get_header(); ?>
 				<div class="title-category">
 					<h4>Relat&oacute;rios</h4>
 				</div>
-				<div class="featured-item featured-item-first">
+				<?php
+					$args = array(
+						'post_type' => 'product',
+						'meta_query' => array(
+							array(
+								'key' 	=> '_featured',
+								'value' => 'yes'
+							)
+						),
+						'posts_per_page' => 4
+					);
+					$posts_array = get_posts( $args );
+				?>							
+				<?php
+					$i = 1; 
+					foreach ( $posts_array as $post ) : setup_postdata( $post );
+					$classes = ' ';
+					 if ( $i == 1) {
+				        $classes .= 'featured-item-first';
+				    }
+					$i++;
+				?>
+				<div class="featured-item clearfix <?php echo $classes;?>">
 					<div class="featured-item-image">
-						<a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/images/icon_section_reports.png" /></a>
+						<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('thumb'); ?></a>
 					</div>
 					<div class="featured-item-contents">
-						<h1 class="featured-item-title"><a href="#">Balan&ccedil;o completo do mercado 2013</a></h1>
-						<div class="featured-item-content">
-							Lorem ipsum dolor amet lorem ipsum dolor amet lorem ipsum dolor amet lorem
-						</div>
-						<a class="featured-item-link" href="#">Acessar</a>
+						<h1 class="featured-item-title">
+							<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+						</h1>						
+						<a class="featured-item-link" href="<?php the_permalink() ?>">Acessar</a>
 					</div>
 				</div>
-				<div class="featured-item">
-					<h1 class="featured-item-title"><a href="#">An&aacute;lise dos TUPs 2013</a></h1>
-					<div class="featured-item-content">
-						Lorem ipsum dolor amet lorem ipsum dolor amet lorem ipsum dolor amet lorem
-					</div>
-					<a class="featured-item-link" href="#">Acessar</a>
-				</div>
-				<div class="featured-item">
-					<h1 class="featured-item-title"><a href="#">An&aacute;lise dos TUPs 2013</a></h1>
-					<div class="featured-item-content">
-						Lorem ipsum dolor amet lorem ipsum dolor amet lorem ipsum dolor amet lorem
-					</div>
-					<a class="featured-item-link" href="#">Acessar</a>
-				</div>
-				<div class="featured-item">
-					<h1 class="featured-item-title"><a href="#">An&aacute;lise dos TUPs 2013</a></h1>
-					<div class="featured-item-content">
-						Lorem ipsum dolor amet lorem ipsum dolor amet lorem ipsum dolor amet lorem
-					</div>
-					<a class="featured-item-link" href="#">Acessar</a>
-				</div>
+				<?php endforeach; ?>
+				<?php wp_reset_postdata(); ?>			
 			</div>
 			<div class="database">
 				<div class="title-category">
@@ -70,37 +72,34 @@ get_header(); ?>
 				</div>
 				<div class="featured-item featured-item-first">
 					<div class="featured-item-image">
-						<a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/images/icon_section_database.png" /></a>
+						<a href="banco-de-dados"><img src="<?php echo get_bloginfo('template_url') ?>/images/icon_section_database.png" /></a>
 					</div>
 					<div class="featured-item-contents">
-						<h1 class="featured-item-title"><a href="#">Acesso o maior banco de dados do setor</a></h1>
+						<h1 class="featured-item-title"><a href="banco-de-dados">Consulte o maior banco de dados do setor portu&aacute;rio brasileiro</a></h1>
 						<div class="featured-item-content">
-							Lorem ipsum dolor amet lorem ipsum dolor amet lorem ipsum dolor amet lorem
+							Cadastre-se e preencha o formul&aacute;rio a seguir referente &agrave; pesquisa de seu interesse. Em seguida, entraremos em contato para mais detalhes.
 						</div>
-						<a class="featured-item-link" href="#">Consultar</a>
+						<a class="featured-item-link" href="banco-de-dados">Consultar</a>
 					</div>
 				</div>
 				<div class="database-parameters">
 					<h2>Lista completa dos par&acirc;metros de busca</h2>
 					<ul>
-						<li>Empresas do setor</li>
-						<li>Localiza&ccedil;&atilde;o</li>
-						<li>Especialidades</li>
-						<li>Especialidades</li>
+						<li>Categoria</li>
+						<li>Nome</li>
+						<li>Localiza&ccedil;&atilde;o</li>						
 					</ul>
 					
 					<ul>
-						<li>Empresas do setor</li>
-						<li>Localiza&ccedil;&atilde;o</li>
-						<li>Especialidades</li>
-						<li>Especialidades</li>
+						<li>Segmento</li>
+						<li>Contatos</li>
+						<li>Capacidade est&acute;tica</li>
 					</ul>
 					
 					<ul>
-						<li>Empresas do setor</li>
-						<li>Localiza&ccedil;&atilde;o</li>
-						<li>Especialidades</li>
-						<li>Especialidades</li>
+						<li>Principais cargas operadas</li>
+						<li>Hist&oacute;rico de Movimenta&ccedil;&atilde;o</li>
+						<li>Terminais no entorno</li>
 					</ul>
 				</div>
 			</div>

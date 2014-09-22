@@ -216,15 +216,14 @@ function adrotate_stats_nav($type, $id, $month, $year) {
 	}
 	$months = array(__('January', 'adrotate'), __('February', 'adrotate'), __('March', 'adrotate'), __('April', 'adrotate'), __('May', 'adrotate'), __('June', 'adrotate'), __('July', 'adrotate'), __('August', 'adrotate'), __('September', 'adrotate'), __('October', 'adrotate'), __('November', 'adrotate'), __('December', 'adrotate'));
 	
-	if($type == 'ads') $page = '&view=report&ad='.$id;
-	if($type == 'groups') $page = '&view=report&group='.$id;
-	if($type == 'global-report' OR $type == 'advertiser-report') $page = '';
+	if($type == 'ads') $page = 'adrotate-ads&view=report&ad='.$id;
+	if($type == 'groups') $page = 'adrotate-groups&view=report&group='.$id;
 	
-	$nav = '<a href="admin.php?page=adrotate-'.$type.$page.'&month='.$lastmonth.'&year='.$lastyear.'">&lt;&lt; '.__('Previous', 'adrotate').'</a> - ';
+	$nav = '<a href="admin.php?page='.$page.'&month='.$lastmonth.'&year='.$lastyear.'">&lt;&lt; '.__('Previous', 'adrotate').'</a> - ';
 	$nav .= '<strong>'.$months[$month-1].' '.$year.'</strong> - ';
-	$nav .= '(<a href="admin.php?page=adrotate-'.$type.$page.'">'.__('This month', 'adrotate').'</a>) - ';
-	$nav .= '<a href="admin.php?page=adrotate-'.$type.$page.'&month='.$nextmonth.'&year='.$nextyear.'">'. __('Next', 'adrotate').' &gt;&gt;</a>';
-	
+	$nav .= '(<a href="admin.php?page='.$page.'">'.__('This month', 'adrotate').'</a>) - ';
+	$nav .= '<a href="admin.php?page='.$page.'&month='.$nextmonth.'&year='.$nextyear.'">'. __('Next', 'adrotate').' &gt;&gt;</a>';
+
 	return $nav;
 }
 

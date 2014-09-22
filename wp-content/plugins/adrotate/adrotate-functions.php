@@ -194,11 +194,20 @@ function adrotate_shuffle($array) {
 	return $shuffle; 
 }
 
+/*-------------------------------------------------------------
+ Name:      adrotate_select_categories
+
+ Purpose:   Create scrolling menu of all categories.
+ Receive:   $savedcats, $count, $child_of, $parent
+ Return:    $output
+ Since:		3.8.4
+-------------------------------------------------------------*/
 function adrotate_select_categories($savedcats, $count = 2, $child_of = 0, $parent = 0) {
 	if(!is_array($savedcats)) $savedcats = explode(',', $savedcats);
 	$categories = get_categories(array('child_of' => $parent, 'parent' => $parent,  'orderby' => 'id', 'order' => 'asc', 'hide_empty' => 0));
 
 	if(!empty($categories)) {
+		$output = '';
 		if($parent == 0) {
 			$output = '<table width="100%">';
 			if(count($categories) > 5) {
@@ -222,9 +231,7 @@ function adrotate_select_categories($savedcats, $count = 2, $child_of = 0, $pare
 			}
 			$output .= '></td><td style="padding: 0px;">'.$indent.$category->name.' ('.$category->category_count.')</td>';
 			$output .= '</tr>';
-			if($parent == 0) {
-				$output .= adrotate_select_categories($savedcats, $count, $category->parent, $category->cat_ID);
-			}
+			$output .= adrotate_select_categories($savedcats, $count, $category->parent, $category->cat_ID);
 			$child_of = $parent;
 		}
 		if($parent == 0) {
@@ -247,6 +254,7 @@ function adrotate_select_pages($savedpages, $count = 2, $child_of = 0, $parent =
 	$pages = get_pages(array('child_of' => $parent, 'parent' => $parent, 'sort_column' => 'ID', 'sort_order' => 'asc'));
 
 	if(!empty($pages)) {
+		$output = '';
 		if($parent == 0) {
 			$output = '<table width="100%">';
 			if(count($pages) > 5) {
@@ -270,9 +278,7 @@ function adrotate_select_pages($savedpages, $count = 2, $child_of = 0, $parent =
 			}
 			$output .= '></td><td style="padding: 0px;">'.$indent.$page->post_title.'</td>';
 			$output .= '</tr>';
-			if($parent == 0) {
-				$output .= adrotate_select_pages($savedpages, $count, $page->post_parent, $page->ID);
-			}
+			$output .= adrotate_select_pages($savedpages, $count, $page->post_parent, $page->ID);
 			$child_of = $parent;
 		}
 		if($parent == 0) {
@@ -622,7 +628,7 @@ function adrotate_dashboard_styles() {
 	.number_large {	margin: 20px; font-size: 28px; }
 	
 	/* Fancy select box for group and page injection*/
-	.adrotate-select { padding:3px; border:1px solid #ccc; max-width:500px; max-height:100px; overflow-y:scroll; background-color:#fff; }
+	.adrotate-select { padding:3px; border:1px solid #ccc; max-width:500px; max-height:200px; overflow-y:scroll; background-color:#fff; }
 </style>
 <?php
 }
@@ -718,6 +724,10 @@ function adrotate_return($action, $arg = null) {
 
 		case "activate" :
 			wp_redirect('admin.php?page=adrotate-ads&message=activate');
+		break;
+
+		case "exported" :
+			wp_redirect('admin.php?page=adrotate-ads&message=exported&file='.$arg[0]);
 		break;
 
 		case "field_error" :

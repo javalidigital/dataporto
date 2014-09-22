@@ -26,7 +26,7 @@
 		        <option value="renew-2592000"><?php _e('For 30 days', 'adrotate'); ?></option>
 		        <option value="renew-604800"><?php _e('For 7 days', 'adrotate'); ?></option>
 			</select>
-			<input type="submit" id="post-action-submit" name="adrotate_error_action_submit" value="Go" class="button-secondary" />
+			<input type="submit" id="post-action-submit" name="adrotate_error_action_submit" value="<?php _e('Go', 'adrotate'); ?>" class="button-secondary" />
 		</div>
 	
 		<br class="clear" />
@@ -61,7 +61,7 @@
 				<th class="check-column"><input type="checkbox" name="errorbannercheck[]" value="<?php echo $errbanner['id']; ?>" /></th>
 				<td><center><?php echo $errbanner['id'];?></center></td>
 				<td><?php echo date_i18n("F d, Y", $errbanner['firstactive']);?><br /><span style="color: <?php echo adrotate_prepare_color($errbanner['lastactive']);?>;"><?php echo date_i18n("F d, Y", $errbanner['lastactive']);?></span></td>
-				<td><strong><a class="row-title" href="<?php echo admin_url("/admin.php?page=adrotate-ads&view=edit&ad=".$errbanner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo stripslashes(html_entity_decode($errbanner['title']));?></a></strong> - <a href="<?php echo admin_url("/admin.php?page=adrotate-ads&view=report&ad=".$errbanner['id']);?>" title="<?php _e('Stats', 'adrotate'); ?>"><?php _e('Stats', 'adrotate'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">Groups:</span> '.$grouplist; ?></span></td>
+				<td><strong><a class="row-title" href="<?php echo admin_url("/admin.php?page=adrotate-ads&view=edit&ad=".$errbanner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo stripslashes(html_entity_decode($errbanner['title']));?></a></strong> - <a href="<?php echo admin_url("/admin.php?page=adrotate-ads&view=report&ad=".$errbanner['id']);?>" title="<?php _e('Stats', 'adrotate'); ?>"><?php _e('Stats', 'adrotate'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">'.__('Groups:', 'adrotate').'</span> '.$grouplist; ?></span></td>
 			</tr>
 			<?php } ?>
 		</tbody>
