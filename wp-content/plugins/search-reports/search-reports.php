@@ -10,9 +10,7 @@ License: MIT
 */
 ?>
 
-<?php 
-
-class search_dataporto_reports extends WP_Widget {
+<?php class search_dataporto_reports extends WP_Widget {
 
 	// constructor
 	function search_dataporto_reports() {
