@@ -92,6 +92,14 @@ get_header(); ?>
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					$args = array(
 						'post_type' => 'product',
+						'tax_query' => array(
+							array(								 
+					            'taxonomy' => 'product_cat',
+					            'field' => 'slug',
+					            'terms' => 'planos-de-assinatura',
+					            'operator' => 'NOT IN'
+							)
+						),
 						'meta_query' => array(
 							array(
 								'key' 	=> '_featured',

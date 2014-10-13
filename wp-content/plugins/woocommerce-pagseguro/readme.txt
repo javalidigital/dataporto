@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 2.7.0
+Stable tag: 2.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,7 @@ Além que é possível utilizar o novo [sandbox do PagSeguro](https://sandbox.pa
 
 = Compatibilidade =
 
-Compatível com as versões 2.0.x e 2.1.x do WooCommerce.
+Compatível com as versões 2.0.x, 2.1.x, 2.2.x do WooCommerce.
 
 Este plugin também é compatível com o [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/), desta forma é possível enviar os campos de "CPF", "número do endereço" e "bairro" (para o Checkout Transparente é obrigatório o uso deste plugin).
 
@@ -55,8 +55,8 @@ Confira o nosso guia de instalação e configuração do PagSeguro na aba [Insta
 Você pode esclarecer suas dúvidas usando:
 
 * A nossa sessão de [FAQ](http://wordpress.org/extend/plugins/woocommerce-pagseguro/faq/).
-* Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-pagseguro) (apenas em inglês).
-* Ou entre em contato com os desenvolvedores do plugin em nossa [página](http://claudiosmweb.com/plugins/pagseguro-para-woocommerce/).
+* Utilizando o nosso [fórum no Github](https://github.com/claudiosmweb/woocommerce-pagseguro).
+* Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-pagseguro).
 
 = Coloborar =
 
@@ -276,6 +276,15 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, envie 
 
 == Changelog ==
 
+= 2.7.2 - 11/10/2014 =
+
+* Melhorado o salvamento dos detalhes do pedido que o PagSeguro retorna para a loja, como link de boleto, método de pagamento utilizando e outros.
+
+= 2.7.1 - 29/09/2014 =
+
+* Corrigido link dos dados de sandbox
+* Adicionado suporte para _transaction_id do WooCommerce 2.2
+
 = 2.7.0 - 16/08/2014 =
 
 * Adicionado sistema de templates para personalizar os templates de checkout e outros. Para fazer isso basta copiar a pasta `templates/` deste plugin para dentro do seu tema, devendo ficar como `woocommerce/pagseguro/`.
@@ -445,10 +454,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, envie 
 
 == Upgrade Notice ==
 
-= 2.7.0 =
+= 2.7.2 =
 
-* Adicionado sistema de templates para personalizar os templates de checkout e outros. Para fazer isso basta copiar a pasta `templates/` deste plugin para dentro do seu tema, devendo ficar como `woocommerce/pagseguro/`.
-* Corrigido o nome do arquivo principal do plugin.
+* Melhorado o salvamento dos detalhes do pedido que o PagSeguro retorna para a loja, como link de boleto, método de pagamento utilizando e outros.
 
 == License ==
 

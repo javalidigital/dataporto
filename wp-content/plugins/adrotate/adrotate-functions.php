@@ -113,8 +113,13 @@ function adrotate_filter_schedule($selected, $banner) {
 				echo "</pre></p>";
 			}
 
-			if($stat['clicks'] >= $schedule->maxclicks AND $schedule->maxclicks > 0 AND $banner->tracker == "Y") $selected = array_diff_key($selected, array($banner->id => 0));
-			if($stat['impressions'] >= $schedule->maximpressions AND $schedule->maximpressions > 0) $selected = array_diff_key($selected, array($banner->id => 0));
+			if($stat['clicks'] >= $schedule->maxclicks AND $schedule->maxclicks > 0 AND $banner->tracker == "Y") {
+				$selected = array_diff_key($selected, array($banner->id => 0));
+			}
+
+			if($stat['impressions'] >= $schedule->maximpressions AND $schedule->maximpressions > 0) {
+				$selected = array_diff_key($selected, array($banner->id => 0));
+			}
 		}
 	}
 	

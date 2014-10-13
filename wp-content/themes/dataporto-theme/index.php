@@ -25,6 +25,13 @@ get_header(); ?>
 	<?php ?>
 
 	<div id="primary" class="content-area">
+		<div class="newsletter-home">
+			<?php
+				if( function_exists( 'mc4wp_form' ) ) {
+					mc4wp_form();
+				};
+			?>
+		</div>
 		<main id="main" class="site-main" role="main">
 			<div class="reports clearfix">
 				<div class="title-category">

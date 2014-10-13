@@ -1,6 +1,33 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,700);
 
+.tp-caption.slider-home_category {
+			font-family:"Exo";
+			font-weight:700;
+			font-size: 1.5em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);      
+			text-transform:uppercase;
+		}
+    
+.tp-caption.slider-home_title {
+			display:block;
+			margin-top:5px;			
+			font-family:"Exo";
+			font-weight:700;
+			font-size: 2.8em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);
+		}
 
+.tp-caption.slider-home-desc {
+  display:block;
+			font-size: 1.4em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);
+    }
 
 .tp-caption.big_yellow{
             position: absolute; 

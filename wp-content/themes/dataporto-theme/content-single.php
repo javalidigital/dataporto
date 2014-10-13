@@ -25,8 +25,12 @@
 		<div class="post-tags">
 			 <?php the_tags('Tags: ', ', ', ''); ?> 
 		</div>
-		<div class="post-social">
+		<div class="post-social clearfix">
 			<?php if(function_exists('kc_add_social_share')) kc_add_social_share(); ?>
+		</div>
+		<div class="post-disclaimer clearfix">
+			<p class="post-disclaimer-text">Este &eacute; um conte&uacute;do exclusivo e &eacute; vedada a sua altera&ccedil;&atilde;o, adapta&ccedil;&atilde;o e compartilhamento parcial ou na &iacute;ntegra.</p>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>reportar-erro"  class="post-disclaimer-link">Reportar Erro</a>
 		</div>
 		<?php edit_post_link( __( 'Edit', 'dataporto-theme' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->

@@ -18,6 +18,33 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic|Open+Sans' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		// Create the dropdown base
+		jQuery("<select />").appendTo("nav.main-navigation");
+		
+		// Create default option "Go to..."
+		jQuery("<option />", {
+		   "selected": "selected",
+		   "value"   : "",
+		   "text"    : "Ir para..."
+		}).appendTo("nav.main-navigation select");
+		
+		// Populate dropdown with menu items
+		jQuery("nav.main-navigation a").each(function() {
+		 var el = jQuery(this);
+		 jQuery("<option />", {
+		     "value"   : el.attr("href"),
+		     "text"    : el.text()
+		 }).appendTo("nav.main-navigation select");
+		});
+		
+		jQuery("nav.main-navigation select").change(function() {
+		  window.location = jQuery(this).find("option:selected").val();
+		});
+	});
+</script>
+
 <?php
    $placeholder_user = __( 'Username' );
    $placeholder_pass = __( 'Password' );
@@ -33,26 +60,8 @@ jQuery(document).ready(function(){
 	}).remove();
 	jQuery('#loginform label[for="user_pass"]').contents().filter(function() {
 		return this.nodeType === 3;
-}).remove();
+	}).remove();
 });
-
-jQuery(function() {
-    var availableTags = [
-      "Porto de Santos",
-      "Porto XYZ",
-      "Porto QWE",
-      "Porto ASD",
-      "Porto zxc",
-      "Porto poi",
-      "Porto LKJ",
-      "Porto MNB"
-    ];
-    jQuery( "#nome-porto" ).autocomplete({
-      source: availableTags,
-      autoFocus: true,
-      appendTo: "#nome-porto-options"
-    });
-  });
 </script>
 </head>
 
@@ -61,7 +70,7 @@ jQuery(function() {
 <header id="masthead">
 	<div class="top-bar">
 		<div class="top-bar-container">
-			<div class="login">
+			<div class="login-header">
 				 <?php $args = array(
 			        'echo'           => true,
 			        'redirect'       => site_url( $_SERVER['REQUEST_URI'] ), 
@@ -77,7 +86,11 @@ jQuery(function() {
 			        'remember'       => false,
 			        'value_remember' => false
 				); ?>
-				<?php wp_login_form( $args ); ?> 
+				<?php wp_login_form( $args ); ?>
+				<a class="button-link" href="<?php echo esc_url( home_url( '/' ) ); ?>minha-conta" title="Cadastre-se">Cadastre-se</a> 
+			</div>
+			<div class="support-header">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>contato" title="Contato">D&uacute;vidas? Entre em contato</a>
 			</div>
 			<div class="language">
 				<?php do_action('icl_language_selector'); ?>
@@ -92,8 +105,7 @@ jQuery(function() {
 			</div>
 		</div>		
 	</div>
-	<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'dataporto-theme' ); ?></button>
+	<nav id="site-navigation" class="main-navigation" role="navigation">			
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 	</nav><!-- #site-navigation -->
 </header><!-- #masthead -->

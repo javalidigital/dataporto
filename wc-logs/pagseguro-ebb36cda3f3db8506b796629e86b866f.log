@@ -1,0 +1,200 @@
+10-06-2014 @ 14:37:59 - Requesting token for order #299 with the following data: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<checkout>
+  <currency>BRL</currency>
+  <reference><![CDATA[DATAPORTO-299]]></reference>
+  <sender>
+    <name><![CDATA[Raphael Tavares]]></name>
+    <email><![CDATA[raphael.tavares@javalidigital.com.br]]></email>
+    <phone>
+      <areaCode>55</areaCode>
+      <number>1135081930</number>
+    </phone>
+  </sender>
+  <shipping>
+    <type>3</type>
+    <address>
+      <street><![CDATA[Rua Antônio Carlos 196]]></street>
+      <complement><![CDATA[Apto 67A]]></complement>
+      <postalCode>01309010</postalCode>
+      <city><![CDATA[SBC]]></city>
+      <state>SP</state>
+      <country>BRA</country>
+    </address>
+    <cost>0</cost>
+  </shipping>
+  <items>
+    <item>
+      <id>1</id>
+      <description><![CDATA[O mercado de conteinerização e os portos brasileiros]]></description>
+      <amount>350.00</amount>
+      <quantity>1</quantity>
+    </item>
+  </items>
+  <maxUses>1</maxUses>
+  <maxAge>120</maxAge>
+</checkout>
+
+10-06-2014 @ 14:38:00 - Failed to generate the PagSeguro Payment Token: Array
+(
+    [headers] => Array
+        (
+            [date] => Mon, 06 Oct 2014 17:38:05 GMT
+            [server] => Apache-Coyote/1.1
+            [content-type] => application/xml;charset=ISO-8859-1
+            [cache-control] => max-age=180
+            [expires] => Mon, 06 Oct 2014 17:41:05 GMT
+            [vary] => User-Agent
+            [connection] => close
+        )
+
+    [body] => <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>11014</code><message>senderPhone invalid value: 1135081930</message></error></errors>
+    [response] => Array
+        (
+            [code] => 400
+            [message] => Bad Request
+        )
+
+    [cookies] => Array
+        (
+        )
+
+    [filename] => 
+)
+
+10-06-2014 @ 14:38:31 - Requesting token for order #299 with the following data: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<checkout>
+  <currency>BRL</currency>
+  <reference><![CDATA[DATAPORTO-299]]></reference>
+  <sender>
+    <name><![CDATA[Raphael Tavares]]></name>
+    <email><![CDATA[raphael.tavares@javalidigital.com.br]]></email>
+    <phone>
+      <areaCode>11</areaCode>
+      <number>951458453</number>
+    </phone>
+  </sender>
+  <shipping>
+    <type>3</type>
+    <address>
+      <street><![CDATA[Rua Antônio Carlos 196]]></street>
+      <complement><![CDATA[Apto 67A]]></complement>
+      <postalCode>01309010</postalCode>
+      <city><![CDATA[SBC]]></city>
+      <state>SP</state>
+      <country>BRA</country>
+    </address>
+    <cost>0</cost>
+  </shipping>
+  <items>
+    <item>
+      <id>1</id>
+      <description><![CDATA[O mercado de conteinerização e os portos brasileiros]]></description>
+      <amount>350.00</amount>
+      <quantity>1</quantity>
+    </item>
+  </items>
+  <maxUses>1</maxUses>
+  <maxAge>120</maxAge>
+</checkout>
+
+10-06-2014 @ 14:38:31 - PagSeguro Payment Token created with success! The Token is: 9E396E45F8F8830334296F80E326931F
+10-06-2014 @ 14:46:52 - Requesting token for order #300 with the following data: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<checkout>
+  <currency>BRL</currency>
+  <reference><![CDATA[DATAPORTO-300]]></reference>
+  <sender>
+    <name><![CDATA[Raphael Tavares da Silva]]></name>
+    <email><![CDATA[atendimento+123456@javalidigital.com.br]]></email>
+    <phone>
+      <areaCode>11</areaCode>
+      <number>951458453</number>
+    </phone>
+  </sender>
+  <shipping>
+    <type>3</type>
+    <address>
+      <street><![CDATA[Av. Paulista, 2202]]></street>
+      <complement><![CDATA[Brasil]]></complement>
+      <postalCode>01309010</postalCode>
+      <city><![CDATA[São Paulo]]></city>
+      <state>SP</state>
+      <country>BRA</country>
+    </address>
+    <cost>0</cost>
+  </shipping>
+  <items>
+    <item>
+      <id>1</id>
+      <description><![CDATA[O mercado de conteinerização e os portos brasileiros]]></description>
+      <amount>350.00</amount>
+      <quantity>1</quantity>
+    </item>
+  </items>
+  <maxUses>1</maxUses>
+  <maxAge>120</maxAge>
+</checkout>
+
+10-06-2014 @ 14:46:52 - Failed to generate the PagSeguro Payment Token: Array
+(
+    [headers] => Array
+        (
+            [date] => Mon, 06 Oct 2014 17:46:58 GMT
+            [server] => Apache-Coyote/1.1
+            [content-type] => application/xml;charset=ISO-8859-1
+            [cache-control] => max-age=180
+            [expires] => Mon, 06 Oct 2014 17:49:58 GMT
+            [vary] => User-Agent
+            [connection] => close
+        )
+
+    [body] => <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><errors><error><code>11010</code><message>senderEmail invalid value: atendimento+123456@javalidigital.com.br</message></error></errors>
+    [response] => Array
+        (
+            [code] => 400
+            [message] => Bad Request
+        )
+
+    [cookies] => Array
+        (
+        )
+
+    [filename] => 
+)
+
+10-06-2014 @ 14:47:32 - Requesting token for order #300 with the following data: <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<checkout>
+  <currency>BRL</currency>
+  <reference><![CDATA[DATAPORTO-300]]></reference>
+  <sender>
+    <name><![CDATA[Raphael Tavares da Silva]]></name>
+    <email><![CDATA[criacao@javalidigital.com.br]]></email>
+    <phone>
+      <areaCode>11</areaCode>
+      <number>951458453</number>
+    </phone>
+  </sender>
+  <shipping>
+    <type>3</type>
+    <address>
+      <street><![CDATA[Av. Paulista, 2202]]></street>
+      <complement><![CDATA[Brasil]]></complement>
+      <postalCode>01309010</postalCode>
+      <city><![CDATA[São Paulo]]></city>
+      <state>SP</state>
+      <country>BRA</country>
+    </address>
+    <cost>0</cost>
+  </shipping>
+  <items>
+    <item>
+      <id>1</id>
+      <description><![CDATA[O mercado de conteinerização e os portos brasileiros]]></description>
+      <amount>350.00</amount>
+      <quantity>1</quantity>
+    </item>
+  </items>
+  <maxUses>1</maxUses>
+  <maxAge>120</maxAge>
+</checkout>
+
+10-06-2014 @ 14:47:32 - PagSeguro Payment Token created with success! The Token is: E126EF855B5B0D0114CCCFAF0EFDDA91

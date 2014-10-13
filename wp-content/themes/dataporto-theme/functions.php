@@ -164,7 +164,7 @@ function dataporto_theme_widgets_init() {
 		'name'          => __( 'Footer - Vasconsult', 'dataporto-theme' ),
 		'id'            => 'sidebar-footer-vasconsult',
 		'description'   => '',
-		'before_widget' => '<a href="http://vasconsult.eng.br" target="_blank" title="Conhe&ccedil; a Vasconsult">',
+		'before_widget' => '<a href="http://vasconsult.eng.br" target="_blank" title="Conhe&ccedil;a a Vasconsult">',
 		'after_widget'  => '</a>',
 		'before_title'  => '',
 		'after_title'   => '',
@@ -181,8 +181,8 @@ function dataporto_theme_scripts() {
 	wp_enqueue_script("jquery-ui-autocomplete");
 	
 	wp_enqueue_style( 'dataporto-theme-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'dataporto-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	
+	wp_enqueue_script( 'dataporto-form-database', get_template_directory_uri() . '/js/form-database.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'dataporto-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -234,6 +234,7 @@ function add_class_to_excerpt( $excerpt ) {
 	add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
 }
 
+
 /**
  * WooCommerce
  */
@@ -242,12 +243,20 @@ add_theme_support( 'woocommerce' );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 
-add_filter( 'add_to_cart_text', 'woo_custom_cart_button_text' );                                // < 2.1
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
- 
-function woo_custom_cart_button_text() { 
-	return __( 'Acessar relat&oacute;rio', 'woocommerce' );
+
+function woocommerce_custom_subscription_product_single_add_to_cart_text( $text = '' , $post = '' ) {
+	global $product;
+	if ( $product->is_type( 'subscription' ) ) {
+		return __( 'Assinar Agora', 'woocommerce' );
+	} else {
+		return __( 'Acessar relat&oacute;rio', 'woocommerce' );
+	}	
+	return $text; 
 }
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_subscription_product_single_add_to_cart_text', 2, 10);
+ 
+
 
 
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
@@ -265,3 +274,46 @@ function woo_custom_description_tab( $tabs ) {
 function woo_custom_description_tab_content() {	
 	echo the_content();
 }
+
+/**
+ * Redirect subscription add to cart to checkout page
+ *
+ * @param string $url
+ */
+function custom_add_to_cart_redirect( $url ) {
+	global $woocommerce;
+	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_REQUEST['add-to-cart'] ) );
+	$product_id_new = (int) apply_filters('woocommerce_add_to_cart_product_id', $_POST['product_id']);	
+	if ( class_exists( 'WC_Subscriptions_Product' ) ) {
+		
+		if ( WC_Subscriptions_Product::is_subscription( $product_id ) ) {
+						
+			return get_permalink(get_option( 'woocommerce_checkout_page_id' ) );
+			
+		} else return $url;
+		
+	} elseif ( $_POST['_regular_price'] == 0 ) {
+		
+		return get_permalink(get_option( 'woocommerce_checkout_page_id' ) );
+				
+	} else return $url;
+}
+add_filter('add_to_cart_redirect', 'custom_add_to_cart_redirect');
+
+
+/**
+ * Empty the cart if a subscription is added to the cart
+ *
+ * @param string $cart_item_data
+ */
+function woo_custom_add_to_cart( $cart_item_data ) {
+	global $woocommerce;
+	$product_id	= (int) $_REQUEST['add-to-cart'];
+	if ( class_exists( 'WC_Subscriptions_Product' ) ) {
+		if ( WC_Subscriptions_Product::is_subscription( $product_id ) ) {
+			$woocommerce->cart->empty_cart();
+			return $cart_item_data;
+		}
+	}
+}
+add_filter( 'woocommerce_add_cart_item_data', 'woo_custom_add_to_cart' );

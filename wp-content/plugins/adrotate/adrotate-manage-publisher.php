@@ -305,6 +305,11 @@ function adrotate_insert_group() {
 	
 			// Update the group itself
 			$wpdb->update($wpdb->prefix.'adrotate_groups', array('name' => $name, 'modus' => $modus, 'fallback' => $fallback, 'sortorder' => $sortorder, 'cat' => $category, 'cat_loc' => $category_loc, 'cat_par' => $category_par, 'page' => $page, 'page_loc' => $page_loc, 'page_par' => $page_par, 'wrapper_before' => $wrapper_before, 'wrapper_after' => $wrapper_after, 'gridrows' => $rows, 'gridcolumns' => $columns, 'admargin' => $admargin, 'adwidth' => $adwidth, 'adheight' => $adheight, 'adspeed' => $adspeed), array('id' => $id));
+
+			// Determine Dynamic Library requirement
+			$dynamic_count = $wpdb->get_var("SELECT COUNT(*) as `total` FROM `".$wpdb->prefix."adrotate_groups` WHERE `name` != '' AND `modus` = 1;");
+			update_option('adrotate_dynamic_required', $dynamic_count);
+
 			adrotate_return($action, array($id));
 			exit;
 		} else {
@@ -625,8 +630,6 @@ function adrotate_options_submit() {
 			else 											$config['supercache'] 		= 'N';
 		if(isset($_POST['adrotate_jquery'])) 				$config['jquery'] 			= 'Y';
 			else 											$config['jquery'] 			= 'N';
-		if(isset($_POST['adrotate_jshowoff'])) 				$config['jshowoff'] 		= 'Y';
-			else 											$config['jshowoff'] 		= 'N';
 		if(isset($_POST['adrotate_clicktracking']))			$config['clicktracking'] 	= 'Y';
 			else											$config['clicktracking'] 	= 'N';
 		if(isset($_POST['adrotate_jsfooter'])) 				$config['jsfooter'] 		= 'Y';

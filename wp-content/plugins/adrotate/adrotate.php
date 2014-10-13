@@ -4,7 +4,7 @@ Plugin Name: AdRotate
 Plugin URI: https://www.adrotateplugin.com
 Description: The very best and most convenient way to publish your ads.
 Author: Arnan de Gans of AJdG Solutions
-Version: 3.10.9
+Version: 3.10.10
 Author URI: http://ajdg.solutions/
 License: GPLv3
 */
@@ -20,8 +20,8 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '3.10.9');
-define("ADROTATE_VERSION", 373);
+define("ADROTATE_DISPLAY", '3.10.10');
+define("ADROTATE_VERSION", 374);
 define("ADROTATE_DB_VERSION", 44);
 define("ADROTATE_FOLDER", 'adrotate');
 /*-----------------------------------------------------------*/
@@ -74,21 +74,19 @@ if(is_admin()) {
 	add_action("admin_enqueue_scripts", 'adrotate_dashboard_scripts');
 	add_action("admin_print_styles", 'adrotate_dashboard_styles');
 	add_action('admin_notices','adrotate_notifications_dashboard');
+	/*--- Internal redirects ------------------------------------*/
+	if(isset($_POST['adrotate_ad_submit'])) add_action('init', 'adrotate_insert_input');
+	if(isset($_POST['adrotate_group_submit'])) add_action('init', 'adrotate_insert_group');
+	if(isset($_POST['adrotate_action_submit'])) add_action('init', 'adrotate_request_action');
+	if(isset($_POST['adrotate_disabled_action_submit'])) add_action('init', 'adrotate_request_action');
+	if(isset($_POST['adrotate_error_action_submit'])) add_action('init', 'adrotate_request_action');
+	if(isset($_POST['adrotate_options_submit'])) add_action('init', 'adrotate_options_submit');
+	if(isset($_POST['adrotate_request_submit'])) add_action('init', 'adrotate_mail_message');
+	if(isset($_POST['adrotate_db_optimize_submit'])) add_action('init', 'adrotate_optimize_database');
+	if(isset($_POST['adrotate_db_cleanup_submit'])) add_action('init', 'adrotate_cleanup_database');
+	if(isset($_POST['adrotate_evaluate_submit'])) add_action('init', 'adrotate_prepare_evaluate_ads');
 }
-/*-----------------------------------------------------------*/
 
-/*--- Internal redirects ------------------------------------*/
-if(isset($_POST['adrotate_ad_submit'])) add_action('init', 'adrotate_insert_input');
-if(isset($_POST['adrotate_group_submit'])) add_action('init', 'adrotate_insert_group');
-if(isset($_POST['adrotate_action_submit'])) add_action('init', 'adrotate_request_action');
-if(isset($_POST['adrotate_disabled_action_submit'])) add_action('init', 'adrotate_request_action');
-if(isset($_POST['adrotate_error_action_submit'])) add_action('init', 'adrotate_request_action');
-if(isset($_POST['adrotate_options_submit'])) add_action('init', 'adrotate_options_submit');
-if(isset($_POST['adrotate_request_submit'])) add_action('init', 'adrotate_mail_message');
-if(isset($_POST['adrotate_db_optimize_submit'])) add_action('init', 'adrotate_optimize_database');
-if(isset($_POST['adrotate_db_cleanup_submit'])) add_action('init', 'adrotate_cleanup_database');
-if(isset($_POST['adrotate_evaluate_submit'])) add_action('init', 'adrotate_prepare_evaluate_ads');
-/*-----------------------------------------------------------*/
 
 /*-------------------------------------------------------------
  Name:      adrotate_dashboard
@@ -787,7 +785,7 @@ function adrotate_options() {
 				<tr>
 					<th valign="top"><?php _e('Enable stats', 'adrotate'); ?></th>
 					<td>
-						<input type="checkbox" name="adrotate_enable_stats" <?php if($adrotate_config['enable_stats'] == 'Y') { ?>checked="checked" <?php } ?> /> <?php _e('Track clicks and impressions.', 'adrotate'); ?><br /><span class="description"><?php _e('Disabling this also disables click and impression limits on schedules and disables timeframes.', 'adrotate'); ?></span><br />
+						<input type="checkbox" name="adrotate_enable_stats" <?php if($adrotate_config['enable_stats'] == 'Y') { ?>checked="checked" <?php } ?> /> <?php _e('Track clicks and impressions.', 'adrotate'); ?><br /><span class="description"><?php _e('Disabling this also disables click and impression limits on schedules.', 'adrotate'); ?></span><br />
 					</td>
 				</tr>
 				<tr>
@@ -870,10 +868,6 @@ function adrotate_options() {
 					<td><label for="adrotate_jquery"><input type="checkbox" name="adrotate_jquery" <?php if($adrotate_config['jquery'] == 'Y') { ?>checked="checked" <?php } ?> /> <?php _e('jQuery is required for all Javascript features below. Enable this if your theme does not load jQuery already.', 'adrotate'); ?></label></td>
 				</tr>
 				<tr>
-					<th valign="top"><?php _e('Load Dynamic Groups', 'adrotate'); ?></th>
-					<td><label for="adrotate_jshowoff"><input type="checkbox" name="adrotate_jshowoff" <?php if($adrotate_config['jshowoff'] == 'Y') { ?>checked="checked" <?php } ?> /><?php _e('Required for Dynamic Groups to rotate ads.', 'adrotate'); ?></label></td>
-				</tr>
-				<tr>
 					<th valign="top"><?php _e('Load jQuery Clicktracking', 'adrotate'); ?></th>
 					<td><label for="adrotate_clicktracking"><input type="checkbox" name="adrotate_clicktracking" <?php if($adrotate_config['clicktracking'] == 'Y') { ?>checked="checked" <?php } ?> /><?php _e('Required for jQuery Clicktracking. When disabled AdRotate falls back on Redirect Tracking.', 'adrotate'); ?></label></td>
 				</tr>
@@ -914,7 +908,7 @@ function adrotate_options() {
 					<th valign="top"><?php _e('Clean-up Database', 'adrotate'); ?></th>
 					<td>
 						<input type="submit" id="post-role-submit" name="adrotate_db_cleanup_submit" value="<?php _e('Clean-up Database', 'adrotate'); ?>" class="button-secondary" onclick="return confirm('<?php _e('You are about to clean up your database. This may delete expired schedules and older statistics.', 'adrotate'); ?>\n\n<?php _e('Are you sure you want to continue?', 'adrotate'); ?>\n\n<?php _e('This might take a while and may slow down your site during this action!', 'adrotate'); ?>\n\n<?php _e('OK to continue, CANCEL to stop.', 'adrotate'); ?>')" /><br />
-						<label for="adrotate_db_cleanup_statistics"><input type="checkbox" name="adrotate_db_cleanup_statistics" /> <?php _e('Delete stats older than 356 days (Optional).', 'adrotate'); ?></label><br />
+						<label for="adrotate_db_cleanup_statistics"><input type="checkbox" name="adrotate_db_cleanup_statistics" value="1" /> <?php _e('Delete stats older than 356 days (Optional).', 'adrotate'); ?></label><br />
 						<span class="description"><?php _e('AdRotate creates empty records when you start making ads or groups. In rare occasions these records are faulty.', 'adrotate'); ?><br /><?php _e('If you made an ad or group that does not save when you make it use this button to delete those empty records.', 'adrotate'); ?><br /><?php _e('Additionally you can clean up old statistics. This will improve the speed of your site.', 'adrotate'); ?></span>
 					</td>
 				</tr>

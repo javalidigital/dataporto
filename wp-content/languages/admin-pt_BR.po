@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2014-09-05 13:46:41+0000\n"
+"PO-Revision-Date: 2014-09-25 19:24:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -145,8 +145,8 @@ msgstr[1] "Desanexados (%s)"
 msgctxt "uploaded files"
 msgid "Trash (%s)"
 msgid_plural "Trash (%s)"
-msgstr[0] "Lixo (%s)"
-msgstr[1] "Lixos (%s)"
+msgstr[0] "Lixeira (%s)"
+msgstr[1] "Lixeiras (%s)"
 
 #: wp-admin/install.php:216
 msgid "Welcome to the famous five-minute WordPress installation process! Just fill in the information below and you&#8217;ll be on your way to using the most extendable and powerful personal publishing platform in the world."
@@ -196,7 +196,7 @@ msgstr "Minuto"
 
 #: wp-admin/setup-config.php:137
 msgid "We&#8217;re going to use this information to create a <code>wp-config.php</code> file."
-msgstr "Nós vamos usar essas informações para criar um arquivo <code>wp-config.php</code>."
+msgstr "Nós vamos usar essas informações para criar um arquivo <code>wp-config.php</code> no seu servidor."
 
 #: wp-admin/theme-install.php:82
 msgid "You can Search for themes by keyword, author, or tag, or can get more specific and search by criteria listed in the feature filter. Alternately, you can browse the themes that are Featured, Popular, or Latest. When you find a theme you like, you can preview it or install it."
@@ -2529,7 +2529,7 @@ msgstr "Editar comentário"
 
 #: wp-admin/edit-form-advanced.php:461
 msgid "Enter title here"
-msgstr "Entre o título aqui"
+msgstr "Digite o título aqui"
 
 #: wp-admin/edit-link-form.php:29 wp-admin/includes/meta-boxes.php:883
 msgid "Target"
@@ -9800,7 +9800,7 @@ msgstr "Compatível até:"
 
 #: wp-admin/includes/plugin-install.php:436
 msgid "Downloaded:"
-msgstr "Recebidos:"
+msgstr "Baixado:"
 
 #: wp-admin/includes/plugin-install.php:436
 msgid "%s time"

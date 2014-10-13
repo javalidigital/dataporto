@@ -1,0 +1,3538 @@
+# Copyright (C) 2014 WooCommerce Subscriptions
+# This file is distributed under the same license as the WooCommerce Subscriptions package.
+# Translators:
+# Krysamon, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Subscriptions\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-subscriptions\n"
+"POT-Creation-Date: 2014-08-01 22:11:59+00:00\n"
+"PO-Revision-Date: 2014-10-13 18:47-0300\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
+"woocommerce-subscriptions/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.6.5\n"
+
+#: classes/class-wc-product-subscription-variation.php:94
+#: classes/class-wc-product-subscription.php:88
+#: classes/class-wc-product-variable-subscription.php:90
+#: classes/class-wc-subscriptions-admin.php:1076
+#: classes/class-wc-subscriptions-admin.php:1087
+#: classes/class-wc-subscriptions-product.php:70
+#: woocommerce-subscriptions.php:358 woocommerce-subscriptions.php:1420
+msgid "Sign Up Now"
+msgstr "Assine agora"
+
+#: classes/class-wc-subscription.php:50
+#: classes/class-wc-subscriptions-admin.php:871
+#: classes/class-wc-subscriptions-admin.php:919
+#: classes/class-wc-subscriptions-admin.php:1010
+msgid "Subscriptions"
+msgstr "Assinaturas"
+
+#: classes/class-wc-subscription.php:51
+#: classes/class-wc-subscriptions-list-table.php:248
+#: templates/emails/cancelled-subscription.php:19
+#: templates/emails/plain/subscription-info.php:14
+#: templates/emails/subscription-info.php:15
+#: templates/myaccount/my-subscriptions.php:15
+#: templates/myaccount/my-subscriptions.php:34
+msgid "Subscription"
+msgstr "Assinatura"
+
+#: classes/class-wc-subscription.php:52
+msgid "Add Subscription"
+msgstr "Adicionar Assinatura"
+
+#: classes/class-wc-subscription.php:53
+msgid "Add New Subscription"
+msgstr "Adicionar Nova Assinatura"
+
+#: classes/class-wc-subscription.php:54
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:35
+msgid "Edit"
+msgstr "Editar"
+
+#: classes/class-wc-subscription.php:55
+msgid "Edit Subscription"
+msgstr "Editar Assinatura"
+
+#: classes/class-wc-subscription.php:56
+msgid "New Subscription"
+msgstr "Nova Assinatura"
+
+#: classes/class-wc-subscription.php:57 classes/class-wc-subscription.php:58
+msgid "View Subscription"
+msgstr "Ver Assinatura"
+
+#: classes/class-wc-subscription.php:59
+#: classes/class-wc-subscriptions-admin.php:898
+msgid "Search Subscriptions"
+msgstr "Buscar Assinatura"
+
+#: classes/class-wc-subscription.php:60
+msgid "No Subscriptions found"
+msgstr "Nenhuma Assinatura encontrada"
+
+#: classes/class-wc-subscription.php:61
+msgid "No Subscriptions found in trash"
+msgstr "Nenhuma Assinatura encontrada no lixo"
+
+#: classes/class-wc-subscription.php:62
+msgid "Parent Subscriptions"
+msgstr "Assinatura Pais (parent)"
+
+#: classes/class-wc-subscription.php:63
+msgid "Subscription Orders"
+msgstr "Pedidos de Assinaturas"
+
+#: classes/class-wc-subscription.php:65
+msgid "This is where subscriptions are stored."
+msgstr "Este é o lugar onde as assinaturas são armazenadas."
+
+#: classes/class-wc-subscription.php:162
+msgid "Subscription Details"
+msgstr "Detalhes das Assinaturas"
+
+#: classes/class-wc-subscription.php:163
+msgid "Subscription Items"
+msgstr "Itens de Assinatura "
+
+#: classes/class-wc-subscription.php:164
+msgid "Subscription Totals"
+msgstr "Total de Assinaturas"
+
+#: classes/class-wc-subscription.php:239
+msgid ""
+"Are you sure you want to remove the selected items? If you have previously "
+"reduced this item's stock, or this order was submitted by a customer, you "
+"will need to manually restore the item's stock."
+msgstr ""
+"Tem certeza de que deseja remover os itens selecionados? Se você já reduziu "
+"este item do estoque, ou essa ordem foi enviada por um cliente, você vai "
+"precisar restaurar manualmente este item de estoque."
+
+#: classes/class-wc-subscription.php:240
+msgid "Please select some items."
+msgstr "Por favor, selecione alguns itens."
+
+#: classes/class-wc-subscription.php:241
+msgid "Remove this item meta?"
+msgstr "Remover este meta produto?"
+
+#: classes/class-wc-subscription.php:242
+msgid "Remove this attribute?"
+msgstr "Remover este atributo?"
+
+#: classes/class-wc-subscription.php:243
+msgid "Name"
+msgstr "Nome"
+
+#: classes/class-wc-subscription.php:244
+msgid "Remove"
+msgstr "Remover"
+
+#: classes/class-wc-subscription.php:245
+msgid "Click to toggle"
+msgstr "Clique aqui para alternar"
+
+#: classes/class-wc-subscription.php:246
+msgid "Value(s)"
+msgstr "Valor(s)"
+
+#: classes/class-wc-subscription.php:247
+msgid "Enter some text, or some attributes by pipe (|) separating values."
+msgstr ""
+"Digite algum texto, ou alguns atributos, separando valores por pipe (|) ."
+
+#: classes/class-wc-subscription.php:248
+msgid "Visible on the product page"
+msgstr "Visível na página do produto"
+
+#: classes/class-wc-subscription.php:249
+msgid "Used for variations"
+msgstr "Usado para variações"
+
+#: classes/class-wc-subscription.php:250
+msgid "Enter a name for the new attribute term:"
+msgstr "Digite um nome para o novo atributo:"
+
+#: classes/class-wc-subscription.php:251
+msgid "Calculate totals based on order items, discounts, and shipping?"
+msgstr "Calcular total com base nos pedidos, descontos e transporte?"
+
+#: classes/class-wc-subscription.php:252
+msgid ""
+"Calculate line taxes? This will calculate taxes based on the customers "
+"country. If no billing/shipping is set it will use the store base country."
+msgstr ""
+"Calcular linha de impostos? Isto irá calcular os impostos com base no país "
+"dos clientes. Se não o faturamento/transporte usará o país base de loja."
+
+#: classes/class-wc-subscription.php:253
+msgid ""
+"Copy billing information to shipping information? This will remove any "
+"currently entered shipping information."
+msgstr ""
+"Copiar informações da fatura para as informações de envio? Isto irá remover "
+"qualquer informação de envio atualmente inserido."
+
+#: classes/class-wc-subscription.php:254
+msgid ""
+"Load the customer's billing information? This will remove any currently "
+"entered billing information."
+msgstr ""
+"Ler informações de fatura do cliente? Isto irá remover todas as informações "
+"de faturamento atualmente inseridos."
+
+#: classes/class-wc-subscription.php:255
+msgid ""
+"Load the customer's shipping information? This will remove any currently "
+"entered shipping information."
+msgstr ""
+"Ler informações de envio do cliente? Isto irá remover qualquer informação de "
+"envio atualmente inseridos."
+
+#: classes/class-wc-subscription.php:256
+msgid "Featured"
+msgstr "Em destaque"
+
+#: classes/class-wc-subscription.php:259
+msgid "No customer selected"
+msgstr "Nenhum cliente selecionado"
+
+#: classes/class-wc-subscription.php:285
+msgid ""
+"Could not grant access - the user may already have permission for this file "
+"or billing email is not set. Ensure the billing email is set, and the order "
+"has been saved."
+msgstr ""
+"Não é possível conceder acesso - o usuárior pode já ter permissão para este "
+"arquivo ou e-mail de cobrança não está configurado. Verifique se o e-mail de "
+"cobrança está configurado, e se o pedido foi salvo."
+
+#: classes/class-wc-subscription.php:286
+msgid "Are you sure you want to revoke access to this download?"
+msgstr "Tem certeza de que deseja revogar o acesso a este download?"
+
+#: classes/class-wc-subscriptions-addresses.php:67
+#: classes/class-wc-subscriptions-addresses.php:73
+msgid "Change Address"
+msgstr "Alterar endereço"
+
+#: classes/class-wc-subscriptions-addresses.php:101
+msgid ""
+"%sBoth the shipping address used for the subscription and your default "
+"shipping address for future purchases will be updated.%s"
+msgstr ""
+"%s Tanto o endereço do transporte utilizado para a assinatura e seu endereço "
+"de entrega padrão para compras futuras serão atualizados. %s"
+
+#: classes/class-wc-subscriptions-addresses.php:109
+msgid ""
+"Update the %s address used for <strong>all</strong> of my active "
+"subscriptions"
+msgstr ""
+"Atualize os %s endereços usado para <strong>todas</strong>as minhas "
+"assinaturas ativas"
+
+#: classes/class-wc-subscriptions-admin.php:143
+msgid "Simple subscription"
+msgstr "Assinatura Simples"
+
+#: classes/class-wc-subscriptions-admin.php:146
+msgid "Variable subscription"
+msgstr "Assinatura Variável"
+
+#: classes/class-wc-subscriptions-admin.php:171
+#: classes/class-wc-subscriptions-admin.php:307
+#: classes/class-wc-subscriptions-admin.php:314
+msgid "Subscription Price (%s)"
+msgstr "Preço da Assinatura (%s)"
+
+#: classes/class-wc-subscriptions-admin.php:172
+#: classes/class-wc-subscriptions-admin.php:315
+msgid "e.g. 5.90"
+msgstr "ex.: 5,90"
+
+#: classes/class-wc-subscriptions-admin.php:185
+#: classes/class-wc-subscriptions-admin.php:330
+msgid "Subscription Periods"
+msgstr "Períodos de Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:194
+#: classes/class-wc-subscriptions-admin.php:341
+msgid "Billing Period"
+msgstr "Período de Faturamento"
+
+#: classes/class-wc-subscriptions-admin.php:196
+#: classes/class-wc-subscriptions-admin.php:343
+msgid "for"
+msgstr "para"
+
+#: classes/class-wc-subscriptions-admin.php:205
+#: classes/class-wc-subscriptions-admin.php:353
+msgid "Subscription Length"
+msgstr "Duração da Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:215
+#: classes/class-wc-subscriptions-admin.php:367
+msgid "Sign-up Fee (%s)"
+msgstr "Taxa de Inscrição (%s)"
+
+#: classes/class-wc-subscriptions-admin.php:216
+#: classes/class-wc-subscriptions-admin.php:368
+msgid "e.g. 9.90"
+msgstr "ex.: 9,90"
+
+#: classes/class-wc-subscriptions-admin.php:217
+msgid "sign-up fee"
+msgstr "taxa de inscrição"
+
+#: classes/class-wc-subscriptions-admin.php:218
+msgid ""
+"Optionally include an amount to be charged at the outset of the "
+"subscription. The sign-up fee will be charged immediately, even if the "
+"product has a free trial or the payment dates are synced."
+msgstr ""
+"Opcionalmente incluir um valor a ser cobrado no início da assinatura. A taxa "
+"de inscrição será cobrada imediatamente, mesmo que o produto tenha uma "
+"avaliação gratuita ou as datas de pagamento estiverem sincronizadas."
+
+#: classes/class-wc-subscriptions-admin.php:232
+#: classes/class-wc-subscriptions-admin.php:381
+#: classes/class-wc-subscriptions-admin.php:388
+msgid "Free Trial"
+msgstr "Teste Grátis"
+
+#: classes/class-wc-subscriptions-admin.php:240
+#: classes/class-wc-subscriptions-admin.php:399
+msgid "Subscription Trial Period"
+msgstr "Período de Avaliação Experimental"
+
+#: classes/class-wc-subscriptions-admin.php:242
+msgid ""
+"Include an optional period of time to wait before charging the first "
+"recurring payment. Any sign up fee will still be charged at the outset of "
+"the subscription. %s"
+msgstr ""
+"Incluir um período opcional de tempo antes de cobrar o primeiro pagamento "
+"recorrente. Qualquer taxa de inscrição ainda será cobrada no início da "
+"assinatura. %s"
+
+#: classes/class-wc-subscriptions-admin.php:269
+msgid "Limit Subscription"
+msgstr "Limite de Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:270
+msgid ""
+"Only allow a customer to have one subscription to this product. %sLearn more."
+"%s"
+msgstr ""
+"Habilita que clientes possam ter apenas uma assinatura para este produto. "
+"%sSaiba mais.%s"
+
+#: classes/class-wc-subscriptions-admin.php:272
+msgid "Do no limit"
+msgstr "Sem limite"
+
+#: classes/class-wc-subscriptions-admin.php:273
+msgid "Limit to one active subscription"
+msgstr "Limite de uma assinatura ativa"
+
+#: classes/class-wc-subscriptions-admin.php:274
+msgid "Limit to one of any status"
+msgstr "Limitado para uma de qualquer status"
+
+#: classes/class-wc-subscriptions-admin.php:389
+msgid "e.g. 3"
+msgstr "ex.: 3"
+
+#: classes/class-wc-subscriptions-admin.php:401
+msgid ""
+"An optional period of time to wait before charging the first recurring "
+"payment. Any sign up fee will still be charged at the outset of the "
+"subscription. %s"
+msgstr ""
+"Um período opcional de tempo antes de cobrar o primeiro pagamento "
+"recorrente. Qualquer taxa de inscrição ainda será cobrada no início da "
+"assinatura. %s"
+
+#: classes/class-wc-subscriptions-admin.php:420
+msgid "Subscription Pricing"
+msgstr "Preço de Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:421
+msgid "Subscription sign-up fee"
+msgstr "Assinatura de taxa de inscrição"
+
+#: classes/class-wc-subscriptions-admin.php:422
+msgid "Subscription billing interval"
+msgstr "Intervalo de faturamento da Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:423
+msgid "Subscription period"
+msgstr "Período de Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:424
+msgid "Subscription length"
+msgstr "Duração da Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:425
+msgid "Free trial length"
+msgstr "Duração da Avaliação Grátis."
+
+#: classes/class-wc-subscriptions-admin.php:426
+msgid "Free trial period"
+msgstr "Período de Avaliação Grátis."
+
+#: classes/class-wc-subscriptions-admin.php:734
+msgid "Enter the new period, either day, week, month or year:"
+msgstr "Digite o novo período, seja dia, semana, mês ou ano:"
+
+#: classes/class-wc-subscriptions-admin.php:735
+msgid "Enter a new length (e.g. 5):"
+msgstr "Digite uma nova duração (por exemplo, 5):"
+
+#: classes/class-wc-subscriptions-admin.php:736
+msgid ""
+"Enter a new interval as a single number (e.g. to charge every 2nd month, "
+"enter 2):"
+msgstr ""
+"Digite um novo intervalo com um número único (ex. para cobrar a cada 2 "
+"meses, digite 2):"
+
+#: classes/class-wc-subscriptions-admin.php:740
+msgid ""
+"You are about to trash one or more orders which contain a subscription.\n"
+"\n"
+"Trashing the orders will also trash the subscriptions purchased with these "
+"orders."
+msgstr ""
+"Você está prestes a apagar um ou mais pedidos que contêm uma assinatura. \n"
+"\n"
+"Apagar os pedidos também irá apagar as Assinaturas compradas com esses "
+"pedidos."
+
+#: classes/class-wc-subscriptions-admin.php:745
+msgid ""
+"Trashing this order will also trash the subscription purchased with the "
+"order."
+msgstr ""
+"Apagando este pedido também apagará a assinatura compradas com o pedido."
+
+#: classes/class-wc-subscriptions-admin.php:746
+msgid ""
+"WARNING: Bad things are about to happen!\n"
+"\n"
+"The payment gateway used to purchase this subscription does not support "
+"modifying a subscription's details.\n"
+"\n"
+"Changes to the billing period, recurring discount, recurring tax or "
+"recurring total may not be reflected in the amount charged by the payment "
+"gateway."
+msgstr ""
+"AVISO: Coisas ruins estão prestes a acontecer! \n"
+"\n"
+"O gateway de pagamento usado para cobrar esta assinatura não suporta a "
+"modificação de detalhes de uma assinatura. \n"
+"\n"
+"Mudanças no período de faturamento, descontos, imposto ou total recorrente "
+"não pode ser refletido no valor cobrado pelo gateway de pagamento."
+
+#: classes/class-wc-subscriptions-admin.php:747
+msgid ""
+"You are deleting a subscription item. You will also need to manually cancel "
+"and trash the subscription on the Manage Subscriptions screen."
+msgstr ""
+"Você está excluindo um item da Assinatura. Você também vai precisar cancelar "
+"manualmente e apagar a assinatura na tela Gerenciar Assinaturas."
+
+#: classes/class-wc-subscriptions-admin.php:755
+msgid "WARNING: Deleting a user will also remove them from any subscription."
+msgstr ""
+"AVISO: A exclusão de um usuário também irá removê-lo de qualquer assinatura."
+
+#: classes/class-wc-subscriptions-admin.php:762
+#: classes/class-wc-subscriptions-list-table.php:814
+msgid "Show all customers"
+msgstr "Mostrar todos os clientes"
+
+#: classes/class-wc-subscriptions-admin.php:780
+msgid ""
+"%sChoose Subscription%sThe WooCommerce Subscriptions extension adds two new "
+"subscription product types - %sSimple subscription%s and %sVariable "
+"subscription%s.%s"
+msgstr ""
+
+#: classes/class-wc-subscriptions-admin.php:781
+msgid ""
+"%sSet a Price%sSubscription prices are a little different to other product "
+"prices. For a subscription, you can set a billing period, length, sign-up "
+"fee and free trial.%s"
+msgstr ""
+
+#: classes/class-wc-subscriptions-admin.php:821
+msgid "Active Subscriber?"
+msgstr "Assinante Ativo?"
+
+#: classes/class-wc-subscriptions-admin.php:871
+#: classes/class-wc-subscriptions-admin.php:893
+msgid "Manage Subscriptions"
+msgstr "Gerenciar Assinaturas"
+
+#: classes/class-wc-subscriptions-admin.php:1054
+msgid ""
+"No payment gateways capable of processing automatic subscription payments "
+"are enabled. Please enable the %sPayPal Standard%s gateway."
+msgstr ""
+"Nenhum gateways com capaciade de pagamentos automáticos estão habilitados. "
+"Por favor habilite o gateway %sPayPal Standard%s."
+
+#: classes/class-wc-subscriptions-admin.php:1056
+msgid ""
+"The %s gateway is enabled and can process automatic subscription payments."
+msgstr ""
+"O %s gateway está ativado e pode processar pagamentos automáticos de "
+"Assinatura."
+
+#: classes/class-wc-subscriptions-admin.php:1058
+msgid "The %s & %s gateways can process automatic subscription payments."
+msgstr ""
+"Os %s & %s gateways podem processar pagamentos automáticos de assinatura."
+
+#: classes/class-wc-subscriptions-admin.php:1064
+msgid "Button Text"
+msgstr "Texto do Botão"
+
+#: classes/class-wc-subscriptions-admin.php:1071
+msgid "Add to Cart Button Text"
+msgstr "Adicionar ao carrinho Butão de Texto"
+
+#: classes/class-wc-subscriptions-admin.php:1072
+msgid ""
+"A product displays a button with the text \"Add to Cart\". By default, a "
+"subscription changes this to \"Sign Up Now\". You can customise the button "
+"text for subscriptions here."
+msgstr ""
+"Um produto exibe um botão com o texto \"Adicione ao Carrinho\". Por padrão, "
+"uma assinatura muda isso para \"Assine Agora\". Você pode personalizar o "
+"texto do botão para assinaturas aqui."
+
+#: classes/class-wc-subscriptions-admin.php:1082
+msgid "Place Order Button Text"
+msgstr "Coloque Botão de Texto no Pedido"
+
+#: classes/class-wc-subscriptions-admin.php:1083
+msgid ""
+"Use this field to customise the text displayed on the checkout button when "
+"an order contains a subscription. Normally the checkout submission button "
+"displays \"Place Order\". When the cart contains a subscription, this is "
+"changed to \"Sign Up Now\"."
+msgstr ""
+"Utilize este campo para personalizar o texto exibido no botão de pagamento "
+"quando um pedido contém uma assinatura. Normalmente o botão de envio exibe "
+"\"Fazer Pedido \". Quando o carrinho contém uma assinatura, este é alterado "
+"para \"Cadastre-se agora \"."
+
+#: classes/class-wc-subscriptions-admin.php:1095
+msgid "Roles"
+msgstr "Papel"
+
+#: classes/class-wc-subscriptions-admin.php:1097
+msgid ""
+"Choose the default roles to assign to active and inactive subscribers. For "
+"record keeping purposes, a user account must be created for subscribers. "
+"Users with the <em>administrator</em> role, such as yourself, will never be "
+"allocated these roles to prevent locking out administrators."
+msgstr ""
+"Escolha o papel padrão para atribuir aos assinantes ativos e inativos. Para "
+"fins de manutenção de registros, uma conta de usuário deve ser criada para "
+"assinantes. Usuários com o papel de <em>Administrador</em> como você, nunca "
+"serão alocados a esses papéis para evitar bloqueio de administradores."
+
+#: classes/class-wc-subscriptions-admin.php:1102
+msgid "Subscriber Default Role"
+msgstr "Papel do Assinante Padrão"
+
+#: classes/class-wc-subscriptions-admin.php:1103
+msgid ""
+"When a subscription is activated, either manually or after a successful "
+"purchase, new users will be assigned this role."
+msgstr ""
+"Quando uma assinatura é ativada manualmente ou depois de uma compra bem "
+"sucedida, novos usuários serão atribuídos a este papel."
+
+#: classes/class-wc-subscriptions-admin.php:1114
+msgid "Inactive Subscriber Role"
+msgstr "Papel do Assinante inativo"
+
+#: classes/class-wc-subscriptions-admin.php:1115
+msgid ""
+"If a subscriber's subscription is manually cancelled or expires, she will be "
+"assigned this role."
+msgstr ""
+"Se assinatura do assinante é cancelada manualmente ou expirar, a ela será "
+"atribuído este papel."
+
+#: classes/class-wc-subscriptions-admin.php:1128
+#: classes/class-wc-subscriptions-list-table.php:257
+msgid "Renewals"
+msgstr "Renovações"
+
+#: classes/class-wc-subscriptions-admin.php:1135
+msgid "Manual Renewal Payments"
+msgstr "Pagamentos de renovação manual"
+
+#: classes/class-wc-subscriptions-admin.php:1136
+msgid "Accept Manual Renewals"
+msgstr "Aceitar renovações manuais"
+
+#: classes/class-wc-subscriptions-admin.php:1140
+msgid ""
+"With manual renewals, a customer's subscription is put on-hold until they "
+"login and pay to renew it. %sLearn more%s."
+msgstr ""
+"Com Renovações Manuais, as Assinaturas de Clientes são colocadas em espera "
+"até que eles façam login e paguem a renovação. %sSaiba mais%s ."
+
+#: classes/class-wc-subscriptions-admin.php:1146
+msgid "Turn off Automatic Payments"
+msgstr "Desligue Pagamentos Automáticos"
+
+#: classes/class-wc-subscriptions-admin.php:1150
+msgid ""
+"If you never want a customer to be automatically charged for a subscription "
+"renewal payment, you can turn off automatic payments completely. %sLearn more"
+"%s."
+msgstr ""
+"Se você desejar que nunca um cliente seja cobrado automaticamente para "
+"renovação de assinatura, você pode desligar completamente pagamentos "
+"automáticos. %sSaiba mais%s ."
+
+#: classes/class-wc-subscriptions-admin.php:1158
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+#: classes/class-wc-subscriptions-admin.php:1165
+msgid "Customer Suspensions"
+msgstr "Suspensões dos Clientes"
+
+#: classes/class-wc-subscriptions-admin.php:1166
+msgid "suspensions per billing period."
+msgstr "suspensões por período de cobrança."
+
+#: classes/class-wc-subscriptions-admin.php:1172
+msgid ""
+"Set a maximum number of times a customer can suspend their account for each "
+"billing period. For example, for a value of 3 and a subscription billed "
+"yearly, if the customer has suspended their account 3 times, they will not "
+"be presented with the option to suspend their account until the next year. "
+"Store managers will always be able able to suspend an active subscription. "
+"Set this to 0 to turn off the customer suspension feature completely."
+msgstr ""
+"Definir um número máximo de vezes que um cliente pode suspender a sua conta, "
+"para cada período de faturamento. Por exemplo, para um valor de 3 de uma "
+"assinatura anual, se o cliente suspendeu sua conta 3 vezes, a ele não será "
+"apresentada a opção de suspender a sua conta até o próximo ano. Os gerentes "
+"de loja sempre sera capaz de suspender uma assinatura ativa. Defina como 0 "
+"para desativar o recurso de suspensão do cliente completamente."
+
+#: classes/class-wc-subscriptions-admin.php:1176
+msgid "Failed Payment"
+msgstr "Falhas de Pagamento"
+
+#: classes/class-wc-subscriptions-admin.php:1177
+msgid "Add Outstanding Balance"
+msgstr "Adicionar Saldo Remanescente"
+
+#: classes/class-wc-subscriptions-admin.php:1182
+msgid ""
+"If a recurring payment fails and the subscription is manually reactivated "
+"without processing the failed payment, you can choose to add the outstanding "
+"balance to the next payment."
+msgstr ""
+"Se um pagamento automático recorrente falhar e a assinatura for reativada "
+"manualmente sem o devido processamento como pagamento falho, você pode optar "
+"por adicionar um saldo devedor para o próximo pagamento."
+
+#: classes/class-wc-subscriptions-admin.php:1186
+#: classes/class-wc-subscriptions-upgrader.php:1001
+msgid "Mixed Checkout"
+msgstr "Compra mista"
+
+#: classes/class-wc-subscriptions-admin.php:1187
+msgid "Allow subscriptions and products to be purchased simultaneously."
+msgstr ""
+"Permitir que assinaturas e produtos possam ser adquiridos simultâneamente."
+
+#: classes/class-wc-subscriptions-admin.php:1192
+msgid ""
+"Allow subscriptions and products to be purchased in a single transaction."
+msgstr ""
+"Permitir que assinaturas e produtos possam ser adquiridos em uma única "
+"transação."
+
+#: classes/class-wc-subscriptions-admin.php:1196
+msgid "Subscription Dates In Email"
+msgstr "Datas de Assinatura por Email"
+
+#: classes/class-wc-subscriptions-admin.php:1197
+msgid "Add subscription start/end information to order email."
+msgstr "Adicionar informações de início/fim de assinaturas no email de pedido."
+
+#: classes/class-wc-subscriptions-admin.php:1202
+msgid ""
+"Add details about the subscription start and end date in the completed order "
+"email."
+msgstr ""
+"Adicionar detalhes sobre data de início e fim da assinatura no email de "
+"pedido concluído."
+
+#: classes/class-wc-subscriptions-admin.php:1208
+msgid "Payment Gateways"
+msgstr "Meios de Pagamento"
+
+#: classes/class-wc-subscriptions-admin.php:1221
+msgid ""
+"Other payment gateways can be used to process %smanual subscription renewal "
+"payments%s only."
+msgstr ""
+"Outros gateways de pagamento podem ser utilizados para processar "
+"%srenovações manuais de pagamento de assinatura%s."
+
+#: classes/class-wc-subscriptions-admin.php:1227
+msgid ""
+"Find new gateways that %ssupport automatic subscription payments%s in the "
+"official %sWooCommerce Marketplace%s."
+msgstr ""
+"Encontre novos gateways que %suportam pagamentos de assinaturas automaticas"
+"%s no oficial %sWooCommerce Marketplace%s."
+
+#: classes/class-wc-subscriptions-admin.php:1262
+msgid ""
+"%sWooCommerce Subscriptions Installed%s &#8211; %sYou're ready to start "
+"selling subscriptions!%s"
+msgstr ""
+
+#: classes/class-wc-subscriptions-admin.php:1265
+msgid "Add a Subscription Product"
+msgstr ""
+
+#: classes/class-wc-subscriptions-admin.php:1266
+#: classes/class-wc-subscriptions-upgrader.php:977
+#: woocommerce-subscriptions.php:1240
+msgid "Settings"
+msgstr "Configurações"
+
+#: classes/class-wc-subscriptions-admin.php:1336
+msgid "Related Subscription Orders"
+msgstr "Pedidos de Assinatura relacionadas"
+
+#: classes/class-wc-subscriptions-admin.php:1385
+msgid ""
+"Showing renewal orders for the subscription purchased in <a href=\"%1$s"
+"\">Order %2$s</a>"
+msgstr ""
+"Mostrando pedidos de renovação de assinaturas compradas em <a href=\"%1$s"
+"\">Order %2$s</a></ a>"
+
+#: classes/class-wc-subscriptions-admin.php:1405
+msgid "The trial period can not exceed: %1s, %2s, %3s or %4s."
+msgstr "O período experimental não pode exceder: %1s, %2s, %3s ou %4s."
+
+#: classes/class-wc-subscriptions-admin.php:1408
+msgid "The trial period can not exceed %1s."
+msgstr "O período experimental não pode exceder %1s."
+
+#: classes/class-wc-subscriptions-admin.php:1520
+msgid "WCS_DEBUG"
+msgstr "WCS_DEBUG"
+
+#: classes/class-wc-subscriptions-admin.php:1521
+#: classes/class-wc-subscriptions-admin.php:1578
+msgid "Yes"
+msgstr "Sim"
+
+#: classes/class-wc-subscriptions-admin.php:1521
+msgid "No"
+msgstr "Não"
+
+#: classes/class-wc-subscriptions-admin.php:1526
+msgid "Subscriptions Mode"
+msgstr "Modo de Assinatura"
+
+#: classes/class-wc-subscriptions-admin.php:1527
+msgid "<strong>Staging</strong>"
+msgstr "<strong>Encenação</strong>"
+
+#: classes/class-wc-subscriptions-admin.php:1527
+msgid "<strong>Live</strong>"
+msgstr "<strong>Vivo</strong>"
+
+#: classes/class-wc-subscriptions-admin.php:1561
+msgid "Automatic Recurring Payments"
+msgstr "Pagamentos recorrentes automáticos"
+
+#: classes/class-wc-subscriptions-admin.php:1578
+msgid ""
+"Supports automatic renewal payments with the WooCommerce Subscriptions "
+"extension."
+msgstr ""
+"Suporta pagamentos automáticos de renovação com a extensão WooCommerce "
+"Subscriptions."
+
+#: classes/class-wc-subscriptions-cart.php:753
+msgid ""
+"Third parameter is now an array of name => value pairs. Use "
+"array( \"include_lengths\" => true ) instead."
+msgstr ""
+
+#: classes/class-wc-subscriptions-cart.php:767
+msgid "now"
+msgstr "agora"
+
+#: classes/class-wc-subscriptions-cart.php:1490
+msgid "Please enter a valid postcode/ZIP."
+msgstr "Por favor insira um CEP válido."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:143
+msgid "There was an error with your request. Please try again."
+msgstr "Houve um erro com seu pedido. Por favor, tente novamente."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:148
+#: classes/class-wc-subscriptions-manager.php:2269
+#: classes/class-wc-subscriptions-renewal-order.php:915
+msgid "That doesn't appear to be one of your subscriptions."
+msgstr "Isso não parece ser uma de suas assinaturas."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:153
+msgid "Invalid subscription."
+msgstr "Assinatura inválida."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:158
+msgid "The payment method can not be changed for that subscription."
+msgstr ""
+"O método de pagamento não pode ser alterado para este tipo de assinatura."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:171
+msgid " Next payment is due %s."
+msgstr "Próximo pagamento devido %s."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:175
+msgid "Choose a new payment method.%s"
+msgstr "Escolha um novo methodo de pagamento. %s"
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:197
+msgid "Invalid order."
+msgstr "Pedido Inválido."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:230
+#: templates/checkout/form-change-payment-method.php:87
+msgid "Change Payment Method"
+msgstr "Alterar o método de pagamento"
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:296
+#: classes/class-wc-subscriptions-change-payment-gateway.php:308
+msgid "Payment method updated."
+msgstr "Método de pagamento atualizado."
+
+#: classes/class-wc-subscriptions-change-payment-gateway.php:359
+msgid ""
+"Recurring payment method changed from \"%s\" to \"%s\" by the subscriber "
+"from their account page."
+msgstr ""
+"Método de pagamento recorrente passou de \"%s\" to \"%s\" pelo assinante a "
+"partir de sua página de conta."
+
+#: classes/class-wc-subscriptions-coupon.php:62
+msgid "Sign Up Fee Discount"
+msgstr "Desconto de Taxa de inscrição"
+
+#: classes/class-wc-subscriptions-coupon.php:63
+msgid "Sign Up Fee % Discount"
+msgstr "% Desconto de Taxa de inscrição"
+
+#: classes/class-wc-subscriptions-coupon.php:64
+msgid "Recurring Discount"
+msgstr "Desconto recorrente"
+
+#: classes/class-wc-subscriptions-coupon.php:65
+msgid "Recurring % Discount"
+msgstr "% Desconto recorrente"
+
+#: classes/class-wc-subscriptions-coupon.php:359
+msgid ""
+"Sorry, this coupon is only valid for an initial payment and the subscription "
+"already has a free trial."
+msgstr ""
+"Desculpe, este cupom é válido apenas para um pagamento inicial e a "
+"assinatura já tem uma versão gratuita."
+
+#: classes/class-wc-subscriptions-coupon.php:366
+msgid "Sorry, this coupon is only valid for new subscriptions."
+msgstr "Desculpe, este cupom só é válido para novas assinaturas."
+
+#: classes/class-wc-subscriptions-coupon.php:371
+msgid "Sorry, this coupon is only valid for subscription products."
+msgstr "Desculpe, este cupom só é válido para outros produtos."
+
+#: classes/class-wc-subscriptions-coupon.php:376
+msgid ""
+"Sorry, this coupon is only valid for subscription products with a sign-up "
+"fee."
+msgstr ""
+"Desculpe, este cupom só é válido para assinatura com uma taxa de inscrição."
+
+#: classes/class-wc-subscriptions-list-table.php:73
+#: classes/class-wc-subscriptions-list-table.php:302
+#: woocommerce-subscriptions.php:207
+msgid "Reactivate"
+msgstr "Reativar"
+
+#: classes/class-wc-subscriptions-list-table.php:74
+#: woocommerce-subscriptions.php:202
+msgid "Suspend"
+msgstr "Suspender"
+
+#: classes/class-wc-subscriptions-list-table.php:75
+#: classes/class-wc-subscriptions-list-table.php:304
+#: classes/class-wc-subscriptions-manager.php:2823
+#: woocommerce-subscriptions.php:248
+msgid "Cancel"
+msgstr "Cancerlar"
+
+#: classes/class-wc-subscriptions-list-table.php:76
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:188
+msgid "Trash"
+msgstr "Lixo"
+
+#: classes/class-wc-subscriptions-list-table.php:77
+#: classes/class-wc-subscriptions-list-table.php:308
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:192
+msgid "Delete Permanently"
+msgstr "Excluir permanentemente"
+
+#: classes/class-wc-subscriptions-list-table.php:116
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:493
+msgid "Order %s"
+msgstr "Pedidos %s"
+
+#: classes/class-wc-subscriptions-list-table.php:130
+#: classes/class-wc-subscriptions-switcher.php:175
+#: classes/class-wc-subscriptions-switcher.php:192
+#: classes/class-wc-subscriptions-switcher.php:224
+msgid "Never"
+msgstr "Nunca"
+
+#: classes/class-wc-subscriptions-list-table.php:132
+msgid "Not yet ended"
+msgstr "Ainda não terminou"
+
+#: classes/class-wc-subscriptions-list-table.php:163
+#: templates/myaccount/my-subscriptions.php:94
+msgid "%s ago"
+msgstr "%s atrás"
+
+#: classes/class-wc-subscriptions-list-table.php:184
+#: classes/class-wc-subscriptions-manager.php:2356
+#: templates/myaccount/my-subscriptions.php:62
+#: templates/myaccount/my-subscriptions.php:92
+msgid "In %s"
+msgstr "Em %s"
+
+#: classes/class-wc-subscriptions-list-table.php:193
+msgid "Date Picker Icon"
+msgstr ""
+
+#: classes/class-wc-subscriptions-list-table.php:194
+#: classes/class-wc-subscriptions-manager.php:2822
+msgid "Change"
+msgstr "Alterar"
+
+#: classes/class-wc-subscriptions-list-table.php:247
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:118
+#: templates/myaccount/my-subscriptions.php:16
+#: templates/myaccount/my-subscriptions.php:52
+msgid "Status"
+msgstr "Status"
+
+#: classes/class-wc-subscriptions-list-table.php:249
+msgid "User"
+msgstr "Usuário"
+
+#: classes/class-wc-subscriptions-list-table.php:250
+#: templates/emails/cancelled-subscription.php:18
+#: templates/myaccount/my-subscriptions.php:14
+#: templates/myaccount/my-subscriptions.php:27
+msgid "Order"
+msgstr "Pedido"
+
+#: classes/class-wc-subscriptions-list-table.php:251
+#: templates/emails/plain/subscription-info.php:15
+#: templates/emails/subscription-info.php:16
+msgid "Start Date"
+msgstr "Início"
+
+#: classes/class-wc-subscriptions-list-table.php:252
+msgid "Expiration"
+msgstr "Expiração"
+
+#: classes/class-wc-subscriptions-list-table.php:253
+#: templates/emails/plain/subscription-info.php:16
+#: templates/emails/subscription-info.php:17
+#: templates/myaccount/my-subscriptions.php:18
+#: templates/myaccount/my-subscriptions.php:75
+msgid "End Date"
+msgstr "Término"
+
+#: classes/class-wc-subscriptions-list-table.php:254
+msgid "Trial End Date"
+msgstr "Fim do Teste"
+
+#: classes/class-wc-subscriptions-list-table.php:255
+#: templates/emails/cancelled-subscription.php:21
+msgid "Last Payment"
+msgstr "Último Pagamento"
+
+#: classes/class-wc-subscriptions-list-table.php:256
+#: templates/myaccount/my-subscriptions.php:17
+#: templates/myaccount/my-subscriptions.php:55
+msgid "Next Payment"
+msgstr "Próximo pagamento"
+
+#: classes/class-wc-subscriptions-list-table.php:303
+msgid "Put on-hold"
+msgstr "Coloque em espera"
+
+#: classes/class-wc-subscriptions-list-table.php:310
+msgid "Move to Trash"
+msgstr "Mover para o Lixo"
+
+#: classes/class-wc-subscriptions-list-table.php:376
+msgid "Action failed. Invalid Nonce."
+msgstr "Falha na ação."
+
+#: classes/class-wc-subscriptions-list-table.php:388
+msgid "Bulk edit failed. Invalid Nonce."
+msgstr "Edição em massa falhou. "
+
+#: classes/class-wc-subscriptions-list-table.php:429
+msgid "Error: Unknown action."
+msgstr "Erro: Ação desconhecida."
+
+#: classes/class-wc-subscriptions-list-table.php:441
+msgid "Subscription changed to %2$s."
+msgid_plural "%1$d subscriptions changed to %2$s."
+msgstr[0] "Assinatura alterada para %2$s."
+msgstr[1] "%1$d Assinatura alterada para %2$s."
+
+#: classes/class-wc-subscriptions-list-table.php:444
+msgid "Subscription moved to trash."
+msgid_plural "%s subscriptions moved to trash."
+msgstr[0] "Assinatura movida para o lixo."
+msgstr[1] "%s assinatura movida para o lixo."
+
+#: classes/class-wc-subscriptions-list-table.php:447
+msgid "Subscription deleted."
+msgid_plural "%s subscriptions deleted."
+msgstr[0] "Assinatura excluída."
+msgstr[1] "%s assinaturas excluídas."
+
+#: classes/class-wc-subscriptions-list-table.php:455
+msgid ""
+"%d subscription could not be changed to active - only on-hold subscriptions "
+"can be changed to active."
+msgid_plural ""
+"%d subscriptions could not be changed to active - only on-hold subscriptions "
+"can be changed to active."
+msgstr[0] ""
+"%d assinatura não pode ser alterado para ativa - apenas assinaturas em "
+"espera podem ser alteradas para ativas."
+msgstr[1] ""
+"%d assinatura não pode ser alterado para ativa - apenas assinaturas em "
+"espera podem ser alteradas para ativas."
+
+#: classes/class-wc-subscriptions-list-table.php:458
+msgid ""
+"%d subscription could not be put on-hold - only pending and active "
+"subscriptions can be put on-hold."
+msgid_plural ""
+"%d subscriptions could not be changed to suspended - only pending and active "
+"subscriptions can be put on-hold."
+msgstr[0] ""
+"%d assinatura não pode ser colocada em espera - apenas assinaturas ativas "
+"pendentes  podem ser colocadas em espera."
+msgstr[1] ""
+"%d assinatura não pode ser colocada em espera - apenas assinaturas ativas "
+"pendentes  podem ser colocadas em espera."
+
+#: classes/class-wc-subscriptions-list-table.php:461
+msgid ""
+"%d subscription could not be cancelled - only pending, active and on-hold "
+"subscriptions can be cancelled."
+msgid_plural ""
+"%d subscriptions could not be cancelled - only pending, active and on-hold "
+"subscriptions can be cancelled."
+msgstr[0] ""
+"%d assinatura não pode ser cancelada - apenas assinaturass pendentes, ativas "
+"ou em espera podem ser canceladas."
+msgstr[1] ""
+"%d assinatura não pode ser cancelada - apenas assinaturass pendentes, ativas "
+"ou em espera podem ser canceladas."
+
+#: classes/class-wc-subscriptions-list-table.php:464
+msgid ""
+"%d subscription could not be trashed - is it active or on-hold? Try "
+"cancelling it before trashing it."
+msgid_plural ""
+"%d subscriptions could not be trashed - are they active or on-hold? Try "
+"cancelling them before trashing."
+msgstr[0] ""
+"%d assinatura não pode ser ir para o lixo - está ativa ou em espera? Tente "
+"cancelar antes de apagar."
+msgstr[1] ""
+"%d assinatura não pode ser ir para o lixo - está ativa ou em espera? Tente "
+"cancelar antes de apagar."
+
+#: classes/class-wc-subscriptions-list-table.php:467
+msgid ""
+"%d subscription could not deleted - is it active or on-hold? Try cancelling "
+"it before deleting."
+msgid_plural ""
+"%d subscriptions could not deleted - are they active or on-hold? Try "
+"cancelling them before deleting."
+msgstr[0] ""
+"%d assinatura não pode ser apagada - está ativa ou em espera? Tente cancelar "
+"antes de apagar."
+msgstr[1] ""
+"%d as assinaturas não podem ser apagadas - estão ativas ou em espera? Tente "
+"cancelar antes de apagar."
+
+#: classes/class-wc-subscriptions-list-table.php:487
+msgid "Action failed. Invalid user ID."
+msgstr "Falha na ação. ID de usuário inválido."
+
+#: classes/class-wc-subscriptions-list-table.php:497
+msgid "Action failed. Invalid product ID."
+msgstr "Falha na ação. ID do produto inválido."
+
+#: classes/class-wc-subscriptions-list-table.php:591
+msgid "Showing only subscriptions containing \"%s\""
+msgstr "Mostrando apenas as assinaturas que contêm \"%s\""
+
+#: classes/class-wc-subscriptions-list-table.php:607
+msgid "Invalid user. "
+msgstr "Usuário inválido."
+
+#: classes/class-wc-subscriptions-list-table.php:609
+msgid "Showing %s's subscriptions"
+msgstr "Mostrando %s assinaturas"
+
+#: classes/class-wc-subscriptions-list-table.php:618
+msgid "Invalid product."
+msgstr "Produto inválido."
+
+#: classes/class-wc-subscriptions-list-table.php:620
+msgid " for product #%s &ndash; %s%s%s"
+msgstr "para o produto  #%s &ndash; %s%s%s"
+
+#: classes/class-wc-subscriptions-list-table.php:622
+msgid "Showing subscriptions to product #%s &ndash; %s%s%s"
+msgstr "Mostrando assinaturas de produto #%s &ndash; %s%s%s"
+
+#: classes/class-wc-subscriptions-list-table.php:804
+msgid "Search for a product&hellip;"
+msgstr "Procurar um produto&hellip;"
+
+#: classes/class-wc-subscriptions-list-table.php:805
+msgid "Show all products"
+msgstr "Mostrar todos os produtos"
+
+#: classes/class-wc-subscriptions-list-table.php:822
+msgid "Filter"
+msgstr "Filtro"
+
+#: classes/class-wc-subscriptions-list-table.php:843
+msgid "%s has no subscription to %s%s%s (#%s) with the status \"%s\"."
+msgstr "%s não tem assinatura %s%s%s (#%s) com o status \"%s\"."
+
+#: classes/class-wc-subscriptions-list-table.php:845
+msgid "%s has not purchased %s%s%s (#%s)."
+msgstr "%s não foi comprado %s%s%s (#%s)."
+
+#: classes/class-wc-subscriptions-list-table.php:848
+msgid "%s has not purchased any subscriptions."
+msgstr "%s não adquiriu quaisquer assinaturas."
+
+#: classes/class-wc-subscriptions-list-table.php:852
+msgid "There are no subscriptions to %s%s%s (#%s) with the status \"%s\"."
+msgstr "Não há inscrições para %s%s%s (#%s) com o status \"%s\"."
+
+#: classes/class-wc-subscriptions-list-table.php:854
+msgid "No one has purchased %s%s%s (#%s) yet."
+msgstr "Nínguem comprou %s%s%s (#%s) ainda."
+
+#: classes/class-wc-subscriptions-list-table.php:857
+msgid ""
+"No subscriptions found to have a subscriber name, email, title or order ID "
+"matching \"%s\"."
+msgstr ""
+"Nenhuma assinatura encontrada para ter um nome de assinante, e-mail, título "
+"ou pedido correspondente \"%s\""
+
+#: classes/class-wc-subscriptions-list-table.php:859
+msgid ""
+"Subscriptions will appear here for you to view and manage once purchased by "
+"a customer."
+msgstr ""
+"Assinaturas irão aparecer aqui para que você possoa gerenciar, uma vez "
+"compradas por um cliente."
+
+#: classes/class-wc-subscriptions-list-table.php:860
+msgid "%sLearn more about managing subscriptions%s"
+msgstr "%sSaiba mais sobre gerenciar assinaturas%s"
+
+#: classes/class-wc-subscriptions-list-table.php:861
+msgid "%sAdd a subscription product%s"
+msgstr "%sAdicione uma Assinatura de Produto%s"
+
+#: classes/class-wc-subscriptions-list-table.php:979
+msgid ""
+"The server's maximum execution time is too low to perform this operation. "
+"Please contact %sWooThemes Support%s to notify us of the issue. %sReturn to "
+"Main Subscriptions Page%s."
+msgstr ""
+"Tempo máximo de execução do servidor é muito baixo para executar esta "
+"operação. Entre em contato %sWooThemes Support%s para nos informar sobre o "
+"problema. %sRetornar para Página de Assinaturas%s ."
+
+#: classes/class-wc-subscriptions-list-table.php:981
+msgid ""
+"The server's maximum memory size is too low to perform this operation. "
+"Please increase the %smaximum memory limit using the %sWP_MAX_MEMORY_LIMIT%s "
+"constant. %sReturn to Main Subscriptions Page%s."
+msgstr ""
+
+#: classes/class-wc-subscriptions-manager.php:108
+msgid "Unable to activate subscription \"%s\"."
+msgstr "Não é possível ativar assinatura \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:135
+msgid "Activated Subscription \"%s\"."
+msgstr "Ativado Assinatura \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:179
+msgid "Unable to put subscription on-hold: \"%s\"."
+msgstr "Incapaz de colocar assinatura em espera: \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:214
+msgid "Subscription On-hold: \"%s\"."
+msgstr "Assinatura em espera: \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:242
+msgid "Unable to cancel subscription \"%s\"."
+msgstr "Impossível cancelar assinatura \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:280
+msgid "Cancelled Subscription \"%s\"."
+msgstr "Assinaturas Canceladas \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:309
+msgid "Failed sign-up for subscription \"%s\"."
+msgstr "Falha para inscrição de assinatura  \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:335
+msgid "Unable to trash subscription \"%s\"."
+msgstr "Incapaz de enviar assinaturas para o lixo  \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:346
+msgid "Trashed Subscription \"%s\"."
+msgstr "Assinatura no lixo  \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:383
+msgid "Deleted Subscription \"%s\"."
+msgstr "Assinaturas deletadas  \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:429
+msgid "Subscription Expired: \"%s\"."
+msgstr "Assinaturas Expiradas  \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:488
+msgid "Free trial commenced for subscription \"%s\""
+msgstr "Período de avaliação Grátis graduadas para assinaturas \"%s\""
+
+#: classes/class-wc-subscriptions-manager.php:490
+msgid "Recurring payment authorized for subscription \"%s\""
+msgstr "Pagamento recorrente autorizado para assinatura \"%s\""
+
+#: classes/class-wc-subscriptions-manager.php:493
+msgid "Payment received for subscription \"%s\""
+msgstr "Pagamento recebido por assinatura \"%s\""
+
+#: classes/class-wc-subscriptions-manager.php:534
+msgid ""
+"Cancelled Subscription \"%s\". Maximum number of failed subscription "
+"payments reached."
+msgstr ""
+"Assinaturas Canceladas \"%s\". O número máximo de pagamentos de assinaturas "
+"falhas foi alcançado."
+
+#: classes/class-wc-subscriptions-manager.php:541
+msgid "Payment failed for subscription \"%s\"."
+msgstr "Pagamentos falhos por assinatura \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:691
+msgid "Subscription sign up failed."
+msgstr "Assinatura de incriçções falhas"
+
+#: classes/class-wc-subscriptions-manager.php:777
+msgid "Pending subscription created for \"%s\"."
+msgstr "Assinatura pendentes criadas por \"%s\"."
+
+#: classes/class-wc-subscriptions-manager.php:1236
+msgid "Active"
+msgstr "Ativo"
+
+#: classes/class-wc-subscriptions-manager.php:1239
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: classes/class-wc-subscriptions-manager.php:1242
+msgid "Expired"
+msgstr "Expirado"
+
+#: classes/class-wc-subscriptions-manager.php:1245
+msgid "Pending"
+msgstr "Pendente"
+
+#: classes/class-wc-subscriptions-manager.php:1248
+msgid "Failed"
+msgstr "Fracassadas"
+
+#: classes/class-wc-subscriptions-manager.php:1252
+msgid "On-hold"
+msgstr "Em espera"
+
+#: classes/class-wc-subscriptions-manager.php:1270
+#: classes/class-wc-subscriptions-manager.php:1420
+msgid "day"
+msgid_plural "%s days"
+msgstr[0] "dia"
+msgstr[1] "%s dias"
+
+#: classes/class-wc-subscriptions-manager.php:1271
+#: classes/class-wc-subscriptions-manager.php:1421
+msgid "week"
+msgid_plural "%s weeks"
+msgstr[0] "semana"
+msgstr[1] "%s semanas"
+
+#: classes/class-wc-subscriptions-manager.php:1272
+#: classes/class-wc-subscriptions-manager.php:1422
+msgid "month"
+msgid_plural "%s months"
+msgstr[0] "mês"
+msgstr[1] "%s meses"
+
+#: classes/class-wc-subscriptions-manager.php:1273
+#: classes/class-wc-subscriptions-manager.php:1423
+msgid "year"
+msgid_plural "%s years"
+msgstr[0] "ano"
+msgstr[1] "%s anos"
+
+#: classes/class-wc-subscriptions-manager.php:1287
+msgid "per"
+msgstr "por"
+
+#: classes/class-wc-subscriptions-manager.php:1290
+msgid "every %s"
+msgstr "cada %s"
+
+#: classes/class-wc-subscriptions-manager.php:1319
+msgid "all time"
+msgstr "tempo integral"
+
+#: classes/class-wc-subscriptions-manager.php:1324
+msgid "1 day"
+msgstr "1 dia"
+
+#: classes/class-wc-subscriptions-manager.php:1327
+msgid "1 week"
+msgstr "1 semana"
+
+#: classes/class-wc-subscriptions-manager.php:1330
+msgid "1 month"
+msgstr "1 mês"
+
+#: classes/class-wc-subscriptions-manager.php:1333
+msgid "1 year"
+msgstr "1 ano"
+
+#: classes/class-wc-subscriptions-manager.php:1381
+msgid "no"
+msgstr "não"
+
+#: classes/class-wc-subscriptions-manager.php:1398
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:377
+msgid "%s day"
+msgid_plural "a %s-day"
+msgstr[0] "%s dia"
+msgstr[1] "a %s-dias"
+
+#: classes/class-wc-subscriptions-manager.php:1399
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:376
+msgid "%s week"
+msgid_plural "a %s-week"
+msgstr[0] "%s semana"
+msgstr[1] "a %s-semanas"
+
+#: classes/class-wc-subscriptions-manager.php:1400
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:375
+msgid "%s month"
+msgid_plural "a %s-month"
+msgstr[0] "%s mês"
+msgstr[1] "a %s-meses"
+
+#: classes/class-wc-subscriptions-manager.php:1401
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:374
+msgid "%s year"
+msgid_plural "a %s-year"
+msgstr[0] "%s ano"
+msgstr[1] "a %s-anos"
+
+#: classes/class-wc-subscriptions-manager.php:2265
+#: classes/class-wc-subscriptions-manager.php:2273
+msgid ""
+"That subscription can not be changed to %s. Please contact us if you need "
+"assistance."
+msgstr ""
+"Essa assinatura não pode ser alterada para %s . Entre em contato conosco se "
+"precisar de ajuda."
+
+#: classes/class-wc-subscriptions-manager.php:2277
+msgid ""
+"Unknown subscription status: \"%s\". Please contact us if you need "
+"assistance."
+msgstr ""
+"Status de assinatura desconhecido: \"%s\". Entre em contato conosco se "
+"precisar de ajuda."
+
+#: classes/class-wc-subscriptions-manager.php:2284
+msgid ""
+"You can not reactive that subscription until paying to renew it. Please "
+"contact us if you need assistance."
+msgstr ""
+"Você não pode reativar esta Assinatura até pagar a renovação. Entre em "
+"contato conosco se precisar de assistência."
+
+#: classes/class-wc-subscriptions-manager.php:2287
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:824
+msgid "reactivated"
+msgstr "reativado"
+
+#: classes/class-wc-subscriptions-manager.php:2293
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:821
+msgid "suspended"
+msgstr "suspenso"
+
+#: classes/class-wc-subscriptions-manager.php:2295
+msgid ""
+"You can not suspend that subscription - the suspension limit has been "
+"reached. Please contact us if you need assistance."
+msgstr ""
+"Você não pode suspender esta Assinatura - o limite de suspensão foi "
+"alcançado. Entre em contato conosco se precisar de assistência."
+
+#: classes/class-wc-subscriptions-manager.php:2300
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:818
+msgid "cancelled"
+msgstr "cancelado"
+
+#: classes/class-wc-subscriptions-manager.php:2308
+msgid ""
+"The status of subscription %s was changed to %s by the subscriber from their "
+"account page."
+msgstr ""
+"O status da Assinatura %s foi alterada para %s pelo assinante a partir de "
+"sua página de conta."
+
+#: classes/class-wc-subscriptions-manager.php:2310
+msgid "Your subscription has been %s."
+msgstr "Sua assinatura foi %s."
+
+#: classes/class-wc-subscriptions-manager.php:2330
+msgid "Invalid security token, please reload the page and try again."
+msgstr ""
+"Token de segurança inválido, por favor recarregue a página e tente novamente."
+
+#: classes/class-wc-subscriptions-manager.php:2334
+msgid "Only store managers can edit payment dates."
+msgstr "Somente os gerentes da loja podem editar datas de pagamento."
+
+#: classes/class-wc-subscriptions-manager.php:2338
+msgid "Please enter all date fields."
+msgstr "Por favor, preencha todos os campos."
+
+#: classes/class-wc-subscriptions-manager.php:2361
+msgid "Date Changed"
+msgstr "Data alterada"
+
+#: classes/class-wc-subscriptions-manager.php:2399
+msgid "This subscription does not have any future payments."
+msgstr "Esta assinatura não tem nenhum pagamentos futuro."
+
+#: classes/class-wc-subscriptions-manager.php:2403
+msgid "Please enter a date in the future."
+msgstr "Digite uma data no futuro."
+
+#: classes/class-wc-subscriptions-manager.php:2407
+msgid "Please enter a date after the trial period ends (%s)."
+msgstr "Por favor digite uma data após o fim de período experimental (%s)."
+
+#: classes/class-wc-subscriptions-manager.php:2411
+msgid "Please enter a date before the expiration date."
+msgstr "Por favor, indique uma data anterior à data de validade."
+
+#: classes/class-wc-subscriptions-manager.php:2421
+msgid "The payment date could not be changed."
+msgstr "A data do pagamento não pode ser mudada."
+
+#: classes/class-wc-subscriptions-manager.php:2629
+msgid "up front"
+msgstr "na frente"
+
+#: classes/class-wc-subscriptions-manager.php:2659
+msgid "%s %s then %s"
+msgstr "%s %s então %s"
+
+#: classes/class-wc-subscriptions-manager.php:2673
+msgid "%s %s then %s every %s"
+msgstr "%s %s então %s cada %s"
+
+#: classes/class-wc-subscriptions-manager.php:2675
+#: classes/class-wc-subscriptions-product.php:323
+msgid "%s every %s"
+msgstr "%s cada %s"
+
+#: classes/class-wc-subscriptions-manager.php:2680
+msgid "%s %s then %s every %s on %s"
+msgstr "%s %s então %s cada %s em %s"
+
+#: classes/class-wc-subscriptions-manager.php:2682
+#: classes/class-wc-subscriptions-product.php:326
+msgid "%s every %s on %s"
+msgstr "%s cada %s em %s"
+
+#: classes/class-wc-subscriptions-manager.php:2691
+msgid "%s %s then %s on the last day of each month"
+msgstr "%s %s então %s no último dia de cada mês"
+
+#: classes/class-wc-subscriptions-manager.php:2693
+msgid "%s %s then %s on the %s of each month"
+msgstr "%s %s então %s no %s de cada mês"
+
+#: classes/class-wc-subscriptions-manager.php:2697
+#: classes/class-wc-subscriptions-product.php:333
+msgid "%s on the last day of each month"
+msgstr "%s no último dia de cada mês"
+
+#: classes/class-wc-subscriptions-manager.php:2699
+#: classes/class-wc-subscriptions-product.php:335
+msgid "%s on the %s of each month"
+msgstr "%s no %s de cada mês"
+
+#: classes/class-wc-subscriptions-manager.php:2706
+msgid "%s %s then %s on the last day of every %s month"
+msgstr "%s %s sem seguida %s no último dia de cada %s mês"
+
+#: classes/class-wc-subscriptions-manager.php:2708
+msgid "%s %s then %s on the %s day of every %s month"
+msgstr "%s %s então %s no %s dia de cada %s mês"
+
+#: classes/class-wc-subscriptions-manager.php:2712
+#: classes/class-wc-subscriptions-product.php:340
+msgid "%s on the last day of every %s month"
+msgstr "%s no último dia de todo %s mês"
+
+#: classes/class-wc-subscriptions-manager.php:2714
+#: classes/class-wc-subscriptions-product.php:342
+msgid "%s on the %s day of every %s month"
+msgstr "%s no %s dia de todo %s mês"
+
+#: classes/class-wc-subscriptions-manager.php:2723
+msgid "%s %s then %s on %s %s each year"
+msgstr "%s %s então %s em %s %s por ano"
+
+#: classes/class-wc-subscriptions-manager.php:2725
+#: classes/class-wc-subscriptions-product.php:349
+msgid "%s on %s %s each year"
+msgstr "%s em %s %s por ano"
+
+#: classes/class-wc-subscriptions-manager.php:2730
+msgid "%s %s then %s on %s %s every %s year"
+msgstr "%s %s então %s em %s %s todo %s ano"
+
+#: classes/class-wc-subscriptions-manager.php:2732
+#: classes/class-wc-subscriptions-product.php:352
+msgid "%s on %s %s every %s year"
+msgstr "%s em %s %s todo %s ano"
+
+#: classes/class-wc-subscriptions-manager.php:2738
+msgid "%s %s then %s / %s"
+msgid_plural "%s %s then %s every %s"
+msgstr[0] "%s %s então %s / %s"
+msgstr[1] "%s %s então %s cada %s"
+
+#: classes/class-wc-subscriptions-manager.php:2740
+#: classes/class-wc-subscriptions-product.php:357
+msgid "%s / %s"
+msgid_plural " %s every %s"
+msgstr[0] "%s / %s"
+msgstr[1] " %s cada %s"
+
+#: classes/class-wc-subscriptions-manager.php:2746
+#: classes/class-wc-subscriptions-product.php:367
+msgid "%s for %s"
+msgstr "%s para %s"
+
+#: classes/class-wc-subscriptions-manager.php:2751
+msgid "%s after %s free trial"
+msgstr "%s após %s período de avaliação gratuita"
+
+#: classes/class-wc-subscriptions-manager.php:2753
+msgid "%s free trial then %s"
+msgstr "%s de teste gratuito, então %s"
+
+#. translators: 1: month number (01, 02, etc.), 2: month abbreviation
+#: classes/class-wc-subscriptions-manager.php:2800
+msgid "%1$s-%2$s"
+msgstr ""
+
+#. translators: 1: month input, 2: day input, 3: year input, 4: hour input, 5:
+#. minute input
+#: classes/class-wc-subscriptions-manager.php:2813
+msgid "%1$s%2$s, %3$s @ %4$s : %5$s"
+msgstr ""
+
+#. translators: 1: month input, 2: day input, 3: year input
+#: classes/class-wc-subscriptions-manager.php:2817
+msgid "%1$s%2$s, %3$s"
+msgstr ""
+
+#: classes/class-wc-subscriptions-order.php:910
+#: classes/class-wc-subscriptions-order.php:947
+msgid "%s discount"
+msgstr "%s de desconto"
+
+#: classes/class-wc-subscriptions-order.php:1041
+msgid "&nbsp;<small>%svia %s</small>"
+msgstr ""
+
+#: classes/class-wc-subscriptions-order.php:1297
+msgid "Your subscription will be activated when payment clears."
+msgstr "Sua assinatura será ativada quando o pagamento for confirmado."
+
+#: classes/class-wc-subscriptions-order.php:1298
+msgid "%sView the status of your subscription in %syour account%s.%s"
+msgstr "%sExibir status de sua Assinatura em %ssua conta%s.%s"
+
+#: classes/class-wc-subscriptions-order.php:2370
+msgid ""
+"The %s payment gateway is used to charge automatic subscription payments for "
+"this order. This gateway <strong>does not</strong> support changing a "
+"subscription's details."
+msgstr ""
+"O %s Gateway de Pagamento é usado para cobrançar de pagamentos automáticos "
+"de assinatura. Este gateway <strong>não faz</strong> mudanças nos detalhes "
+"de uma assinatura."
+
+#: classes/class-wc-subscriptions-order.php:2372
+msgid ""
+"It is strongly recommended you <strong>do not change</strong> any of the "
+"recurring totals or subscription item's details."
+msgstr ""
+"É altamente recomendável que você <strong>não mude</strong> qualquer dos "
+"totais recorrentes ou detalhes do item de assinatura."
+
+#: classes/class-wc-subscriptions-order.php:2373
+msgid "Learn More"
+msgstr "Saiba mais"
+
+#: classes/class-wc-subscriptions-order.php:2378
+msgid "Recurring Totals"
+msgstr "Total recorrentes"
+
+#: classes/class-wc-subscriptions-order.php:2381
+msgid "Shipping for Renewal Orders"
+msgstr "Envio de Pedidos de Renovação"
+
+#: classes/class-wc-subscriptions-order.php:2411
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: classes/class-wc-subscriptions-order.php:2412
+msgid "The shipping title for renewal orders"
+msgstr "O título de transporte para Pedidos de Renovação"
+
+#: classes/class-wc-subscriptions-order.php:2416
+msgid "Cost:"
+msgstr "Custo:"
+
+#: classes/class-wc-subscriptions-order.php:2417
+msgid "(ex. tax)"
+msgstr "(ex. imposto)"
+
+#: classes/class-wc-subscriptions-order.php:2421
+msgid "Method:"
+msgstr "Método:"
+
+#: classes/class-wc-subscriptions-order.php:2423
+#: templates/admin/post-types/writepanels/order-shipping-html.php:12
+#: templates/admin/post-types/writepanels/order-tax-html.php:7
+msgid "N/A"
+msgstr "N/D"
+
+#: classes/class-wc-subscriptions-order.php:2444
+#: classes/class-wc-subscriptions-order.php:2446
+#: templates/admin/post-types/writepanels/order-shipping-html.php:30
+#: templates/admin/post-types/writepanels/order-shipping-html.php:32
+msgid "Other"
+msgstr "Outros"
+
+#: classes/class-wc-subscriptions-order.php:2462
+msgid "Recurring Taxes"
+msgstr "Impostos Recorrentes"
+
+#: classes/class-wc-subscriptions-order.php:2463
+msgid ""
+"These rows contain taxes included in each recurring amount for this "
+"subscription. This allows you to display multiple or compound taxes rather "
+"than a single total on future subscription renewal orders."
+msgstr ""
+"Estas linhas contêm impostos incluídos em cada quantidade recorrentes para "
+"essa assinatura. Isso permite que você exibir vários impostos compostos, em "
+"vez de um total único sobre as futuras encomendas de renovação de assinatura."
+
+#: classes/class-wc-subscriptions-order.php:2493
+msgid "+ Add tax row"
+msgstr "+ Adicionar linha de imposto"
+
+#: classes/class-wc-subscriptions-order.php:2499
+msgid "Tax Totals"
+msgstr "Total de Impostos"
+
+#: classes/class-wc-subscriptions-order.php:2503
+#: templates/admin/post-types/writepanels/order-tax-html.php:15
+msgid "Recurring Sales Tax:"
+msgstr "Imposto recorrentes sobre Vendas"
+
+#: classes/class-wc-subscriptions-order.php:2508
+#: templates/admin/post-types/writepanels/order-tax-html.php:19
+msgid "Shipping Tax:"
+msgstr "Taxa de Envio:"
+
+#: classes/class-wc-subscriptions-order.php:2520
+msgid "Recurring Order Discount"
+msgstr "Discontos de pedidos recorrentes"
+
+#: classes/class-wc-subscriptions-order.php:2520
+msgid "The discounts applied to each recurring payment charged in the future."
+msgstr "Os descontos aplicados a cada pagamento recorrente cobrado no futuro."
+
+#: classes/class-wc-subscriptions-order.php:2525
+msgid "Recurring Order Total"
+msgstr "Total de pedidos recorrentes"
+
+#: classes/class-wc-subscriptions-order.php:2525
+msgid "The total amounts charged for each future recurring payment."
+msgstr "Os montantes totais cobrados para cada pagamento recorrente futuro."
+
+#: classes/class-wc-subscriptions-order.php:2530
+msgid "Recurring Payment Method:"
+msgstr "Método de pagamento recorrente."
+
+#: classes/class-wc-subscriptions-order.php:2531
+msgid "Manual"
+msgstr "Manual"
+
+#: classes/class-wc-subscriptions-order.php:2801
+msgid "Show all types"
+msgstr "Mostrar todos os tipos"
+
+#: classes/class-wc-subscriptions-product.php:362
+msgid "%s"
+msgid_plural "every %s"
+msgstr[0] "%s"
+msgstr[1] "cada %s"
+
+#: classes/class-wc-subscriptions-product.php:372
+msgid "%s with %s free trial"
+msgstr "%s com %s perído de avaliação"
+
+#: classes/class-wc-subscriptions-product.php:376
+msgid "%s and a %s sign-up fee"
+msgstr "%s e um %s taxa de inscrição"
+
+#: classes/class-wc-subscriptions-product.php:710
+msgid "Restore this item from the Trash"
+msgstr "Restaurar este item da Lixeira"
+
+#: classes/class-wc-subscriptions-product.php:710
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:186
+msgid "Restore"
+msgstr "Restaurar"
+
+#: classes/class-wc-subscriptions-renewal-order.php:68
+msgid ""
+"That product has been deleted and can no longer be renewed. Please choose a "
+"new product or contact us for assistance."
+msgstr ""
+"Esse produto foi apagado e já não pode ser renovado. Por favor, escolha um "
+"novo produto ou entre em contato conosco para obter ajuda."
+
+#: classes/class-wc-subscriptions-renewal-order.php:113
+msgid ""
+"Third parameter is now an array of name => value pairs. Use "
+"array( \"new_order_role\" => \"parent\" ) instead."
+msgstr ""
+
+#: classes/class-wc-subscriptions-renewal-order.php:130
+msgid "Subscription Renewal Order &ndash; %s"
+msgstr "Pedidos de renovação de assinatura &ndash; %s"
+
+#: classes/class-wc-subscriptions-renewal-order.php:130
+msgctxt "Order date parsed by strftime"
+msgid "%b %d, %Y @ %I:%M %p"
+msgstr ""
+
+#: classes/class-wc-subscriptions-renewal-order.php:477
+msgid "Order superseded by Renewal Order %s."
+msgstr "Pedidos substituídos por pedidos de renovação %s."
+
+#: classes/class-wc-subscriptions-renewal-order.php:518
+msgid "Subscription payment recorded in renewal order %s"
+msgstr "Pagamento de assinatura registrado em renovação de pedidos %s"
+
+#: classes/class-wc-subscriptions-renewal-order.php:691
+msgid ""
+"Second parameter is now an array of name => value pairs. Use "
+"array( \"order_role\" => \"child\" ) instead."
+msgstr ""
+
+#: classes/class-wc-subscriptions-renewal-order.php:911
+msgid "There was an error with the renewal request. Please try again."
+msgstr "Houve um erro com o pedido de renovação. Por favor, tente novamente."
+
+#: classes/class-wc-subscriptions-renewal-order.php:919
+msgid ""
+"That subscription can not be renewed. Please contact us if you need "
+"assistance."
+msgstr ""
+"Essa assinatura não pode ser renovada. Entre em contato conosco se precisar "
+"de assistência"
+
+#: classes/class-wc-subscriptions-renewal-order.php:971
+msgid "Renew your subscription."
+msgstr "Renove sua assinatura."
+
+#: classes/class-wc-subscriptions-renewal-order.php:1000
+msgid "Sorry, this failed order has already been paid. See order %s."
+msgstr "Desculpe, este pedido falho já foi pago. Veja pedidos %s."
+
+#: classes/class-wc-subscriptions-renewal-order.php:1131
+msgid "Initial Order:"
+msgstr "Pedido Inicial:"
+
+#: classes/class-wc-subscriptions-renewal-order.php:1140
+msgid "Renewal of Subscription Purchased in Order:"
+msgstr "Renovação da Assinatura comprado em pedido:"
+
+#: classes/class-wc-subscriptions-renewal-order.php:1158
+msgid "Superseeded by Subscription Purchased in Order:"
+msgstr "Substituído por Assinatura comprada em pedido:"
+
+#: classes/class-wc-subscriptions-renewal-order.php:1168
+msgid "No renewal payments yet."
+msgstr "Ainda sem pagamentos de renovação."
+
+#: classes/class-wc-subscriptions-renewal-order.php:1173
+msgid "Renewal Orders:"
+msgstr "Pedidos de Renovação:"
+
+#: classes/class-wc-subscriptions-renewal-order.php:1328
+msgid "[%s] New Subscription Renewal Order (%s)"
+msgstr "[%s] Novo pedido de Renovação de Assinatura (%s)"
+
+#: classes/class-wc-subscriptions-renewal-order.php:1351
+#: classes/class-wc-subscriptions-renewal-order.php:1374
+msgid "[%s] Subscription Renewal Order"
+msgstr "[%s] Pedido de Renovação de Assinaturas"
+
+#: classes/class-wc-subscriptions-switcher.php:109
+msgid ""
+"You have an active subscription to this product. Choosing a new subscription "
+"will replace your existing subscription."
+msgstr ""
+"Você tem uma assinatura ativa para este produto. Escolhendo uma nova "
+"assinatura irá substituir a sua assinatura atual."
+
+#: classes/class-wc-subscriptions-switcher.php:111
+msgid "Choose a new subscription."
+msgstr "Escolha uma nova assinatura."
+
+#: classes/class-wc-subscriptions-switcher.php:122
+msgid ""
+"Your cart contained an invalid subscription switch request and has been "
+"emptied."
+msgstr ""
+"Seu carrinho contem um pedido de troca de assinatura inválido e foi "
+"esvaziado."
+
+#: classes/class-wc-subscriptions-switcher.php:129
+msgid "Once sign up is complete, this will replace your existing subscription."
+msgstr ""
+"Uma vez que sua inscrição estiver completa, irá substituir sua incrição "
+"existente."
+
+#: classes/class-wc-subscriptions-switcher.php:160
+msgid "Switching"
+msgstr "Trocar"
+
+#: classes/class-wc-subscriptions-switcher.php:162
+msgid ""
+"Allow subscribers to switch (upgrade or downgrade) between different "
+"subscriptions. %sLearn more%s."
+msgstr ""
+"Permitir assinantes de mudar (upgrade or downgrade) entre as diferentes "
+"assinaturas. %sSaiba mais%s.."
+
+#: classes/class-wc-subscriptions-switcher.php:167
+msgid "Allow Switching"
+msgstr "Habilitar mudança"
+
+#: classes/class-wc-subscriptions-switcher.php:168
+msgid ""
+"Allow subscribers to switch between subscriptions combined in a grouped "
+"product, different variations of a Variable subscription or don't allow "
+"switching."
+msgstr ""
+"Permitir assinantes de alternar entre assinaturas combinadas em um produto "
+"agrupado, diferentes variações de uma assinatura variável ou não permitem a "
+"mudança."
+
+#: classes/class-wc-subscriptions-switcher.php:176
+msgid "Between Subscription Variations"
+msgstr "Entre Variações de Assinaturas"
+
+#: classes/class-wc-subscriptions-switcher.php:177
+msgid "Between Grouped Subscriptions"
+msgstr "Entre Assinaturas Agrupadas"
+
+#: classes/class-wc-subscriptions-switcher.php:178
+msgid "Between Both Variations & Grouped Subscriptions"
+msgstr "Entre ambas Variações e Assinatura Agrupadas"
+
+#: classes/class-wc-subscriptions-switcher.php:184
+msgid "Apportion Recurring Payments"
+msgstr "Definir Pagamentos Recorrentes"
+
+#: classes/class-wc-subscriptions-switcher.php:185
+msgid ""
+"When switching to a subscription with a different recurring payment or "
+"billing period, should the price paid for the existing billing period be "
+"apportioned when switching to the new subscription?"
+msgstr ""
+"Ao se mudar para uma assinatura com um pagamento recorrente ou período de "
+"faturamento diferente, o preço pago pelo período de faturamento existentes "
+"será definido ao se mudar para uma nova assinatura?"
+
+#: classes/class-wc-subscriptions-switcher.php:193
+#: classes/class-wc-subscriptions-switcher.php:225
+msgid "For Virtual Subscription Products Only"
+msgstr "Apenas para Assinaturas Virtuais"
+
+#: classes/class-wc-subscriptions-switcher.php:194
+#: classes/class-wc-subscriptions-switcher.php:226
+msgid "For All Subscription Products"
+msgstr "Para Todas Assinaturas de Produto"
+
+#: classes/class-wc-subscriptions-switcher.php:200
+msgid "Apportion Sign up Fee"
+msgstr "Definir Taxa de Assinatura"
+
+#: classes/class-wc-subscriptions-switcher.php:201
+msgid ""
+"When switching to a subscription with a sign up fee, you can require the "
+"customer pay only the gap between the existing subscription's sign up fee "
+"and the new subscription's sign up fee (if any)."
+msgstr ""
+"Ao mudar para uma assinatura com uma taxa de inscrição, você pode exigir que "
+"o cliente pague apenas a diferença entre taxa de inscrição da assinatura "
+"existente e da nova assinatura acima da taxa (se houver)."
+
+#: classes/class-wc-subscriptions-switcher.php:208
+msgid "Never (do not charge a sign up fee)"
+msgstr "Nunca (não cobrar taxa de inscrição)"
+
+#: classes/class-wc-subscriptions-switcher.php:209
+msgid "Never (charge the full sign up fee)"
+msgstr "Never (cobrar uma taxa de inscrição completa)"
+
+#: classes/class-wc-subscriptions-switcher.php:210
+msgid "Always"
+msgstr "Sempre"
+
+#: classes/class-wc-subscriptions-switcher.php:216
+msgid "Apportion Subscription Length"
+msgstr "Definir Duração de Assinatura"
+
+#: classes/class-wc-subscriptions-switcher.php:217
+msgid ""
+"When switching to a subscription with a length, you can take into account "
+"the payments already completed by the customer when determining how many "
+"payments the subscriber needs to make for the new subscription."
+msgstr ""
+"Ao se mudar para uma assinatura com duração de tempo específica, você pode "
+"ter em conta os pagamentos já realizados pelo cliente ao determinar quantos "
+"pagamentos o assinante precisa fazer para a nova assinatura."
+
+#: classes/class-wc-subscriptions-switcher.php:232
+msgid "Switch Button Text"
+msgstr "Mudar texto do Botão"
+
+#: classes/class-wc-subscriptions-switcher.php:233
+msgid ""
+"Customise the text displayed on the button next to the subscription on the "
+"subscriber's account page. The default is \"Switch Subscription\", but you "
+"may wish to change this to \"Upgrade\" or \"Change Subscription\"."
+msgstr ""
+"Personalize o texto exibido no botão ao lado da assinatura na página da "
+"conta do assinante. O padrão é \"Mudar Assinatura\", mas você pode querer "
+"mudar isso para \"Atualizar\" ou \"Alterar Assinatura\"."
+
+#: classes/class-wc-subscriptions-switcher.php:237
+#: classes/class-wc-subscriptions-switcher.php:264
+msgid "Switch Subscription"
+msgstr "Mudar Assinatura"
+
+#: classes/class-wc-subscriptions-switcher.php:458
+msgid "Subscription Switched from Order:"
+msgstr "Pedido de Troca de Assinatura:"
+
+#: classes/class-wc-subscriptions-switcher.php:473
+msgid "Subscription Switched in Order:"
+msgstr "Pedido de Troca de Assinatura:"
+
+#: classes/class-wc-subscriptions-switcher.php:529
+msgid "Switched"
+msgstr "Trocadas"
+
+#: classes/class-wc-subscriptions-switcher.php:549
+msgid "You can not switch to the same subscription."
+msgstr "Você não pode trocar para a mesma assinatura."
+
+#: classes/class-wc-subscriptions-switcher.php:571
+msgid ""
+"You can not switch this subscription. It appears you do not own the "
+"subscription."
+msgstr ""
+"Não é possível trocar essa assinatura. Parece que você não possui a "
+"assinatura."
+
+#: classes/class-wc-subscriptions-switcher.php:861
+msgid "%s %s(next payment %s)%s"
+msgstr "%s %s(próximo pagamento %s)%s"
+
+#: classes/class-wc-subscriptions-synchroniser.php:34
+#: classes/class-wc-subscriptions-synchroniser.php:149
+#: classes/class-wc-subscriptions-synchroniser.php:265
+#: classes/class-wc-subscriptions-synchroniser.php:279
+msgid "Synchronise Renewals"
+msgstr "Sincronizar Renovações"
+
+#: classes/class-wc-subscriptions-synchroniser.php:35
+msgid ""
+"Align the payment date for all customers who purchase this subscription to a "
+"specific day of the week or month."
+msgstr ""
+"Especifique uma data de pagamento para todos os clientes que comprarem esta "
+"assinatura para um dia específico da semana ou do mês."
+
+#: classes/class-wc-subscriptions-synchroniser.php:36
+msgid ""
+"Align the payment date for this subscription to a specific day of the year. "
+"If the date has already taken place this year, the first payment will be "
+"processed in %s. Set the day to 0 to disable payment syncing for this "
+"product."
+msgstr ""
+"Alinhe a data de pagamento para essa assinatura para um dia específico do "
+"ano. Se a data já aconteceu este ano, o primeiro pagamento será processado "
+"em %s. Defina o dia para 0 para desativar a sincronização de pagamento para "
+"este produto."
+
+#: classes/class-wc-subscriptions-synchroniser.php:150
+msgid ""
+"Align subscription renewal to a specific day of the week, month or year. "
+"%sLearn more%s."
+msgstr ""
+"Alinhe renovação de assinatura para um dia específico da semana, mês ou ano. "
+"%sSaiba mais%s."
+
+#: classes/class-wc-subscriptions-synchroniser.php:155
+msgid ""
+"For example, process all payments for a weekly subscription on Sundays, or "
+"process all payments for a monthly subscription on the 1st of the month."
+msgstr ""
+"Por exemplo, o processo de todos os pagamentos para uma assinatura semanal "
+"aos domingos, ou processo de todos os pagamentos para uma assinatura mensal "
+"no 1 º dia do mês."
+
+#: classes/class-wc-subscriptions-synchroniser.php:213
+#: classes/class-wc-subscriptions-synchroniser.php:286
+msgid "Day"
+msgstr "Dia"
+
+#: classes/class-wc-subscriptions-synchroniser.php:633
+msgid "Do not synchronise"
+msgstr "Não sincronize"
+
+#: classes/class-wc-subscriptions-synchroniser.php:640
+msgid "%s each week"
+msgstr "%s cada semana"
+
+#: classes/class-wc-subscriptions-synchroniser.php:645
+msgid "%s day of the month"
+msgstr "%s dia do mês"
+
+#: classes/class-wc-subscriptions-synchroniser.php:647
+msgid "Last day of the month"
+msgstr "Último dia do mês"
+
+#: classes/class-wc-subscriptions-synchroniser.php:675
+#: classes/class-wc-subscriptions-synchroniser.php:718
+msgid "Today!"
+msgstr "Hoje!"
+
+#: classes/class-wc-subscriptions-synchroniser.php:683
+msgid "First weekly payment: %s"
+msgstr "Primeiro pagamento semanal: %s"
+
+#: classes/class-wc-subscriptions-synchroniser.php:686
+msgid "First monthly payment: %s"
+msgstr "Primeiro pagamento mensal: %s"
+
+#: classes/class-wc-subscriptions-synchroniser.php:689
+msgid "First yearly payment: %s"
+msgstr "Primeiro pagamento anual: %s"
+
+#: classes/class-wc-subscriptions-synchroniser.php:723
+msgid "%s %s(First payment: %s)%s"
+msgstr "%s %s(Primeiro pagamento: %s)%s"
+
+#: classes/class-wc-subscriptions-upgrader.php:201
+msgid "Database updated to version %s"
+msgstr "Banco de dados atualizado para a versão %s"
+
+#: classes/class-wc-subscriptions-upgrader.php:223
+msgid "Marked %s subscription products as \"sold individually\"."
+msgstr "Marcado %s Assinatura de produtos como \"vendido separadamente\"."
+
+#: classes/class-wc-subscriptions-upgrader.php:277
+msgid ""
+"Migrated %s subscription related hooks to the new scheduler (in "
+"{execution_time} seconds)."
+msgstr ""
+"Migrados %s assinaturas relacionadas ao gancho para o novo calendario (em "
+"{execution_time} segundos)."
+
+#: classes/class-wc-subscriptions-upgrader.php:851
+msgid "WooCommerce Subscriptions Update"
+msgstr "WooCommerce Subscriptions Atualizado"
+
+#: classes/class-wc-subscriptions-upgrader.php:861
+msgid "Database Update Required"
+msgstr "Atualização de Banco de Dados Necessária"
+
+#: classes/class-wc-subscriptions-upgrader.php:862
+msgid "The WooCommerce Subscriptions plugin has been updated!"
+msgstr "O WooCommerce Subscriptions plugin foi atualiado!"
+
+#: classes/class-wc-subscriptions-upgrader.php:863
+msgid ""
+"Before we send you on your way, we need to update your database to the "
+"newest version. If you do not have a recent backup of your site, now is a "
+"good time to create one."
+msgstr ""
+"Antes de liberar você, é preciso atualizar seu banco de dados para a versão "
+"mais recente. Se você não tem um backup recente do seu site, agora é um bom "
+"momento para criar um."
+
+#: classes/class-wc-subscriptions-upgrader.php:864
+msgid "The update process may take a little while, so please be patient."
+msgstr ""
+"O processo de atualização pode demorar um pouco, por favor seja paciente."
+
+#: classes/class-wc-subscriptions-upgrader.php:866
+msgid "Update Database"
+msgstr "Banco de Dados Atualizado"
+
+#: classes/class-wc-subscriptions-upgrader.php:870
+msgid "Update in Progress"
+msgstr "Atualização em Progresso"
+
+#: classes/class-wc-subscriptions-upgrader.php:872
+msgid ""
+"The full update process for the %s subscriptions on your site will take "
+"approximately %s to %s minutes."
+msgstr ""
+"O processo completo de atualização para %s o plugin Woo Subscriptions em seu "
+"site levará aproximadamente %s de %s minutos."
+
+#: classes/class-wc-subscriptions-upgrader.php:874
+msgid ""
+"This page will display the results of the process as each batch of "
+"subscriptions is updated. No need to refresh or restart the process. "
+"Customers and other non-administrative users will continue to be able to "
+"browse your site without interuption while the update is in progress."
+msgstr ""
+"Esta página irá exibir resultados dos processos de cada lote de inscrições "
+"está atualizada. Não há necessidade de atualizar ou reiniciar o processo. "
+"Clientes e outros usuários não-administrativos continuarão ser capazes de "
+"navegar em seu site, sem interuption enquanto a atualização está em "
+"andamento."
+
+#: classes/class-wc-subscriptions-upgrader.php:880
+msgid "Update Complete"
+msgstr "Atualização concluída"
+
+#: classes/class-wc-subscriptions-upgrader.php:881
+msgid "Your database has been successfully updated!"
+msgstr "Seu banco de dados foi atualizado com sucesso!"
+
+#: classes/class-wc-subscriptions-upgrader.php:882
+msgid "Continue"
+msgstr "Continuar"
+
+#: classes/class-wc-subscriptions-upgrader.php:885
+msgid "Update Error"
+msgstr "Erro de atualização"
+
+#: classes/class-wc-subscriptions-upgrader.php:886
+msgid ""
+"There was an error with the update. Please refresh the page and try again."
+msgstr ""
+"Houve um erro com a atualização. Por favor, atualize a página e tente "
+"novamente."
+
+#: classes/class-wc-subscriptions-upgrader.php:916
+msgid "WooCommerce Subscriptions Update in Progress"
+msgstr "Atualização do WooCommerce  Subscriptions em andamento"
+
+#: classes/class-wc-subscriptions-upgrader.php:922
+msgid "The Upgrade is in Progress"
+msgstr "A atualização está em andamento"
+
+#: classes/class-wc-subscriptions-upgrader.php:923
+msgid ""
+"The WooCommerce Subscriptions plugin is currently running its database "
+"upgrade routine."
+msgstr ""
+"O pluginWooCommerce Subscriptions está executando sua rotina de atualização "
+"de banco de dados."
+
+#: classes/class-wc-subscriptions-upgrader.php:924
+msgid ""
+"If you received a server error and reloaded the page to find this notice, "
+"please refresh the page in %s seconds and the upgrade routine will "
+"recommence without issues. Subscriptions can update approximately %s "
+"subscriptions before exhausting the memory available on your PHP "
+"installation (which has %s allocated). It will update approxmiately 750 "
+"subscriptions per minute."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:925
+msgid ""
+"Rest assured, although the update process may take a little while, it is "
+"coded to prevent defects, your site is safe and will be up and running "
+"again, faster than ever, shortly."
+msgstr ""
+"Fique tranqüilo, embora o processo de atualização pode demorar um pouco, ele "
+"é codificado para prevenir defeitos, o site é seguro e vai ser instalado e "
+"funcional de novo, mais rápido do que nunca, em breve."
+
+#: classes/class-wc-subscriptions-upgrader.php:933
+msgid "Welcome to WooCommerce Subscriptions 1.5"
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:933
+msgid "About WooCommerce Subscriptions"
+msgstr "Sobre o WooCommerce Assinaturas"
+
+#: classes/class-wc-subscriptions-upgrader.php:968
+msgid "Welcome to Subscriptions 1.5"
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:971
+msgid ""
+"Thank you for updating to the latest version! Subscriptions 1.5 is more "
+"powerful, scalable, and reliable than ever before. We hope you enjoy it."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:974
+msgid "Version 1.5"
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:978
+#: woocommerce-subscriptions.php:1241
+msgid "Docs"
+msgstr "Docs"
+
+#: classes/class-wc-subscriptions-upgrader.php:984
+msgid "Check Out What's New"
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:992
+msgid "Renewal Synchronisation"
+msgstr "Sincronização de Renovação"
+
+#: classes/class-wc-subscriptions-upgrader.php:993
+msgid ""
+"Subscription renewal dates can now be aligned to a specific day of the week, "
+"month or year."
+msgstr ""
+"Datas de Renovação de Assinatura pode agora ser configurada para um dia "
+"específico da semana, mês ou ano."
+
+#: classes/class-wc-subscriptions-upgrader.php:994
+msgid ""
+"If you sell physical goods and want to ship only on certain days, or sell "
+"memberships and want to align membership periods to a calendar day, "
+"WooCommerce Subscriptions can now work on your schedule."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:995
+msgid ""
+"%sEnable renewal synchronisation%s now or %slearn more%s about this feature."
+msgstr ""
+"%sAtivar Renovação de Assinatura%s agora ou %ssaiba mais%s sobre esse "
+"recurso."
+
+#: classes/class-wc-subscriptions-upgrader.php:1002
+msgid ""
+"Simple, variable and other non-subscription products can now be purchased in "
+"the same transaction as a subscription product."
+msgstr ""
+"Simples, variações e outros produtos sem-assinatura já podem ser comprados "
+"na mesma transação como um produto de assinatura."
+
+#: classes/class-wc-subscriptions-upgrader.php:1003
+msgid ""
+"This makes it easier for your customers to buy more from your store and soon "
+"it will also be possible to offer %sProduct Bundles%s & %sComposite Products"
+"%s which include a subscription."
+msgstr ""
+"Isso torna mais fácil para os seus clientes comprar mais da sua loja e em "
+"breve também será possível oferecer %sPacotes de Produtos%s como %sProdutos "
+"Montados%s que incluem uma assinatura."
+
+#: classes/class-wc-subscriptions-upgrader.php:1004
+msgid ""
+"%sEnable mixed checkout%s now under the %sMiscellaneous%s settings section."
+msgstr ""
+"%sAtivar pagamento misto%s agora sob a seção de configurações %sDiversos%s."
+
+#: classes/class-wc-subscriptions-upgrader.php:1018
+msgid "Subscription Quantities"
+msgstr "Quantidades de Assinaturas"
+
+#: classes/class-wc-subscriptions-upgrader.php:1019
+msgid ""
+"Your customers no longer need to purchase a subscription multiple times to "
+"access multiple quantities of the same product."
+msgstr ""
+"Seus clientes não precisam mais comprar uma assinatura várias vezes para "
+"acessar várias quantidades do mesmo produto."
+
+#: classes/class-wc-subscriptions-upgrader.php:1020
+msgid ""
+"For any subscription product not marked as %sSold Individually%s on the "
+"%sInventory%s tab%s of the %sEdit Product%s screen, your customers can now "
+"choose to purchase multiple quantities in the one transaction."
+msgstr ""
+"Para qualquer assinatura não marcada como %sVendida Individualmente%s no "
+"%sguia%sInventário%s da tela %sEditar Produtos%s, seus clientes podem agora "
+"optar por comprar quantidades múltiplas na única transação."
+
+#: classes/class-wc-subscriptions-upgrader.php:1021
+msgid ""
+"Your existing subscription products have been automatically set as %sSold "
+"Individually%s, so nothing will change for existing products, unless you "
+"want it to. Edit %ssubscription products%s."
+msgstr ""
+"Seus Assinaturas em vigor foram automaticamente definidas como %sVendido "
+"Individualmente%s, por isso, nada vai mudar para os produtos existentes, a "
+"menos que você queira que o seja. Edite %sAssinatura de Produtos%s ."
+
+#: classes/class-wc-subscriptions-upgrader.php:1032
+msgid "Responsive Subscriptions Table"
+msgstr "Tabela Responsiva de Assinaturas"
+
+#: classes/class-wc-subscriptions-upgrader.php:1033
+msgid ""
+"The default template for the %sMy Subscriptions%s table is now responsive to "
+"make it easy for your customers to view and manage their subscriptions on "
+"any device."
+msgstr ""
+"O modelo padrão para a tabela %sMinhas Assinaturas%s agora é responsiva para "
+"tornar mais fácil para os seus clientes visualizar e gerenciar suas "
+"assinaturas em qualquer dispositivo."
+
+#: classes/class-wc-subscriptions-upgrader.php:1038
+msgid "Subscription Switch Emails"
+msgstr "Emails de Assinaturas trocadas"
+
+#: classes/class-wc-subscriptions-upgrader.php:1039
+msgid ""
+"Subscriptions now sends two new emails when a customer upgrades or "
+"downgrades her subscription. Enable, disable or customise these emails on "
+"the %sEmail Settings%s screen."
+msgstr ""
+"O Plugin Woo Subscription pode agora enviar dois novos e-mails quando um "
+"cliente fizer upgrades or downgrades de sua assinatura. Habilite, desabilite "
+"ou personalize esses e-mails na tela %sConfigurações de Email%s."
+
+#: classes/class-wc-subscriptions-upgrader.php:1044
+msgid "Points & Rewards"
+msgstr "Pontos e Recompensas"
+
+#: classes/class-wc-subscriptions-upgrader.php:1045
+msgid ""
+"Support for the %sPoints & Rewards extension%s: points will now be rewarded "
+"for each subscription renewal."
+msgstr ""
+"O suporte para a extensão %sPontos e Recompensas%s: Pontos serão agora "
+"recompensados por cada nova renovação de assinatura."
+
+#: classes/class-wc-subscriptions-upgrader.php:1053
+msgid "Under the Hood - New Scheduling System"
+msgstr "Sob o capô - Novo Sistema de Agendamento"
+
+#: classes/class-wc-subscriptions-upgrader.php:1054
+msgid ""
+"Subscriptions 1.5 also introduces a completely new scheduling system - "
+"Action Scheduler."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:1058
+msgid "Built to Sync"
+msgstr "Contruido para Sincronizar"
+
+#: classes/class-wc-subscriptions-upgrader.php:1059
+msgid ""
+"Introducing the new subscription synchronisation feature also introduces a "
+"new technical challenge - thousands of renewals may be scheduled for the "
+"same time."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:1060
+msgid ""
+"WordPress's scheduling system was not made to handle queues like that, but "
+"the new Action Scheduler is designed to process queues with thousands of "
+"renewals so you can sync subscriptions with confidence."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:1063
+msgid "Built to Debug"
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:1064
+msgid ""
+"When things go wrong, the more information available, the easier it is to "
+"diagnose and find a fix. Traditionally, a subscription renewal problem was "
+"tricky to diagnose because renewal happened in the background."
+msgstr ""
+
+#: classes/class-wc-subscriptions-upgrader.php:1065
+msgid ""
+"Action Scheduler now logs important events around renewals and makes this "
+"and other important information available through a specially designed "
+"administration interface."
+msgstr ""
+"Ação programada agora registra eventos importantes sobre as Renovações, está "
+"e outras informações importantes estão disponíveis através de uma interface "
+"de administração especialmente projetada."
+
+#: classes/class-wc-subscriptions-upgrader.php:1068
+msgid "Built to Scale"
+msgstr "Construída em escala"
+
+#: classes/class-wc-subscriptions-upgrader.php:1069
+msgid ""
+"The new Action Scheduler uses battle tested WordPress core functionality to "
+"ensure your site can scale its storage of scheduled subscription events, "
+"like an expiration date or renewal date, to handle thousands or even "
+"hundreds of thousands of subscriptions."
+msgstr ""
+"A nova Ação Programada utiliza o núcleo testado do WordPress para garantir "
+"que seu site possa escalar o seu armazenamento de eventos de assinatura "
+"agendadas, como uma data de vencimento e renovação, para lidar com milhares "
+"ou mesmo centenas de milhares de assinaturas."
+
+#: classes/class-wc-subscriptions-upgrader.php:1070
+msgid ""
+"We want stores of all sizes to be able to rely on WooCommerce Subscriptions."
+msgstr ""
+"Queremos que as lojas de todos os tamanhos possam contar com WooCommerce "
+"Assinaturas."
+
+#: classes/class-wc-subscriptions-upgrader.php:1075
+msgid "Go to WooCommerce Subscriptions Settings"
+msgstr "Vá para configurações do WooCommerce Subscriptions"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:27
+msgid "Cancelled Subscription"
+msgstr "Assinatura Cancelada"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:28
+msgid ""
+"Cancelled Subscription emails are sent when a customer's subscription is "
+"cancelled (either by a store manager, or the customer)."
+msgstr ""
+"Emails de cancelamento de Assinaturas são enviados quando assinatura do "
+"cliente é cancelada (ou por um gerente de loja, ou pelo cliente)."
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:30
+msgid "Subscription Cancelled"
+msgstr "Assinatura Cancelada"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:31
+msgid "[{blogname}] Subscription Cancelled"
+msgstr "[{blogname}] Assinatura Cancelada"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:170
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:165
+msgid "Enable/Disable"
+msgstr "Ativar/Desativar"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:172
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:167
+msgid "Enable this email notification"
+msgstr "Ativar a notificação de e-mail"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:176
+msgid "Recipient(s)"
+msgstr "Destinatário(s)"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:178
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
+msgstr ""
+"Digite destinatários (separados por vírgula) para este e-mail. O padrão é "
+"<code>%s</code>."
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:183
+msgid "Subject"
+msgstr "Assunto"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:185
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
+msgstr ""
+"Isto controla o campo de assunto do email. Deixe em branco para usar o tema "
+"padrão: <code>%s</code>."
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:190
+msgid "Email Heading"
+msgstr "Cabeçalho de Email"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:192
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+"Isto controla o  título principal contido dentro do email de notificação. "
+"Deixe em branco para usar o título padrão: <code>%s</code>."
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:197
+msgid "Email type"
+msgstr "Tipo de email"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:199
+msgid "Choose which format of email to send."
+msgstr "Escolha um formato de email para enviar."
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:203
+msgid "Plain text"
+msgstr "Texto simples"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:204
+msgid "HTML"
+msgstr "HTML"
+
+#: classes/emails/class-wcs-email-cancelled-subscription.php:205
+msgid "Multipart"
+msgstr "Multipartes"
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:25
+msgid "Completed Renewal Order"
+msgstr "Pedido de Renovação Concluído"
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:26
+msgid ""
+"Renewal order complete emails are sent to the customer when a subscription "
+"renewal order is marked complete and usually indicates that the item for "
+"that renewal period has been shipped."
+msgstr ""
+"Emails de pedidos de renovação são enviados para clientes quando o pedido de "
+"renovação da assinatura é marcada como concluída, e geralmente indica que o "
+"item para esse período de renovação foi enviado."
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:28
+msgid "Your renewal order is complete"
+msgstr "Seu pedido de renovação foi concluída."
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:29
+msgid "Your {blogname} renewal order from {order_date} is complete"
+msgstr "Seu pedido de renovação do {blogname} em {order_date} foi concluída."
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:36
+msgid "Your subscription renewal order is complete - download your files"
+msgstr "Seu pedido de renovação foi concluída. - baixe seus arquivos."
+
+#: classes/emails/class-wcs-email-customer-completed-renewal-order.php:37
+msgid ""
+"Your {blogname} subscription renewal order from {order_date} is complete - "
+"download your files"
+msgstr ""
+"Seu pedido de renovação do {blogname} em {order_date} foi concluída - baixe "
+"seus arquivos."
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:25
+msgid "Subscription Switch Complete"
+msgstr "Mudança de Assinaturas Concluída"
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:26
+msgid ""
+"Subscription switch complete emails are sent to the customer when a "
+"subscription is switched successfully."
+msgstr ""
+"Emails de mudanças de assinatura concluídas são enviadas para o cliente "
+"assim que a mudança de assinatura ocorrrer com sucesso."
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:28
+msgid "Your subscription change is complete"
+msgstr "Sua mudança de assinatura foi concluída."
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:29
+msgid "Your {blogname} subscription change from {order_date} is complete"
+msgstr ""
+"Suas mudança de assinatura do {blogname} em {order_date} foi concluída."
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:36
+msgid "Your subscription change is complete - download your files"
+msgstr "Sua mudança de assinatura foi concluída. - baixe seus arquivos"
+
+#: classes/emails/class-wcs-email-customer-completed-switch-order.php:37
+msgid ""
+"Your {blogname} subscription change from {order_date} is complete - download "
+"your files"
+msgstr ""
+"Sua mudança de assinatura do {blogname} em {order_date} foi concluída - "
+"baixe seus arquivos."
+
+#: classes/emails/class-wcs-email-customer-processing-renewal-order.php:24
+msgid "Processing Renewal order"
+msgstr "Renovação de Pedido Processados"
+
+#: classes/emails/class-wcs-email-customer-processing-renewal-order.php:25
+msgid ""
+"This is an order notification sent to the customer after payment for a "
+"subscription renewal order is completed. It contains the renewal order "
+"details."
+msgstr ""
+"Está é um pedido de notificação enviada para o cliente após o pagamento da "
+"renovação da assinatura for completada. Contêm detalhes do pedido de "
+"renovação."
+
+#: classes/emails/class-wcs-email-customer-processing-renewal-order.php:27
+msgid "Thank you for your order"
+msgstr "Obrigado pelo seu pedido"
+
+#: classes/emails/class-wcs-email-customer-processing-renewal-order.php:28
+msgid "Your {blogname} renewal order receipt from {order_date}"
+msgstr "Seu {blogname} pedido de renovação recebido em {order_date}"
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:27
+msgid "Customer Renewal Invoice"
+msgstr "Fatura de Renovação do Cliente"
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:28
+msgid ""
+"Customer renewal invoice emails can be sent to the user containing order "
+"info and payment links. If a subscription is using manual renewals, it will "
+"be sent to the customer when a renewal payment is due."
+msgstr ""
+"E-mails de faturas de renovações de clientes podem ser enviadas para o "
+"usuário que contém informações e links de pedido de pagamento. Se uma "
+"assinatura estiver usando renovações manuais, ela será enviada para o "
+"cliente quando um pagamento de renovação acontecer."
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:34
+msgid "Invoice for renewal order {order_number} from {order_date}"
+msgstr "Fatura do pedido de renovação {order_number} em {order_date}"
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:35
+msgid "Invoice for renewal order {order_number}"
+msgstr "Fatura para o pedido de renovação {order_number}"
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:37
+msgid "Your {blogname} renewal order from {order_date}"
+msgstr "Seu pedido de renovação do {blogname} em {order_date}"
+
+#: classes/emails/class-wcs-email-customer-renewal-invoice.php:38
+msgid "Renewal order {order_number} details"
+msgstr "Detalhes do pedido {order_number} de renovação"
+
+#: classes/emails/class-wcs-email-new-renewal-order.php:22
+msgid "New Renewal Order"
+msgstr "Novos pedidos de Renovação"
+
+#: classes/emails/class-wcs-email-new-renewal-order.php:23
+msgid ""
+"New renewal order emails are sent when a subscription renewal payment is "
+"processed."
+msgstr ""
+"Novos pedidos de renovação, foram enviados quando a renovação de assinatura "
+"for processada."
+
+#: classes/emails/class-wcs-email-new-renewal-order.php:25
+msgid "New subscription renewal order"
+msgstr "Novo pedido de renovação de assinatura"
+
+#: classes/emails/class-wcs-email-new-renewal-order.php:26
+msgid ""
+"[{blogname}] New subscription renewal order ({order_number}) - {order_date}"
+msgstr ""
+"[{blogname}] Novo pedido de renovação de assinatura ({order_number}) - "
+"{order_date}"
+
+#: classes/emails/class-wcs-email-new-switch-order.php:22
+#: classes/emails/class-wcs-email-new-switch-order.php:25
+msgid "Subscription Switched"
+msgstr "Mudança de Assinatura"
+
+#: classes/emails/class-wcs-email-new-switch-order.php:23
+msgid ""
+"Subscription switched emails are sent when a customer switches a "
+"subscription."
+msgstr ""
+"Emaisl de mudaças de assinaturas são enviados quando um cliente muda de uma "
+"assinatura."
+
+#: classes/emails/class-wcs-email-new-switch-order.php:26
+msgid "[{blogname}] Subscription Switched ({order_number}) - {order_date}"
+msgstr "[{blogname}] Assinatura alterada ({order_number}) - {order_date}"
+
+#: classes/gateways/class-wc-subscriptions-payment-gateways.php:87
+msgid ""
+"Sorry, it seems there are no available payment methods which support "
+"subscriptions. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+"Desculpe, parece que não existem métodos de pagamento disponíveis que "
+"suportam assinaturas. Entre em contato conosco se você precisar de ajuda ou "
+"quiser fazer arranjos alternativos."
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:303
+msgid "IPN subscription payment method changed."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:307
+msgid "IPN subscription sign up completed."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:331
+msgid "IPN subscription payment completed."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:371
+msgid "IPN subscription payment failed."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:408
+msgid "IPN subscription cancelled for order."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:432
+msgid "IPN subscription payment failure."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:683
+msgid ""
+"It is <strong>strongly recommended you do not change the Receiver Email "
+"address</strong> if you have active subscriptions with PayPal. Doing so can "
+"break existing subscriptions."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:688
+msgid "API Credentials"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:690
+msgid ""
+"Enter your PayPal API credentials to unlock subscription suspension and "
+"cancellation features. %sLearn More &raquo;%s"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:694
+msgid "API Username"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:701
+msgid "API Password"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:708
+msgid "API Signature"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:749
+msgid "Subscription \"%s\" cancelled with PayPal"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:769
+msgid "Subscription \"%s\" suspended with PayPal"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:790
+msgid "Subscription \"%s\" reactivated with PayPal"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:835
+msgid "Subscription %s at %s"
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:1021
+msgid ""
+"PayPal is inactive for subscription transactions. Please %sset up the PayPal "
+"IPN%s and %senter your API credentials%s to enable PayPal for Subscriptions."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:1033
+msgid ""
+"There is a problem with PayPal. Your API credentials may be incorrect. "
+"Please update your %sAPI credentials%s. %sLearn more%s."
+msgstr ""
+
+#: classes/gateways/gateway-paypal-standard-subscriptions.php:1044
+msgid ""
+"There is a problem with PayPal. Your PayPal account is issuing out-of-date "
+"subscription IDs. %sLearn more%s. %sDismiss%s."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:79
+msgid "Published"
+msgstr "Publicado"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:79
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:210
+msgid "Complete"
+msgstr "Completo"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:117
+msgid "Hook"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:119
+msgid "Arguments"
+msgstr "Argumentos"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:120
+msgid "Group"
+msgstr "Grupo"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:121
+msgid "Recurrence"
+msgstr "Recorrência"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:122
+msgid "Scheduled Date"
+msgstr "Data Programada"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:127
+msgid "Started"
+msgstr "Iniciado"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:129
+msgid "Completed"
+msgstr "Concluído"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:133
+msgid "Claim ID"
+msgstr "Reivindidar ID"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:134
+msgid "Log"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:180
+msgid "Process the action now as if it were run as part of a queue"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:180
+msgid "Run"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:186
+msgid "Restore this action from the Trash"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:188
+msgid "Move this action to the Trash"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:192
+msgid "Delete this action permanently"
+msgstr "Apagar está ação permanentemente."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:227
+msgid "Non-repeating"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:233
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:242
+msgid " (%s ago)"
+msgstr "(%s atrás)"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:339
+msgid ""
+"Maximum simulatenous batches already in progress (%s queues). No actions "
+"will be processed until the current batches are complete."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:348
+msgid "Successfully executed the action: %s"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:352
+msgid "Could not execute the action: %s"
+msgstr "Não é possível executar está ação: %s"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:378
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s hora"
+msgstr[1] "%s horas"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:379
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s minuto"
+msgstr[1] "%s minutos"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:380
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s segundo"
+msgstr[1] "%s segundos"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:384
+msgid "Now!"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:471
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:474
+msgid "Action updated."
+msgstr "Ação atualizada."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:472
+msgid "Custom field updated."
+msgstr "Campo personalizado atualizado."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:473
+msgid "Custom field deleted."
+msgstr "Campo personalizado excluído."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:475
+msgid "Action restored to revision from %s"
+msgstr "Ação restaurada para revisão de %s"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:476
+msgid "Action scheduled."
+msgstr "Ação programada."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:477
+msgid "Action saved."
+msgstr "Ação Salva."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:478
+msgid "Action submitted."
+msgstr "Ação submetida."
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:479
+msgid "Action scheduled for: <strong>%1$s</strong>"
+msgstr "Ação programada para: <strong>% 1$s</ strong>"
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:479
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_AdminView.php:480
+msgid "Action draft updated."
+msgstr "Projecto de Ação atualizado."
+
+#: lib/action-scheduler/classes/ActionScheduler_QueueRunner.php:133
+msgid "Every minute"
+msgstr "A cada minuto"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:140
+msgid "action created"
+msgstr "ação criada"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:144
+msgid "action canceled"
+msgstr "ação cancelada"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:148
+msgid "action started"
+msgstr "Ação iniciada"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:152
+msgid "action complete"
+msgstr "ação completa"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:156
+msgid "action failed: %s"
+msgstr "ação falhou %s"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:160
+msgid "action timed out after %s seconds"
+msgstr "ação expirou após %s segundos"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:165
+msgid "unexpected shutdown: PHP Fatal error %s in %s on line %s"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpCommentLogger.php:170
+msgid "action reset"
+msgstr "ação redefinida"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:23
+msgid "Error saving action: %s"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:42
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:51
+msgid "Invalid schedule. Cannot save action."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:67
+msgid "Unable to save action."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:317
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:326
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:341
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:477
+msgid "Unidentified action %s"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:398
+msgid "Unable to claim actions. Database error."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:428
+msgid "Unable to unlock claim %s. Database error."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:444
+msgid "Unable to unlock claim on action %s. Database error."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore.php:455
+msgid "Unable to mark failure on action %s. Database error."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostStatusRegistrar.php:36
+msgctxt "post"
+msgid "Failed"
+msgstr "Fracassado"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostStatusRegistrar.php:37
+msgid "Failed <span class=\"count\">(%s)</span>"
+msgid_plural "Failed <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostStatusRegistrar.php:50
+msgctxt "post"
+msgid "In-Progress"
+msgstr "Em progresso"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostStatusRegistrar.php:51
+msgid "In-Progress <span class=\"count\">(%s)</span>"
+msgid_plural "In-Progress <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:19
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:30
+msgid "Scheduled Actions"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:20
+msgid "Scheduled actions are hooks triggered on a cetain date and time."
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:31
+msgid "Scheduled Action"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:32
+msgctxt "Admin menu name"
+msgid "Scheduled Actions"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:33
+msgid "Add"
+msgstr "Adicionar"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:34
+msgid "Add New Scheduled Action"
+msgstr "Adicionar Novas Ações Programadas"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:36
+msgid "Edit Scheduled Action"
+msgstr "Editar Ação Programa"
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:37
+msgid "New Scheduled Action"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:38
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:39
+msgid "View Action"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:40
+msgid "Search Scheduled Actions"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:41
+msgid "No actions found"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_PostTypeRegistrar.php:42
+msgid "No actions found in trash"
+msgstr ""
+
+#: lib/action-scheduler/classes/ActionScheduler_wpPostStore_TaxonomyRegistrar.php:14
+msgid "Action Group"
+msgstr "Ação em Grupo"
+
+#: templates/admin/post-types/writepanels/order-shipping-html.php:6
+msgid "Label"
+msgstr "Etiqueta"
+
+#: templates/admin/post-types/writepanels/order-shipping-html.php:11
+msgid "Shipping Method"
+msgstr "Método de Envio"
+
+#: templates/checkout/form-change-payment-method.php:20
+#: templates/emails/admin-new-renewal-order.php:22
+#: templates/emails/admin-new-switch-order.php:22
+#: templates/emails/customer-completed-renewal-order.php:23
+#: templates/emails/customer-completed-switch-order.php:23
+#: templates/emails/customer-processing-renewal-order.php:23
+#: templates/emails/customer-renewal-invoice.php:26
+msgid "Product"
+msgstr "Produto"
+
+#: templates/checkout/form-change-payment-method.php:21
+msgid "Qty"
+msgstr "Qtd"
+
+#: templates/checkout/form-change-payment-method.php:22
+msgid "Totals"
+msgstr "Totais"
+
+#: templates/checkout/form-change-payment-method.php:79
+msgid ""
+"Sorry, it seems no payment gateways support changing the recurring payment "
+"method. Please contact us if you require assistance or to make alternate "
+"arrangements."
+msgstr ""
+
+#: templates/emails/admin-new-renewal-order.php:13
+#: templates/emails/plain/admin-new-renewal-order.php:13
+msgid ""
+"You have received a subscription renewal order from %s. Their order is as "
+"follows:"
+msgstr ""
+"Você recebeu um pedido de renovação de assinatura %s. Seu pedido é o "
+"seguinte:"
+
+#: templates/emails/admin-new-renewal-order.php:17
+#: templates/emails/admin-new-switch-order.php:17
+msgid "Order: %s"
+msgstr "Pedidos: %s"
+
+#: templates/emails/admin-new-renewal-order.php:23
+#: templates/emails/admin-new-switch-order.php:23
+#: templates/emails/customer-completed-renewal-order.php:24
+#: templates/emails/customer-completed-switch-order.php:24
+#: templates/emails/customer-processing-renewal-order.php:24
+#: templates/emails/customer-renewal-invoice.php:27
+msgid "Quantity"
+msgstr "Quantidade"
+
+#: templates/emails/admin-new-renewal-order.php:24
+#: templates/emails/admin-new-switch-order.php:24
+#: templates/emails/cancelled-subscription.php:20
+#: templates/emails/customer-completed-renewal-order.php:25
+#: templates/emails/customer-completed-switch-order.php:25
+#: templates/emails/customer-processing-renewal-order.php:25
+#: templates/emails/customer-renewal-invoice.php:28
+msgid "Price"
+msgstr "Preço"
+
+#: templates/emails/admin-new-renewal-order.php:50
+#: templates/emails/admin-new-switch-order.php:50
+#: templates/emails/cancelled-subscription.php:46
+#: templates/emails/customer-completed-renewal-order.php:51
+#: templates/emails/customer-completed-switch-order.php:51
+#: templates/emails/customer-processing-renewal-order.php:51
+#: templates/emails/plain/admin-new-renewal-order.php:38
+#: templates/emails/plain/admin-new-switch-order.php:38
+#: templates/emails/plain/cancelled-subscription.php:30
+msgid "Customer details"
+msgstr "Detalhes do Cliente"
+
+#: templates/emails/admin-new-renewal-order.php:53
+#: templates/emails/admin-new-switch-order.php:53
+#: templates/emails/cancelled-subscription.php:49
+#: templates/emails/customer-completed-renewal-order.php:54
+#: templates/emails/customer-completed-switch-order.php:54
+#: templates/emails/customer-processing-renewal-order.php:54
+#: templates/emails/plain/admin-new-renewal-order.php:41
+#: templates/emails/plain/admin-new-switch-order.php:41
+#: templates/emails/plain/cancelled-subscription.php:33
+#: templates/emails/plain/customer-completed-renewal-order.php:41
+#: templates/emails/plain/customer-completed-switch-order.php:41
+#: templates/emails/plain/customer-processing-renewal-order.php:41
+msgid "Email:"
+msgstr "Email:"
+
+#: templates/emails/admin-new-renewal-order.php:56
+#: templates/emails/admin-new-switch-order.php:56
+#: templates/emails/cancelled-subscription.php:52
+#: templates/emails/customer-completed-renewal-order.php:57
+#: templates/emails/customer-completed-switch-order.php:57
+#: templates/emails/customer-processing-renewal-order.php:57
+#: templates/emails/plain/admin-new-renewal-order.php:44
+#: templates/emails/plain/admin-new-switch-order.php:44
+#: templates/emails/plain/cancelled-subscription.php:36
+#: templates/emails/plain/customer-completed-renewal-order.php:44
+#: templates/emails/plain/customer-completed-switch-order.php:44
+#: templates/emails/plain/customer-processing-renewal-order.php:44
+msgid "Tel:"
+msgstr "Tel.:"
+
+#: templates/emails/admin-new-switch-order.php:13
+#: templates/emails/plain/admin-new-switch-order.php:13
+msgid ""
+"Customer %s has switched their subscription. Their new subscription "
+"information is as follows:"
+msgstr ""
+"Cliente %s mudou a sua assinatura. A informação da nova assinatura é a "
+"seguinte:"
+
+#: templates/emails/cancelled-subscription.php:13
+#: templates/emails/plain/cancelled-subscription.php:13
+msgid ""
+"A subscription belonging to %s %s has been cancelled. Their subscription's "
+"details are as follows:"
+msgstr ""
+"A assinatura pertencente a %s %s foi cancelada. Detalhes de sua inscrição "
+"são as seguintes:"
+
+#: templates/emails/cancelled-subscription.php:22
+msgid "End of Prepaid Term"
+msgstr ""
+
+#: templates/emails/customer-completed-renewal-order.php:14
+#: templates/emails/plain/customer-completed-renewal-order.php:13
+msgid ""
+"Hi there. Your subscription renewal order on %s has been completed. Your "
+"order details are shown below for your reference:"
+msgstr ""
+"Olá. Sua renovação de assinatura em %s foi concluída. Os detalhes do seu "
+"pedido são mostrados abaixo para sua referência:"
+
+#: templates/emails/customer-completed-renewal-order.php:18
+#: templates/emails/customer-completed-switch-order.php:18
+#: templates/emails/customer-processing-renewal-order.php:18
+#: templates/emails/customer-renewal-invoice.php:21
+msgid "Order:"
+msgstr "Pedido:"
+
+#: templates/emails/customer-completed-switch-order.php:14
+#: templates/emails/plain/customer-completed-switch-order.php:13
+msgid ""
+"Hi there. Your subscription change on %s has been completed. Your order "
+"details are shown below for your reference:"
+msgstr ""
+"Oá. Sua mudança de assinatura on %s foi concluída. Os detalhes de seu pedido "
+"são mostrados abaixo para sua referência:"
+
+#: templates/emails/customer-processing-renewal-order.php:14
+#: templates/emails/plain/customer-processing-renewal-order.php:13
+msgid ""
+"Your subscription renewal order has been received and is now being "
+"processed. Your order details are shown below for your reference:"
+msgstr ""
+"Seu pedido de renovação foi recebido e está sendo processado. Seus detalhes "
+"de seu pedido são mostrados abaixo para sua referência:"
+
+#: templates/emails/customer-renewal-invoice.php:14
+msgid ""
+"An invoice has been created for you to renew your subscription with %s. To "
+"pay for this invoice please use the following link: <a href=\"%s\">Pay Now "
+"&raquo;</a>"
+msgstr ""
+"Uma fatura foi criada para você renovar a sua assinatura com %s. Para pagar "
+"esta fatura por favor use o link a seguir: <a href=\"%s\">Renovar Agora "
+"&raquo</a>"
+
+#: templates/emails/customer-renewal-invoice.php:16
+msgid ""
+"The automatic payment to renew your subscription with %s has <em>failed</"
+"em>. To reactivate the subscription, please login and pay for the renewal "
+"from your account page: <a href=\"%s\">Pay Now &raquo;</a>"
+msgstr ""
+"O pagamento automático para renovar sua assinatura com %s <em>falhou</ em>. "
+"Para reativar a assinatura, faça o login e paguer pela renovação de sua "
+"página de conta: <a href=\"%s\">Renovar Agora &raquo</a>"
+
+#: templates/emails/plain/admin-new-renewal-order.php:19
+#: templates/emails/plain/admin-new-switch-order.php:19
+#: templates/emails/plain/cancelled-subscription.php:17
+#: templates/emails/plain/customer-completed-renewal-order.php:19
+#: templates/emails/plain/customer-completed-switch-order.php:19
+#: templates/emails/plain/customer-processing-renewal-order.php:19
+#: templates/emails/plain/customer-renewal-invoice.php:22
+msgid "Order number: %s"
+msgstr "Número do pedido: %s"
+
+#: templates/emails/plain/admin-new-renewal-order.php:20
+#: templates/emails/plain/admin-new-switch-order.php:20
+#: templates/emails/plain/cancelled-subscription.php:18
+#: templates/emails/plain/customer-completed-renewal-order.php:20
+#: templates/emails/plain/customer-completed-switch-order.php:20
+#: templates/emails/plain/customer-processing-renewal-order.php:20
+#: templates/emails/plain/customer-renewal-invoice.php:23
+msgid "Order date: %s"
+msgstr "Data do pedido:"
+
+#: templates/emails/plain/admin-new-renewal-order.php:20
+#: templates/emails/plain/admin-new-switch-order.php:20
+#: templates/emails/plain/cancelled-subscription.php:18
+msgid "jS F Y"
+msgstr ""
+
+#: templates/emails/plain/cancelled-subscription.php:19
+msgid "Subscription: %s"
+msgstr "Assinatura: %s"
+
+#: templates/emails/plain/cancelled-subscription.php:20
+msgid "Price: %s"
+msgstr "Preço: %s"
+
+#: templates/emails/plain/cancelled-subscription.php:21
+msgid "Last Payment: %s"
+msgstr "Último Pagamento: %s"
+
+#: templates/emails/plain/cancelled-subscription.php:23
+msgid "End of Prepaid Term: %s"
+msgstr ""
+
+#: templates/emails/plain/customer-completed-renewal-order.php:38
+#: templates/emails/plain/customer-completed-switch-order.php:38
+#: templates/emails/plain/customer-processing-renewal-order.php:38
+msgid "Your details"
+msgstr "Seus detalhes"
+
+#: templates/emails/plain/customer-renewal-invoice.php:14
+msgid ""
+"An invoice has been created for you to renew your subscription with %s. To "
+"pay for this order please use the following link: %s"
+msgstr ""
+"Uma fatura foi criada para você renovar a sua assinatura com %s. Para pagar "
+"este pedido, por favor use o seguinte link: %s"
+
+#: templates/emails/plain/customer-renewal-invoice.php:16
+msgid ""
+"The automatic payment to renew your subscription with %s has failed. To "
+"reactivate the subscription, please login and pay for the renewal from you "
+"account page: %s"
+msgstr ""
+"O pagamento automático para renovar sua assinatura com %s falhou. Para "
+"reativar a assinaura, faça o login e pague sua renovação na página \"Minha "
+"Conta\". %s"
+
+#: templates/emails/plain/subscription-info.php:12
+#: templates/emails/subscription-info.php:11
+msgid "Subscription Information:"
+msgstr "Informações da Assinatura"
+
+#: templates/emails/plain/subscription-info.php:16
+#: templates/emails/subscription-info.php:26
+#: templates/myaccount/my-subscriptions.php:77
+msgid "When Cancelled"
+msgstr "Quando Cancelado"
+
+#: templates/myaccount/my-subscriptions.php:7
+msgid "My Subscriptions"
+msgstr "Minhas Assinaturas"
+
+#: templates/myaccount/my-subscriptions.php:19
+#: templates/myaccount/my-subscriptions.php:104
+msgid "Actions"
+msgstr "Ações"
+
+#: templates/myaccount/my-subscriptions.php:70
+msgid "Via %s"
+msgstr "Via %s"
+
+#: templates/myaccount/my-subscriptions.php:117
+msgid ""
+"You have no active subscriptions. Find your first subscription in the %sstore"
+"%s."
+msgstr ""
+"Você não tem assinaturas ativas. Encontre sua primeira assinatura na %sstore"
+"%s."
+
+#: templates/single-product/add-to-cart/subscription.php:40
+#: woocommerce-subscriptions.php:214
+msgid "Renew"
+msgstr "Renovar"
+
+#: templates/single-product/add-to-cart/subscription.php:43
+msgid "You have an active subscription to this product already."
+msgstr "Você já tem uma assinatura ativa para este produto."
+
+#: woocommerce-subscriptions.php:229 woocommerce-subscriptions.php:240
+msgid "Pay"
+msgstr "Pagar"
+
+#: woocommerce-subscriptions.php:295
+msgid ""
+"A subscription has been removed from your cart. Multiple subscriptions can "
+"not be purchased at the same time."
+msgstr ""
+"A assinatura foi removida do seu carrinho. Múltiplas Assinaturas não podem "
+"ser compradas ao mesmo tempo."
+
+#: woocommerce-subscriptions.php:301
+msgid ""
+"A subscription has been removed from your cart. Products and subscriptions "
+"can not be purchased at the same time."
+msgstr ""
+
+#: woocommerce-subscriptions.php:387 woocommerce-subscriptions.php:400
+msgid "%sth"
+msgstr "%sº"
+
+#: woocommerce-subscriptions.php:391
+msgid "%sst"
+msgstr "%sº"
+
+#: woocommerce-subscriptions.php:394
+msgid "%snd"
+msgstr "%sº"
+
+#: woocommerce-subscriptions.php:397
+msgid "%srd"
+msgstr "%sº"
+
+#: woocommerce-subscriptions.php:422
+msgid ""
+"%sWooCommerce Subscriptions is inactive.%s The %sWooCommerce plugin%s must "
+"be active for WooCommerce Subscriptions to work. Please %sinstall & activate "
+"WooCommerce%s"
+msgstr ""
+
+#: woocommerce-subscriptions.php:426
+msgid ""
+"%sWooCommerce Subscriptions is inactive.%s This version of Subscriptions "
+"requires WooCommerce 2.1 or newer. Please %supdate WooCommerce to version "
+"2.1 or newer%s"
+msgstr ""
+
+#: woocommerce-subscriptions.php:453
+msgid "Variable Subscription"
+msgstr ""
+
+#: woocommerce-subscriptions.php:528
+msgid ""
+"%sYou have an out-of-date version of WooCommerce installed%s. WooCommerce "
+"Subscriptions no longer supports versions of WooCommerce prior to 2.0. "
+"Please %supgrade WooCommerce to version 2.0 or newer%s to avoid issues."
+msgstr ""
+
+#: woocommerce-subscriptions.php:533
+msgid ""
+"%sYou have an out-of-date version of WooCommerce installed%s. WooCommerce "
+"Subscriptions requires WooCommerce 2.0.16 or newer. Please %supdate "
+"WooCommerce to the latest version%s."
+msgstr ""
+
+#: woocommerce-subscriptions.php:563
+msgid ""
+"It looks like this site has moved or is a duplicate site. %sWooCommerce "
+"Subscriptions%s has disabled automatic payments and subscription related "
+"emails on this site to prevent duplicate payments from a staging or test "
+"environment. %sLearn more%s"
+msgstr ""
+
+#: woocommerce-subscriptions.php:565
+msgid "Quit nagging me (but don't enable automatic payments)"
+msgstr ""
+
+#: woocommerce-subscriptions.php:566
+msgid "Enable automatic payments"
+msgstr "Ativar pagamentos automáticos"
+
+#: woocommerce-subscriptions.php:1242
+msgid "Support"
+msgstr "Suporte"
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Subscriptions"
+msgstr "WooCommerce Assinaturas"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.woothemes.com/products/woocommerce-subscriptions/"
+msgstr "http://www.woothemes.com/products/woocommerce-subscriptions/"
+
+#. Description of the plugin/theme
+msgid ""
+"Sell products and services with recurring payments in your WooCommerce Store."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Brent Shepherd"
+msgstr "Brent Shepherd"
+
+#. Author URI of the plugin/theme
+msgid "http://find.brentshepherd.com/"
+msgstr "http://find.brentshepherd.com/"

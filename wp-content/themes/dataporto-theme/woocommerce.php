@@ -24,14 +24,17 @@ get_header(); ?>
 	</div>
 	<div id="primary" class="content-area clearfix reports">
 		<main id="main" class="site-main" role="main">
-			<?php if ( is_singular( 'product' ) ) {
-				woocommerce_content();
-			} else {
-				//For ANY product archive.
-				//Product taxonomy, product search or /shop landing
-				woocommerce_get_template( 'archive-product.php' );
-			}
-			?>
+			<?php if ( is_singular( 'product' ) ) { ?>				
+				<?php woocommerce_content(); ?>
+				<footer class="post-footer">
+					<div class="post-disclaimer">
+						<p class="post-disclaimer-text">Este &eacute; um conte&uacute;do exclusivo e &eacute; vedada a sua altera&ccedil;&atilde;o, adapta&ccedil;&atilde;o e compartilhamento parcial ou na &iacute;ntegra.</p>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>reportar-erro"  class="post-disclaimer-link">Reportar Erro</a>
+					</div>
+				</footer>				
+			<?php } else { ?>				
+				<?php woocommerce_get_template( 'archive-product.php' ); ?>
+			<?php }; ?>
 		</main><!-- #main -->
 		<div class="site-sidebar" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-reports' ); ?>			
