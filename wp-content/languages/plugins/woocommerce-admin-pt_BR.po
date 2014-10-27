@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce\n"
 "Report-Msgid-Bugs-To: https://github.com/woothemes/woocommerce/issues\n"
-"POT-Creation-Date: 2014-10-08 20:18:09+00:00\n"
-"PO-Revision-Date: 2014-10-08 20:19+0000\n"
+"POT-Creation-Date: 2014-10-22 11:39:52+00:00\n"
+"PO-Revision-Date: 2014-10-09 17:13+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/woocommerce/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: grunt-wp-i18n 0.4.8\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #. Plugin Name of the plugin/theme
 msgid "WooCommerce"
@@ -765,7 +765,7 @@ msgstr "Etiquetas"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:327
 #: includes/admin/reports/class-wc-report-customers.php:209
 #: includes/admin/reports/class-wc-report-sales-by-category.php:240
-#: includes/admin/reports/class-wc-report-sales-by-date.php:206
+#: includes/admin/reports/class-wc-report-sales-by-date.php:224
 #: includes/admin/reports/class-wc-report-sales-by-product.php:329
 msgid "Date"
 msgstr "Data"
@@ -780,7 +780,7 @@ msgstr "Tipo de cupom"
 
 #: includes/admin/class-wc-admin-post-types.php:141
 #: includes/admin/meta-boxes/class-wc-meta-box-coupon-data.php:68
-#: includes/admin/reports/class-wc-report-sales-by-date.php:393
+#: includes/admin/reports/class-wc-report-sales-by-date.php:436
 msgid "Coupon amount"
 msgstr "Valor do cupom"
 
@@ -982,7 +982,7 @@ msgstr "Fora de estoque"
 
 #: includes/admin/class-wc-admin-post-types.php:360
 msgid "Edit coupon"
-msgstr ""
+msgstr "Editar cupom"
 
 #: includes/admin/class-wc-admin-post-types.php:418
 msgid "%s / %s"
@@ -2926,11 +2926,11 @@ msgstr "Nenhum padrão"
 msgid "Product SKU must be unique."
 msgstr "REF do produto precisa ser única."
 
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1499
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1498
 msgid "Variation #%s of %s"
 msgstr "Variação %s de %s"
 
-#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1543
+#: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1542
 msgid "Variation SKU must be unique."
 msgstr "O REF da variação deve ser único."
 
@@ -3123,7 +3123,7 @@ msgid "Total available to refund"
 msgstr "Total disponível para reembolso"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:260
-#: includes/admin/reports/class-wc-report-sales-by-date.php:403
+#: includes/admin/reports/class-wc-report-sales-by-date.php:446
 msgid "Refund amount"
 msgstr "Total reembolsado"
 
@@ -3168,7 +3168,7 @@ msgstr "Ou, adicione o ID da taxa de imposto:"
 msgid "Optional"
 msgstr "Opcional"
 
-#: includes/admin/meta-boxes/views/html-order-refund.php:18
+#: includes/admin/meta-boxes/views/html-order-refund.php:19
 msgid "ID: "
 msgstr "ID:"
 
@@ -3298,11 +3298,11 @@ msgstr "Habilite esta opção caso o produto não é entregue ou não tem custos
 msgid "Enable this option to enable stock management at variation level"
 msgstr "Ative essa opção para habilitar o gerenciamento de estoque em nível de variação"
 
-#: includes/admin/reports/class-wc-admin-report.php:421
+#: includes/admin/reports/class-wc-admin-report.php:441
 msgid "Sold %s worth in the last %d days"
 msgstr "Foram vendidos %d itens nos últimos %d dias"
 
-#: includes/admin/reports/class-wc-admin-report.php:423
+#: includes/admin/reports/class-wc-admin-report.php:443
 msgid "Sold 1 item in the last %d days"
 msgid_plural "Sold %d items in the last %d days"
 msgstr[0] "Apenas 1 item foi vendido nos últimos %d dias"
@@ -3319,7 +3319,7 @@ msgstr "%s cupons usados no total"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:99
 #: includes/admin/reports/class-wc-report-customers.php:145
 #: includes/admin/reports/class-wc-report-sales-by-category.php:86
-#: includes/admin/reports/class-wc-report-sales-by-date.php:167
+#: includes/admin/reports/class-wc-report-sales-by-date.php:185
 #: includes/admin/reports/class-wc-report-sales-by-product.php:105
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:47
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:47
@@ -3329,7 +3329,7 @@ msgstr "Ano"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:100
 #: includes/admin/reports/class-wc-report-customers.php:146
 #: includes/admin/reports/class-wc-report-sales-by-category.php:87
-#: includes/admin/reports/class-wc-report-sales-by-date.php:168
+#: includes/admin/reports/class-wc-report-sales-by-date.php:186
 #: includes/admin/reports/class-wc-report-sales-by-product.php:106
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:48
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:48
@@ -3339,7 +3339,7 @@ msgstr "Mês passado"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:101
 #: includes/admin/reports/class-wc-report-customers.php:147
 #: includes/admin/reports/class-wc-report-sales-by-category.php:88
-#: includes/admin/reports/class-wc-report-sales-by-date.php:169
+#: includes/admin/reports/class-wc-report-sales-by-date.php:187
 #: includes/admin/reports/class-wc-report-sales-by-product.php:107
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:49
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:49
@@ -3349,7 +3349,7 @@ msgstr "Este mês"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:102
 #: includes/admin/reports/class-wc-report-customers.php:148
 #: includes/admin/reports/class-wc-report-sales-by-category.php:89
-#: includes/admin/reports/class-wc-report-sales-by-date.php:170
+#: includes/admin/reports/class-wc-report-sales-by-date.php:188
 #: includes/admin/reports/class-wc-report-sales-by-product.php:108
 msgid "Last 7 Days"
 msgstr "Últimos 7 dias"
@@ -3392,7 +3392,7 @@ msgstr "Maiores descontos"
 #: includes/admin/reports/class-wc-report-coupon-usage.php:330
 #: includes/admin/reports/class-wc-report-customers.php:212
 #: includes/admin/reports/class-wc-report-sales-by-category.php:243
-#: includes/admin/reports/class-wc-report-sales-by-date.php:210
+#: includes/admin/reports/class-wc-report-sales-by-date.php:228
 #: includes/admin/reports/class-wc-report-sales-by-product.php:332
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:36
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:36
@@ -3524,57 +3524,57 @@ msgstr "Todos"
 msgid "&larr; Choose a category to view stats"
 msgstr "&larr; Escolha uma categoria para ver as estatísticas"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:108
+#: includes/admin/reports/class-wc-report-sales-by-date.php:126
 msgid "%s average daily sales"
 msgstr "%s média de vendas diárias"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:112
+#: includes/admin/reports/class-wc-report-sales-by-date.php:130
 msgid "%s average monthly sales"
 msgstr "%s média de vendas mensais"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:117
+#: includes/admin/reports/class-wc-report-sales-by-date.php:135
 msgid "%s sales in this period"
 msgstr "%s vendas neste período"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:129
+#: includes/admin/reports/class-wc-report-sales-by-date.php:147
 msgid "%s orders placed"
 msgstr "%s pedidos feitos"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:135
+#: includes/admin/reports/class-wc-report-sales-by-date.php:153
 msgid "%s items purchased"
 msgstr "%s itens comprados"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:141
+#: includes/admin/reports/class-wc-report-sales-by-date.php:159
 msgid "%s in refunds"
 msgstr "%s reembolsados"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:147
+#: includes/admin/reports/class-wc-report-sales-by-date.php:165
 msgid "%s charged for shipping"
 msgstr "%s cobrado para o transporte"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:153
+#: includes/admin/reports/class-wc-report-sales-by-date.php:171
 msgid "%s worth of coupons used"
 msgstr "%s no valor dos cupons usados"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:367
+#: includes/admin/reports/class-wc-report-sales-by-date.php:410
 #: includes/admin/reports/class-wc-report-sales-by-product.php:446
 msgid "Number of items sold"
 msgstr "Número de itens vendidos"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:375
+#: includes/admin/reports/class-wc-report-sales-by-date.php:418
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:126
 msgid "Number of orders"
 msgstr "Número de pedidos"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:383
+#: includes/admin/reports/class-wc-report-sales-by-date.php:426
 msgid "Average sales amount"
 msgstr "Valor médio de vendas"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:413
+#: includes/admin/reports/class-wc-report-sales-by-date.php:456
 msgid "Shipping amount"
 msgstr "Valor de envio"
 
-#: includes/admin/reports/class-wc-report-sales-by-date.php:423
+#: includes/admin/reports/class-wc-report-sales-by-date.php:466
 #: includes/admin/reports/class-wc-report-sales-by-product.php:454
 msgid "Sales amount"
 msgstr "Quantidade de vendas"
@@ -4237,7 +4237,7 @@ msgid ""
 "and <code>woocommerce.css</code> need to be writable. See <a "
 "href=\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> "
 "for more information."
-msgstr ""
+msgstr "Para editar as cores, os arquivos <code>woocommerce/assets/css/woocommerce-base.less</code> e <code>woocommerce.css</code> precisam de permissões de escrita. Veja o <a href=\"http://codex.wordpress.org/Changing_File_Permissions\">Codex - Permissões de Arquivos</a> para mais informações."
 
 #: includes/admin/settings/class-wc-settings-general.php:312
 msgid ""
@@ -5520,7 +5520,7 @@ msgstr "Personalizado:"
 
 #: includes/admin/wc-admin-functions.php:200
 msgid "Could not compile woocommerce.less:"
-msgstr ""
+msgstr "Não foi possível compilar o woocommerce.less:"
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.woothemes.com/woocommerce/"
@@ -5615,7 +5615,7 @@ msgctxt "Refund $amount"
 msgid "Refund %s via %s"
 msgstr "Reembolso %s por %s"
 
-#: includes/admin/meta-boxes/views/html-order-refund.php:18
+#: includes/admin/meta-boxes/views/html-order-refund.php:19
 msgctxt "Ex: Refund - $date >by< $username"
 msgid "by"
 msgstr "por"

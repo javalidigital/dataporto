@@ -144,7 +144,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 		}
 
 		if ( is_null( $link ) ) {
-			$link = 'https://www.paypal.com/' . strtolower( WC()->countries->get_base_country() ) . '/webapps/mpp/paypal-popup';
+			$link = 'https://www.paypal.com/' . strtolower( WC()->countries->get_base_country() ) . '/cgi-bin/webscr?cmd=xpt/Marketing/popup/OLCWhatIsPayPal-outside';
 		}
 
 		if ( is_array( $icon ) ) {
@@ -157,7 +157,7 @@ class WC_Gateway_Paypal extends WC_Payment_Gateway {
 		}
 
 		if ( $link ) {
-			$what_is_paypal = sprintf( '<a href="%1$s" class="about_paypal" onclick="javascript:window.open(\'%1$s\',\'WIPaypal\',\'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700\'); return false;" title="' . esc_attr__( 'What is PayPal?', 'woocommerce' ) . '">' . esc_attr__( 'What is PayPal?', 'woocommerce' ) . '</a>', esc_url( $link ) );
+			$what_is_paypal = sprintf( '<a href="%1$s" class="about_paypal" onclick="javascript:window.open(\'%1$s\',\'WIPaypal\',\'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700, height=400\'); return false;" title="' . esc_attr__( 'What is PayPal?', 'woocommerce' ) . '">' . esc_attr__( 'What is PayPal?', 'woocommerce' ) . '</a>', esc_url( $link ) );
 		} else {
 			$what_is_paypal = '';
 		}

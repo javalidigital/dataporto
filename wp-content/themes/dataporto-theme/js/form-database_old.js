@@ -1,43 +1,40 @@
 jQuery(function() {
-	var availableTagsPorto = [
-		"Manaus",
-		"Macapá",
-		"Santarém",
-		"Vila do Conde",
-		"Belém",
-		"Itaqui",
-		"Fortaleza",
-		"Areia Branca",
-		"Natal",
-		"Cabedelo",
-		"Recife",
-		"Suape",
-		"Maceió",
-		"Salvador",
-		"Aratu",
-		"Ilhéus",
-		"Barra do Riacho",
-		"Vitória",
-		"Forno",
-		"Niterói",
-		"Rio de Janeiro",
-		"Itaguaí",
-		"Angra dos Reis",
-		"São Sebastião",
-		"Santos",
-		"Antonina",
-		"Paranaguá",
-		"São Francisco do Sul",
-		"Itajaí",
-		"Imbituba",
-		"Laguna",
-		"Porto Alegre",
-		"Pelotas",
-		"Rio Grande",
-		"Porto Velho"
-	];
-	
-	var availableTagsTUP = [
+	var availableTagsNome = [
+		"Porto de Manaus",
+		"Porto de Macapá",
+		"Porto de Santarém",
+		"Porto de Vila do Conde",
+		"Porto de Belém",
+		"Porto de Itaqui",
+		"Porto de Fortaleza",
+		"Porto de Areia Branca",
+		"Porto de Natal",
+		"Porto de Cabedelo",
+		"Porto de Recife",
+		"Porto de Suape",
+		"Porto de Maceió",
+		"Porto de Salvador",
+		"Porto de Aratu",
+		"Porto de Ilhéus",
+		"Porto de Barra do Riacho",
+		"Porto de Vitória",
+		"Porto de Forno",
+		"Porto de Niterói",
+		"Porto de Rio de Janeiro",
+		"Porto de Itaguaí",
+		"Porto de Angra dos Reis",
+		"Porto de São Sebastião",
+		"Porto de Santos",
+		"Porto de Antonina",
+		"Porto de Paranaguá",
+		"Porto de São Francisco do Sul",
+		"Porto de Itajaí",
+		"Porto de Imbituba",
+		"Porto de Laguna",
+		"Porto de Porto Alegre",
+		"Porto de Pelotas",
+		"Porto de Rio Grande",
+		"Porto de Porto Velho",
 		"TUP OMNIA",
 		"TUP Aquavia",
 		"TUP Aracruz",
@@ -162,10 +159,7 @@ jQuery(function() {
 		"TUP Amaggi",
 		"TUP Bamin",
 		"TUP Mineração Buritirama",
-		"TUP Pecém"
-	];
-	
-	var availableTagsETC = [
+		"TUP Pecém",
 		"Chibatão Navegação e Comércio",
 		"Ipiranga",
 		"Porto CPA",
@@ -181,10 +175,7 @@ jQuery(function() {
 		"Base de Apoio Marítimo Intermoor Açú",
 		"NOV Flexibles Equipamentos",
 		"Ipiranga Produtos de Petróleo S.A.",
-		"Terminais Fluviais do Brasil"
-	];
-	
-	var availableTagsTerminal = [
+		"Terminais Fluviais do Brasil",
 		"Terminal em Porto Público de Minério e Metálicos Amapá - Anglo Ferrous Amapá Mineração Ltda",
 		"Terminal em Porto Público Marítimo de Duque de Caxias",
 		"Terminal em Porto Público Marítimo Inácio Barbosa",
@@ -204,7 +195,7 @@ jQuery(function() {
 		"TUP Terminal em Porto Público de Regaseificação da Bahia (TRBA)",
 		"Terminal em Porto Público de Granéis de Santa Catarina (TGSC)",
 		"Terminal em Porto Público da Ilha Guaíba (TIG)"
-	];
+	];	
 	
 	var availableTagsEmpresa = [
 		"Alcoa World Alumina Brasil Ltda",
@@ -331,25 +322,25 @@ jQuery(function() {
 	];
 	
 	jQuery( "#nome-porto" ).autocomplete({
-		source: availableTagsPorto,
+		source: availableTagsNome,
 		autoFocus: true,
 		appendTo: "#nome-porto-options"
     });
     
     jQuery( "#nome-tup" ).autocomplete({
-		source: availableTagsTUP,
+		source: availableTagsNome,
 		autoFocus: true,
 		appendTo: "#nome-tup-options"
     });
     
     jQuery( "#nome-etc" ).autocomplete({
-		source: availableTagsETC,
+		source: availableTagsNome,
 		autoFocus: true,
 		appendTo: "#nome-etc-options"
     });
     
     jQuery( "#nome-terminal" ).autocomplete({
-		source: availableTagsTerminal,
+		source: availableTagsNome,
 		autoFocus: true,
 		appendTo: "#nome-terminal-options"
     });

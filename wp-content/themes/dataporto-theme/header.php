@@ -71,23 +71,12 @@ jQuery(document).ready(function(){
 	<div class="top-bar">
 		<div class="top-bar-container">
 			<div class="login-header">
-				 <?php $args = array(
-			        'echo'           => true,
-			        'redirect'       => site_url( $_SERVER['REQUEST_URI'] ), 
-			        'form_id'        => 'loginform',
-			        'label_username' => __( 'Username' ),
-			        'label_password' => __( 'Password' ),
-			        'label_remember' => __( 'Remember Me' ),
-			        'label_log_in'   => __( 'Entrar' ),
-			        'id_username'    => 'user_login',
-			        'id_password'    => 'user_pass',
-			        'id_remember'    => 'rememberme',
-			        'id_submit'      => 'wp-submit',
-			        'remember'       => false,
-			        'value_remember' => false
-				); ?>
-				<?php wp_login_form( $args ); ?>
-				<a class="button-link" href="<?php echo esc_url( home_url( '/' ) ); ?>minha-conta" title="Cadastre-se">Cadastre-se</a> 
+				<?php dynamic_sidebar( 'sidebar-header-login' ); ?>
+				<?php if ( is_user_logged_in() ) { ?>
+
+				<?php } else { ?>
+					<a class="button-link" href="<?php echo esc_url( home_url( '/' ) ); ?>cadastro/?add-to-cart=293" title="Cadastre-se">Cadastre-se</a>
+				<?php } ?> 
 			</div>
 			<div class="support-header">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>contato" title="Contato">D&uacute;vidas? Entre em contato</a>

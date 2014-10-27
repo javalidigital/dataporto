@@ -129,6 +129,16 @@ function dataporto_theme_widgets_init() {
 		'before_title'  => '<div class="title-sidebar"><h4 class="widget-title">',
 		'after_title'   => '</h4></div>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Sidebar - Trial', 'dataporto-theme' ),
+		'id'            => 'sidebar-trial',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="title-sidebar"><h4 class="widget-title">',
+		'after_title'   => '</h4></div>',
+	) );
 	
 	register_sidebar( array(
 		'name'          => __( 'Home - Serviços', 'dataporto-theme' ),
@@ -169,6 +179,16 @@ function dataporto_theme_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Header - Login', 'dataporto-theme' ),
+		'id'            => 'sidebar-header-login',
+		'description'   => '',
+		'before_widget' => '<div class="header-login-form">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h5 style=display:none>',
+		'after_title'   => '</h5>',
+	) );
 }
 add_action( 'widgets_init', 'dataporto_theme_widgets_init' );
 
@@ -179,12 +199,16 @@ function dataporto_theme_scripts() {
 	wp_enqueue_script("jquery");
 	
 	wp_enqueue_script("jquery-ui-autocomplete");
+
+	wp_enqueue_script("jquery-ui-accordion");
 	
 	wp_enqueue_style( 'dataporto-theme-style', get_stylesheet_uri() );
 	
 	wp_enqueue_script( 'dataporto-form-database', get_template_directory_uri() . '/js/form-database.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'dataporto-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	wp_enqueue_script( 'dataporto-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '20140115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -234,6 +258,20 @@ function add_class_to_excerpt( $excerpt ) {
 	add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
 }
 
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png);
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/style-login.css' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
 /**
  * WooCommerce

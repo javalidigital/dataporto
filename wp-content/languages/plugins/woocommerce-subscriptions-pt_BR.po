@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Subscriptions\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-subscriptions\n"
 "POT-Creation-Date: 2014-08-01 22:11:59+00:00\n"
-"PO-Revision-Date: 2014-10-13 18:47-0300\n"
+"PO-Revision-Date: 2014-10-27 15:51-0300\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "woocommerce-subscriptions/language/pt_BR/)\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: classes/class-wc-product-subscription-variation.php:94
 #: classes/class-wc-product-subscription.php:88
@@ -3417,9 +3417,7 @@ msgstr "Via %s"
 msgid ""
 "You have no active subscriptions. Find your first subscription in the %sstore"
 "%s."
-msgstr ""
-"Você não tem assinaturas ativas. Encontre sua primeira assinatura na %sstore"
-"%s."
+msgstr "Você não tem assinaturas ativas."
 
 #: templates/single-product/add-to-cart/subscription.php:40
 #: woocommerce-subscriptions.php:214

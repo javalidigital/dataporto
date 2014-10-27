@@ -31,7 +31,11 @@ get_header(); ?>
 						<p class="post-disclaimer-text">Este &eacute; um conte&uacute;do exclusivo e &eacute; vedada a sua altera&ccedil;&atilde;o, adapta&ccedil;&atilde;o e compartilhamento parcial ou na &iacute;ntegra.</p>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>reportar-erro"  class="post-disclaimer-link">Reportar Erro</a>
 					</div>
+			
 				</footer>				
+			<?php } elseif (is_cart()) { ?>
+				<?php woocommerce_get_template( 'cart.php' ); ?>	
+
 			<?php } else { ?>				
 				<?php woocommerce_get_template( 'archive-product.php' ); ?>
 			<?php }; ?>
