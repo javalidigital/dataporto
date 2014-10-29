@@ -71,7 +71,7 @@
 				<th class="check-column"><input type="checkbox" name="disabledbannercheck[]" value="<?php echo $disbanner['id']; ?>" /></th>
 				<td><center><?php echo $disbanner['id'];?></center></td>
 				<td><?php echo date_i18n("F d, Y", $disbanner['firstactive']);?><br /><span style="color: <?php echo adrotate_prepare_color($disbanner['lastactive']);?>;"><?php echo date_i18n("F d, Y", $disbanner['lastactive']);?></span></td>
-				<td><strong><a class="row-title" href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=edit&ad='.$disbanner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo stripslashes(html_entity_decode($disbanner['title']));?></a></strong> - <a href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=report&ad='.$disbanner['id']);?>" title="<?php _e('Stats', 'adrotate'); ?>"><?php _e('Stats', 'adrotate'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">Groups:</span> '.$grouplist; ?></td>
+				<td><strong><a class="row-title" href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=edit&ad='.$disbanner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo stripslashes(html_entity_decode($disbanner['title']));?></a></strong> - <a href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=report&ad='.$disbanner['id']);?>" title="<?php _e('Stats', 'adrotate'); ?>"><?php _e('Stats', 'adrotate'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">'.__('Groups:', 'adrotate').'</span> '.$grouplist; ?></td>
 				<td><center><?php echo $stats['impressions']; ?></center></td>
 				<?php if($disbanner['tracker'] == "Y") { ?>
 				<td><center><?php echo $stats['clicks']; ?></center></td>

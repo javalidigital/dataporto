@@ -121,14 +121,14 @@ if($edit_banner->imagetype == "field") {
 	        	<label for="adrotate_bannercode"><textarea tabindex="2" id="adrotate_bannercode" name="adrotate_bannercode" cols="65" rows="15"><?php echo stripslashes($edit_banner->bannercode); ?></textarea></label>
 	        </td>
 	        <td width="40%">
-		        <p><strong><?php _e('Options:', 'adrotate'); ?></strong></p>
-		        <p><em><a href="#" onclick="textatcursor('adrotate_bannercode','%id%');return false;">%id%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%link%');return false;">%link%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%image%');return false;">%image%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%title%');return false;">%title%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%random%');return false;">%random%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','target=&quot;_blank&quot;');return false;">target="_blank"</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','rel=&quot;nofollow&quot;');return false;">rel="nofollow"</a></em><br />
-		        
 		        <p><strong><?php _e('Basic Examples:', 'adrotate'); ?></strong></p>
 		        <p>1. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;http://www.ajdg.net&quot;&gt;This ad is great!&lt;/a&gt;');return false;">&lt;a href="http://www.ajdg.net"&gt;This ad is great!&lt;/a&gt;</a></em></p>
 		        <p>2. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;%link%&quot;&gt;This ad is great!&lt;/a&gt;');return false;">&lt;a href="%link%"&gt;This ad is great!&lt;/a&gt;</a></em></p>
 		        <p>3. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;http://www.ajdg.net&quot;&gt;&lt;img src=&quot;%image%&quot; /&gt;&lt;/a&gt;');return false;">&lt;a href="http://www.ajdg.net"&gt;&lt;img src="%image%" /&gt;&lt;/a&gt;</a></em></p>
 		        <p>4. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;span class=&quot;ad-%id%&quot;&gt;&lt;a href=&quot;http://www.ajdg.net&quot;&gt;Text Link Ad!&lt;/a&gt;&lt;/span&gt;');return false;">&lt;span class="ad-%id%"&gt;&lt;a href="http://www.ajdg.net"&gt;Text Link Ad!&lt;/a&gt;&lt;/span&gt;</a></em></p>
+
+		        <p><strong><?php _e('Options:', 'adrotate'); ?></strong></p>
+		        <p><em><a href="#" onclick="textatcursor('adrotate_bannercode','%id%');return false;">%id%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%link%');return false;">%link%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%image%');return false;">%image%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%title%');return false;">%title%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','%random%');return false;">%random%</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','target=&quot;_blank&quot;');return false;">target="_blank"</a>, <a href="#" onclick="textatcursor('adrotate_bannercode','rel=&quot;nofollow&quot;');return false;">rel="nofollow"</a></em><br />
 		        <p><?php _e('Place the cursor where you want to add a tag and click to add it to your AdCode.', 'adrotate'); ?></p>
 	        </td>
       	</tr>
@@ -237,7 +237,7 @@ if($edit_banner->imagetype == "field") {
 						<?php echo adrotate_folder_contents($image_dropdown); ?>
 					</select><br />
 				</label>
-				<em><?php _e('Use %image% in the code. Accepted files are:', 'adrotate'); ?> jpg, jpeg, gif, png, swf and flv. <?php _e('Use either the text field or the dropdown. If the textfield has content that field has priority.', 'adrotate'); ?></em>
+				<em><?php _e('Use %image% in the code. Accepted files are:', 'adrotate'); ?> jpg, jpeg, gif, png, swf <?php _e('and', 'adrotate'); ?> flv. <?php _e('Use either the text field or the dropdown. If the textfield has content that field has priority.', 'adrotate'); ?></em>
 			</td>
 		</tr>
       	<tr>

@@ -72,6 +72,7 @@ function adrotate_activate_setup() {
 		add_option('adrotate_geo_required', 0);
 		add_option('adrotate_responsive_required', 0);
 		add_option('adrotate_dynamic_required', 0);
+		add_option('adrotate_hide_banner', adrotate_now());
 
 		// AdRotate Server
 		add_option('adrotate_server', array('status' => 0, 'instance' => '', 'account' => '', 'url' => '', 'puppet' => 0, 'activated' => false, 'deactivated' => false));
@@ -361,7 +362,9 @@ function adrotate_database_install() {
 			`block` int(5) NOT NULL default '0',
 			`user` int(5) NOT NULL default '0',
 			`schedule` int(5) NOT NULL default '0',
-			PRIMARY KEY  (`id`)
+			PRIMARY KEY  (`id`),
+		    KEY `schedule` (`schedule`),
+		    KEY `ad` (`ad`),
 		) ".$charset_collate.$engine.";");
 
 	dbDelta("CREATE TABLE IF NOT EXISTS `".$tables['adrotate_schedule']."` (
@@ -373,7 +376,9 @@ function adrotate_database_install() {
 			`maximpressions` int(15) NOT NULL default '0',
 		  	`spread` varchar(5) NOT NULL default 'N',
 		  	`hourimpressions` int(15) NOT NULL default '0',
-			PRIMARY KEY  (`id`)
+			PRIMARY KEY  (`id`),
+		    KEY `starttime` (`starttime`),
+		    KEY `stoptime` (`stoptime`),
 		) ".$charset_collate.$engine.";");
 
 	dbDelta("CREATE TABLE IF NOT EXISTS `".$tables['adrotate_stats']."` (
@@ -386,6 +391,7 @@ function adrotate_database_install() {
 			`impressions` int(15) NOT NULL default '0',
 			PRIMARY KEY  (`id`),
 			INDEX `ad` (`ad`)
+			INDEX `group` (`group`)
 		) ".$charset_collate.$engine.";");
 
 	dbDelta("CREATE TABLE IF NOT EXISTS `".$tables['adrotate_tracker']."` (
@@ -399,7 +405,8 @@ function adrotate_database_install() {
 			`city` text NOT NULL,
 			PRIMARY KEY  (`id`),
 		    KEY `ipaddress` (`ipaddress`),
-		    KEY `timer` (`timer`)
+		    KEY `timer` (`timer`),
+		    KEY `bannerid` (`bannerid`)
 		) ".$charset_collate.$engine.";");
 }
 
@@ -568,6 +575,26 @@ function adrotate_database_upgrade() {
 		adrotate_del_column($tables['adrotate'], 'timeframelength');
 		adrotate_del_column($tables['adrotate'], 'timeframeclicks');
 		adrotate_del_column($tables['adrotate'], 'timeframeimpressions');
+	}
+
+	// Database: 	45
+	// AdRotate:	3.10.11
+	if($adrotate_db_version['current'] < 45) {
+		if($wpdb->get_var("SHOW INDEX FROM `".$tables['adrotate_tracker']."` WHERE Key_name = 'bannerid';") === null) {
+			$wpdb->query("CREATE INDEX `bannerid` ON `".$tables['adrotate_tracker']."` (bannerid);");
+		}
+		if($wpdb->get_var("SHOW INDEX FROM `".$tables['adrotate_linkmeta']."` WHERE Key_name = 'schedule';") === null) {
+			$wpdb->query("CREATE INDEX `schedule` ON `".$tables['adrotate_linkmeta']."` (schedule);");
+		}
+		if($wpdb->get_var("SHOW INDEX FROM `".$tables['adrotate_stats']."` WHERE Key_name = 'starttime';") === null) {
+			$wpdb->query("CREATE INDEX `starttime` ON `".$tables['adrotate_schedule']."` (starttime);");
+		}
+		if($wpdb->get_var("SHOW INDEX FROM `".$tables['adrotate_stats']."` WHERE Key_name = 'stoptime';") === null) {
+			$wpdb->query("CREATE INDEX `stoptime` ON `".$tables['adrotate_schedule']."` (stoptime);");
+		}
+		if($wpdb->get_var("SHOW INDEX FROM `".$tables['adrotate_stats']."` WHERE Key_name = 'thetime';") === null) {
+			$wpdb->query("CREATE INDEX `thetime` ON `".$tables['adrotate_stats']."` (thetime);");
+		}
 	}
 
 	update_option("adrotate_db_version", array('current' => ADROTATE_DB_VERSION, 'previous' => $adrotate_db_version['current']));
@@ -774,6 +801,7 @@ function adrotate_uninstall() {
 	delete_option('adrotate_server');
 	delete_option('adrotate_server_hide');
 	delete_option('adrotate_version');
+	delete_option('adrotate_hide_banner');
 	if(is_multisite()) delete_site_option('adrotate_multisite');
 
 	// Clear out userroles

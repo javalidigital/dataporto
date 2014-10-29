@@ -618,24 +618,7 @@ function adrotate_dashboard_scripts() {
  Since:		3.6
 -------------------------------------------------------------*/
 function adrotate_dashboard_styles() {
-?>
-<style type="text/css" media="screen">
-	/* styles for graphs */
-	.adrotate-label { font-size: 12px; margin: auto 0; padding:5px; font-weight: bold }
-	.adrotate-clicks { color: #5Af; font-weight: normal }
-	.adrotate-impressions { color: #F80; font-weight: normal }
-	
-	/* styles for advert statuses and stats */
-	.row_urgent { background-color:#ffebe8; border-color:#c00; }
-	.row_error { background-color:#ffffe0; border-color:#e6db55; }
-	.row_inactive { background-color:#ebf3fa; border-color:#466f82; }
-	.stats_large { display: block; margin-bottom: 10px; margin-top: 10px; text-align: center; font-weight: bold; }
-	.number_large {	margin: 20px; font-size: 28px; }
-	
-	/* Fancy select box for group and page injection*/
-	.adrotate-select { padding:3px; border:1px solid #ccc; max-width:500px; max-height:200px; overflow-y:scroll; background-color:#fff; }
-</style>
-<?php
+	wp_enqueue_style( 'adrotate-admin-stylesheet', plugins_url( 'library/dashboard.css', __FILE__ ) );
 }
 
 /*-------------------------------------------------------------

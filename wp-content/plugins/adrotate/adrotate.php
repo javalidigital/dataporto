@@ -4,7 +4,7 @@ Plugin Name: AdRotate
 Plugin URI: https://www.adrotateplugin.com
 Description: The very best and most convenient way to publish your ads.
 Author: Arnan de Gans of AJdG Solutions
-Version: 3.10.10
+Version: 3.10.11
 Author URI: http://ajdg.solutions/
 License: GPLv3
 */
@@ -20,7 +20,7 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '3.10.10');
+define("ADROTATE_DISPLAY", '3.10.11');
 define("ADROTATE_VERSION", 374);
 define("ADROTATE_DB_VERSION", 44);
 define("ADROTATE_FOLDER", 'adrotate');
@@ -86,7 +86,6 @@ if(is_admin()) {
 	if(isset($_POST['adrotate_db_cleanup_submit'])) add_action('init', 'adrotate_cleanup_database');
 	if(isset($_POST['adrotate_evaluate_submit'])) add_action('init', 'adrotate_prepare_evaluate_ads');
 }
-
 
 /*-------------------------------------------------------------
  Name:      adrotate_dashboard
@@ -461,13 +460,6 @@ function adrotate_manage_schedules() {
 			$class = '';
 			foreach($schedules as $schedule) {
 				$schedulesmeta = $wpdb->get_results("SELECT `ad` FROM `".$wpdb->prefix."adrotate_linkmeta` WHERE `group` = 0 AND `block` = 0 AND `user` = 0 AND `schedule` = ".$schedule->id.";");
-				$ads_use_schedule = '';
-				if($schedulesmeta) {
-					foreach($schedulesmeta as $meta) {
-						$ads_use_schedule[] = $meta->ad;
-						unset($meta);
-					}
-				}
 				if($schedule->maxclicks == 0) $schedule->maxclicks = 'unlimited';
 				if($schedule->maximpressions == 0) $schedule->maximpressions = 'unlimited';
 	
@@ -493,10 +485,11 @@ function adrotate_manage_schedules() {
 			<?php } ?>
 			</tbody>
 		</table>
+		<center><?php _e('Easily manage your schedules from here with AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today!', 'adrotate'); ?></a></center>
+
 		<p><center>
 			<span style="border: 1px solid #c00; height: 12px; width: 12px; background-color: #ffebe8">&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php _e("Expires soon.", "adrotate"); ?>
 			&nbsp;&nbsp;&nbsp;&nbsp;<span style="border: 1px solid #466f82; height: 12px; width: 12px; background-color: #8dcede">&nbsp;&nbsp;&nbsp;&nbsp;</span> <?php _e("Has expired.", "adrotate"); ?>
-			<br /><?php _e('Easily manage your schedules from here with AdRotate Pro.', 'adrotate'); ?> <a href="admin.php?page=adrotate-pro"><?php _e('Upgrade today!', 'adrotate'); ?></a>
 		</center></p>
 
 		<br class="clear" />
@@ -835,7 +828,7 @@ function adrotate_options() {
 	 
 				<?php if($adrotate_config['w3caching'] == "Y" AND !defined('W3TC_DYNAMIC_SECURITY')) { ?>
 				<tr>
-					<th valign="top">NOTICE:</th>
+					<th valign="top"><?php _e('NOTICE:', 'adrotate'); ?></th>
 					<td><span style="color:#f00;"><?php _e('You have enabled W3 Total Caching support but not defined the security hash. You need to add the following line to your wp-config.php near the bottom or below line 52 (which defines another hash.) Using the "late init" function needs to be enabled in W3 Total Cache as well too.', 'adrotate'); ?></span><br /><pre>define('W3TC_DYNAMIC_SECURITY', '<?php echo md5(rand(0,999)); ?>');</pre></td>
 				</tr>
 				<?php } ?>
@@ -846,7 +839,7 @@ function adrotate_options() {
 
 				<?php if($adrotate_config['supercache'] == "Y") { ?>
 				<tr>
-					<th valign="top">NOTICE:</th>
+					<th valign="top"><?php _e('NOTICE:', 'adrotate'); ?></th>
 					<td><span style="color:#f00;"><?php _e('You have enabled WP Super Cache support. If you have version 1.4 or newer, this function will not work. WP Super Cache has discontinued support for dynamic content.', 'adrotate'); ?></span></td>
 				</tr>
 				<?php } ?>

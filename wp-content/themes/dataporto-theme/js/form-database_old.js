@@ -355,17 +355,21 @@ jQuery(function() {
 jQuery(document).ready(function() {
 	jQuery(".form-database-categoria input").click(function(){
         if(jQuery('input[name=categoria]:checked').val() == "Porto" ) {
+        	jQuery('.wpcf7-form')[0].reset();
         	jQuery('.form-database-nome').hide();
             jQuery('#form-database-nome-porto').show("slow");
 		} else if (jQuery('input[name=categoria]:checked').val() == "TUP" ) {
+			jQuery('.wpcf7-form')[0].reset();
             jQuery('.form-database-nome').hide();
             jQuery('#form-database-nome-tup').show("slow");
             jQuery('#form-database-nome-empresa').show("slow");
 		} else if (jQuery('input[name=categoria]:checked').val() == "ETC" ) {
+			jQuery('.wpcf7-form')[0].reset();
             jQuery('.form-database-nome').hide();
             jQuery('#form-database-nome-etc').show("slow");
             jQuery('#form-database-nome-empresa').show("slow");
 		} else if (jQuery('input[name=categoria]:checked').val() == "Terminal" ) {
+			jQuery('.wpcf7-form')[0].reset();
             jQuery('.form-database-nome').hide();
             jQuery('#form-database-nome-terminal').show("slow");
             jQuery('#form-database-nome-empresa').show("slow");

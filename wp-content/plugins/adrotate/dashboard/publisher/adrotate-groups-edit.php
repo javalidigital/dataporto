@@ -68,7 +68,7 @@ if(!is_array($meta_array)) $meta_array = array();
 		        </select> 
 			</td>
 			<td>
-		        <p><em><?php _e('Dynamic mode requires jQuery and jQuery Dynamic Groups to be loaded. You can enable this in AdRotate Settings.', 'adrotate'); ?></em></p>
+		        <p><em><?php _e('Dynamic mode requires jQuery. You can enable this in AdRotate Settings.', 'adrotate'); ?></em></p>
 			</td>
 		</tr>
 		</tbody>
@@ -217,10 +217,10 @@ if(!is_array($meta_array)) $meta_array = array();
 		        	<option value="2" <?php if($edit_group->cat_par == 2) { echo 'selected'; } ?>><?php _e('every 2nd paragraph', 'adrotate'); ?></option>
 		        	<option value="3" <?php if($edit_group->cat_par == 3) { echo 'selected'; } ?>><?php _e('every 3rd paragraph', 'adrotate'); ?></option>
 		        	<option value="4" <?php if($edit_group->cat_par == 4) { echo 'selected'; } ?>><?php _e('every 4th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->cat_par == 5) { echo 'selected'; } ?>><?php _e('every 5th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->cat_par == 6) { echo 'selected'; } ?>><?php _e('every 6th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->cat_par == 7) { echo 'selected'; } ?>><?php _e('every 7th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->cat_par == 8) { echo 'selected'; } ?>><?php _e('every 8th paragraph', 'adrotate'); ?></option>
+		        	<option value="5" <?php if($edit_group->cat_par == 5) { echo 'selected'; } ?>><?php _e('every 5th paragraph', 'adrotate'); ?></option>
+		        	<option value="6" <?php if($edit_group->cat_par == 6) { echo 'selected'; } ?>><?php _e('every 6th paragraph', 'adrotate'); ?></option>
+		        	<option value="7" <?php if($edit_group->cat_par == 7) { echo 'selected'; } ?>><?php _e('every 7th paragraph', 'adrotate'); ?></option>
+		        	<option value="8" <?php if($edit_group->cat_par == 8) { echo 'selected'; } ?>><?php _e('every 8th paragraph', 'adrotate'); ?></option>
 		        </select>
 			</label>
 	        </td>
@@ -258,10 +258,10 @@ if(!is_array($meta_array)) $meta_array = array();
 		        	<option value="2" <?php if($edit_group->page_par == 2) { echo 'selected'; } ?>><?php _e('every 2nd paragraph', 'adrotate'); ?></option>
 		        	<option value="3" <?php if($edit_group->page_par == 3) { echo 'selected'; } ?>><?php _e('every 3rd paragraph', 'adrotate'); ?></option>
 		        	<option value="4" <?php if($edit_group->page_par == 4) { echo 'selected'; } ?>><?php _e('every 4th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->page_par == 5) { echo 'selected'; } ?>><?php _e('every 5th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->page_par == 6) { echo 'selected'; } ?>><?php _e('every 6th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->page_par == 7) { echo 'selected'; } ?>><?php _e('every 7th paragraph', 'adrotate'); ?></option>
-		        	<option value="4" <?php if($edit_group->page_par == 8) { echo 'selected'; } ?>><?php _e('every 8th paragraph', 'adrotate'); ?></option>
+		        	<option value="5" <?php if($edit_group->page_par == 5) { echo 'selected'; } ?>><?php _e('every 5th paragraph', 'adrotate'); ?></option>
+		        	<option value="6" <?php if($edit_group->page_par == 6) { echo 'selected'; } ?>><?php _e('every 6th paragraph', 'adrotate'); ?></option>
+		        	<option value="7" <?php if($edit_group->page_par == 7) { echo 'selected'; } ?>><?php _e('every 7th paragraph', 'adrotate'); ?></option>
+		        	<option value="8" <?php if($edit_group->page_par == 8) { echo 'selected'; } ?>><?php _e('every 8th paragraph', 'adrotate'); ?></option>
 		        </select>
 			</label>
 	        </td>
@@ -325,7 +325,7 @@ if(!is_array($meta_array)) $meta_array = array();
 		<thead>
 		<tr>
 			<th scope="col" class="manage-column column-cb check-column"><input type="checkbox" /></th>
-			<th><?php _e('Choose the ads to use in this group', 'adrotate'); ?></th>
+			<th>&nbsp;</th>
 			<th width="5%"><center><?php _e('Impressions', 'adrotate'); ?></center></th>
 			<th width="5%"><center><?php _e('Clicks', 'adrotate'); ?></center></th>
 			<th width="5%"><center><?php _e('Weight', 'adrotate'); ?></center></th>

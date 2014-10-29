@@ -183,10 +183,8 @@ function adrotate_group($group_ids, $fallback = 0, $weight = 0, $site = 0) {
 				$array_count = count($selected);
 				if($array_count > 0) {
 					$before = $after = '';
-					$wrapper_before = str_replace('%id%', $group_array[0], $group->wrapper_before);
-					if($wrapper_before != '') $before = stripslashes(html_entity_decode($wrapper_before, ENT_QUOTES));
-					$wrapper_after = str_replace('%id%', $group_array[0], $group->wrapper_after);
-					if($wrapper_after != '') $after = stripslashes(html_entity_decode($wrapper_after, ENT_QUOTES));	
+					$before = str_replace('%id%', $group_array[0], stripslashes(html_entity_decode($group->wrapper_before, ENT_QUOTES)));
+					$after = str_replace('%id%', $group_array[0], stripslashes(html_entity_decode($group->wrapper_after, ENT_QUOTES)));
 
 					$output .= '<div class="g g-'.$group->id.'">';
 
@@ -257,14 +255,14 @@ function adrotate_inject_pages($post_content) {
 	
 	if(is_page()) {
 		// Inject ads into page
-		$ids = $wpdb->get_results("SELECT `id`, `page`, `page_loc`, `page_par` FROM `".$wpdb->prefix."adrotate_groups` WHERE `page_loc` > 0;");
+		$ids = $wpdb->get_results("SELECT `id`, `page`, `page_loc`, `page_par`, `wrapper_before`, `wrapper_after` FROM `".$wpdb->prefix."adrotate_groups` WHERE `page_loc` > 0;");
 		
 		$page_array = $group_array = array();
 		foreach($ids as $id) {
 			$pages = explode(",", $id->page);
 			// Build array of groups for pages
 			if(in_array($post->ID, $pages)) {
-				$page_array[] = array('group' => $id->id, 'location' => $id->page_loc, 'paragraph' => $id->page_par, 'pages' => $pages);
+				$page_array[] = array('group' => $id->id, 'location' => $id->page_loc, 'paragraph' => $id->page_par, 'pages' => $pages, 'before' => stripslashes(html_entity_decode($id->wrapper_before, ENT_QUOTES)), 'after' => stripslashes(html_entity_decode($id->wrapper_after, ENT_QUOTES)));
 				if($id->page_loc == 4) {
 					$group_array[] = $id->id;
 				}
@@ -301,19 +299,21 @@ function adrotate_inject_pages($post_content) {
 			}
 
 			foreach($page_array as $page_output) {
+				$before = $after = '';
+				$before = str_replace('%id%', $page_output['group'], $page_output['before']);
+				$after = str_replace('%id%', $page_output['group'], $page_output['after']);
+
 				// Advert in front of content
 				if($page_output['location'] == 1 OR $page_output['location'] == 3) {
 					if(is_page($page_output['pages'])) {
-						$advert_before = adrotate_group($page_output['group']);
-				   		$post_content = $advert_before.$post_content;
+				   		$post_content = $before.adrotate_group($page_output['group']).$after.$post_content;
 					}
 				}
 	
 				// Advert behind the content
 				if($page_output['location'] == 2 OR $page_output['location'] == 3) {
 					if(is_page($page_output['pages'])) {
-						$advert_after = adrotate_group($page_output['group']);
-				   		$post_content = $post_content.$advert_after;
+				   		$post_content = $post_content.$before.adrotate_group($page_output['group']).$after;
 					}
 				}
 
@@ -328,7 +328,7 @@ function adrotate_inject_pages($post_content) {
 						  OR ($par == 2 AND $page_output['paragraph'] == 20) 
 						  OR ($par == 3 AND $page_output['paragraph'] == 30) 
 						  OR ($par == 4 AND $page_output['paragraph'] == 40)) {
-							$paragraph = $paragraph.'</p>'.adrotate_group($page_output['group']);
+							$paragraph = $paragraph.'</p>'.$before.adrotate_group($page_output['group']).$after;
 
 							if(count($paragraphs) > $advert) {
 								$advert++;
@@ -368,7 +368,7 @@ function adrotate_inject_posts($post_content) {
 
 	if(is_single()) {
 		// Inject ads into posts in specified category
-		$ids = $wpdb->get_results("SELECT `id`, `cat`, `cat_loc`, `cat_par` FROM `".$wpdb->prefix."adrotate_groups` WHERE `cat_loc` > 0;");
+		$ids = $wpdb->get_results("SELECT `id`, `page`, `page_loc`, `page_par`, `wrapper_before`, `wrapper_after` FROM `".$wpdb->prefix."adrotate_groups` WHERE `cat_loc` > 0;");
 		$category = get_the_category();
 		
 		$cat_array = $group_array = array();
@@ -376,7 +376,7 @@ function adrotate_inject_posts($post_content) {
 			$cats = explode(",", $id->cat);
 			// Build array of groups for categories
 			if(in_array($category[0]->cat_ID, $cats)) {
-				$cat_array[] = array('group' => $id->id, 'location' => $id->cat_loc, 'paragraph' => $id->cat_par, 'categories' => $cats);
+				$cat_array[] = array('group' => $id->id, 'location' => $id->cat_loc, 'paragraph' => $id->cat_par, 'categories' => $cats, 'before' => stripslashes(html_entity_decode($id->wrapper_before, ENT_QUOTES)), 'after' => stripslashes(html_entity_decode($id->wrapper_after, ENT_QUOTES)));
 				if($id->cat_loc == 4) {
 					$group_array[] = $id->id;
 				}
@@ -443,19 +443,21 @@ function adrotate_inject_posts($post_content) {
 			}
 	
 			foreach($cat_array as $cat_output) {
+				$before = $after = '';
+				$before = str_replace('%id%', $cat_output['group'], $cat_output['before']);
+				$after = str_replace('%id%', $cat_output['group'], $cat_output['after']);
+	
 				// Advert in front of content
 				if($cat_output['location'] == 1 OR $cat_output['location'] == 3) {
 					if(in_category($cat_output['categories'])) {
-						$advert_before = adrotate_group($cat_output['group']);
-						$post_content = $advert_before.$post_content;
+						$post_content = $before.adrotate_group($cat_output['group']).$after.$post_content;
 					}
 				}
 				
 				// Advert behind content
 				if($cat_output['location'] == 2 OR $cat_output['location'] == 3) {
 					if(in_category($cat_output['categories'])) {
-						$advert_after = adrotate_group($cat_output['group']);
-				   		$post_content = $post_content.$advert_after;
+				   		$post_content = $post_content.$before.adrotate_group($cat_output['group']).$after;
 					}
 				}
 
@@ -471,7 +473,7 @@ function adrotate_inject_posts($post_content) {
 						  OR ($par == 2 AND $cat_output['paragraph'] == 20) 
 						  OR ($par == 3 AND $cat_output['paragraph'] == 30) 
 						  OR ($par == 4 AND $cat_output['paragraph'] == 40)) AND $adcount > 0) {
-							$paragraph = $paragraph.'</p>'.adrotate_ad($ads[$advert]['id'], 0, $ads[$advert]['group']);
+							$paragraph = $paragraph.'</p>'.$before.adrotate_ad($ads[$advert]['id'], 0, $ads[$advert]['group']).$after;
 
 							if(count($paragraphs) > $advert AND $advert < $adcount-1) {
 								$advert++;
@@ -897,6 +899,26 @@ function adrotate_notifications_dashboard() {
 				echo '<div class="error"><p>'.$data['expired'].' '.__('ad(s) expired.', 'adrotate').' '.$data['expiressoon'].' '.__('ad(s) are about to expire.', 'adrotate').' There are '.$data['error'].' '.__('ad(s) with configuration errors.', 'adrotate').' <a href="admin.php?page=adrotate-ads">'.__('Fix this as soon as possible', 'adrotate').'</a>!</p></div>';
 			}
 		}
+
+		if(isset($_GET['hide'])) update_option('adrotate_hide_banner', 1);
+
+		$banner = get_option('adrotate_hide_banner');
+		if($banner != 1 AND $banner < (adrotate_now() - 604800)) {
+			echo '<div class="updated" style="padding: 0; margin: 0; border-left: none;">';
+			echo '	<div class="adrotate_pro_banner">';
+			echo '		<a href="admin.php?page=adrotate-pro&hide=1"><img class="close_icon" title="" src="'. plugins_url('images/close_icon.png', __FILE__).'" alt=""/></a>';
+			echo '		<div class="button_div">';
+			echo '			<a class="button" target="_blank" href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_banner&utm_medium=adrotate_free&utm_campaign=upgrade_adrotatefree">'.__('Learn More', 'adrotate').'</a>';
+			echo '		</div>';
+			echo '		<div class="text">'.__("You've been using <strong>AdRotate</strong> for a while now. Why not upgrade to the <strong>PRO</strong> version", 'adrotate').'?<br />';
+			echo '			<span class="alignleft">'.__('Get more features to even better run your advertising campaigns.', 'adrotate' ).'</span> <span class="alignright">'.__('Thank you for your consideration!', 'adrotate' ).'</span>';
+			echo '		</div>';
+			echo '		<div class="icon">';
+			echo '			<img  title="" src="'.plugins_url('images/adrotate-logo-60x60.png', __FILE__).'" alt=""/>';
+			echo '		</div>';
+			echo '	</div>';
+			echo '</div>';
+		}
 	}
 }
 
@@ -946,7 +968,7 @@ function adrotate_credits() {
 
 	echo '<thead>';
 	echo '<tr valign="top">';
-	echo '	<th colspan="2">'.__('Useful links', 'adrotate').'</th>';
+	echo '	<th colspan="2">'.__('Help AdRotate Grow', 'adrotate').'</th>';
 	echo '	<th colspan="2" width="40%">'.__('Brought to you by', 'adrotate').'</th>';
 	echo '</tr>';
 	echo '</thead>';
@@ -954,9 +976,7 @@ function adrotate_credits() {
 	echo '<tbody>';
 	echo '<tr>';
 	echo '<td><center><a href="https://www.adrotateplugin.com/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" title="AdRotate plugin for WordPress"><img src="'.plugins_url('/images/adrotate-logo-60x60.png', __FILE__).'" alt="adrotate-logo-60x60" width="60" height="60" /></a></center></td>';
-	echo '<td>'.__('Check out the', 'adrotate').' <a href="https://www.adrotateplugin.com/support/knowledgebase/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" target="_blank">'.__('manuals', 'adrotate').'</a> '.__('and have the most popular features explained.', 'adrotate').'<br />';
-	echo __('Grab the latest news and updates on the', 'adrotate').' <a href="https://www.adrotateplugin.com/news/?utm_source=adrotate_dashboard&utm_medium=adrotate_free&utm_campaign=adrotatefree" target="_blank">'.__('AdRotate Blog','adrotate').'</a>.<br />';
-	echo __('Find my website at', 'adrotate').' <a href="http://meandmymac.net" target="_blank">meandmymac.net</a></td>';
+	echo '<td>'.__("A lot of users only think to review AdRotate when something goes wrong while thousands of people use AdRotate satisfactory. Don't let this go unnoticed.", 'adrotate').' <strong>'. __("If you find AdRotate useful please leave your honest", 'adrotate').' <a href="https://wordpress.org/support/view/plugin-reviews/adrotate?rate=5#postform" target="_blank">'.__('rating','adrotate').'</a> '.__('and','adrotate').' <a href="https://wordpress.org/support/view/plugin-reviews/adrotate" target="_blank">'.__('review','adrotate').'</a> '.__('on WordPress.org to help AdRotate grow in a positive way', 'adrotate').'!</strong></td>';
 
 	echo '<td><center><a href="https://ajdg.solutions/" title="AJdG Solutions"><img src="'.plugins_url('/images/ajdg-logo-100x60.png', __FILE__).'" alt="ajdg-logo-100x60" width="100" height="60" /></a></center></td>';
 	echo '<td><a href="https://ajdg.solutions/" title="AJdG Solutions">AJdG Solutions</a> - '.__('Your one stop for Webdevelopment, consultancy and anything WordPress! Find out more about what I can do for you!', 'adrotate').' '.__('Visit the', 'adrotate').' <a href="https://ajdg.solutions/" target="_blank">AJdG Solutions</a> '.__('website', 'adrotate').'</td>';
