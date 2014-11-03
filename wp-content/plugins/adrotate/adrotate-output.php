@@ -368,7 +368,7 @@ function adrotate_inject_posts($post_content) {
 
 	if(is_single()) {
 		// Inject ads into posts in specified category
-		$ids = $wpdb->get_results("SELECT `id`, `page`, `page_loc`, `page_par`, `wrapper_before`, `wrapper_after` FROM `".$wpdb->prefix."adrotate_groups` WHERE `cat_loc` > 0;");
+		$ids = $wpdb->get_results("SELECT `id`, `cat`, `cat_loc`, `cat_par`, `wrapper_before`, `wrapper_after` FROM `".$wpdb->prefix."adrotate_groups` WHERE `cat_loc` > 0;");
 		$category = get_the_category();
 		
 		$cat_array = $group_array = array();
@@ -901,18 +901,19 @@ function adrotate_notifications_dashboard() {
 		}
 
 		if(isset($_GET['hide'])) update_option('adrotate_hide_banner', 1);
+		if(isset($_GET['page'])) { $page = $_GET['page']; } else { $page = ''; }
 
 		$banner = get_option('adrotate_hide_banner');
-		if($banner != 1 AND $banner < (adrotate_now() - 604800)) {
+		if($banner != 1 AND $banner < (adrotate_now() - 604800) AND strpos($page, 'adrotate') !== false) {
 			echo '<div class="updated" style="padding: 0; margin: 0; border-left: none;">';
 			echo '	<div class="adrotate_pro_banner">';
-			echo '		<a href="admin.php?page=adrotate-pro&hide=1"><img class="close_icon" title="" src="'. plugins_url('images/close_icon.png', __FILE__).'" alt=""/></a>';
 			echo '		<div class="button_div">';
 			echo '			<a class="button" target="_blank" href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_banner&utm_medium=adrotate_free&utm_campaign=upgrade_adrotatefree">'.__('Learn More', 'adrotate').'</a>';
 			echo '		</div>';
 			echo '		<div class="text">'.__("You've been using <strong>AdRotate</strong> for a while now. Why not upgrade to the <strong>PRO</strong> version", 'adrotate').'?<br />';
-			echo '			<span class="alignleft">'.__('Get more features to even better run your advertising campaigns.', 'adrotate' ).'</span> <span class="alignright">'.__('Thank you for your consideration!', 'adrotate' ).'</span>';
+			echo '			<span>'.__('Get more features to even better run your advertising campaigns.', 'adrotate' ).' '.__('Thank you for your consideration!', 'adrotate' ).'</span>';
 			echo '		</div>';
+			echo '		<a class="close_banner" href="admin.php?page=adrotate-pro&hide=1"><small>dismiss</small></a>';
 			echo '		<div class="icon">';
 			echo '			<img  title="" src="'.plugins_url('images/adrotate-logo-60x60.png', __FILE__).'" alt=""/>';
 			echo '		</div>';
