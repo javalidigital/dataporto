@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Subscriptions\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-subscriptions\n"
 "POT-Creation-Date: 2014-08-01 22:11:59+00:00\n"
-"PO-Revision-Date: 2014-10-27 15:51-0300\n"
+"PO-Revision-Date: 2014-11-07 03:15-0300\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "woocommerce-subscriptions/language/pt_BR/)\n"
@@ -905,7 +905,7 @@ msgstr "Suspender"
 #: classes/class-wc-subscriptions-manager.php:2823
 #: woocommerce-subscriptions.php:248
 msgid "Cancel"
-msgstr "Cancerlar"
+msgstr "Cancelar"
 
 #: classes/class-wc-subscriptions-list-table.php:76
 #: lib/action-scheduler/classes/ActionScheduler_AdminView.php:188

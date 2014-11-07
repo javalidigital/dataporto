@@ -1018,6 +1018,14 @@ object {
 		position:relative;
 	}
 	
+		.login-header-mobile {display: none;
+		position:absolute;
+			left:0;
+			top:8px;
+			background:url(images/icon_login.png) no-repeat top left;
+			padding-left: 40px;
+			width:95px;}
+
 		.login-header {
 			position:absolute;
 			left:0;
@@ -1483,6 +1491,10 @@ object {
 .search {
 	display:block;
 }
+
+	.search .type-page .archive-item-date {
+		display: none;
+	}
 
 /* REPORTS */
 .woocommerce .site-main .product .images {
@@ -2564,6 +2576,10 @@ object {
 		.top-bar-container .login-header {
 			display: none;
 		}
+
+		.top-bar-container .login-header-mobile {
+			display: block;
+		}
 		
 	.logo-search-container {
 		width: 96%;
@@ -2667,7 +2683,7 @@ object {
 	
 	/* home*/ 
 	.slider-home {
-		display:none;
+		display:block;
 	}
 	
 	.services-home {
@@ -2799,6 +2815,10 @@ object {
 	
 		.top-bar-container .login-header {
 			display: none;
+		}
+
+		.top-bar-container .login-header-mobile {
+			display: block;
 		}
 		
 	.logo-search-container {

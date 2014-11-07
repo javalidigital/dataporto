@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: woocommerce, pagseguro, payment
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 2.7.2
+Stable tag: 2.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -261,9 +261,9 @@ Caso você tenha este problema, basta marcar ativar a opção **Enviar apenas o 
 
 = Mais dúvidas relacionadas ao funcionamento do plugin? =
 
-Entre em contato [clicando aqui](http://claudiosmweb.com/plugins/pagseguro-para-woocommerce/).
-
 Por favor, caso você tenha algum problema com o funcionamento do plugin, envie o log (ative ele nas opções do plugin e tente fazer uma compra, ele vai ficar dentro da pasta wp-content/plugins/woocommerce/logs/) usando o [pastebin.com](http://pastebin.com) ou o [gist.github.com](http://gist.github.com), desta forma fica mais rápido para fazer o diagnóstico.
+
+Com o log em mãos abra um [tópico em nosso fórum](http://wordpress.org/support/plugin/woocommerce-pagseguro).
 
 == Screenshots ==
 
@@ -275,6 +275,14 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, envie 
 6. Pagamento com boleto bancário usando o Checkout Transparente.
 
 == Changelog ==
+
+= 2.7.4 - 05/11/2014 =
+
+* Adicionado alerta quando o usuário não preenche o campo bairro no checkout transparente.
+
+= 2.7.3 - 26/10/2014 =
+
+* Adicionadas mensagens de erro para DDD e CEP inválidos.
 
 = 2.7.2 - 11/10/2014 =
 
@@ -454,9 +462,9 @@ Por favor, caso você tenha algum problema com o funcionamento do plugin, envie 
 
 == Upgrade Notice ==
 
-= 2.7.2 =
+= 2.7.3 =
 
-* Melhorado o salvamento dos detalhes do pedido que o PagSeguro retorna para a loja, como link de boleto, método de pagamento utilizando e outros.
+* Adicionadas mensagens de erro para DDD e CEP inválidos.
 
 == License ==
 

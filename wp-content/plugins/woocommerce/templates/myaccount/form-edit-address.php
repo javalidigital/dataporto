@@ -26,7 +26,7 @@ get_currentuserinfo();
 
 <?php else : ?>
 
-	<form method="post">
+	<form method="post" class="addres-edit">
 
 		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title ); ?></h3>
 

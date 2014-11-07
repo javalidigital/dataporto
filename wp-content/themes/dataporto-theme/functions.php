@@ -210,6 +210,10 @@ function dataporto_theme_scripts() {
 
 	wp_enqueue_script( 'dataporto-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '20140115', true );
 
+	wp_enqueue_script( 'dataporto-mask', get_template_directory_uri() . '/js/jquery.maskedinput.min.js', array(), '20150115', true );
+
+	wp_enqueue_script( 'dataporto-validator', get_template_directory_uri() . '/js/jquery.validate.min.js', array(), '20160115', true );	
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
