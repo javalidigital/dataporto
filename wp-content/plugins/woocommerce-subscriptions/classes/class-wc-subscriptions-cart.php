@@ -948,14 +948,16 @@ class WC_Subscriptions_Cart {
 	public static function get_cart_subscription_period() {
 		global $woocommerce;
 
-		foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
-			$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
-			if ( isset( $cart_item['data']->subscription_period ) ) {
-				$period = $cart_item['data']->subscription_period;
-				break;
-			} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
-				$period = WC_Subscriptions_Product::get_period( $item_id );
-				break;
+		if ( self::cart_contains_subscription() ) {
+			foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
+				$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
+				if ( isset( $cart_item['data']->subscription_period ) ) {
+					$period = $cart_item['data']->subscription_period;
+					break;
+				} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
+					$period = WC_Subscriptions_Product::get_period( $item_id );
+					break;
+				}
 			}
 		}
 
@@ -991,14 +993,16 @@ class WC_Subscriptions_Cart {
 
 		$length = 0;
 
-		foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
-			$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
-			if ( isset( $cart_item['data']->subscription_length ) ) {
-				$length = $cart_item['data']->subscription_length;
-				break;
-			} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
-				$length = WC_Subscriptions_Product::get_length( $item_id );
-				break;
+		if ( self::cart_contains_subscription() ) {
+			foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
+				$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
+				if ( isset( $cart_item['data']->subscription_length ) ) {
+					$length = $cart_item['data']->subscription_length;
+					break;
+				} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
+					$length = WC_Subscriptions_Product::get_length( $item_id );
+					break;
+				}
 			}
 		}
 
@@ -1015,14 +1019,16 @@ class WC_Subscriptions_Cart {
 
 		$trial_length = 0;
 
-		foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
-			$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
-			if ( isset( $cart_item['data']->subscription_trial_length ) ) {
-				$trial_length = $cart_item['data']->subscription_trial_length;
-				break;
-			} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
-				$trial_length = WC_Subscriptions_Product::get_trial_length( $item_id );
-				break;
+		if ( self::cart_contains_subscription() ) {
+			foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
+				$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
+				if ( isset( $cart_item['data']->subscription_trial_length ) ) {
+					$trial_length = $cart_item['data']->subscription_trial_length;
+					break;
+				} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
+					$trial_length = WC_Subscriptions_Product::get_trial_length( $item_id );
+					break;
+				}
 			}
 		}
 
@@ -1040,14 +1046,16 @@ class WC_Subscriptions_Cart {
 		$trial_period = '';
 
 		// Get the original trial period
-		foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
-			$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
-			if ( isset( $cart_item['data']->subscription_trial_period ) ) {
-				$trial_period = $cart_item['data']->subscription_trial_period;
-				break;
-			} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
-				$trial_period = WC_Subscriptions_Product::get_trial_period( $item_id );
-				break;
+		if ( self::cart_contains_subscription() ) {
+			foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
+				$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
+				if ( isset( $cart_item['data']->subscription_trial_period ) ) {
+					$trial_period = $cart_item['data']->subscription_trial_period;
+					break;
+				} elseif ( WC_Subscriptions_Product::is_subscription( $item_id ) ) {
+					$trial_period = WC_Subscriptions_Product::get_trial_period( $item_id );
+					break;
+				}
 			}
 		}
 
@@ -1067,7 +1075,7 @@ class WC_Subscriptions_Cart {
 
 		$sign_up_fee = 0;
 
-		if ( ! self::cart_contains_subscription_renewal() ) {
+		if ( self::cart_contains_subscription() && ! self::cart_contains_subscription_renewal() ) {
 			foreach ( $woocommerce->cart->cart_contents as $cart_item ) {
 				$item_id = empty( $cart_item['variation_id'] ) ? $cart_item['product_id'] : $cart_item['variation_id'];
 				if ( isset( $cart_item['data']->subscription_sign_up_fee ) ) {

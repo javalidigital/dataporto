@@ -185,7 +185,7 @@ class Groups_WS_Subscriptions_Table_Renderer {
 					$product    = $order->get_product_from_item( $order_item );
 
 					$output .= '<tr class="' . ( $i % 2 == 0 ? 'even' : 'odd' ) . '">';
-					
+
 					foreach( $column_display_names as $column_key => $column_title ) {
 						$output .= sprintf( '<td class="%s">', $column_key );
 						switch( $column_key ) {

@@ -253,17 +253,23 @@ jQuery(document).ready(function($){
 				$items = $('#order_line_items tr.item');
 			}
 
-			var country = $('#_shipping_country').val();
+			var shipping_country = $( '#_shipping_country' ).val();
+			var billing_country  = $( '#_billing_country' ).val();
+			var country          = woocommerce_admin_meta_boxes.base_country;
+			var state            = '';
+			var postcode         = '';
+			var city             = '';
 
-			if (country) {
-				var state = $('#_shipping_state').val(),
-					postcode = $('#_shipping_postcode').val(),
-					city = $('#_shipping_city').val();
-			} else {
-				country = $('#_billing_country').val();
-				var state = $('#_billing_state').val(),
-					postcode = $('#_billing_postcode').val(),
-					city = $('#_billing_city').val();
+			if ( shipping_country ) {
+				country  = shipping_country;
+				state    = $( '#_shipping_state' ).val();
+				postcode = $( '#_shipping_postcode' ).val();
+				city     = $( '#_shipping_city' ).val();
+			} else if ( billing_country ) {
+				country  = billing_country;
+				state    = $( '#_billing_state' ).val();
+				postcode = $( '#_billing_postcode' ).val();
+				city     = $( '#_billing_city' ).val();
 			}
 
 			$items.each(function(idx){

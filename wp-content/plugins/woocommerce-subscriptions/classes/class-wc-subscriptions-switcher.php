@@ -377,11 +377,11 @@ class WC_Subscriptions_Switcher {
 	 *
 	 * For the subscription to be switchable, switching must be enabled, and the subscription must: 
 	 * - be active or on-hold
-	 * - be a variable subscription or part of a grouped product (at the time the check is made, not at the time the subscription was purcahsed)
-	 * - be using manual renwals or use a payment method which supports cancellation
+	 * - be a variable subscription or part of a grouped product (at the time the check is made, not at the time the subscription was purchased)
+	 * - be using manual renewals or use a payment method which supports cancellation
 	 *
 	 * @param bool $subscription_can_be_changed Flag of whether the subscription can be changed to
-	 * @param string $new_status_or_meta The status or meta data you want to change th subscription to. Can be 'active', 'on-hold', 'cancelled', 'expired', 'trash', 'deleted', 'failed', 'AMQPChannel to the 'woocommerce_can_subscription_be_changed_to' filter.
+	 * @param string $new_status_or_meta The status or meta data you want to change the subscription to. Can be 'active', 'on-hold', 'cancelled', 'expired', 'trash', 'deleted', 'failed', 'AMQPChannel to the 'woocommerce_can_subscription_be_changed_to' filter.
 	 * @param object $args Set of values used in @see WC_Subscriptions_Manager::can_subscription_be_changed_to() for determining if a subscription can be changed
 	 * @since 1.4
 	 */
@@ -416,7 +416,19 @@ class WC_Subscriptions_Switcher {
 				}
 			}
 
-			if ( $is_product_switchable && in_array( $args->subscription['status'], array( 'active', 'on-hold' ) ) && ( $args->order_uses_manual_payments || $args->payment_gateway->supports( 'subscription_cancellation' ) ) ) {
+			if ( 'active' == $args->subscription['status'] || ( 'on-hold' == $args->subscription['status'] && isset( $args->order->paid_date ) ) ) {
+				$is_subscription_switchable = true;
+			} else {
+				$is_subscription_switchable = false;
+			}
+
+			if ( $args->order_uses_manual_payments || $args->payment_gateway->supports( 'subscription_cancellation' ) ) {
+				$can_subscription_be_cancelled = true;
+			} else {
+				$can_subscription_be_cancelled = false;
+			}
+
+			if ( $is_product_switchable && $is_subscription_switchable && $can_subscription_be_cancelled ) {
 				$subscription_can_be_changed = true;
 			} else {
 				$subscription_can_be_changed = false;

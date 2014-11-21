@@ -23,29 +23,29 @@
  * Admin section for Groups integration.
  */
 class Groups_WS_Admin {
-	
+
 	const NONCE = 'groups-woocommerce-admin-nonce';
 	const MEMBERSHIP_ORDER_STATUS = GROUPS_WS_MEMBERSHIP_ORDER_STATUS;
 	const SHOW_DURATION           = GROUPS_WS_SHOW_DURATION;
 	const FORCE_REGISTRATION      = GROUPS_WS_FORCE_REGISTRATION;
 	const SHOW_IN_USER_PROFILE    = GROUPS_WS_SHOW_IN_USER_PROFILE;
 	const SHOW_IN_EDIT_PROFILE    = GROUPS_WS_SHOW_IN_EDIT_PROFILE;
-	
+
 	/**
 	 * Admin setup.
 	 */
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 	}
-	
+
 	/**
 	 * Adds the admin section.
 	 */
 	public static function admin_menu() {
 		$admin_page = add_submenu_page(
 			'woocommerce',
-			__( 'Groups' ),
-			__( 'Groups' ),
+			__( 'Groups', GROUPS_WS_PLUGIN_DOMAIN ),
+			__( 'Groups', GROUPS_WS_PLUGIN_DOMAIN ),
 			GROUPS_ADMINISTER_OPTIONS,
 			'groups_woocommerce',
 			array( __CLASS__, 'groups_woocommerce' )
@@ -53,7 +53,7 @@ class Groups_WS_Admin {
 // 		add_action( 'admin_print_scripts-' . $admin_page, array( __CLASS__, 'admin_print_scripts' ) );
 // 		add_action( 'admin_print_styles-' . $admin_page, array( __CLASS__, 'admin_print_styles' ) );
 	}
-	
+
 	/**
 	 * Renders the admin section.
 	 */
@@ -118,7 +118,7 @@ class Groups_WS_Admin {
 			'</p>' .
 			'<p class="description">' . __( 'Note that users will always be added to or removed from groups when an order is completed.', GROUPS_WS_PLUGIN_DOMAIN ) . '</p>' .
 			'<p class="description">' . __( 'This setting does not apply to subscriptions.', GROUPS_WS_PLUGIN_DOMAIN ) . '</p>' .
-			
+
 			'<h4>' . __( 'Subscription Status', GROUPS_WS_PLUGIN_DOMAIN ) . '</h4>' .
 			'<p>' .
 			'<label>' .
@@ -159,12 +159,18 @@ class Groups_WS_Admin {
 			__( 'Show membership info in user profiles', GROUPS_WS_PLUGIN_DOMAIN ) .
 			'</label>' .
 			'</p>' .
+			'<p class="description">' .
+			__( 'If enabled, users can see information about their group memberships on the profile page.', GROUPS_WS_PLUGIN_DOMAIN ) .
+			'</p>' .
 			'<p>' .
 			'<label>' .
 			'<input type="checkbox" ' . ( $show_in_edit_profile ? ' checked="checked" ' : '' ) . ' name="' . self::SHOW_IN_EDIT_PROFILE . '" />' .
 			'&nbsp;' .
 			__( 'Show membership info when editing user profiles', GROUPS_WS_PLUGIN_DOMAIN ) .
 			'</label>' .
+			'</p>' .
+			'<p class="description">' .
+			__( 'If enabled, users who can edit other users can see and modify group memberships.', GROUPS_WS_PLUGIN_DOMAIN ) .
 			'</p>' .
 
 			'<p>' .

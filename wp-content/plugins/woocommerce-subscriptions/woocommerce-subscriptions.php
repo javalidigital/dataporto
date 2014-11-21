@@ -5,7 +5,7 @@
  * Description: Sell products and services with recurring payments in your WooCommerce Store.
  * Author: Brent Shepherd
  * Author URI: http://find.brentshepherd.com/
- * Version: 1.5.12
+ * Version: 1.5.13
  *
  * Copyright 2014 Prospress, Inc.  (email : freedoms@prospress.com)
  *
@@ -99,7 +99,7 @@ class WC_Subscriptions {
 
 	public static $text_domain = 'deprecated-use-woocommerce-subscriptions-string';
 
-	public static $version = '1.5.12';
+	public static $version = '1.5.13';
 
 	private static $total_subscription_count = null;
 

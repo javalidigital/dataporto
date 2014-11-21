@@ -38,13 +38,13 @@ class Groups_WS_Bucket {
 	 * @var string
 	 */
 	const BUCKET = 'bucket';
-	
+
 	/**
 	 * Bucket's user ID.
 	 * @var int
 	 */
 	private $user_id = null;
-	
+
 	/**
 	 * Bucket's group ID.
 	 * @var int

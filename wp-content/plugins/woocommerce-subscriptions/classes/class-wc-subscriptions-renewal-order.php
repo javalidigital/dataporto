@@ -851,10 +851,12 @@ class WC_Subscriptions_Renewal_Order {
 
 			$renewal_orders = get_posts( array(
 				'meta_query'  => array(
-					'key'     => '_original_order',
-					'compare' => '=',
-					'value'   => $subscription['order_id'],
-					'type'    => 'numeric'
+					array(
+						'key'     => '_original_order',
+						'compare' => '=',
+						'value'   => $subscription['order_id'],
+						'type'    => 'numeric'
+					)
 				),
 				'post_type'   => 'shop_order',
 				'post_status' => 'any',

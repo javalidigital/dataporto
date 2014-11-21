@@ -1,5 +1,16 @@
 *** Groups WooCommerce ***
 
+2014.11.12 - version 1.7.1
+* Allows to edit time-limited memberships manually (in user profiles).
+* Fixed missing language domains on some strings.
+* Fixed own membership info is not shown when editing own user profile
+  and the option is enabled.
+* Fixed duplicate membership lines shown in user profile on empty bucket
+  after bucket with timestamp(s).
+* Fixed a bug in the membership termination algorithm
+  (group comparison in the terminator).
+* Fixed the subscription switching handler to also react on completed orders.
+
 2014.08.28 - version 1.7.0
 * Added changes for WooCommerce 2.2.0 compatibility
 

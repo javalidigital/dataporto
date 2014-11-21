@@ -1,6 +1,0 @@
-[11/03/2014 10:52 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
-[11/07/2014 4:55 AM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
-[11/07/2014 11:06 AM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
-[11/07/2014 12:14 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
-[11/07/2014 12:18 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
-[11/21/2014 12:37 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity

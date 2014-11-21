@@ -1018,13 +1018,15 @@ object {
 		position:relative;
 	}
 	
-		.login-header-mobile {display: none;
-		position:absolute;
+		.login-header-mobile {
+			display: none;
+			position:absolute;
 			left:0;
 			top:8px;
 			background:url(images/icon_login.png) no-repeat top left;
 			padding-left: 40px;
-			width:95px;}
+			width:100%;
+		}
 
 		.login-header {
 			position:absolute;
@@ -1043,6 +1045,14 @@ object {
 
 				.login-header .header-login-form ul.sidebar_login_links {
 					display: block;
+					clear:both;
+				}
+
+				.login-header .lost_password-link {
+					display: block;
+					clear: both;
+					padding-top: 2px;
+					padding-left: 170px;
 				}
 		
 			.login-header form {				
@@ -2580,6 +2590,16 @@ object {
 		.top-bar-container .login-header-mobile {
 			display: block;
 		}
+
+			.top-bar-container .login-header-mobile	.button-link {
+				float:left;
+				margin-right: 10px;
+				width:97px;
+			}
+
+		.top-bar-container .support-header {
+			display: none;
+		}
 		
 	.logo-search-container {
 		width: 96%;
@@ -2820,6 +2840,12 @@ object {
 		.top-bar-container .login-header-mobile {
 			display: block;
 		}
+
+			.top-bar-container .login-header-mobile	.button-link {
+				float:left;
+				margin-right: 10px;
+				width:97px;
+			}
 		
 	.logo-search-container {
 		width: 96%;

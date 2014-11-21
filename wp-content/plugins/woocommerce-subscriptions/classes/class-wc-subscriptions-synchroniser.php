@@ -200,7 +200,7 @@ class WC_Subscriptions_Synchroniser {
 
 			array(
 				'name'          => __( 'Prorate First Payment', 'woocommerce-subscriptions' ),
-				'desc'          => sprintf( __( 'If a subscription is synchronised to a specific day of the week, month or year, charge a prorated amount for the subscription at the time of sign up. %sLearn more%s.', 'woocommerce-subscriptions' ), '<a href="' . esc_url( 'http://docs.woothemes.com/document/subscriptions/renewal-synchronisation/' ) . '">', '</a>' ),
+				'desc'          => __( 'If a subscription is synchronised to a specific day of the week, month or year, charge a prorated amount for the subscription at the time of sign up.', 'woocommerce-subscriptions' ),
 				'id'            => self::$setting_id_proration,
 				'css'           => 'min-width:150px;',
 				'css'           => 'min-width:150px;',
@@ -709,7 +709,10 @@ class WC_Subscriptions_Synchroniser {
 			}
 		}
 
-		// We calculated a timestamp for midnight on the specific day in the site's timezone, so we need to convert it to the UTC equivalent of midnight on that day
+		// We calculated a timestamp for midnight on the specific day in the site's timezone, let's push it to 3am to account for any daylight savings changes
+		$first_payment_timestamp += 3 * HOUR_IN_SECONDS;
+
+		// And convert it to the UTC equivalent of 3am on that day
 		$first_payment_timestamp -= ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 
 		$first_payment = ( 'mysql' == $type && 0 != $first_payment_timestamp ) ? date( 'Y-m-d H:i:s', $first_payment_timestamp ) : $first_payment_timestamp;

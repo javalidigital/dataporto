@@ -626,7 +626,7 @@ class WC_PayPal_Standard_Subscriptions {
 
 				// Give a free trial until the next payment date
 				if ( $is_switch_order ) {
-					$next_payment_timestamp = WC_Subscriptions_Manager::calculate_next_payment_date( $subscription_key, $order->user_id, 'timestamp' );
+					$next_payment_timestamp = get_post_meta( $order->id, '_switched_subscription_first_payment_timestamp', true );
 				} elseif( $is_synced_subscription ) {
 					$next_payment_timestamp = WC_Subscriptions_Synchroniser::calculate_first_payment_date( $product, 'timestamp' );
 				} else {

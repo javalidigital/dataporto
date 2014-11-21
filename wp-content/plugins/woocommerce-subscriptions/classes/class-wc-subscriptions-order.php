@@ -2919,7 +2919,7 @@ class WC_Subscriptions_Order {
 	public static function order_shipping_method( $shipping_method, $order ) {
 
 		foreach ( self::get_recurring_shipping_methods( $order ) as $recurring_shipping_method ) {
-			if ( false === strpos( $shipping_method, $recurring_shipping_method['name'] ) ) {
+			if ( ! empty( $recurring_shipping_method['name'] ) && false === strpos( $shipping_method, $recurring_shipping_method['name'] ) ) {
 				if ( ! empty( $shipping_method ) ) {
 					$shipping_method .= ', ';
 				}

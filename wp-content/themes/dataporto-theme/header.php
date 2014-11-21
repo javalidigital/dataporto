@@ -19,11 +19,25 @@
 <link href='http://fonts.googleapis.com/css?family=Exo:400,700,400italic|Open+Sans' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
 <script type="text/javascript" src="<?php echo get_bloginfo('template_url') ?>/js/jquery.validate.min.js"></script>
+<?php
+   $placeholder_user = __( 'Nome de Usuário' );
+   $placeholder_pass = __( 'Senha' );
+?>
 <script type="text/javascript">
 
-	
-
 	jQuery(document).ready(function() {
+
+		var placeholder_user_var = '<?php echo $placeholder_user; ?>'; 
+			var placeholder_pass_var = '<?php echo $placeholder_pass; ?>';
+		    jQuery('#loginform input[type="text"]').attr('placeholder', placeholder_user_var);
+			jQuery('#loginform input[type="password"]').attr('placeholder', placeholder_pass_var);
+			jQuery('#loginform label[for="user_login"]').contents().filter(function() {
+				return this.nodeType === 3;
+			}).remove();
+			jQuery('#loginform label[for="user_pass"]').contents().filter(function() {
+				return this.nodeType === 3;
+			}).remove();
+
 		jQuery("form.addres-edit").validate({                   
 	        	rules:{
 	        		billing_cpf:{required: true, verificaCPF: true}
@@ -33,7 +47,7 @@
 	        	}                        
 	    });
 
-jQuery.validator.addMethod("verificaCPF", function(value, element) {
+		jQuery.validator.addMethod("verificaCPF", function(value, element) {
 			value = value.replace('.','');
 			value = value.replace('.','');
 			billing_cpf = value.replace('-','');
@@ -96,25 +110,6 @@ jQuery.validator.addMethod("verificaCPF", function(value, element) {
 
 
 </script>
-
-<?php
-   $placeholder_user = __( 'Username' );
-   $placeholder_pass = __( 'Password' );
-?>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	var placeholder_user_var = '<?php echo $placeholder_user; ?>'; 
-	var placeholder_pass_var = '<?php echo $placeholder_pass; ?>';
-    jQuery('#loginform input[type="text"]').attr('placeholder', placeholder_user_var);
-	jQuery('#loginform input[type="password"]').attr('placeholder', placeholder_pass_var);
-	jQuery('#loginform label[for="user_login"]').contents().filter(function() {
-		return this.nodeType === 3;
-	}).remove();
-	jQuery('#loginform label[for="user_pass"]').contents().filter(function() {
-		return this.nodeType === 3;
-	}).remove();
-});
-</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -148,6 +143,7 @@ jQuery(document).ready(function(){
 				<?php } else { ?>
 
 					<a class="button-link" href="<?php echo esc_url( home_url( '/' ) ); ?>/minha-conta" title="Login">Login</a>
+					<a class="button-link" href="<?php echo esc_url( home_url( '/' ) ); ?>cadastro/?add-to-cart=293" title="Cadastre-se">Cadastre-se</a>
 
 				<?php } ?> 
 

@@ -23,7 +23,7 @@
  * Terminates activate memberships when due.
  */
 class Groups_WS_Terminator {
-	
+
 	const ETERNITY = 0;
 
 	/**
@@ -143,7 +143,8 @@ class Groups_WS_Terminator {
 		$U_in_G = false;
 		$groups_user = new Groups_User( $user_id );
 		foreach( $groups_user->groups as $group ) {
-			if ( $group->group_id === $group_id ) {
+			// Note that $group->group_id is a string, don't use === here:
+			if ( $group->group_id == $group_id ) {
 				$U_in_G = true;
 				break;
 			}

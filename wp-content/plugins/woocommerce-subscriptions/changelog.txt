@@ -1,5 +1,15 @@
 *** WooCommerce Subscriptions Changelog ***
 
+2014.11.10 - version 1.5.13
+ * Fix: do not allow customers to switch a subscription where the original order has not yet been paid.
+ * Fix: do not return cart subscription details, like trial or length, with WooCommerce 2.2 when the cart contains a non-subscription product that was previously a subscription product
+ * Fix: manual tax calculation from Edit Order screen with WC 2.2 when a shipping and billing address has not yet been set, but store is set to calculate taxes from store's base country
+ * Fix: renew button display on subscriber's My Account page
+ * Fix: occasional "Warning: strpos(): Empty delimiter in" notice on Orders screen
+ * Fix: first payment date (and therefore, payment schedule) when switching subscriptions with PayPal as the payment method and not prorating payment
+ * Fix: update Action Scheduler to prevent actions with corrupted args (post_content) blocking execution of subsequent actions
+ * Fix: synchronise renewal dates to 3am instead of midnight to account for any changes to the time if the site is set to use a timezone with daylight savings (e.g. Los Angeles instead of UTC-7)
+
 2014.10.10 - version 1.5.12
  * Tweak: add 'customer_changed_subscription_to_suspended' and 'customer_changed_subscription_to_cancelled' hooks
  * Tweak: add 'admin_changed_subscription_to_on-hold', 'admin_changed_subscription_to_cancelled' and 'admin_changed_subscription_to_active' hooks
@@ -240,14 +250,14 @@
  * Fix: Fatal error "Call to undefined function woocommerce_round_tax_total()" when saving an order on the Edit Order screen with no value set for recurring tax and recurring shipping tax
 
 2014.01.21 - version 1.4.6
- * Tweak: Full WooCommerce 2.1 compatibillity
- * Tweak: If a subcriber visits a variable subscription's page, and that subscription is limited to one per customer, and the customer has an active subscription, automatically initiate the switch process.
+ * Tweak: Full WooCommerce 2.1 compatibility
+ * Tweak: If a subscriber visits a variable subscription's page, and that subscription is limited to one per customer, and the customer has an active subscription, automatically initiate the switch process.
  * Tweak: Display subscription's address not default address when changing a single subscription's address (requires on WooCommerce 2.1)
  * Tweak: Add new 'woocommerce_subscriptions_pre_update_recurring_payment_method' hook
  * Fix: When customer is changing payment method, cancel subscription with PayPal only after the customer has completed the sign-up (not when initiating the payment method change)
  * Fix: Display sale price field on the Edit Product screen for both variable products & variable subscription products when Stock Management is disabled (was previously hidden erroneously)
  * Fix: Variable subscription "From:" price when a variation has the same initial price, made up of of a free trial and sign-up fee, but a different recurring price on the same billing period.
- * Fix: Colspan for variation's susbcription pricing fields on the Edit Product page when Stock Management is enabled.
+ * Fix: Colspan for variation's subscription pricing fields on the Edit Product page when Stock Management is enabled.
  * Fix: "Notice: Trying to get property of non-object" when searching by user name for a user which doesn't exist
  * Fix: don't expire a subscription when a PayPal EOT notification comes through for a subscription that has already been cancelled
  * Fix: don't expire a subscription when the recurring payment method has been changed from one PayPal account to another PayPal account
@@ -290,7 +300,7 @@
  * Fix: only set recurring payment method meta data when an order is marked as completed for those orders that contain a subscription
  * Fix: switching subscriptions without apportioning sign-up fees
  * Fix: allow switching between variations of a variable subscription that is limited to one per customer
- * Fix: fix next payment date displayed for Subscriptions purhcased with PayPal that include a free trial and have their first payment processed after the free trial had ended
+ * Fix: fix next payment date displayed for Subscriptions purchased with PayPal that include a free trial and have their first payment processed after the free trial had ended
  * Fix: prevent 'Request-URI Too Large' errors on the Manage Subscriptions page for some servers when using the customer, product and/or page filters
  * Fix: set subscriptions manually added via the Edit Order screen to use the Manual Renewal process
  * Fix: display correct next payment date for the first payment on a switched subscription where the store manger has changed the next payment date

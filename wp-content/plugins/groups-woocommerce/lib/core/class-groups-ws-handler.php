@@ -479,8 +479,10 @@ class Groups_WS_Handler {
 		if ( isset( $subscription['status'] ) && ( 'switched' == $subscription['status'] ) ) {
 			if ( isset( $subscription['product_id'] ) && isset( $subscription['order_id'] ) ) {
 				if ( $order = Groups_WS_Helper::get_order( $subscription['order_id'] ) ) {
-					if ( $order->status == 'processing' ) {
-						self::subscription_expired( $user_id, $subscription_key );
+					if ( ( $order->status == 'processing' ) || ( $order->status == 'completed' ) ) {
+						if ( $user_id = $order->user_id ) {
+							self::subscription_expired( $user_id, $subscription_key );
+						}
 					}
 				}
 			}
