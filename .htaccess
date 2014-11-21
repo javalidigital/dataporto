@@ -32,11 +32,11 @@ RewriteRule .* http://127.0.0.1 [L]
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /dataporto/
+RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /dataporto/index.php [L]
+RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
