@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
 *  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
-*  ADROTATE is a trademark (pending registration) of Arnan de Gans.
+*  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -36,7 +36,7 @@ class adrotate_widgets extends WP_Widget {
 
 		extract($args);
         $title = apply_filters('widget_title', $instance['title']);
-		if(empty($instance['id'])) $instance['id'] = 0;
+		if(empty($instance['adid'])) $instance['adid'] = 0;
 
 		echo $before_widget;
 		if($title) {
@@ -47,20 +47,14 @@ class adrotate_widgets extends WP_Widget {
 		if($adrotate_config['w3caching'] == 'Y') echo '<!-- mfunc '.W3TC_DYNAMIC_SECURITY.' -->';
 		
 		if($instance['type'] == "single") {
-			if($adrotate_config['supercache'] == "Y") echo '<!--mfunc echo adrotate_ad('.$instance['id'].', true, 0, 0, 0) -->';
-			echo adrotate_ad($instance['id'], true, 0, 0, 0);
+			if($adrotate_config['supercache'] == "Y") echo '<!--mfunc echo adrotate_ad('.$instance['adid'].', true, 0, 0, 0) -->';
+			echo adrotate_ad($instance['adid'], true, 0, 0, 0);
 			if($adrotate_config['supercache'] == "Y") echo '<!--/mfunc-->';
 		}
 
 		if($instance['type'] == "group") {
-			if($adrotate_config['supercache'] == "Y") echo '<!--mfunc echo adrotate_group('.$instance['id'].', 0, 0, 0) -->';
-			echo adrotate_group($instance['id'], 0, 0, 0);
-			if($adrotate_config['supercache'] == "Y") echo '<!--/mfunc-->';
-		}
-		
-		if($instance['type'] == "block") {
-			if($adrotate_config['supercache'] == "Y") echo '<!--mfunc echo adrotate_block('.$instance['id'].') -->';
-			echo adrotate_block($instance['id']);
+			if($adrotate_config['supercache'] == "Y") echo '<!--mfunc echo adrotate_group('.$instance['adid'].', 0, 0, 0) -->';
+			echo adrotate_group($instance['adid'], 0, 0, 0);
 			if($adrotate_config['supercache'] == "Y") echo '<!--/mfunc-->';
 		}
 		
@@ -78,7 +72,7 @@ class adrotate_widgets extends WP_Widget {
 		$new_instance['title'] = strip_tags($new_instance['title']);
 		$new_instance['description'] = strip_tags($new_instance['description']);
 		$new_instance['type'] = strip_tags($new_instance['type']);	
-		$new_instance['id'] = strip_tags($new_instance['id']);
+		$new_instance['adid'] = strip_tags($new_instance['adid']);
 		$new_instance['siteid'] = 0;
 
 		$instance = wp_parse_args($new_instance, $old_instance);
@@ -95,12 +89,12 @@ class adrotate_widgets extends WP_Widget {
 		$defaults = array();
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		
-		$title = $description = $type = $id = $siteid = '';
+		$title = $description = $type = $adid = $siteid = '';
 		extract($instance);
 		$title = esc_attr( $title );
 		$description = esc_attr( $description );
 		$type = esc_attr( $type );
-		$id = esc_attr( $id );
+		$adid = esc_attr( $adid );
 		$siteid = esc_attr( $siteid );
 ?>
 		<p>
@@ -120,14 +114,13 @@ class adrotate_widgets extends WP_Widget {
 			<select class="widefat" id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>" class="postform">
 			    <option value="single" <?php if($type == "single") { echo 'selected'; } ?>><?php _e( 'Single Ad - Use Ad ID', 'adrotate' ); ?></option>
 		        <option value="group" <?php if($type == "group") { echo 'selected'; } ?>><?php _e( 'Group of Ads - Use group ID', 'adrotate' ); ?></option>
-			    <option value="block" <?php if($type == "block") { echo 'selected'; } ?>><?php _e( 'Block of Ads (Obsolete)', 'adrotate' ); ?></option>
 			</select>
 			<br />
 			<small><?php _e( 'Choose what you want to use this widget for', 'adrotate' ); ?></small>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('id'); ?>"><?php _e( 'ID:', 'adrotate' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('id'); ?>" name="<?php echo $this->get_field_name('id'); ?>" type="text" value="<?php echo $id; ?>" />
+			<label for="<?php echo $this->get_field_id('adid'); ?>"><?php _e( 'ID:', 'adrotate' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('adid'); ?>" name="<?php echo $this->get_field_name('adid'); ?>" type="text" value="<?php echo $adid; ?>" />
 			<br />
 			<small><?php _e( 'Fill in the ID of the type you want to display!', 'adrotate' ); ?></small>
 		</p>

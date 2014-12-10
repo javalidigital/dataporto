@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
 *  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
-*  ADROTATE is a trademark (pending registration) of Arnan de Gans.
+*  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -69,6 +69,162 @@ function adrotate_is_networked() {
 		return true;
 	}		
 	return false;
+}
+
+/*-------------------------------------------------------------
+ Name:      adrotate_is_login_page
+
+ Purpose:   Check if we're on wp-login.php
+ Receive:   -None-
+ Return:    Boolean
+ Since:		3.11.3
+-------------------------------------------------------------*/
+function adrotate_is_login_page() {
+    return in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'));
+}
+
+/*-------------------------------------------------------------
+ Name:      adrotate_count_impression
+
+ Purpose:   Count Impressions where needed
+ Receive:   $ad, $group
+ Return:    -None-
+ Since:		3.10.12
+-------------------------------------------------------------*/
+function adrotate_count_impression($ad, $group = 0) { 
+	global $wpdb, $adrotate_config, $adrotate_crawlers, $adrotate_debug;
+
+	if(($adrotate_config['enable_loggedin_impressions'] == 'Y' AND is_user_logged_in()) OR !is_user_logged_in()) {
+		$now = adrotate_now();
+		$today = adrotate_date_start('day');
+		$remote_ip 	= adrotate_get_remote_ip();
+
+		if(is_array($adrotate_crawlers)) {
+			$crawlers = $adrotate_crawlers;
+		} else {
+			$crawlers = array();
+		}
+
+		if(isset($_SERVER['HTTP_USER_AGENT'])) {
+			$useragent = $_SERVER['HTTP_USER_AGENT'];
+			$useragent = trim($useragent, ' \t\r\n\0\x0B');
+		} else {
+			$useragent = '';
+		}
+
+		$nocrawler = true;
+		foreach($crawlers as $crawler) {
+			if(preg_match("/$crawler/i", $useragent)) $nocrawler = false;
+		}
+
+		if($adrotate_debug['timers'] == true) {
+			$impression_timer = $now;
+		} else {
+			$impression_timer = $now - $adrotate_config['impression_timer'];
+		}
+
+		$timer = $wpdb->get_var($wpdb->prepare("SELECT `timer` FROM `".$wpdb->prefix."adrotate_tracker` WHERE `ipaddress` = '%s' AND `stat` = 'i' AND `bannerid` = %d ORDER BY `timer` DESC LIMIT 1;", $remote_ip, $ad));
+		if($timer < $impression_timer AND $nocrawler == true AND strlen($useragent) > 0) {
+			$stats = $wpdb->get_var($wpdb->prepare("SELECT `id` FROM `".$wpdb->prefix."adrotate_stats` WHERE `ad` = %d AND `group` = %d AND `thetime` = $today;", $ad, $group));
+			if($stats > 0) {
+				$wpdb->query("UPDATE `".$wpdb->prefix."adrotate_stats` SET `impressions` = `impressions` + 1 WHERE `id` = $stats;");
+			} else {
+				$wpdb->insert($wpdb->prefix.'adrotate_stats', array('ad' => $ad, 'group' => $group, 'block' => 0, 'thetime' => $today, 'clicks' => 0, 'impressions' => 1));
+			}
+
+			$wpdb->insert($wpdb->prefix."adrotate_tracker", array('ipaddress' => $remote_ip, 'timer' => $now, 'bannerid' => $ad, 'stat' => 'i', 'useragent' => '', 'country' => '', 'city' => ''));
+		}
+	}
+} 
+
+/*-------------------------------------------------------------
+ Name:      adrotate_impression_callback
+
+ Purpose:   Register a impression for dynamic groups
+ Receive:   $_POST
+ Return:    -None-
+ Since:		3.10.14
+-------------------------------------------------------------*/
+function adrotate_impression_callback() {
+	global $adrotate_debug;
+
+	$meta = $_POST['track'];
+	if($adrotate_debug['track'] != true) {
+		$meta = base64_decode($meta);
+	}
+
+	$meta = esc_attr($meta);
+	list($ad, $group, $blog_id) = explode(",", $meta, 3);
+	adrotate_count_impression($ad, $group);
+
+	die();
+}
+
+
+/*-------------------------------------------------------------
+ Name:      adrotate_click_callback
+
+ Purpose:   Register clicks for clicktracking
+ Receive:   $_POST
+ Return:    -None-
+ Since:		3.10.14
+-------------------------------------------------------------*/
+function adrotate_click_callback() {
+	global $wpdb, $adrotate_crawlers, $adrotate_config, $adrotate_debug;
+
+	$meta = $_POST['track'];
+
+	if($adrotate_debug['track'] != true) {
+		$meta = base64_decode($meta);
+	}
+	
+	$meta = esc_attr($meta);
+	list($ad, $group, $blog_id) = explode(",", $meta, 3);
+
+	$useragent = trim($_SERVER['HTTP_USER_AGENT'], ' \t\r\n\0\x0B');
+	$prefix = $wpdb->get_blog_prefix($blog_id);
+	$remote_ip = adrotate_get_remote_ip();
+	$now = adrotate_now();
+
+	if(($adrotate_config['enable_loggedin_clicks'] == 'Y' AND is_user_logged_in()) OR !is_user_logged_in()) {
+
+		if(is_array($adrotate_crawlers)) {
+			$crawlers = $adrotate_crawlers;
+		} else {
+			$crawlers = array();
+		}
+	
+		$nocrawler = array(0);
+		foreach ($crawlers as $crawler) {
+			if(preg_match("/$crawler/i", $useragent)) $nocrawler[] = 1;
+		}
+
+		if(!in_array(1, $nocrawler) AND !empty($useragent) AND $remote_ip != "unknown" AND !empty($remote_ip)) {
+			$today = adrotate_date_start('day');
+
+			if($adrotate_debug['timers'] == true) {
+				$click_timer = $now;
+			} else {
+				$click_timer = $now - $adrotate_config['click_timer'];
+			}
+
+			$timer = $wpdb->get_var($wpdb->prepare("SELECT `timer` FROM `".$wpdb->prefix."adrotate_tracker` WHERE `ipaddress` = '%s' AND `stat` = 'c' AND `bannerid` = %d ORDER BY `timer` DESC LIMIT 1;", $remote_ip, $ad));
+			if($timer < $click_timer) {
+				$stats = $wpdb->get_var($wpdb->prepare("SELECT `id` FROM `".$wpdb->prefix."adrotate_stats` WHERE `ad` = %d AND `group` = %d AND `thetime` = $today;", $ad, $group));
+				if($stats > 0) {
+					$wpdb->query("UPDATE `".$wpdb->prefix."adrotate_stats` SET `clicks` = `clicks` + 1 WHERE `id` = $stats;");
+				} else {
+					$wpdb->insert($wpdb->prefix.'adrotate_stats', array('ad' => $ad, 'group' => $group, 'block' => 0, 'thetime' => $today, 'clicks' => 1, 'impressions' => 1));
+				}
+
+				$wpdb->insert($prefix.'adrotate_tracker', array('ipaddress' => $remote_ip, 'timer' => $now, 'bannerid' => $ad, 'stat' => 'c', 'useragent' => $useragent, 'country' => '', 'city' => ''));
+			}
+		}
+	}
+
+	unset($nocrawler, $crawlers, $remote_ip, $useragent, $track, $meta, $ad, $group, $remote, $banner);
+
+	die();
 }
 
 /*-------------------------------------------------------------
@@ -391,8 +547,7 @@ function adrotate_evaluate_ad($ad_id) {
 	if(
 		strlen($bannercode) < 1 // AdCode empty
 		OR ($ad->tracker == 'N' AND $advertiser > 0) // Didn't enable click-tracking, didn't provide a link, DID set a advertiser
-		OR (!preg_match_all('/<a[^>](.*?)>/i', $bannercode, $things) AND $ad->tracker == 'Y' AND $adrotate_config['clicktracking'] == 'Y') // Jquery clicktracking active but no valid link present
-		OR (!preg_match_all('/%link%/i', $bannercode, $things) AND $ad->tracker == 'Y' AND $adrotate_config['clicktracking'] == 'N') // Redirect clicktracking active but no %link% present
+		OR (!preg_match_all('/<a[^>](.*?)>/i', $bannercode, $things) AND $ad->tracker == 'Y') // Clicktracking active but no valid link present
 		OR (!preg_match("/%image%/i", $bannercode) AND $ad->image != '' AND $ad->imagetype != '') // Didn't use %image% but selected an image
 		OR (preg_match("/%image%/i", $bannercode) AND $ad->image == '' AND $ad->imagetype == '') // Did use %image% but didn't select an image
 		OR ($ad->image == '' AND $ad->imagetype != '') // Image and Imagetype mismatch
@@ -493,13 +648,13 @@ function adrotate_head() {
  Return:    $result
  Since:		3.9.12
 -------------------------------------------------------------*/
-function adrotate_clicktrack_hash($ad, $group = 0, $remote = 0, $blog_id = 0) {
+function adrotate_clicktrack_hash($ad, $group = 0, $blog_id = 0) {
 	global $adrotate_debug;
 	
 	if($adrotate_debug['track'] == true) {
-		return "$ad,$group,$remote,$blog_id";
+		return "$ad,$group,$blog_id";
 	} else {
-		return base64_encode("$ad,$group,$remote,$blog_id");
+		return base64_encode("$ad,$group,$blog_id");
 	}
 }
 

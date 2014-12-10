@@ -4,7 +4,7 @@ Plugin Name: AdRotate
 Plugin URI: https://www.adrotateplugin.com
 Description: The very best and most convenient way to publish your ads.
 Author: Arnan de Gans of AJdG Solutions
-Version: 3.10.12
+Version: 3.10.16
 Author URI: http://ajdg.solutions/
 License: GPLv3
 */
@@ -12,7 +12,7 @@ License: GPLv3
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
 *  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
-*  ADROTATE is a trademark (pending registration) of Arnan de Gans.
+*  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -20,9 +20,9 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '3.10.12');
-define("ADROTATE_VERSION", 374);
-define("ADROTATE_DB_VERSION", 44);
+define("ADROTATE_DISPLAY", '3.10.16');
+define("ADROTATE_VERSION", 376);
+define("ADROTATE_DB_VERSION", 46);
 define("ADROTATE_FOLDER", 'adrotate');
 /*-----------------------------------------------------------*/
 
@@ -57,7 +57,13 @@ add_action('widgets_init', create_function('', 'return register_widget("adrotate
 /*-----------------------------------------------------------*/
 
 /*--- Front end ---------------------------------------------*/
-if(!is_admin()) {
+if($adrotate_config['enable_stats'] == 'Y'){
+	add_action('wp_ajax_adrotate_impression', 'adrotate_impression_callback');
+	add_action('wp_ajax_nopriv_adrotate_impression', 'adrotate_impression_callback');
+	add_action('wp_ajax_adrotate_click', 'adrotate_click_callback');
+	add_action('wp_ajax_nopriv_adrotate_click', 'adrotate_click_callback');
+}
+if(!is_admin() OR !adrotate_is_login_page()) {
 	add_shortcode('adrotate', 'adrotate_shortcode');
 	add_action("wp_enqueue_scripts", 'adrotate_custom_scripts');
 	add_action('wp_head', 'adrotate_custom_css');
@@ -685,7 +691,7 @@ function adrotate_options() {
 	if(isset($_GET['message'])) $message = esc_attr($_GET['message']);
 
 	$converted = base64_decode($converted);
-	$adtracker = wp_next_scheduled('adrotate_clean_trackerdata');
+	$adevaluate = wp_next_scheduled('adrotate_evaluate_ads');
 ?>
 	<div class="wrap">
 	  	<h2><?php _e('AdRotate Settings', 'adrotate'); ?></h2>
@@ -785,14 +791,14 @@ function adrotate_options() {
 					<th valign="top"><?php _e('Impressions timer', 'adrotate'); ?></th>
 					<td>
 						<input name="adrotate_impression_timer" type="text" class="search-input" size="5" value="<?php echo $adrotate_config['impression_timer']; ?>" autocomplete="off" /> <?php _e('Seconds.', 'adrotate'); ?><br />
-						<span class="description"><?php _e('Default: 10. Set to 0 to disable this timer.', 'adrotate'); ?><br /><?php _e('This number may not be empty, negative or exceed 3600 (1 hour).', 'adrotate'); ?></span>
+						<span class="description"><?php _e('Default: 60.', 'adrotate'); ?><br /><?php _e('This number may not be empty, be lower than 60 or exceed 3600 (1 hour).', 'adrotate'); ?></span>
 					</td>
 				</tr>
 				<tr>
 					<th valign="top"><?php _e('Clicks timer', 'adrotate'); ?></th>
 					<td>
 						<input name="adrotate_click_timer" type="text" class="search-input" size="5" value="<?php echo $adrotate_config['click_timer']; ?>" autocomplete="off" /> <?php _e('Seconds.', 'adrotate'); ?><br />
-						<span class="description"><?php _e('Default: 86400. Set to 0 to disable this timer.', 'adrotate'); ?><br /><?php _e('This number may not be empty, negative or exceed 86400 (24 hours).', 'adrotate'); ?></span>
+						<span class="description"><?php _e('Default: 86400.', 'adrotate'); ?><br /><?php _e('This number may not be empty, be lower than 60 or exceed 86400 (24 hours).', 'adrotate'); ?></span>
 					</td>
 				</tr>
 			</table>
@@ -859,10 +865,6 @@ function adrotate_options() {
 				<tr>
 					<th valign="top"><?php _e('Load jQuery', 'adrotate'); ?></th>
 					<td><label for="adrotate_jquery"><input type="checkbox" name="adrotate_jquery" <?php if($adrotate_config['jquery'] == 'Y') { ?>checked="checked" <?php } ?> /> <?php _e('jQuery is required for all Javascript features below. Enable this if your theme does not load jQuery already.', 'adrotate'); ?></label></td>
-				</tr>
-				<tr>
-					<th valign="top"><?php _e('Load jQuery Clicktracking', 'adrotate'); ?></th>
-					<td><label for="adrotate_clicktracking"><input type="checkbox" name="adrotate_clicktracking" <?php if($adrotate_config['clicktracking'] == 'Y') { ?>checked="checked" <?php } ?> /><?php _e('Required for jQuery Clicktracking. When disabled AdRotate falls back on Redirect Tracking.', 'adrotate'); ?></label></td>
 				</tr>
 				<tr>
 					<th valign="top"><?php _e('Load in footer?', 'adrotate'); ?></th>
@@ -932,8 +934,8 @@ function adrotate_options() {
 					<td><?php _e('Previous database version:', 'adrotate'); ?> <?php echo $adrotate_db_version['previous']; ?></td>
 				</tr>
 				<tr>
-					<td><?php _e('Clean Trackerdata next run:', 'adrotate'); ?></td>
-					<td><?php if(!$adtracker) _e('Not scheduled!', 'adrotate'); else echo date_i18n(get_option('date_format')." H:i", $adtracker); ?></td>
+					<td><?php _e('Ad evaluation next run:', 'adrotate'); ?></td>
+					<td><?php if(!$adevaluate) _e('Not scheduled!', 'adrotate'); else echo date_i18n(get_option('date_format')." H:i", $adevaluate); ?></td>
 				</tr>
 				<tr>
 					<th valign="top"><?php _e('Current status of adverts', 'adrotate'); ?></th>

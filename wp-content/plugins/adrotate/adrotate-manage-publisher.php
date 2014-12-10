@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
 *  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
-*  ADROTATE is a trademark (pending registration) of Arnan de Gans.
+*  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -304,7 +304,7 @@ function adrotate_insert_group() {
 			unset($value);
 	
 			// Update the group itself
-			$wpdb->update($wpdb->prefix.'adrotate_groups', array('name' => $name, 'modus' => $modus, 'fallback' => $fallback, 'sortorder' => $sortorder, 'cat' => $category, 'cat_loc' => $category_loc, 'cat_par' => $category_par, 'page' => $page, 'page_loc' => $page_loc, 'page_par' => $page_par, 'wrapper_before' => $wrapper_before, 'wrapper_after' => $wrapper_after, 'gridrows' => $rows, 'gridcolumns' => $columns, 'admargin' => $admargin, 'adwidth' => $adwidth, 'adheight' => $adheight, 'adspeed' => $adspeed), array('id' => $id));
+			$wpdb->update($wpdb->prefix.'adrotate_groups', array('name' => $name, 'modus' => $modus, 'fallback' => 0, 'sortorder' => $sortorder, 'cat' => $category, 'cat_loc' => $category_loc, 'cat_par' => $category_par, 'page' => $page, 'page_loc' => $page_loc, 'page_par' => $page_par, 'wrapper_before' => $wrapper_before, 'wrapper_after' => $wrapper_after, 'gridrows' => $rows, 'gridcolumns' => $columns, 'admargin' => $admargin, 'adwidth' => $adwidth, 'adheight' => $adheight, 'adspeed' => $adspeed), array('id' => $id));
 
 			// Determine Dynamic Library requirement
 			$dynamic_count = $wpdb->get_var("SELECT COUNT(*) as `total` FROM `".$wpdb->prefix."adrotate_groups` WHERE `name` != '' AND `modus` = 1;");
@@ -582,14 +582,10 @@ function adrotate_options_submit() {
 		adrotate_set_capability($_POST['adrotate_ad_delete'], "adrotate_ad_delete");
 		adrotate_set_capability($_POST['adrotate_group_manage'], "adrotate_group_manage");
 		adrotate_set_capability($_POST['adrotate_group_delete'], "adrotate_group_delete");
-		adrotate_set_capability($_POST['adrotate_block_manage'], "adrotate_block_manage");
-		adrotate_set_capability($_POST['adrotate_block_delete'], "adrotate_block_delete");
 		$config['ad_manage'] 			= $_POST['adrotate_ad_manage'];
 		$config['ad_delete'] 			= $_POST['adrotate_ad_delete'];
 		$config['group_manage'] 		= $_POST['adrotate_group_manage'];
 		$config['group_delete'] 		= $_POST['adrotate_group_delete'];
-		$config['block_manage'] 		= $_POST['adrotate_block_manage'];
-		$config['block_delete'] 		= $_POST['adrotate_block_delete'];
 
 		//Advertisers
 		if(isset($_POST['adrotate_enable_stats'])) $config['enable_stats'] = 'Y';
@@ -605,15 +601,15 @@ function adrotate_options_submit() {
 	
 		// Set up impression tracker timer
 		$impression_timer = trim($_POST['adrotate_impression_timer']);
-		if(is_numeric($impression_timer) AND $impression_timer >= 0 AND $impression_timer <= 3600) {
+		if(is_numeric($impression_timer) AND $impression_timer >= 60 AND $impression_timer <= 3600) {
 			$config['impression_timer'] = $impression_timer;
 		} else {
-			$config['impression_timer'] = 10;
+			$config['impression_timer'] = 60;
 		}
 
 		// Set up click timer
 		$click_timer = trim($_POST['adrotate_click_timer']);
-		if(is_numeric($click_timer) AND $click_timer >= 0 AND $click_timer <= 86400) {
+		if(is_numeric($click_timer) AND $click_timer >= 60 AND $click_timer <= 86400) {
 			$config['click_timer'] = $click_timer;
 		} else {
 			$config['click_timer'] = 86400;
@@ -630,8 +626,6 @@ function adrotate_options_submit() {
 			else 											$config['supercache'] 		= 'N';
 		if(isset($_POST['adrotate_jquery'])) 				$config['jquery'] 			= 'Y';
 			else 											$config['jquery'] 			= 'N';
-		if(isset($_POST['adrotate_clicktracking']))			$config['clicktracking'] 	= 'Y';
-			else											$config['clicktracking'] 	= 'N';
 		if(isset($_POST['adrotate_jsfooter'])) 				$config['jsfooter'] 		= 'Y';
 			else 											$config['jsfooter'] 		= 'N';
 		$config['adblock'] = 'N'; // Pro only

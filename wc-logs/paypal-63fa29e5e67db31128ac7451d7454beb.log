@@ -2,3 +2,846 @@
 11-07-2014 @ 04:56:42 - Calling PayPal to change_subscription_status has Failed: Security header is not valid
 11-07-2014 @ 04:56:53 - Calling PayPal to change_subscription_status has Failed: Security header is not valid
 11-10-2014 @ 12:40:10 - Generating payment form for order #467. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-22-2014 @ 23:04:58 - Generating payment form for order #473. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-22-2014 @ 23:06:05 - Calling PayPal to change_subscription_status has Failed: Profile Id is missing from the request
+11-26-2014 @ 11:56:39 - Generating payment form for order #481. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-26-2014 @ 12:01:48 - Checking IPN response is valid via https://www.paypal.com/cgi-bin/webscr...
+11-26-2014 @ 12:01:48 - IPN Request: Array
+(
+    [body] => Array
+        (
+            [cmd] => _notify-validate
+            [transaction_subject] => Plano Diamante
+            [payment_date] => 06:01:30 Nov 26, 2014 PST
+            [txn_type] => subscr_payment
+            [subscr_id] => I-2458X2S2DJ4K
+            [last_name] => Vasconcelos
+            [residence_country] => BR
+            [item_name] => Plano Diamante
+            [payment_gross] => 
+            [mc_currency] => BRL
+            [business] => vasconsult.daniele@gmail.com
+            [payment_type] => instant
+            [protection_eligibility] => Ineligible
+            [verify_sign] => AwvfOF5Xsf4B4h.DPl5ytB19dgj2AIt5onUue0O0Cq65hmmml6e.cKb5
+            [payer_status] => unverified
+            [payer_email] => danitonello_82@yahoo.com.br
+            [txn_id] => 7PW41431FG2691043
+            [receiver_email] => vasconsult.daniele@gmail.com
+            [first_name] => Daniele
+            [invoice] => DATAPORTO-481
+            [payer_id] => HA6P3QKH8DLHG
+            [receiver_id] => LTB2VWNKFU8JG
+            [payment_status] => Completed
+            [payment_fee] => 
+            [mc_fee] => 0.66
+            [mc_gross] => 1.00
+            [custom] => a:2:{i:0;i:481;i:1;s:22:"wc_order_5475dc16bf5ff";}
+            [charset] => windows-1252
+            [notify_version] => 3.8
+            [ipn_track_id] => 3996924577194
+        )
+
+    [sslverify] => 
+    [timeout] => 60
+    [httpversion] => 1.1
+    [compress] => 
+    [decompress] => 
+    [user-agent] => WooCommerce/2.2.8
+)
+
+11-26-2014 @ 12:01:49 - IPN Response: Array
+(
+    [headers] => Array
+        (
+            [server] => Apache
+            [x-frame-options] => SAMEORIGIN
+            [content-type] => text/html; charset=UTF-8
+            [dc] => slc-origin-www.paypal.com
+            [date] => Wed, 26 Nov 2014 14:01:49 GMT
+            [content-length] => 8
+            [connection] => close
+            [set-cookie] => Array
+                (
+                    [0] => cwrClyrK4LoCV1fydGbAxiNL6iG=BQz09OcXsjydA94NGZZpJmCnkN-LG0i4TiWgPrZZzXddxVLeLfhIxmfvFLevt6c6_-5XMLher2hqSAZyC-URRn0Ep968bP3JacASC-LRqYiRaxNbY6RzN43n-FF4i6i2S8G8S5pxzVHX8XaiCeT5mv5LBr5WQVyh7cxF7e_KS1-rdvrx5nReBtUrrGQ4ovmYFFFnNlr2vOXAsMnggvsmQ6b08m5KybPCRRuva7FFlJMnatqNXkZ55b8nfP9PFlSnqzS6-2hc_36gvHhSW-1xOKFxGvSwgfbmZH47DXqHk0bCf_bzY8GerHA0G0IgpFvW3Nk9Tm9WIUJcLUWps15LjH0X8B82se1NNiTSbLOIaNlVSclKBQKTnyDK6rcliXRRcFrL95ev4Y01i1oBWrWS-akY02VYiGRfEaSvTxjtdkNZFw5lE166gYwpLue; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [1] => cookie_check=yes; expires=Sat, 23-Nov-2024 14:01:49 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [2] => navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [3] => navlns=0.0; expires=Fri, 25-Nov-2016 14:01:49 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [4] => Apache=10.16.0.14.1417010508893898; path=/; expires=Fri, 18-Nov-44 14:01:48 GMT
+                    [5] => X-PP-SILOVER=name%3DLIVE9.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1289581908; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [6] => X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+                    [7] => Apache=10.16.0.11.1417010508887823; path=/; expires=Fri, 18-Nov-44 14:01:48 GMT
+                    [8] => AKDC=slc-origin-www.paypal.com; expires=Wed, 26-Nov-2014 14:31:49 GMT; path=/; secure
+                )
+
+            [strict-transport-security] => max-age=63072000
+        )
+
+    [body] => VERIFIED
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => cwrClyrK4LoCV1fydGbAxiNL6iG
+                    [value] => BQz09OcXsjydA94NGZZpJmCnkN-LG0i4TiWgPrZZzXddxVLeLfhIxmfvFLevt6c6_-5XMLher2hqSAZyC-URRn0Ep968bP3JacASC-LRqYiRaxNbY6RzN43n-FF4i6i2S8G8S5pxzVHX8XaiCeT5mv5LBr5WQVyh7cxF7e_KS1-rdvrx5nReBtUrrGQ4ovmYFFFnNlr2vOXAsMnggvsmQ6b08m5KybPCRRuva7FFlJMnatqNXkZ55b8nfP9PFlSnqzS6-2hc_36gvHhSW-1xOKFxGvSwgfbmZH47DXqHk0bCf_bzY8GerHA0G0IgpFvW3Nk9Tm9WIUJcLUWps15LjH0X8B82se1NNiTSbLOIaNlVSclKBQKTnyDK6rcliXRRcFrL95ev4Y01i1oBWrWS-akY02VYiGRfEaSvTxjtdkNZFw5lE166gYwpLue
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => cookie_check
+                    [value] => yes
+                    [expires] => 1732370509
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [2] => WP_Http_Cookie Object
+                (
+                    [name] => navcmd
+                    [value] => _notify-validate
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [3] => WP_Http_Cookie Object
+                (
+                    [name] => navlns
+                    [value] => 0.0
+                    [expires] => 1480082509
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [4] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.14.1417010508893898
+                    [expires] => 2363090508
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [5] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => name=LIVE9.WEB.1&silo_version=880&app=slingshot&TIME=1289581908
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [6] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => 
+                    [expires] => 1
+                    [path] => /cgi-bin/
+                    [domain] => www.paypal.com
+                )
+
+            [7] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.11.1417010508887823
+                    [expires] => 2363090508
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [8] => WP_Http_Cookie Object
+                (
+                    [name] => AKDC
+                    [value] => slc-origin-www.paypal.com
+                    [expires] => 1417012309
+                    [path] => /
+                    [domain] => www.paypal.com
+                    [secure] => 
+                )
+
+        )
+
+    [filename] => 
+)
+
+11-26-2014 @ 12:01:49 - Received valid response from PayPal
+11-26-2014 @ 12:01:49 - Subscription Transaction Type: subscr_payment
+11-26-2014 @ 12:01:49 - Subscription transaction details: Array
+(
+    [transaction_subject] => Plano Diamante
+    [payment_date] => 06:01:30 Nov 26, 2014 PST
+    [txn_type] => subscr_payment
+    [subscr_id] => I-2458X2S2DJ4K
+    [last_name] => Vasconcelos
+    [residence_country] => BR
+    [item_name] => Plano Diamante
+    [payment_gross] => 
+    [mc_currency] => BRL
+    [business] => vasconsult.daniele@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => AwvfOF5Xsf4B4h.DPl5ytB19dgj2AIt5onUue0O0Cq65hmmml6e.cKb5
+    [payer_status] => unverified
+    [payer_email] => danitonello_82@yahoo.com.br
+    [txn_id] => 7PW41431FG2691043
+    [receiver_email] => vasconsult.daniele@gmail.com
+    [first_name] => Daniele
+    [invoice] => DATAPORTO-481
+    [payer_id] => HA6P3QKH8DLHG
+    [receiver_id] => LTB2VWNKFU8JG
+    [payment_status] => Completed
+    [payment_fee] => 
+    [mc_fee] => 0.66
+    [mc_gross] => 1.00
+    [custom] => a:2:{i:0;i:481;i:1;s:22:"wc_order_5475dc16bf5ff";}
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 3996924577194
+)
+
+11-26-2014 @ 12:01:49 - IPN subscription payment completed for order 481
+11-26-2014 @ 12:01:49 - IPN subscription payment ignored for order 481 due to PDT previously handling the payment.
+11-26-2014 @ 12:01:53 - Checking IPN response is valid via https://www.paypal.com/cgi-bin/webscr...
+11-26-2014 @ 12:01:53 - IPN Request: Array
+(
+    [body] => Array
+        (
+            [cmd] => _notify-validate
+            [txn_type] => subscr_signup
+            [subscr_id] => I-2458X2S2DJ4K
+            [last_name] => Vasconcelos
+            [residence_country] => BR
+            [mc_currency] => BRL
+            [item_name] => Plano Diamante
+            [business] => vasconsult.daniele@gmail.com
+            [recurring] => 1
+            [verify_sign] => A6QREu3SPigczemIL8rfAPgf9roZAVLsp5ZXR8pQbaRkyvJ8Dz8NLqap
+            [payer_status] => unverified
+            [payer_email] => danitonello_82@yahoo.com.br
+            [first_name] => Daniele
+            [receiver_email] => vasconsult.daniele@gmail.com
+            [payer_id] => HA6P3QKH8DLHG
+            [invoice] => DATAPORTO-481
+            [reattempt] => 1
+            [subscr_date] => 06:01:28 Nov 26, 2014 PST
+            [custom] => a:2:{i:0;i:481;i:1;s:22:"wc_order_5475dc16bf5ff";}
+            [charset] => windows-1252
+            [notify_version] => 3.8
+            [period3] => 1 Y
+            [mc_amount3] => 1.00
+            [ipn_track_id] => 3996924577194
+        )
+
+    [sslverify] => 
+    [timeout] => 60
+    [httpversion] => 1.1
+    [compress] => 
+    [decompress] => 
+    [user-agent] => WooCommerce/2.2.8
+)
+
+11-26-2014 @ 12:01:53 - IPN Response: Array
+(
+    [headers] => Array
+        (
+            [server] => Apache
+            [x-frame-options] => SAMEORIGIN
+            [content-type] => text/html; charset=UTF-8
+            [dc] => slc-origin-www.paypal.com
+            [date] => Wed, 26 Nov 2014 14:01:53 GMT
+            [content-length] => 8
+            [connection] => close
+            [set-cookie] => Array
+                (
+                    [0] => cwrClyrK4LoCV1fydGbAxiNL6iG=vuy-j7K9kspXYLK25E0PV2gTW82qvBClIE3REE7RcCn-zrkIOxfnMXL5aXDv9SsJJIoPV5Td79chST2LQZlhUKCTN20PA0W5YZzHo0UMYiVpDx0wED6NsMkPAZOquGj0aZVZGVSQEfvzd8Gec7eWQWCU3jZYL46tinsvJuRAp9CwxVucsFEYEr6T8G6tT4d0dx-ETRwNeRbzIDkK2m7o0WuGYn7r1yEArsc3-HCvSz0hnfRvQCAeJqeZAc2fbLc4oKynG8IQwTKVJbBmSKhgf2RzG3ycsWswfVJfIf2vUOgJDFKPQiEXi4N6H1UqBmmvHSCos2YRgEvqze4TLHvGJItSoUrdJAIFBR29HQePoPq4qVJzUvyWb12DLzjujbk1sY9o_VzQzJENCK4uQPCVFFLb3vYTBU5fE5DMdtftyDTPfeKrWRATB3dDO5G; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [1] => cookie_check=yes; expires=Sat, 23-Nov-2024 14:01:53 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [2] => navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [3] => navlns=0.0; expires=Fri, 25-Nov-2016 14:01:53 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [4] => Apache=10.16.0.14.1417010513335096; path=/; expires=Fri, 18-Nov-44 14:01:53 GMT
+                    [5] => X-PP-SILOVER=name%3DLIVE9.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1373467988; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [6] => X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+                    [7] => Apache=10.16.0.11.1417010513329666; path=/; expires=Fri, 18-Nov-44 14:01:53 GMT
+                    [8] => AKDC=slc-origin-www.paypal.com; expires=Wed, 26-Nov-2014 14:31:53 GMT; path=/; secure
+                )
+
+            [strict-transport-security] => max-age=63072000
+        )
+
+    [body] => VERIFIED
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => cwrClyrK4LoCV1fydGbAxiNL6iG
+                    [value] => vuy-j7K9kspXYLK25E0PV2gTW82qvBClIE3REE7RcCn-zrkIOxfnMXL5aXDv9SsJJIoPV5Td79chST2LQZlhUKCTN20PA0W5YZzHo0UMYiVpDx0wED6NsMkPAZOquGj0aZVZGVSQEfvzd8Gec7eWQWCU3jZYL46tinsvJuRAp9CwxVucsFEYEr6T8G6tT4d0dx-ETRwNeRbzIDkK2m7o0WuGYn7r1yEArsc3-HCvSz0hnfRvQCAeJqeZAc2fbLc4oKynG8IQwTKVJbBmSKhgf2RzG3ycsWswfVJfIf2vUOgJDFKPQiEXi4N6H1UqBmmvHSCos2YRgEvqze4TLHvGJItSoUrdJAIFBR29HQePoPq4qVJzUvyWb12DLzjujbk1sY9o_VzQzJENCK4uQPCVFFLb3vYTBU5fE5DMdtftyDTPfeKrWRATB3dDO5G
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => cookie_check
+                    [value] => yes
+                    [expires] => 1732370513
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [2] => WP_Http_Cookie Object
+                (
+                    [name] => navcmd
+                    [value] => _notify-validate
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [3] => WP_Http_Cookie Object
+                (
+                    [name] => navlns
+                    [value] => 0.0
+                    [expires] => 1480082513
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [4] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.14.1417010513335096
+                    [expires] => 2363090513
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [5] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => name=LIVE9.WEB.1&silo_version=880&app=slingshot&TIME=1373467988
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [6] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => 
+                    [expires] => 1
+                    [path] => /cgi-bin/
+                    [domain] => www.paypal.com
+                )
+
+            [7] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.11.1417010513329666
+                    [expires] => 2363090513
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [8] => WP_Http_Cookie Object
+                (
+                    [name] => AKDC
+                    [value] => slc-origin-www.paypal.com
+                    [expires] => 1417012313
+                    [path] => /
+                    [domain] => www.paypal.com
+                    [secure] => 
+                )
+
+        )
+
+    [filename] => 
+)
+
+11-26-2014 @ 12:01:53 - Received valid response from PayPal
+11-26-2014 @ 12:01:53 - Subscription Transaction Type: subscr_signup
+11-26-2014 @ 12:01:53 - Subscription transaction details: Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-2458X2S2DJ4K
+    [last_name] => Vasconcelos
+    [residence_country] => BR
+    [mc_currency] => BRL
+    [item_name] => Plano Diamante
+    [business] => vasconsult.daniele@gmail.com
+    [recurring] => 1
+    [verify_sign] => A6QREu3SPigczemIL8rfAPgf9roZAVLsp5ZXR8pQbaRkyvJ8Dz8NLqap
+    [payer_status] => unverified
+    [payer_email] => danitonello_82@yahoo.com.br
+    [first_name] => Daniele
+    [receiver_email] => vasconsult.daniele@gmail.com
+    [payer_id] => HA6P3QKH8DLHG
+    [invoice] => DATAPORTO-481
+    [reattempt] => 1
+    [subscr_date] => 06:01:28 Nov 26, 2014 PST
+    [custom] => a:2:{i:0;i:481;i:1;s:22:"wc_order_5475dc16bf5ff";}
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 Y
+    [mc_amount3] => 1.00
+    [ipn_track_id] => 3996924577194
+)
+
+11-26-2014 @ 12:01:53 - IPN subscription sign up completed for order 481
+11-27-2014 @ 22:39:28 - Generating payment form for order #499. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-27-2014 @ 22:49:43 - Generating payment form for order #500. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-27-2014 @ 22:51:33 - Calling PayPal to change_subscription_status has Failed: Profile Id is missing from the request
+11-27-2014 @ 22:52:43 - Generating payment form for order #499. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-27-2014 @ 22:53:49 - Calling PayPal to change_subscription_status has Failed: Profile Id is missing from the request
+11-27-2014 @ 23:00:33 - Generating payment form for order #501. Notify URL: http://dataporto.com/wc-api/WC_Gateway_Paypal/
+11-27-2014 @ 23:01:14 - Checking IPN response is valid via https://www.paypal.com/cgi-bin/webscr...
+11-27-2014 @ 23:01:14 - IPN Request: Array
+(
+    [body] => Array
+        (
+            [cmd] => _notify-validate
+            [transaction_subject] => Plano Diamante
+            [payment_date] => 17:00:52 Nov 27, 2014 PST
+            [txn_type] => subscr_payment
+            [subscr_id] => I-RJNN7XKA8XP2
+            [last_name] => Vasconcelos
+            [residence_country] => BR
+            [item_name] => Plano Diamante
+            [payment_gross] => 
+            [mc_currency] => BRL
+            [business] => vasconsult.daniele@gmail.com
+            [payment_type] => instant
+            [protection_eligibility] => Ineligible
+            [verify_sign] => ARLE-IjxFir3D-OBmMTsgb-dy-ekAsqcHJzYjtiHKYWhhIr0j0pWvuNj
+            [payer_status] => verified
+            [payer_email] => fernando@vasconsult.eng.br
+            [txn_id] => 42F43983F2626691P
+            [receiver_email] => vasconsult.daniele@gmail.com
+            [first_name] => F
+            [invoice] => DATAPORTO-501
+            [payer_id] => 7K3333N2R2HAY
+            [receiver_id] => LTB2VWNKFU8JG
+            [payment_status] => Completed
+            [payment_fee] => 
+            [mc_fee] => 0.66
+            [mc_gross] => 1.00
+            [custom] => a:2:{i:0;i:501;i:1;s:22:"wc_order_5477c93111f75";}
+            [charset] => windows-1252
+            [notify_version] => 3.8
+            [ipn_track_id] => 1667e46470f3a
+        )
+
+    [sslverify] => 
+    [timeout] => 60
+    [httpversion] => 1.1
+    [compress] => 
+    [decompress] => 
+    [user-agent] => WooCommerce/2.2.8
+)
+
+11-27-2014 @ 23:01:14 - Checking IPN response is valid via https://www.paypal.com/cgi-bin/webscr...
+11-27-2014 @ 23:01:14 - IPN Request: Array
+(
+    [body] => Array
+        (
+            [cmd] => _notify-validate
+            [txn_type] => subscr_signup
+            [subscr_id] => I-RJNN7XKA8XP2
+            [last_name] => Vasconcelos
+            [residence_country] => BR
+            [mc_currency] => BRL
+            [item_name] => Plano Diamante
+            [business] => vasconsult.daniele@gmail.com
+            [recurring] => 1
+            [verify_sign] => ARP9qvk1B6DX2v1KVAJmSl6sneACAwVba3hzIGQ5L0-7SFk8UJuTG5fW
+            [payer_status] => verified
+            [payer_email] => fernando@vasconsult.eng.br
+            [first_name] => F
+            [receiver_email] => vasconsult.daniele@gmail.com
+            [payer_id] => 7K3333N2R2HAY
+            [invoice] => DATAPORTO-501
+            [reattempt] => 1
+            [subscr_date] => 17:00:51 Nov 27, 2014 PST
+            [custom] => a:2:{i:0;i:501;i:1;s:22:"wc_order_5477c93111f75";}
+            [charset] => windows-1252
+            [notify_version] => 3.8
+            [period3] => 1 Y
+            [mc_amount3] => 1.00
+            [ipn_track_id] => 1667e46470f3a
+        )
+
+    [sslverify] => 
+    [timeout] => 60
+    [httpversion] => 1.1
+    [compress] => 
+    [decompress] => 
+    [user-agent] => WooCommerce/2.2.8
+)
+
+11-27-2014 @ 23:01:14 - IPN Response: Array
+(
+    [headers] => Array
+        (
+            [server] => Apache
+            [x-frame-options] => SAMEORIGIN
+            [content-type] => text/html; charset=UTF-8
+            [dc] => slc-origin-www.paypal.com
+            [date] => Fri, 28 Nov 2014 01:01:14 GMT
+            [content-length] => 8
+            [connection] => close
+            [set-cookie] => Array
+                (
+                    [0] => cwrClyrK4LoCV1fydGbAxiNL6iG=UpMZZSY6pu9Km_Imqzq1yccsJNT3LMdwl8VN9kPLSrfD8e5UqlOO36V77bssCVyCFVeXsSVhz4NegyIB5j6ahDLSadWREvUX871o3Kj1ERkLhDbhjeJnSBWMbok5yDmZXQlEKlQM0nzGAg0H687UoueSN9STQRQ99W3lnKfxBrL4GUlV0Wrcsey4UuMC2BQJ9PLCJ6v0t_8EuYV_aXreJY16RbDfSV4ZUkxYhfYvP--01TBq4xMNtUvYALdlY_UPtZJRv_u9w8h9iZbOLDfUjV9BGN4n1muFBRh8OlDOo0cMel3dSATEP7INUkx5UqT4pCr3yo_IVFrvBZKmljTD_mSjLKdsSKiRX_RmvHogZWCXsItLLwaHQwALLaocxGl4ZELTRFYOFP0wJMDvlJDvmj8EhdEwhbH_gPsGqu2pSKFGSsjgwN6RrFDjna4; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [1] => cookie_check=yes; expires=Mon, 25-Nov-2024 01:01:14 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [2] => navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [3] => navlns=0.0; expires=Sun, 27-Nov-2016 01:01:14 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [4] => Apache=10.16.0.14.1417136474391302; path=/; expires=Sun, 20-Nov-44 01:01:14 GMT
+                    [5] => X-PP-SILOVER=name%3DLIVE9.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1523152724; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [6] => X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+                    [7] => Apache=10.16.0.11.1417136474384411; path=/; expires=Sun, 20-Nov-44 01:01:14 GMT
+                    [8] => AKDC=slc-origin-www.paypal.com; expires=Fri, 28-Nov-2014 01:31:14 GMT; path=/; secure
+                )
+
+            [strict-transport-security] => max-age=63072000
+        )
+
+    [body] => VERIFIED
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => cwrClyrK4LoCV1fydGbAxiNL6iG
+                    [value] => UpMZZSY6pu9Km_Imqzq1yccsJNT3LMdwl8VN9kPLSrfD8e5UqlOO36V77bssCVyCFVeXsSVhz4NegyIB5j6ahDLSadWREvUX871o3Kj1ERkLhDbhjeJnSBWMbok5yDmZXQlEKlQM0nzGAg0H687UoueSN9STQRQ99W3lnKfxBrL4GUlV0Wrcsey4UuMC2BQJ9PLCJ6v0t_8EuYV_aXreJY16RbDfSV4ZUkxYhfYvP--01TBq4xMNtUvYALdlY_UPtZJRv_u9w8h9iZbOLDfUjV9BGN4n1muFBRh8OlDOo0cMel3dSATEP7INUkx5UqT4pCr3yo_IVFrvBZKmljTD_mSjLKdsSKiRX_RmvHogZWCXsItLLwaHQwALLaocxGl4ZELTRFYOFP0wJMDvlJDvmj8EhdEwhbH_gPsGqu2pSKFGSsjgwN6RrFDjna4
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => cookie_check
+                    [value] => yes
+                    [expires] => 1732496474
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [2] => WP_Http_Cookie Object
+                (
+                    [name] => navcmd
+                    [value] => _notify-validate
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [3] => WP_Http_Cookie Object
+                (
+                    [name] => navlns
+                    [value] => 0.0
+                    [expires] => 1480208474
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [4] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.14.1417136474391302
+                    [expires] => 2363216474
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [5] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => name=LIVE9.WEB.1&silo_version=880&app=slingshot&TIME=1523152724
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [6] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => 
+                    [expires] => 1
+                    [path] => /cgi-bin/
+                    [domain] => www.paypal.com
+                )
+
+            [7] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.11.1417136474384411
+                    [expires] => 2363216474
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [8] => WP_Http_Cookie Object
+                (
+                    [name] => AKDC
+                    [value] => slc-origin-www.paypal.com
+                    [expires] => 1417138274
+                    [path] => /
+                    [domain] => www.paypal.com
+                    [secure] => 
+                )
+
+        )
+
+    [filename] => 
+)
+
+11-27-2014 @ 23:01:14 - Received valid response from PayPal
+11-27-2014 @ 23:01:14 - Subscription Transaction Type: subscr_payment
+11-27-2014 @ 23:01:14 - Subscription transaction details: Array
+(
+    [transaction_subject] => Plano Diamante
+    [payment_date] => 17:00:52 Nov 27, 2014 PST
+    [txn_type] => subscr_payment
+    [subscr_id] => I-RJNN7XKA8XP2
+    [last_name] => Vasconcelos
+    [residence_country] => BR
+    [item_name] => Plano Diamante
+    [payment_gross] => 
+    [mc_currency] => BRL
+    [business] => vasconsult.daniele@gmail.com
+    [payment_type] => instant
+    [protection_eligibility] => Ineligible
+    [verify_sign] => ARLE-IjxFir3D-OBmMTsgb-dy-ekAsqcHJzYjtiHKYWhhIr0j0pWvuNj
+    [payer_status] => verified
+    [payer_email] => fernando@vasconsult.eng.br
+    [txn_id] => 42F43983F2626691P
+    [receiver_email] => vasconsult.daniele@gmail.com
+    [first_name] => F
+    [invoice] => DATAPORTO-501
+    [payer_id] => 7K3333N2R2HAY
+    [receiver_id] => LTB2VWNKFU8JG
+    [payment_status] => Completed
+    [payment_fee] => 
+    [mc_fee] => 0.66
+    [mc_gross] => 1.00
+    [custom] => a:2:{i:0;i:501;i:1;s:22:"wc_order_5477c93111f75";}
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [ipn_track_id] => 1667e46470f3a
+)
+
+11-27-2014 @ 23:01:14 - IPN subscription payment completed for order 501
+11-27-2014 @ 23:01:14 - IPN subscription payment ignored for order 501 due to PDT previously handling the payment.
+11-27-2014 @ 23:01:15 - IPN Response: Array
+(
+    [headers] => Array
+        (
+            [server] => Apache
+            [x-frame-options] => SAMEORIGIN
+            [content-type] => text/html; charset=UTF-8
+            [dc] => slc-origin-www.paypal.com
+            [date] => Fri, 28 Nov 2014 01:01:15 GMT
+            [content-length] => 8
+            [connection] => close
+            [set-cookie] => Array
+                (
+                    [0] => cwrClyrK4LoCV1fydGbAxiNL6iG=i1MXRivE2KKkVeULT5keQhiowf7FV7W97CWFWl2t_EScAjSrqDqI65tbr3NV5qSt9KLtBc_xcVdzP3VypDBqRpu3jgsOFJSme8rBXQwxdsK0fLVShTIz8cBsPNwESPAJl-EF7xuMmLprneywUPXK_fyZ2GJ74FjQnt1iSkaIuraieVQfcaNzfxOtBpFDcwy_n1GiI0lxKg8clI75Z96Ws_yessiQvCtO-DDAyScvYnPqPOeI9URWF84S33jy6toRfvJLjMhcIR_gLnpjz5fU1L_1h8Au_1DivpY0VgSmYvgtmWxxVzaow0M5mMUdH4X9cktk0MSGMN60llT0tNoLcCooB_a5-UtzmzshLv0dfT778QsUqoPfQv1s52MjKI-7As7dtl7Q_eZSa-8rDKF-yySnX-7x8mt1qQlBcZP7A7I21i3Jgmitj78ipMS; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [1] => cookie_check=yes; expires=Mon, 25-Nov-2024 01:01:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [2] => navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [3] => navlns=0.0; expires=Sun, 27-Nov-2016 01:01:15 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [4] => Apache=10.16.0.14.1417136474941253; path=/; expires=Sun, 20-Nov-44 01:01:14 GMT
+                    [5] => X-PP-SILOVER=name%3DLIVE9.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1523152724; domain=.paypal.com; path=/; Secure; HttpOnly
+                    [6] => X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+                    [7] => Apache=10.16.0.11.1417136474935399; path=/; expires=Sun, 20-Nov-44 01:01:14 GMT
+                    [8] => AKDC=slc-origin-www.paypal.com; expires=Fri, 28-Nov-2014 01:31:15 GMT; path=/; secure
+                )
+
+            [strict-transport-security] => max-age=63072000
+        )
+
+    [body] => VERIFIED
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => cwrClyrK4LoCV1fydGbAxiNL6iG
+                    [value] => i1MXRivE2KKkVeULT5keQhiowf7FV7W97CWFWl2t_EScAjSrqDqI65tbr3NV5qSt9KLtBc_xcVdzP3VypDBqRpu3jgsOFJSme8rBXQwxdsK0fLVShTIz8cBsPNwESPAJl-EF7xuMmLprneywUPXK_fyZ2GJ74FjQnt1iSkaIuraieVQfcaNzfxOtBpFDcwy_n1GiI0lxKg8clI75Z96Ws_yessiQvCtO-DDAyScvYnPqPOeI9URWF84S33jy6toRfvJLjMhcIR_gLnpjz5fU1L_1h8Au_1DivpY0VgSmYvgtmWxxVzaow0M5mMUdH4X9cktk0MSGMN60llT0tNoLcCooB_a5-UtzmzshLv0dfT778QsUqoPfQv1s52MjKI-7As7dtl7Q_eZSa-8rDKF-yySnX-7x8mt1qQlBcZP7A7I21i3Jgmitj78ipMS
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => cookie_check
+                    [value] => yes
+                    [expires] => 1732496475
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [2] => WP_Http_Cookie Object
+                (
+                    [name] => navcmd
+                    [value] => _notify-validate
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [3] => WP_Http_Cookie Object
+                (
+                    [name] => navlns
+                    [value] => 0.0
+                    [expires] => 1480208475
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [4] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.14.1417136474941253
+                    [expires] => 2363216474
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [5] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => name=LIVE9.WEB.1&silo_version=880&app=slingshot&TIME=1523152724
+                    [expires] => 
+                    [path] => /
+                    [domain] => .paypal.com
+                    [secure] => 
+                    [httponly] => 
+                )
+
+            [6] => WP_Http_Cookie Object
+                (
+                    [name] => X-PP-SILOVER
+                    [value] => 
+                    [expires] => 1
+                    [path] => /cgi-bin/
+                    [domain] => www.paypal.com
+                )
+
+            [7] => WP_Http_Cookie Object
+                (
+                    [name] => Apache
+                    [value] => 10.16.0.11.1417136474935399
+                    [expires] => 2363216474
+                    [path] => /
+                    [domain] => www.paypal.com
+                )
+
+            [8] => WP_Http_Cookie Object
+                (
+                    [name] => AKDC
+                    [value] => slc-origin-www.paypal.com
+                    [expires] => 1417138275
+                    [path] => /
+                    [domain] => www.paypal.com
+                    [secure] => 
+                )
+
+        )
+
+    [filename] => 
+)
+
+11-27-2014 @ 23:01:15 - Received valid response from PayPal
+11-27-2014 @ 23:01:15 - Subscription Transaction Type: subscr_signup
+11-27-2014 @ 23:01:15 - Subscription transaction details: Array
+(
+    [txn_type] => subscr_signup
+    [subscr_id] => I-RJNN7XKA8XP2
+    [last_name] => Vasconcelos
+    [residence_country] => BR
+    [mc_currency] => BRL
+    [item_name] => Plano Diamante
+    [business] => vasconsult.daniele@gmail.com
+    [recurring] => 1
+    [verify_sign] => ARP9qvk1B6DX2v1KVAJmSl6sneACAwVba3hzIGQ5L0-7SFk8UJuTG5fW
+    [payer_status] => verified
+    [payer_email] => fernando@vasconsult.eng.br
+    [first_name] => F
+    [receiver_email] => vasconsult.daniele@gmail.com
+    [payer_id] => 7K3333N2R2HAY
+    [invoice] => DATAPORTO-501
+    [reattempt] => 1
+    [subscr_date] => 17:00:51 Nov 27, 2014 PST
+    [custom] => a:2:{i:0;i:501;i:1;s:22:"wc_order_5477c93111f75";}
+    [charset] => windows-1252
+    [notify_version] => 3.8
+    [period3] => 1 Y
+    [mc_amount3] => 1.00
+    [ipn_track_id] => 1667e46470f3a
+)
+
+11-27-2014 @ 23:01:15 - IPN subscription sign up completed for order 501

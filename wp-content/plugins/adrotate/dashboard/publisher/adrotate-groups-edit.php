@@ -2,7 +2,7 @@
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
 *  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
-*  ADROTATE is a trademark (pending registration) of Arnan de Gans.
+*  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -95,6 +95,18 @@ if(!is_array($meta_array)) $meta_array = array();
 		        	<option value="10" <?php if($edit_group->gridrows == 10) { echo 'selected'; } ?>>10</option>
 		        	<option value="11" <?php if($edit_group->gridrows == 11) { echo 'selected'; } ?>>11</option>
 		        	<option value="12" <?php if($edit_group->gridrows == 12) { echo 'selected'; } ?>>12</option>
+		        	<option value="13" <?php if($edit_group->gridrows == 13) { echo 'selected'; } ?>>13</option>
+		        	<option value="14" <?php if($edit_group->gridrows == 14) { echo 'selected'; } ?>>14</option>
+		        	<option value="15" <?php if($edit_group->gridrows == 15) { echo 'selected'; } ?>>15</option>
+		        	<option value="16" <?php if($edit_group->gridrows == 16) { echo 'selected'; } ?>>16</option>
+		        	<option value="17" <?php if($edit_group->gridrows == 17) { echo 'selected'; } ?>>17</option>
+		        	<option value="18" <?php if($edit_group->gridrows == 18) { echo 'selected'; } ?>>18</option>
+		        	<option value="19" <?php if($edit_group->gridrows == 19) { echo 'selected'; } ?>>19</option>
+		        	<option value="20" <?php if($edit_group->gridrows == 20) { echo 'selected'; } ?>>20</option>
+		        	<option value="21" <?php if($edit_group->gridrows == 21) { echo 'selected'; } ?>>21</option>
+		        	<option value="22" <?php if($edit_group->gridrows == 22) { echo 'selected'; } ?>>22</option>
+		        	<option value="23" <?php if($edit_group->gridrows == 23) { echo 'selected'; } ?>>23</option>
+		        	<option value="24" <?php if($edit_group->gridrows == 24) { echo 'selected'; } ?>>24</option>
 		        </select> <?php _e('rows', 'adrotate'); ?>,</label> <label for="adrotate_gridcolumns"><select tabindex="4" name="adrotate_gridcolumns">
 		        	<option value="1" <?php if($edit_group->gridcolumns == 1) { echo 'selected'; } ?>>1</option>
 		        	<option value="2" <?php if($edit_group->gridcolumns == 2) { echo 'selected'; } ?>>2</option>
