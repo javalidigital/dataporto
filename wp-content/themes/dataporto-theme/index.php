@@ -77,38 +77,7 @@ get_header(); ?>
 				<div class="title-category">
 					<h4>Banco de Dados</h4>
 				</div>
-				<div class="featured-item featured-item-first">
-					<div class="featured-item-image">
-						<a href="banco-de-dados"><img src="<?php echo get_bloginfo('template_url') ?>/images/icon_section_database.png" /></a>
-					</div>
-					<div class="featured-item-contents">
-						<h1 class="featured-item-title"><a href="banco-de-dados">Consulte o maior banco de dados do setor portu&aacute;rio brasileiro</a></h1>
-						<div class="featured-item-content">
-							Cadastre-se e preencha o formul&aacute;rio a seguir referente &agrave; pesquisa de seu interesse. Em seguida, entraremos em contato para mais detalhes.
-						</div>
-						<a class="featured-item-link" href="banco-de-dados">Consultar</a>
-					</div>
-				</div>
-				<div class="database-parameters">
-					<h2>Lista completa dos par&acirc;metros de busca</h2>
-					<ul>
-						<li>Categoria</li>
-						<li>Nome</li>
-						<li>Localiza&ccedil;&atilde;o</li>						
-					</ul>
-					
-					<ul>
-						<li>Segmento</li>
-						<li>Contatos</li>
-						<li>Capacidade est&acute;tica</li>
-					</ul>
-					
-					<ul>
-						<li>Principais cargas operadas</li>
-						<li>Hist&oacute;rico de Movimenta&ccedil;&atilde;o</li>
-						<li>Terminais no entorno</li>
-					</ul>
-				</div>
+				<?php dynamic_sidebar( 'sidebar-database-home' ); ?>
 			</div>
 		</main>	
 		<div id="sidebar" class="site-sidebar">

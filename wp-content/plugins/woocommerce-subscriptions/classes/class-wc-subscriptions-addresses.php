@@ -115,7 +115,7 @@ class WC_Subscriptions_Addresses {
 					$address_type = ( ! isset( $_GET[ 'address' ] ) ) ? esc_attr( $_GET[ 'address' ] ) . ' ' : '';
 				}
 
-				$label = sprintf( __( 'Update the %saddress used for <strong>all</strong> of my active subscriptions', 'woocommerce-subscriptions' ), $address_type );
+				$label = sprintf( __( 'Update the %s address used for <strong>all</strong> of my active subscriptions', 'woocommerce-subscriptions' ), $address_type );
 
 				woocommerce_form_field( 'update_all_subscriptions_addresses', array(
 					'type'  => 'checkbox',

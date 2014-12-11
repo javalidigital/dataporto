@@ -149,6 +149,16 @@ function dataporto_theme_widgets_init() {
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Home - Banco de Dados', 'dataporto-theme' ),
+		'id'            => 'sidebar-database-home',
+		'description'   => '',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
 	
 	register_sidebar( array(
 		'name'          => __( 'Footer - Boxes', 'dataporto-theme' ),
@@ -399,3 +409,51 @@ function woo_custom_add_to_cart( $cart_item_data ) {
 	}
 }
 add_filter( 'woocommerce_add_cart_item_data', 'woo_custom_add_to_cart' );
+
+
+/**
+ * Add the field to the checkout
+ **/
+add_action('woocommerce_after_order_notes', 'possivel_assinante_field');
+
+function possivel_assinante_field( $checkout ) {
+
+    echo '<div id="possivel_assinante_field" style="margin-top:15px;"><h3>'.__('Deseja conhecer nossos planos pagos? ').'</h3>';
+
+    woocommerce_form_field( 'possivel_assinante', array(
+        'type'          => 'select',
+        'class'         => array('my-field-class form-row-wide'),
+		'required' 		=> true,
+        'label'         => __('Selecione para receber informa&ccedil;&otilde;es sobre planos e valores.'),
+		'options'     => array(
+			'' => __('Selecione', 'woocommerce'),
+        	'Sim' => __('Sim', 'woocommerce' ),
+        	'Nao' => __('N&atilde;o', 'woocommerce' )
+        	)
+        ), $checkout->get_value( 'possivel_assinante' ));
+
+    echo '</div>';
+
+}
+
+/**
+ * Process the checkout
+ **/
+add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
+
+function my_custom_checkout_field_process() {
+    global $woocommerce;
+
+    // Check if set, if its not set add an error.
+    if (!$_POST['possivel_assinante'])
+         $woocommerce->add_error( __('Selecione se deseja conhecer nossos planos pagos') );
+}
+
+/**
+ * Update the order meta with field value
+ **/
+add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta');
+
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+    if ($_POST['possivel_assinante']) update_post_meta( $order_id, 'Deseja conhecer nossos planos pagos? ', esc_attr($_POST['possivel_assinante']));
+}

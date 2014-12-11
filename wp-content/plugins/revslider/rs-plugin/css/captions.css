@@ -29,6 +29,15 @@
 			text-shadow:2px 2px 2px rgba(0,0,0,.8);
     }
 
+.tp-caption.slider-home-credit {
+  display:block;
+			font-size: 1.1em;
+			color:#FFF;
+			line-height:1.2em;
+			text-shadow:2px 2px 2px rgba(0,0,0,.8);
+    }
+
+
 .tp-caption.big_yellow{
             position: absolute; 
 			color: #ffd658; 
