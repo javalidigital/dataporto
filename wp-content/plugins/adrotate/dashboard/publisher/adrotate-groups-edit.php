@@ -132,7 +132,7 @@ if(!is_array($meta_array)) $meta_array = array();
 				<label for="adrotate_adwidth"><input tabindex="5" name="adrotate_adwidth" type="text" class="search-input" size="3" value="<?php echo $edit_group->adwidth; ?>" autocomplete="off" /> <?php _e('pixel(s) wide', 'adrotate'); ?>,</label> <label for="adrotate_adheight"><input tabindex="6" name="adrotate_adheight" type="text" class="search-input" size="3" value="<?php echo $edit_group->adheight; ?>" autocomplete="off" /> <?php _e('pixel(s) high.', 'adrotate'); ?></label>
 			</td>
 			<td colspan="2">
-		        <p><em><?php _e('Dynamic and Block Mode', 'adrotate'); ?> - <?php _e('Define the maximum size of the ads in pixels minus margin. Size can be \'auto\' (Not recommended). Default: 125/125.', 'adrotate'); ?></em></p>
+		        <p><em><?php _e('Dynamic and Block Mode', 'adrotate'); ?> - <?php _e('Define the maximum size of the ads in pixels. Size can be \'auto\' (Not recommended). Default: 125/125.', 'adrotate'); ?></em></p>
 			</td>
 		</tr>
 	    <tr>
@@ -192,6 +192,20 @@ if(!is_array($meta_array)) $meta_array = array();
 				</td>
 			<td colspan="2">
 		        <p><em><?php _e('A transparent area outside the advert in pixels. Default: 0.', 'adrotate'); ?> <?php _e('Set to 0 to disable.', 'adrotate'); ?></em></p>
+			</td>
+		</tr>
+	    <tr>
+			<th valign="top"><?php _e('Align the group', 'adrotate'); ?></strong></th>
+			<td>
+		       	<label for="adrotate_align"><select tabindex="10" name="adrotate_align">
+		        	<option value="0" <?php if($edit_group->align == 0) { echo 'selected'; } ?>><?php _e('None (Default)', 'adrotate'); ?></option>
+		        	<option value="1" <?php if($edit_group->align == 1) { echo 'selected'; } ?>><?php _e('Left', 'adrotate'); ?></option>
+		        	<option value="2" <?php if($edit_group->align == 2) { echo 'selected'; } ?>><?php _e('Right', 'adrotate'); ?></option>
+		        	<option value="3" <?php if($edit_group->align == 3) { echo 'selected'; } ?>><?php _e('Center', 'adrotate'); ?></option>
+		        </select></label>
+				</td>
+			<td colspan="2">
+		        <p><em><?php _e('Align the group in your post or page. Using \'center\' may affect your margin setting. Not every theme supports this feature.', 'adrotate'); ?></em></p>
 			</td>
 		</tr>
       	<tr>

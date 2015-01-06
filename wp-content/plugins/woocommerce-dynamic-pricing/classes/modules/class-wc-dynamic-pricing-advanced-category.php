@@ -108,6 +108,7 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 
 				$tt = 0; //the total number of items we can discount. 
 				//for each block reduce the amount of remaining items which can make up a discount by the amount required. 
+				if ($rcq || $rmq){
 				for ($x = 0; $x < $b; $x++) {
 					//If the remaining clean quantity minus what is required to make a block is greater than 0 there are more clean quantity items remaining. 
 					//This means we don't have to eat into mixed quantities yet. 
@@ -135,7 +136,7 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 							}
 
 							$rt -= ($ct + $mt) - $tt;
-						} else {
+						} elseif ($rmq > 0) {
 							$rt -= $rule['from'];
 							//$rt -= ($ct + $mt) - $tt;
 							if ($rt > 0) {
@@ -148,6 +149,7 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 						$rcq = 0;
 					}
 				}
+				
 
 				foreach ($temp_cart as $cart_item_key => $ctitem) {
 					$price_adjusted = false;
@@ -172,6 +174,7 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 							WC_Dynamic_Pricing::apply_cart_item_adjustment($cart_item_key, $original_price, $price_adjusted, 'advanced_category', $set_id);
 						}
 					}
+				}
 				}
 			}
 
@@ -246,10 +249,13 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 		if ($a > $cart_item['quantity']) {
 			$a = $cart_item['quantity'];
 		}
+		
+		$amount = apply_filters( 'woocommerce_dynamic_pricing_get_rule_amount', $rule['amount'], $rule, $cart_item, $this );
 		$num_decimals = apply_filters('woocommerce_dynamic_pricing_get_decimals', (int) get_option('woocommerce_price_num_decimals'));
+		
 		switch ($rule['type']) {
 			case 'fixed_adjustment':
-				$adjusted = floatval($price) - floatval($rule['amount']);
+				$adjusted = floatval($price) - floatval($amount);
 				$adjusted = $adjusted >= 0 ? $adjusted : 0;
 				$line_total = 0;
 				$full_price_quantity = $cart_item['quantity'] - $a;
@@ -262,10 +268,10 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 
 				break;
 			case 'percent_adjustment':
-				if ($rule['amount'] > 1) {
-					$rule['amount'] = $rule['amount'] / 100;
+				if ($amount > 1) {
+					$amount = $amount / 100;
 				}
-				$adjusted = round(floatval($price) - ( floatval($rule['amount']) * $price), (int) $num_decimals);
+				$adjusted = round(floatval($price) - ( floatval($amount) * $price), (int) $num_decimals);
 				$line_total = 0;
 
 				$full_price_quantity = $cart_item['available_quantity'] - $a;
@@ -281,7 +287,7 @@ class WC_Dynamic_Pricing_Advanced_Category extends WC_Dynamic_Pricing_Advanced_B
 				$result = $result >= 0 ? $result : 0;
 				break;
 			case 'fixed_price':
-				$adjusted = round($rule['amount'], (int) $num_decimals);
+				$adjusted = round($amount, (int) $num_decimals);
 				$line_total = 0;
 				$full_price_quantity = $cart_item['quantity'] - $a;
 				$discount_quantity = $a;

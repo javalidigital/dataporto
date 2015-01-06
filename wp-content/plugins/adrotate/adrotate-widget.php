@@ -71,8 +71,15 @@ class adrotate_widgets extends WP_Widget {
 	function update($new_instance, $old_instance) {
 		$new_instance['title'] = strip_tags($new_instance['title']);
 		$new_instance['description'] = strip_tags($new_instance['description']);
-		$new_instance['type'] = strip_tags($new_instance['type']);	
-		$new_instance['adid'] = strip_tags($new_instance['adid']);
+		$new_instance['type'] = strip_tags($new_instance['type']);
+		
+		//Try and preserve pre-fix widget IDs
+		if(isset($new_instance['id']) and $new_instance['adid'] < 1) {
+			$new_instance['adid'] = $new_instance['id'];
+		} else {
+			$new_instance['adid'] = strip_tags($new_instance['adid']);
+		}
+
 		$new_instance['siteid'] = 0;
 
 		$instance = wp_parse_args($new_instance, $old_instance);
@@ -94,7 +101,14 @@ class adrotate_widgets extends WP_Widget {
 		$title = esc_attr( $title );
 		$description = esc_attr( $description );
 		$type = esc_attr( $type );
-		$adid = esc_attr( $adid );
+
+		//Try and preserve pre-fix widget IDs
+		if(isset($id) and $adid < 1) {
+			$adid = esc_attr( $id );
+		} else {
+			$adid = esc_attr( $adid );
+		}
+
 		$siteid = esc_attr( $siteid );
 ?>
 		<p>

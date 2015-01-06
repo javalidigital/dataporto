@@ -139,7 +139,11 @@ $data = get_option("adrotate_advert_status");
 				<div class="postbox-adrotate">
 					<div class="inside">
 						<?php wp_widget_rss_output(array(
-							'url' => array('http://feeds.feedburner.com/AdrotatePluginForWordPress', 'http://feeds.feedburner.com/meandmymacnet'), 
+							'url' => array(
+								'http://feeds.feedburner.com/AdrotatePluginForWordPress', 
+								'http://feeds.feedburner.com/meandmymacnet',
+								'http://ajdg.solutions/news/feed/'
+							), 
 							'title' => 'AdRotate Development News', 
 							'items' => 4, 
 							'show_summary' => 1, 
@@ -155,13 +159,16 @@ $data = get_option("adrotate_advert_status");
 		<div id="postbox-container-3" class="postbox-container" style="width:50%;">
 			<div id="side-sortables" class="meta-box-sortables ui-sortable">
 						
-				<h3><?php _e('AdRotate Store', 'adrotate'); ?></h3>
+				<h3><?php _e('Buy AdRotate Professional', 'adrotate'); ?></h3>
 				<div class="postbox-adrotate">
 					<div class="inside">
-						<p><h4><?php _e('AdRotate Pro', 'adrotate'); ?></h4> <?php _e('Get more features! Get AdRotate Pro.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=upgrade_adrotatefree"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><h4><?php _e('Get help with installations', 'adrotate'); ?></h4> <?php _e('Not sure how to set up AdRotate? Get me to do it!', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/installations/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=installations"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><h4><?php _e('Premium Support', 'adrotate'); ?></h4> <?php _e("Stuck with AdRotate? I'll help!", 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/category/premium-support/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=premium_support"><?php _e('More info', 'adrotate'); ?> &raquo;</a></p>
-						<p><a href="https://www.adrotateplugin.com/shop/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=shop"><?php _e('Visit store to see all services and products', 'adrotate'); ?> &raquo;</a></p>
+						<a href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=compare_license"><img src="<?php echo WP_CONTENT_URL; ?>/plugins/adrotate/images/adrotate-product.png" alt="adrotate-product" width="150" height="150" align="right" style="padding: 0 0 10px 10px;" /></a>
+						<p><h4><?php _e('Singe License', 'adrotate'); ?> (&euro; 29.00)</h4><?php _e('For one WordPress installation.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/adrotate-plugin/adrotate-pro-single/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=buy_single" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Duo License', 'adrotate'); ?> (&euro; 39.00)</h4><?php _e('For two WordPress installations.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/adrotate-plugin/adrotate-pro-duo/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=buy_duo" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Multi License', 'adrotate'); ?> (&euro; 99.00)</h4><?php _e(' For up to five WordPress installations.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/adrotate-plugin/adrotate-pro-multi/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=buy_multi" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Network License', 'adrotate'); ?> (&euro; 199.00)</h4><?php _e('Set up your own advertising network on a WordPress Multisite.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/adrotate-plugin/adrotate-pro-network/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=buy_network" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Developer License', 'adrotate'); ?> (&euro; 299.00)</h4><?php _e('Activate AdRotate on unlimited WordPress installations and/or networks.', 'adrotate'); ?> <a href="https://www.adrotateplugin.com/shop/adrotate-plugin/adrotate-pro-developer/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=buy_developer" target="_blank"><?php _e('Buy now', 'adrotate'); ?> &raquo;</a></p>
+						<p><h4><?php _e('Compare licenses', 'adrotate'); ?></h4> <?php _e("Not sure which license is for you? Compare them...", 'adrotate'); ?> <a href="https://www.adrotateplugin.com/adrotate-pro/?utm_source=adrotate_free&utm_medium=adrotate_info_page&utm_campaign=compare_license" target="_blank"><?php _e('All Licenses', 'adrotate'); ?> &raquo;</a></p>
 					</div>
 				</div>
 

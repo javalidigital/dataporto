@@ -104,21 +104,23 @@ class WC_Dynamic_Pricing_Simple_Membership extends WC_Dynamic_Pricing_Simple_Bas
 
 	private function get_adjusted_price( $rule, $price ) {
 		$result = $price;
+		
+		$amount = apply_filters( 'woocommerce_dynamic_pricing_get_rule_amount', $rule['amount'], $rule, null, $this );
 		$num_decimals = apply_filters( 'woocommerce_dynamic_pricing_get_decimals', (int) get_option( 'woocommerce_price_num_decimals' ) );
 
 		switch ( $rule['type'] ) {
 			case 'fixed_product':
-				$adjusted = floatval( $price ) - floatval( $rule['amount'] );
+				$adjusted = floatval( $price ) - floatval( $amount );
 				$result = $adjusted >= 0 ? $adjusted : 0;
 				break;
 			case 'percent_product':
-				if ( $rule['amount'] > 1 ) {
-					$rule['amount'] = $rule['amount'] / 100;
+				if ( $amount > 1 ) {
+					$amount = $amount / 100;
 				}
-				$result = round( floatval( $price ) - ( floatval( $rule['amount'] ) * $price), (int) $num_decimals );
+				$result = round( floatval( $price ) - ( floatval( $amount ) * $price), (int) $num_decimals );
 				break;
 			case 'fixed_price':
-				$result = round( $rule['amount'], (int) $num_decimals );
+				$result = round( $amount, (int) $num_decimals );
 				break;
 			default:
 				$result = false;
@@ -182,14 +184,18 @@ class WC_Dynamic_Pricing_Simple_Membership extends WC_Dynamic_Pricing_Simple_Bas
 				$variation_rules = isset( $pricing_rule_set['variation_rules'] ) ? $pricing_rule_set['variation_rules'] : '';
 				$applied_to_variation = $variation_rules && isset( $variation_rules['args']['type'] ) && $variation_rules['args']['type'] == 'variations';
 
-				if ( ($_product->is_type( 'variable' ) || $_product->is_type( 'variation' )) && $variation_rules ) {
-					if ( isset( $variation_rules['args']['type'] ) && $variation_rules['args']['type'] == 'variations' && isset( $variation_rules['args']['variations'] ) && count( $variation_rules['args']['variations'] ) ) {
-						if ( !isset( $_product->variation_id ) || !in_array( $_product->variation_id, $variation_rules['args']['variations'] ) ) {
-							continue;
-						} else {
-							$variation_id = $_product->variation_id;
+				if ( is_single() ) {
+					if ( $applied_to_variation && ($_product->is_type( 'variable' ) || $_product->is_type( 'variation' )) && $variation_rules ) {
+						if ( isset( $variation_rules['args']['type'] ) && $variation_rules['args']['type'] == 'variations' && isset( $variation_rules['args']['variations'] ) && count( $variation_rules['args']['variations'] ) ) {
+							if ( !isset( $_product->variation_id ) || !in_array( $_product->variation_id, $variation_rules['args']['variations'] ) ) {
+								continue;
+							} else {
+								$variation_id = $_product->variation_id;
+							}
 						}
 					}
+				} else {
+					$applied_to_variation = false;
 				}
 
 				$pricing_conditions = $pricing_rule_set['conditions'];
@@ -294,6 +300,8 @@ class WC_Dynamic_Pricing_Simple_Membership extends WC_Dynamic_Pricing_Simple_Bas
 
 	private function get_adjusted_price_by_product_rule( $rule, $price, $_product ) {
 		$result = false;
+		
+		$amount = apply_filters( 'woocommerce_dynamic_pricing_get_rule_amount', $rule['amount'], $rule, null, $this );
 		$num_decimals = apply_filters( 'woocommerce_dynamic_pricing_get_decimals', (int) get_option( 'woocommerce_price_num_decimals' ) );
 
 		$q = 0;
@@ -311,21 +319,21 @@ class WC_Dynamic_Pricing_Simple_Membership extends WC_Dynamic_Pricing_Simple_Bas
 
 			switch ( $rule['type'] ) {
 				case 'price_discount':
-					$adjusted = floatval( $price ) - floatval( $rule['amount'] );
+					$adjusted = floatval( $price ) - floatval( $amount );
 					$result = $adjusted >= 0 ? $adjusted : 0;
 					break;
 				case 'percentage_discount':
-					if ( $rule['amount'] > 1 ) {
-						$rule['amount'] = $rule['amount'] / 100;
+					if ( $amount > 1 ) {
+						$amount = $amount / 100;
 					}
-					$result = round( floatval( $price ) - ( floatval( $rule['amount'] ) * $price), (int) $num_decimals );
+					$result = round( floatval( $price ) - ( floatval( $amount ) * $price), (int) $num_decimals );
 					break;
 				case 'fixed_price':
-					
+
 					$tax_display_mode = get_option( 'woocommerce_tax_display_shop' );
-					$fixed_price = round( $rule['amount'], (int) $num_decimals );
+					$fixed_price = round( $amount, (int) $num_decimals );
 					$result = $tax_display_mode == 'incl' ? $_product->get_price_including_tax( 1, $fixed_price ) : $_product->get_price_excluding_tax( 1, $fixed_price );
-					
+
 					break;
 				default:
 					$result = false;

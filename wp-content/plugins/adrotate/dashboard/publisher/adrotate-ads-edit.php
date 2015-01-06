@@ -94,6 +94,7 @@ if($edit_banner->imagetype == "field") {
 	<input type="hidden" name="adrotate_username" value="<?php echo $userdata->user_login;?>" />
 	<input type="hidden" name="adrotate_id" value="<?php echo $edit_banner->id;?>" />
 	<input type="hidden" name="adrotate_type" value="<?php echo $edit_banner->type;?>" />
+	<input type="hidden" name="adrotate_link" value="<?php echo $edit_banner->link;?>" />
 	<input type="hidden" name="adrotate_schedule" value="<?php echo $schedules->id;?>" />
 
 	<?php if($edit_banner->type == 'empty') { ?>
@@ -198,7 +199,7 @@ if($edit_banner->imagetype == "field") {
       	<tr>
 	        <th valign="top"><?php _e('Target URL:', 'adrotate'); ?></th>
 	        <td colspan="3">
-	        	<label for="adrotate_link"><input tabindex="5" name="adrotate_link" type="text" size="60" class="search-input" value="<?php echo $edit_banner->link;?>" disabled="1" /><br />
+	        	<label for="adrotate_link_disabled"><input tabindex="5" name="adrotate_link_disabled" type="text" size="60" class="search-input" value="<?php echo $edit_banner->link;?>" disabled="1" /><br />
 		        <em><?php _e('This field is no longer required. You can place the URL directly in the adcode (above) instead of %link%.', 'adrotate'); ?></em></label>
 			</td>
       	</tr>
