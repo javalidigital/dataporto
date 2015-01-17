@@ -14,7 +14,7 @@
 		public static $url_ajax_actions;
 		protected static $url_ajax_showimage;
 		protected static $path_settings;
-		protected static $path_plugin;
+		public static $path_plugin;
 		protected static $path_languages;		
 		protected static $path_temp;
 		protected static $path_views;
@@ -51,7 +51,7 @@
 			$filename = str_replace(".php","",$baseName);
 			
 			self::$dir_plugin = $filename;			
-					
+			
 			self::$url_plugin = plugins_url(self::$dir_plugin)."/";			
 			self::$url_ajax = admin_url("admin-ajax.php");
 			self::$url_ajax_actions = self::$url_ajax . "?action=".self::$dir_plugin."_ajax_action";
@@ -77,6 +77,7 @@
 			$version = (double)$version;
 			if($version >= 3.5)
 				GlobalsRevSlider::$isNewVersion = true;
+			
 		}
 		
 		/**
@@ -126,7 +127,7 @@
 		 */
 		protected static function addScriptAbsoluteUrl($scriptPath,$handle){
 			
-			wp_register_script($handle , $scriptPath);
+			wp_register_script($handle, $scriptPath);
 			wp_enqueue_script($handle);
 		}
 		
@@ -135,14 +136,35 @@
 		 * register script helper function
 		 * @param $scriptFilename
 		 */
-		protected static function addScript($scriptName,$folder="js",$handle=null){
+		protected static function addScriptAbsoluteUrlWaitForOther($scriptPath,$handle,$waitfor = array()){
+			wp_enqueue_script($handle, $scriptPath, $waitfor);
+		}
+		
+		/**
+		 * 
+		 * register script helper function
+		 * @param $scriptFilename
+		 */
+		protected static function addScript($scriptName,$folder="js",$handle=null,$waitfor = array()){
 			if($handle == null)
 				$handle = self::$dir_plugin."-".$scriptName;
 			
-			wp_register_script($handle , self::$url_plugin .$folder."/".$scriptName.".js" );
+			wp_register_script($handle , self::$url_plugin .$folder."/".$scriptName.".js", $waitfor, GlobalsRevSlider::SLIDER_REVISION );
 			wp_enqueue_script($handle);
 		}
-
+		
+		/**
+		 * 
+		 * register script helper function
+		 * @param $scriptFilename
+		 */
+		protected static function addScriptWaitFor($scriptName,$folder="js",$handle=null,$waitfor = array()){
+			if($handle == null)
+				$handle = self::$dir_plugin."-".$scriptName;
+			
+			wp_enqueue_script($handle, self::$url_plugin .$folder."/".$scriptName.".js", $waitfor, GlobalsRevSlider::SLIDER_REVISION );
+		}
+		
 		/**
 		 * 
 		 * register common script helper function
@@ -174,7 +196,20 @@
 			if($handle == null)
 				$handle = self::$dir_plugin."-".$styleName;
 			
-			wp_register_style($handle , self::$url_plugin .$folder."/".$styleName.".css" );
+			wp_register_style($handle , self::$url_plugin .$folder."/".$styleName.".css", array(), GlobalsRevSlider::SLIDER_REVISION);
+			wp_enqueue_style($handle);
+		}
+		
+		/**
+		 * 
+		 * register style helper function
+		 * @param $styleFilename
+		 */
+		protected static function addDynamicStyle($styleName,$handle=null,$folder="css"){
+			if($handle == null)
+				$handle = self::$dir_plugin."-".$styleName;
+			
+			wp_register_style($handle , self::$url_plugin .$folder."/".$styleName.".php", array(), GlobalsRevSlider::SLIDER_REVISION );
 			wp_enqueue_style($handle);
 		}
 		
@@ -214,7 +249,7 @@
 		 * get image url to be shown via thumb making script.
 		 */
 		public static function getImageUrl($filepath, $width=null,$height=null,$exact=false,$effect=null,$effect_param=null){
-						
+			
 			$urlImage = UniteImageViewRev::getUrlThumb(self::$url_ajax_showimage, $filepath,$width ,$height ,$exact ,$effect ,$effect_param);
 			
 			return($urlImage);
@@ -231,7 +266,6 @@
 			$urlImages = UniteFunctionsWPRev::getUrlContent();
 			
 			try{
-				
 				$imageView = new UniteImageViewRev(self::$path_cache,$pathImages,$urlImages);
 				$imageView->showImageFromGet();
 				
@@ -251,7 +285,7 @@
 			$val = self::getVar($_POST, $key, $defaultValue);
 			return($val);			
 		}
-				
+		
 		/**
 		 * 
 		 * get GET var

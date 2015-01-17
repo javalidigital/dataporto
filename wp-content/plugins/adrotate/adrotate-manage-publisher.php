@@ -119,8 +119,8 @@ function adrotate_insert_input() {
 			if(isset($responsive) AND strlen($responsive) != 0) $responsive = 'Y';
 				else $responsive = 'N';
 	
-			// Format the URL (assume http://)
-			if((strlen($link) > 0 OR $link != "") AND stristr($link, "http://") === false AND stristr($link, "https://") === false) $link = "//".$link;
+			// Format the URL (assume agnostic)
+			if((strlen($link) > 0 OR $link != "") AND preg_match("/%link%/i", $bannercode) AND strlen($link) > 0) $bannercode = str_replace('%link%', $link, $bannercode);
 			
 			// Determine image settings ($image_field has priority!)
 			if(strlen($image_field) > 1) {
@@ -216,16 +216,17 @@ function adrotate_insert_group() {
 		if(isset($_POST['adrotate_groupname'])) $name = strip_tags(trim($_POST['adrotate_groupname'], "\t\n "));
 		if(isset($_POST['adrotate_modus'])) $modus = strip_tags(trim($_POST['adrotate_modus'], "\t\n "));
 
-		$rows = $columns = $adwidth = $adheight = $admargin = $adspeed = '';
+		$rows = $columns = $adwidth = $adheight = $adspeed = '';
 		if(isset($_POST['adrotate_gridrows'])) $rows = strip_tags(trim($_POST['adrotate_gridrows'], "\t\n "));
 		if(isset($_POST['adrotate_gridcolumns'])) $columns = strip_tags(trim($_POST['adrotate_gridcolumns'], "\t\n "));
 		if(isset($_POST['adrotate_adwidth'])) $adwidth = strip_tags(trim($_POST['adrotate_adwidth'], "\t\n "));
 		if(isset($_POST['adrotate_adheight'])) $adheight = strip_tags(trim($_POST['adrotate_adheight'], "\t\n "));
-		if(isset($_POST['adrotate_admargin'])) $admargin = strip_tags(trim($_POST['adrotate_admargin'], "\t\n "));
 		if(isset($_POST['adrotate_adspeed'])) $adspeed = strip_tags(trim($_POST['adrotate_adspeed'], "\t\n "));
 
-		$ads = $sortorder = '';
+		$ads = $admargin = $align = $sortorder = '';
 		if(isset($_POST['adselect'])) $ads = $_POST['adselect'];
+		if(isset($_POST['adrotate_admargin'])) $admargin = strip_tags(trim($_POST['adrotate_admargin'], "\t\n "));
+		if(isset($_POST['adrotate_align'])) $align = strip_tags(trim($_POST['adrotate_align'], "\t\n "));
 		if(isset($_POST['adrotate_sortorder'])) $sortorder = strip_tags(htmlspecialchars(trim($_POST['adrotate_sortorder'], "\t\n "), ENT_QUOTES));
 
 		$categories = $category_loc = $category_par = $pages = $page_loc = $page_par = '';
@@ -245,6 +246,7 @@ function adrotate_insert_group() {
 	
 			if($modus < 0 OR $modus > 2) $modus = 0;
 			if($adspeed < 0 OR $adspeed > 99999) $adspeed = 6000;
+			if($align < 0 OR $align > 3) $align = 0;
 			
 			// Sort out block shape
 			if($rows < 1 OR $rows == '' OR !is_numeric($rows)) $rows = 2;
@@ -304,7 +306,7 @@ function adrotate_insert_group() {
 			unset($value);
 	
 			// Update the group itself
-			$wpdb->update($wpdb->prefix.'adrotate_groups', array('name' => $name, 'modus' => $modus, 'fallback' => 0, 'sortorder' => $sortorder, 'cat' => $category, 'cat_loc' => $category_loc, 'cat_par' => $category_par, 'page' => $page, 'page_loc' => $page_loc, 'page_par' => $page_par, 'wrapper_before' => $wrapper_before, 'wrapper_after' => $wrapper_after, 'gridrows' => $rows, 'gridcolumns' => $columns, 'admargin' => $admargin, 'adwidth' => $adwidth, 'adheight' => $adheight, 'adspeed' => $adspeed), array('id' => $id));
+			$wpdb->update($wpdb->prefix.'adrotate_groups', array('name' => $name, 'modus' => $modus, 'fallback' => 0, 'sortorder' => $sortorder, 'cat' => $category, 'cat_loc' => $category_loc, 'cat_par' => $category_par, 'page' => $page, 'page_loc' => $page_loc, 'page_par' => $page_par, 'wrapper_before' => $wrapper_before, 'wrapper_after' => $wrapper_after, 'align' => $align, 'gridrows' => $rows, 'gridcolumns' => $columns, 'admargin' => $admargin, 'adwidth' => $adwidth, 'adheight' => $adheight, 'adspeed' => $adspeed), array('id' => $id));
 
 			// Determine Dynamic Library requirement
 			$dynamic_count = $wpdb->get_var("SELECT COUNT(*) as `total` FROM `".$wpdb->prefix."adrotate_groups` WHERE `name` != '' AND `modus` = 1;");

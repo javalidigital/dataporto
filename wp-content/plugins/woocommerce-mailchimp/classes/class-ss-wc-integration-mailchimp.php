@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @class 		SS_WC_Integration_MailChimp
  * @extends		WC_Integration
- * @version		1.3.2
+ * @version		1.3.4
  * @package		WooCommerce MailChimp
  * @author 		Saint Systems
  */
@@ -162,7 +162,7 @@ class SS_WC_Integration_MailChimp extends WC_Integration {
 
 		if ( is_admin() && !is_ajax() ) {
 
-			if ( $this->enabled && $this->has_api_key() ) {
+			if ( $this->enabled == 'yes' && $this->has_api_key() ) {
 				$lists = $this->get_lists();
 	 			if ($lists === false ) {
 	 				$lists = array ();
@@ -187,6 +187,7 @@ class SS_WC_Integration_MailChimp extends WC_Integration {
 								'default' => 'pending',
 								'options' => array(
 									'pending' => __( 'Order Created', 'ss_wc_mailchimp' ),
+									'processing' => __( 'Order Processing', 'ss_wc_mailchimp' ),
 									'completed'  => __( 'Order Completed', 'ss_wc_mailchimp' ),
 								),
 							),
@@ -296,7 +297,7 @@ class SS_WC_Integration_MailChimp extends WC_Integration {
 	 * @return void
 	 */
 	public function get_lists() {
-		if ( ! $mailchimp_lists = get_transient( 'ss_wc_mailchimp_list_' . md5( $this->api_key ) ) ) {
+		if ( ! $mailchimp_lists = get_transient( 'sswcmclist_' . md5( $this->api_key ) ) ) {
 
 			$mailchimp_lists = array();
 			$retval          = $this->mailchimp->lists();
@@ -312,7 +313,7 @@ class SS_WC_Integration_MailChimp extends WC_Integration {
 					$mailchimp_lists[ $list['id'] ] = $list['name'];
 
 				if ( sizeof( $mailchimp_lists ) > 0 )
-					set_transient( 'ss_wc_mailchimp_list_' . md5( $this->api_key ), $mailchimp_lists, 60*60*1 );
+					set_transient( 'sswcmclist_' . md5( $this->api_key ), $mailchimp_lists, 60*60*1 );
 			}
 		}
 
@@ -436,10 +437,18 @@ class SS_WC_Integration_MailChimp extends WC_Integration {
 		if ( $api->errorCode && $api->errorCode != 214 ) {
 			self::log( 'WooCommerce MailChimp subscription failed: (' . $api->errorCode . ') ' . $api->errorMessage );
 
+			// Compability to old hook
 			do_action( 'ss_wc_mailchimp_subscribed', $email );
+
+			// New hook for failing operations
+			do_action( 'ss_wc_mailchimp_subscription_failed', $email, array( 'list_id' => $listid, 'order_id' => $order_id ) );
 
 			// Email admin
 			wp_mail( get_option('admin_email'), __( 'WooCommerce MailChimp subscription failed', 'ss_wc_mailchimp' ), '(' . $api->errorCode . ') ' . $api->errorMessage );
+		}
+		else {
+			// Hook on success
+			do_action( 'ss_wc_mailchimp_subscription_success', $email, array( 'list_id' => $listid, 'order_id' => $order_id ) );
 		}
 	}
 

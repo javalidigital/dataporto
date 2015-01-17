@@ -3,8 +3,8 @@ Contributors: adegans
 Donate link: http://meandmymac.net/donate/
 Tags: ads, banner, commercial, admin, advertise, adrotator, 2013, plugin, random, rotator, ad, advertising, advertisement, block, blocks, advertiser, publisher, adsense, geo, geolocation, geotarget, chitika, clickbank, broadstreet, banner manager,advert manager, campaign manager, export, import, freegeoip, geoplugin, maxmind, referrer, email, menu, statistics, stats, report, advert, adverts, best, great, 2014, geoselect, geobytes, schedules, schedule, monetize, header, widget, javascript, jquery, tracking, clicks, impressions, rotate, zone, zones, sidebar, footer, content, posts, pages
 Requires at least: 3.8, PHP5.3
-Tested up to: 4.0.1
-Stable tag: 3.10.16
+Tested up to: 4.1
+Stable tag: 3.10.19
  
 Make it easy on yourself and use AdRotate to place your adverts on your site... Make making money easy!
 
@@ -92,17 +92,22 @@ If that's not enough you can post on the [forum](https://www.adrotateplugin.com/
 
 == Changelog ==
 
-= 3.10.16 FREE =
-* NOTE: PHP5.3 required - Upgrade your server if you don't have PHP5.3 or newer
-* [fix] Widget ID not correctly used in front-end
-* [fix] Block column width set correctly
+= 3.10.19 FREE =
+* NOTE: Due to an earlier bugfix you may need to open/edit each AdRotate widget and click 'Save'
+* [fix] More accurate schedule filter
+* [fix] Click and Impression callbacks now always work
+* [fix] Click timer now always honored for clicks
+* [tweak] Cleaned up clicktracking routine
 
 NOTE: Certain features are exclusive to AdRotate PRO. If you need these features please consider upgrading to [AdRotate PRO](https://www.adrotateplugin.com/features/?utm_source=wordpress.org&utm_medium=adrotate_free_readme&utm_campaign=features).
 
-= 3.11.6 PRO =
-* NOTE: PHP5.3 required - Upgrade your server if you don't have PHP5.3 or newer
-* [fix] Widget ID not correctly used in front-end
-* [fix] Geo targeting cookie now honors 24h cooldown
+= 3.11.9 PRO =
+* NOTE: Due to an earlier bugfix you may need to open/edit each AdRotate widget and click 'Save'
+* [fix] States not filtered correctly for some IP’s
+* [fix] More accurate schedule filter
+* [fix] Click and Impression callbacks now always work
+* [fix] Click timer now always honored for clicks
+* [tweak] Cleaned up clicktracking routine
 
 The full changelog can be found on the [AdRotate website](https://www.adrotateplugin.com/development/?utm_source=wordpress.org&utm_medium=adrotate_free_readme&utm_campaign=changelog).
 Get more AdRotate! [Get AdRotate Pro today](https://www.adrotateplugin.com/adrotate-pro/?utm_source=wordpress.org&utm_medium=adrotate_free_readme&utm_campaign=buyadrotatepro)!
@@ -111,10 +116,12 @@ NOTE: Unsolicited offers, parnterships, job offers, promotional emails or produc
 
 == Upgrade Notice ==
 
-= 3.10.16 =
-* NOTE: PHP5.3 required - Upgrade your server if you don't have PHP5.3 or newer
-* [fix] Widget ID not correctly used in front-end
-* [fix] Block column width set correctly
+= 3.10.19 =
+* NOTE: Due to an earlier bugfix you may need to open/edit each AdRotate widget and click 'Save'
+* [fix] More accurate schedule filter
+* [fix] Click and Impression callbacks now always work
+* [fix] Click timer now always honored for clicks
+* [tweak] Cleaned up clicktracking routine
 
 The full changelog can be found on the [AdRotate website](https://www.adrotateplugin.com/development/?utm_source=wordpress.org&utm_medium=adrotate_free_readme&utm_campaign=changelog).
 Get more AdRotate! [Get AdRotate Pro today](https://www.adrotateplugin.com/adrotate-pro/?utm_source=wordpress.org&utm_medium=adrotate_free_readme&utm_campaign=buyadrotatepro)!

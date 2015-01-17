@@ -1,7 +1,7 @@
 /****************************************************************************************
  * Dynamic responsive adverts for AdRotate												*
  * Arnan de Gans from AJdG Solutions (http://meandmymac.net, http://ajdg.solutions)		*
- * Version: 0.4														   					*
+ * Version: 0.5														   					*
  * With help from: Mathias Joergensen (http://www.moofy.me)								*
  * Original code: N/a																	*
  ****************************************************************************************/
@@ -62,11 +62,11 @@ jQuery(document).ready(function() {
 
 	$window.resize(function() {
 		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(responsive_imageswap, 50);
+		resizeTimer = setTimeout(responsive_imageswap, 150);
 	});
 
 	$window.ready(function() {
 		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(responsive_imageswap, 50);
+		resizeTimer = setTimeout(responsive_imageswap, 150);
 	});
 });

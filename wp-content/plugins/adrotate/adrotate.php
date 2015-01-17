@@ -4,7 +4,7 @@ Plugin Name: AdRotate
 Plugin URI: https://www.adrotateplugin.com
 Description: The very best and most convenient way to publish your ads.
 Author: Arnan de Gans of AJdG Solutions
-Version: 3.10.16
+Version: 3.10.19
 Author URI: http://ajdg.solutions/
 License: GPLv3
 */
@@ -20,9 +20,9 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '3.10.16');
+define("ADROTATE_DISPLAY", '3.10.19');
 define("ADROTATE_VERSION", 376);
-define("ADROTATE_DB_VERSION", 46);
+define("ADROTATE_DB_VERSION", 47);
 define("ADROTATE_FOLDER", 'adrotate');
 /*-----------------------------------------------------------*/
 
@@ -63,7 +63,7 @@ if($adrotate_config['enable_stats'] == 'Y'){
 	add_action('wp_ajax_adrotate_click', 'adrotate_click_callback');
 	add_action('wp_ajax_nopriv_adrotate_click', 'adrotate_click_callback');
 }
-if(!is_admin() OR !adrotate_is_login_page()) {
+if(!is_admin()) {
 	add_shortcode('adrotate', 'adrotate_shortcode');
 	add_action("wp_enqueue_scripts", 'adrotate_custom_scripts');
 	add_action('wp_head', 'adrotate_custom_css');
@@ -103,19 +103,28 @@ if(is_admin()) {
 function adrotate_dashboard() {
 	global $adrotate_config, $adrotate_server;
 
-	add_menu_page('AdRotate', 'AdRotate', 'adrotate_ad_manage', 'adrotate', 'adrotate_info', plugins_url('/images/icon.png', __FILE__), '25.8');
-	add_submenu_page('adrotate', 'AdRotate > '.__('General Info', 'adrotate'), __('General Info', 'adrotate'), 'adrotate_ad_manage', 'adrotate', 'adrotate_info');
-	add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Pro', 'adrotate'), __('AdRotate Pro', 'adrotate'), 'adrotate_ad_manage', 'adrotate-pro', 'adrotate_pro');
+	$adrotate_page = add_menu_page('AdRotate', 'AdRotate', 'adrotate_ad_manage', 'adrotate', 'adrotate_info', plugins_url('/images/icon.png', __FILE__), '25.8');
+	$adrotate_page = add_submenu_page('adrotate', 'AdRotate > '.__('General Info', 'adrotate'), __('General Info', 'adrotate'), 'adrotate_ad_manage', 'adrotate', 'adrotate_info');
+	$adrotate_pro = add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Pro', 'adrotate'), __('AdRotate Pro', 'adrotate'), 'adrotate_ad_manage', 'adrotate-pro', 'adrotate_pro');
 	if($adrotate_server['adrotate_server_puppet'] == 0) {
-		add_submenu_page('adrotate', 'AdRotate > '.__('Manage Ads', 'adrotate'), __('Manage Ads', 'adrotate'), 'adrotate_ad_manage', 'adrotate-ads', 'adrotate_manage');
+	$adrotate_adverts = add_submenu_page('adrotate', 'AdRotate > '.__('Manage Ads', 'adrotate'), __('Manage Ads', 'adrotate'), 'adrotate_ad_manage', 'adrotate-ads', 'adrotate_manage');
 	}
-	add_submenu_page('adrotate', 'AdRotate > '.__('Manage Groups', 'adrotate'), __('Manage Groups', 'adrotate'), 'adrotate_group_manage', 'adrotate-groups', 'adrotate_manage_group');
+	$adrotate_groups = add_submenu_page('adrotate', 'AdRotate > '.__('Manage Groups', 'adrotate'), __('Manage Groups', 'adrotate'), 'adrotate_group_manage', 'adrotate-groups', 'adrotate_manage_group');
 	if($adrotate_server['adrotate_server_puppet'] == 0) {
-		add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Schedules', 'adrotate'), __('Manage Schedules', 'adrotate'), 'adrotate_schedule_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
-		add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Media', 'adrotate'), __('Manage Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
+		$adrotate_schedules = add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Schedules', 'adrotate'), __('Manage Schedules', 'adrotate'), 'adrotate_schedule_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
+		$adrotate_media = add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Media', 'adrotate'), __('Manage Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
 	}
-//	add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Server', 'adrotate'), __('AdRotate Server', 'adrotate'), 'manage_options', 'adrotate-server', 'adrotate_server');
-	add_submenu_page('adrotate', 'AdRotate > '.__('Settings', 'adrotate'), __('Settings', 'adrotate'), 'manage_options', 'adrotate-settings', 'adrotate_options');
+//	$adrotate_server = add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Server', 'adrotate'), __('AdRotate Server', 'adrotate'), 'manage_options', 'adrotate-server', 'adrotate_server');
+	$adrotate_settings = add_submenu_page('adrotate', 'AdRotate > '.__('Settings', 'adrotate'), __('Settings', 'adrotate'), 'manage_options', 'adrotate-settings', 'adrotate_options');
+ 
+	// Add help tabs
+	add_action('load-'.$adrotate_page, 'adrotate_help_info');
+	add_action('load-'.$adrotate_pro, 'adrotate_help_info');
+	add_action('load-'.$adrotate_adverts, 'adrotate_help_info');
+	add_action('load-'.$adrotate_groups, 'adrotate_help_info');
+	add_action('load-'.$adrotate_schedules, 'adrotate_help_info');
+	add_action('load-'.$adrotate_media, 'adrotate_help_info');
+	add_action('load-'.$adrotate_settings, 'adrotate_help_info');
 }
 
 /*-------------------------------------------------------------
@@ -692,6 +701,7 @@ function adrotate_options() {
 
 	$converted = base64_decode($converted);
 	$adevaluate = wp_next_scheduled('adrotate_evaluate_ads');
+	$adtracker = wp_next_scheduled('adrotate_clean_trackerdata');
 ?>
 	<div class="wrap">
 	  	<h2><?php _e('AdRotate Settings', 'adrotate'); ?></h2>
@@ -936,6 +946,10 @@ function adrotate_options() {
 				<tr>
 					<td><?php _e('Ad evaluation next run:', 'adrotate'); ?></td>
 					<td><?php if(!$adevaluate) _e('Not scheduled!', 'adrotate'); else echo date_i18n(get_option('date_format')." H:i", $adevaluate); ?></td>
+				</tr>
+				<tr>
+					<td><?php _e('Clean Trackerdata next run:', 'adrotate'); ?></td>
+					<td><?php if(!$adtracker) _e('Not scheduled!', 'adrotate'); else echo date_i18n(get_option('date_format')." H:i", $adtracker); ?></td>
 				</tr>
 				<tr>
 					<th valign="top"><?php _e('Current status of adverts', 'adrotate'); ?></th>

@@ -146,8 +146,8 @@ class AIOWPSecurity_List_Account_Activity extends AIOWPSecurity_List_Table {
         isset($_GET["orderby"]) ? $orderby = strip_tags($_GET["orderby"]): $orderby = '';
         isset($_GET["order"]) ? $order = strip_tags($_GET["order"]): $order = '';
 
-	$orderby = !empty($orderby) ? mysql_real_escape_string($orderby) : 'login_date';
-	$order = !empty($order) ? mysql_real_escape_string($order) : 'DESC';
+	$orderby = !empty($orderby) ? esc_sql($orderby) : 'login_date';
+	$order = !empty($order) ? esc_sql($order) : 'DESC';
 
 	$data = $wpdb->get_results("SELECT * FROM $login_activity_table ORDER BY $orderby $order LIMIT 50", ARRAY_A); //Get the last 50 records
         $current_page = $this->get_pagenum();

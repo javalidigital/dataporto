@@ -1,4 +1,28 @@
 *** Dynamic Pricing Changelog ***
+2014.12.16 - version 2.8.0
+	* Update advanced category counter to correctly count quantities when the targets and source categories are different. 
+	* Only process rules when 1 or more of either clean or mixed souce quantities are found. 
+	
+2014.12.01 - version 2.7.9
+	* Add in the WooCommerce Price Suffix when displaying discounted prices in the shop. 
+	* Allow for the decimal separator for thousands. 
+
+2014.11.25 - version 2.7.8
+	* Run all pricing module amounts through number normalization functions.  Uses the WooCommerce currency settings for decimal separators.
+
+2014.11.18 - version 2.7.7
+	* Fixes issues with variation discounts being displayed as discounted twice. 
+
+2014.11.12 - version 2.7.6
+	* Fix widget price display when using simple rules. 
+	
+2014.11.04 - version 2.7.5
+	* Enable proper display of 0 based advanced product rules on variable products when more than one rule present and those rules apply to different variations. 
+
+2014.10.30 - version 2.7.4
+	* Enable 0 based product rules on archive pages when the product rule is applied to specific variations.   Checks if is_single() before checking if the 
+		variation id matches. 
+
 2014.09.22 version 2.7.3
 	* Added filter, wc_dynamic_pricing_get_use_sale_price, to control if the discount should be applied to the sale price or to the regular price. 
 		Use apply_filters('wc_dynamic_pricing_get_use_sale_price', '__return_false'); to use regular prices for discounts. 

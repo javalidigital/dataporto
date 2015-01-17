@@ -138,23 +138,25 @@ class WC_Dynamic_Pricing_Simple_Category extends WC_Dynamic_Pricing_Simple_Base 
 
 	private function get_adjusted_price( $rule, $price ) {
 		$result = false;
+		
+		$amount = apply_filters( 'woocommerce_dynamic_pricing_get_rule_amount', $rule['amount'], $rule, null, $this );
 		$num_decimals = apply_filters( 'woocommerce_dynamic_pricing_get_decimals', (int) get_option( 'woocommerce_price_num_decimals' ) );
 
 		switch ( $rule['type'] ) {
 			case 'price_discount':
 			case 'fixed_product':
-				$adjusted = floatval( $price ) - floatval( $rule['amount'] );
+				$adjusted = floatval( $price ) - floatval( $amount );
 				$result = $adjusted >= 0 ? $adjusted : 0;
 				break;
 			case 'percentage_discount':
 			case 'percent_product':
-				if ( $rule['amount'] > 1 ) {
-					$rule['amount'] = $rule['amount'] / 100;
+				if ( $amount > 1 ) {
+					$amount = $amount / 100;
 				}
-				$result = round( floatval( $price ) - ( floatval( $rule['amount'] ) * $price), (int) $num_decimals );
+				$result = round( floatval( $price ) - ( floatval( $amount ) * $price), (int) $num_decimals );
 				break;
 			case 'fixed_price':
-				$result = round( $rule['amount'], (int) $num_decimals );
+				$result = round( $amount, (int) $num_decimals );
 				break;
 			default:
 				$result = false;
