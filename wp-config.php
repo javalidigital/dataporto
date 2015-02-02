@@ -19,7 +19,7 @@
 define('DB_NAME', 'dataporto');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'dataporto');
+define('DB_USER', 'dataporto-db');
 
 /** Senha do banco de dados MySQL */
 define('DB_PASSWORD', 'dataporto14');
