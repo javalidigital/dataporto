@@ -107,7 +107,12 @@ a.help-link {
 
 #woocommerce-product-data ul.product_data_tabs li.dynamic_pricing_options_21 a {
 	padding:10px 10px 10px 20px;
-	background:#f5f5f5 url(images/wc-tab-icons.png) no-repeat 5px 10px;
+	background:transparent url(images/admin-icon.png) no-repeat 5px 10px;
+}
+
+#woocommerce-product-data ul.product_data_tabs li.dynamic_pricing_options_23 a {
+		padding:10px 10px 10px 20px;
+		background:transparent url(images/admin-icon.png) no-repeat 8px 11px;
 }
 
 

@@ -17,7 +17,12 @@
 		  <div class="post-excerpt">
 			<?php global $more; $more=0; the_content(''); $more=1; ?>
 		  </div>
-		<?php endif; ?>		     
+		<?php endif; ?>
+		<?php 
+		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+			the_post_thumbnail();
+		} 
+		?>	     
 		<?php the_content('', true); ?>	
 	</div><!-- .entry-content -->
 

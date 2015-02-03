@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
+*  Copyright 2008-2015 AJdG Solutions (Arnan de Gans). All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -120,7 +120,7 @@ if($edit_banner->imagetype == "field") {
 	        <td width="40%">
 		        <p><?php _e('Copy your ad tag/code in this field if you have received ready to go adverts.', 'adrotate'); ?><br /><?php _e('Advertising and affiliate networks often use these.', 'adrotate'); ?></p>
 		        <p><strong><?php _e('Basic Examples:', 'adrotate'); ?></strong></p>
-		        <p>1. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;http://www.adrotateplugin.com&quot;&gt;Buy AdRotate Pro here!&lt;/a&gt;');return false;">&lt;a href="http://www.adrotateplugin.com"&gt;Buy AdRotate Pro here!&lt;/a&gt;</a></em></p>
+		        <p>1. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;https://ajdg.solutions/&quot;&gt;Buy AdRotate Pro here!&lt;/a&gt;');return false;">&lt;a href="https://ajdg.solutions/"&gt;Buy AdRotate Pro here!&lt;/a&gt;</a></em></p>
 				<p>2. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;a href=&quot;http://www.floatingcoconut.net&quot;&gt;&lt;img src=&quot;%image%&quot; /&gt;&lt;/a&gt;');return false;">&lt;a href="http://www.floatingcoconut.net"&gt;&lt;img src="%image%" /&gt;&lt;/a&gt;</a></em></p>
 		        <p>3. <em><a href="#" onclick="textatcursor('adrotate_bannercode','&lt;span class=&quot;ad-%id%&quot;&gt;&lt;a href=&quot;http://www.ajdg.net&quot;&gt;Text Link Ad!&lt;/a&gt;&lt;/span&gt;');return false;">&lt;span class="ad-%id%"&gt;&lt;a href="http://www.ajdg.net"&gt;Text Link Ad!&lt;/a&gt;&lt;/span&gt;</a></em></p>
 

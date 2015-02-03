@@ -1,14 +1,14 @@
 /****************************************************************************************
  * Dynamic advert rotation for AdRotate													*
  * Arnan de Gans from AJdG Solutions (http://meandmymac.net, https://ajdg.solutions/)	*
- * Version: 0.8														   					*
+ * Version: 0.8.1														   				*
  * With help from: Mathias Joergensen (http://www.moofy.me), Fraser Munro				*
  * Original code: Arnan de Gans															*
  ****************************************************************************************/
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
+*  Copyright 2008-2015 AJdG Solutions (Arnan de Gans). All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -79,12 +79,7 @@ speed : Time each slide is shown [integer: milliseconds, defaults to 3000]
 				var unixtime = now - admeta[3];
 
 				cookietime = readCookie('adrotate-'+admeta[0]);
-				if(!cookietime) cookietime = 0;
-
-//console.log('ad: ' + admeta[0] + ', cookietime: ' + cookietime + ', unixtime: ' + unixtime);
-
 				if(cookietime <= unixtime) {
-//console.log('tracker: ' + tracker);
 					$.post(
 						impression_object.ajax_url, 
 						{'action': 'adrotate_impression','track': tracker}
@@ -100,7 +95,6 @@ speed : Time each slide is shown [integer: milliseconds, defaults to 3000]
 
 		        date.setTime(date.getTime() + 86400000);
 		        expires = "; expires=" + date.toGMTString();
-
 			    document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
 			}
 			
@@ -112,7 +106,7 @@ speed : Time each slide is shown [integer: milliseconds, defaults to 3000]
 			        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
 			        if (c.indexOf(nameEQ) === 0) return unescape(c.substring(nameEQ.length, c.length));
 			    }
-			    return null;
+			    return 0;
 			}
 		});
 		return this;

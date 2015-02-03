@@ -151,6 +151,7 @@ get_header(); ?>
 				<?php endforeach; ?>
 				<?php wp_reset_postdata(); ?>
 			</div>
+			<?php dynamic_sidebar( 'sidebar-left-home' ); ?>
 		</div>
 	</div><!-- #primary -->
 <?php get_footer(); ?>

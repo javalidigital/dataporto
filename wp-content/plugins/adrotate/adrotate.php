@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: AdRotate
-Plugin URI: https://www.adrotateplugin.com
+Plugin URI: https://ajdg.solutions/products/adrotate-for-wordpress/
 Description: The very best and most convenient way to publish your ads.
 Author: Arnan de Gans of AJdG Solutions
-Version: 3.10.19
+Version: 3.11
 Author URI: http://ajdg.solutions/
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT AND TRADEMARK NOTICE
-*  Copyright 2008-2014 AJdG Solutions (Arnan de Gans). All Rights Reserved.
+*  Copyright 2008-2015 AJdG Solutions (Arnan de Gans). All Rights Reserved.
 *  ADROTATE is a trademark of Arnan de Gans.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
@@ -20,7 +20,7 @@ License: GPLv3
 ------------------------------------------------------------------------------------ */
 
 /*--- AdRotate values ---------------------------------------*/
-define("ADROTATE_DISPLAY", '3.10.19');
+define("ADROTATE_DISPLAY", '3.11');
 define("ADROTATE_VERSION", 376);
 define("ADROTATE_DB_VERSION", 47);
 define("ADROTATE_FOLDER", 'adrotate');
@@ -101,20 +101,21 @@ if(is_admin()) {
  Return:    -none-
 -------------------------------------------------------------*/
 function adrotate_dashboard() {
-	global $adrotate_config, $adrotate_server;
+	global $adrotate_config;
 
+	$adrotate_page = $adrotate_pro = $adrotate_adverts = $adrotate_groups = $adrotate_schedules = $adrotate_media = $adrotate_settings =  '';
 	$adrotate_page = add_menu_page('AdRotate', 'AdRotate', 'adrotate_ad_manage', 'adrotate', 'adrotate_info', plugins_url('/images/icon.png', __FILE__), '25.8');
 	$adrotate_page = add_submenu_page('adrotate', 'AdRotate > '.__('General Info', 'adrotate'), __('General Info', 'adrotate'), 'adrotate_ad_manage', 'adrotate', 'adrotate_info');
 	$adrotate_pro = add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Pro', 'adrotate'), __('AdRotate Pro', 'adrotate'), 'adrotate_ad_manage', 'adrotate-pro', 'adrotate_pro');
-	if($adrotate_server['adrotate_server_puppet'] == 0) {
+//	if($adrotate_server['adrotate_server_puppet'] == 0) {
 	$adrotate_adverts = add_submenu_page('adrotate', 'AdRotate > '.__('Manage Ads', 'adrotate'), __('Manage Ads', 'adrotate'), 'adrotate_ad_manage', 'adrotate-ads', 'adrotate_manage');
-	}
+//	}
 	$adrotate_groups = add_submenu_page('adrotate', 'AdRotate > '.__('Manage Groups', 'adrotate'), __('Manage Groups', 'adrotate'), 'adrotate_group_manage', 'adrotate-groups', 'adrotate_manage_group');
-	if($adrotate_server['adrotate_server_puppet'] == 0) {
+//	if($adrotate_server['adrotate_server_puppet'] == 0) {
 		$adrotate_schedules = add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Schedules', 'adrotate'), __('Manage Schedules', 'adrotate'), 'adrotate_schedule_manage', 'adrotate-schedules', 'adrotate_manage_schedules');
 		$adrotate_media = add_submenu_page('adrotate', 'AdRotate Pro > '.__('Manage Media', 'adrotate'), __('Manage Media', 'adrotate'), 'adrotate_ad_manage', 'adrotate-media', 'adrotate_manage_media');
-	}
-//	$adrotate_server = add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Server', 'adrotate'), __('AdRotate Server', 'adrotate'), 'manage_options', 'adrotate-server', 'adrotate_server');
+//	}
+//	add_submenu_page('adrotate', 'AdRotate > '.__('AdRotate Server', 'adrotate'), __('AdRotate Server', 'adrotate'), 'manage_options', 'adrotate-server', 'adrotate_server');
 	$adrotate_settings = add_submenu_page('adrotate', 'AdRotate > '.__('Settings', 'adrotate'), __('Settings', 'adrotate'), 'manage_options', 'adrotate-settings', 'adrotate_options');
  
 	// Add help tabs
@@ -801,7 +802,7 @@ function adrotate_options() {
 					<th valign="top"><?php _e('Impressions timer', 'adrotate'); ?></th>
 					<td>
 						<input name="adrotate_impression_timer" type="text" class="search-input" size="5" value="<?php echo $adrotate_config['impression_timer']; ?>" autocomplete="off" /> <?php _e('Seconds.', 'adrotate'); ?><br />
-						<span class="description"><?php _e('Default: 60.', 'adrotate'); ?><br /><?php _e('This number may not be empty, be lower than 60 or exceed 3600 (1 hour).', 'adrotate'); ?></span>
+						<span class="description"><?php _e('Default: 60.', 'adrotate'); ?><br /><?php _e('This number may not be empty, be lower than 10 or exceed 3600 (1 hour).', 'adrotate'); ?></span>
 					</td>
 				</tr>
 				<tr>
@@ -870,7 +871,7 @@ function adrotate_options() {
 				</tr>
 			</table>
 
-			<h3><?php _e('Javascript Libraries', 'adrotate'); ?></h3>
+			<h3><?php _e('Javascript', 'adrotate'); ?></h3>
 			<table class="form-table">			
 				<tr>
 					<th valign="top"><?php _e('Load jQuery', 'adrotate'); ?></th>

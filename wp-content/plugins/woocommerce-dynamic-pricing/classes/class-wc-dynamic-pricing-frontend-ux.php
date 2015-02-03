@@ -39,7 +39,7 @@ class WC_Dynamic_Pricing_FrontEnd_UX {
 				endif;
 			}
 			
-			if (!empty($price_adjusted) || $price_adjusted === 0) {
+			if (!empty($price_adjusted) || $price_adjusted === 0 || $price_adjusted === 0.00) {
 				if (apply_filters('wc_dynamic_pricing_use_discount_format', true)) {
 					$html = '<del>' . WC_Dynamic_Pricing_Compatibility::wc_price($price_base) . '</del><ins> ' . WC_Dynamic_Pricing_Compatibility::wc_price($price_adjusted) . '</ins>';
 				} else {

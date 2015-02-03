@@ -7,8 +7,11 @@ class woocommerce_product_pricing_rules_admin {
 	}
 
 	public function on_product_write_panel_tabs() {
-		if (WC_Dynamic_Pricing_Compatibility::is_wc_version_gte_2_1()) :
+		if (WC_Dynamic_Pricing_Compatibility::is_wc_version_gte_2_3()) :
 			?>
+			<li class="pricing_tab dynamic_pricing_options dynamic_pricing_options_23"><a href="#dynamic_pricing_data"><?php _e('Dynamic Pricing', 'wc_pricing'); ?></a></li>
+
+		<?php elseif (WC_Dynamic_Pricing_Compatibility::is_wc_version_gte_2_1()) : ?>	
 			<li class="pricing_tab dynamic_pricing_options dynamic_pricing_options_21"><a href="#dynamic_pricing_data"><?php _e('Dynamic Pricing', 'wc_pricing'); ?></a></li>
 		<?php else : ?>
 			<li class="pricing_tab dynamic_pricing_options"><a href="#dynamic_pricing_data"><?php _e('Dynamic Pricing', 'wc_pricing'); ?></a></li>
@@ -552,31 +555,7 @@ class woocommerce_product_pricing_rules_admin {
 					DeleteBlockRule($(this).closest('tr'), $(this).closest('table'));
 				});
 
-				//Validation
-				$('#woocommerce-pricing-rules-wrap').delegate('.int_pricing_rule', 'keydown', function(event) {
-					// Allow only backspace, delete and tab
-					if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 190) {
-						// let it happen, don't do anything
-					}
-					else {
-						if (event.shiftKey && event.keyCode == 56) {
-							if ($(this).val().length > 0) {
-								event.preventDefault();
-							} else {
-								return true;
-							}
-						} else if (event.shiftKey) {
-							event.preventDefault();
-						} else if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
-							event.preventDefault();
-						} else {
-							if ($(this).val() == "*") {
-								event.preventDefault();
-							}
-						}
-					}
-				});
-
+				
 				$('#woocommerce-pricing-rules-wrap').delegate('.float_pricing_rule', 'keydown', function(event) {
 					// Allow only backspace, delete and tab
 					if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 190) {

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Sidebar Login\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/sidebar-login\n"
 "POT-Creation-Date: 2014-06-28 09:56:14+00:00\n"
-"PO-Revision-Date: 2014-10-23 17:52-0300\n"
+"PO-Revision-Date: 2015-02-02 22:07-0300\n"
 "Last-Translator: Mike Jolley <mike.jolley@me.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "sidebar-login/language/pt_BR/)\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.1\n"
 
 #: includes/class-sidebar-login-widget.php:20
 msgid "Displays a login area in the sidebar."
@@ -101,7 +101,7 @@ msgstr "Perdeu sua senha?"
 
 #: includes/class-sidebar-login-widget.php:286
 msgid "Username"
-msgstr "Nome de usuário"
+msgstr "E-mail"
 
 #: includes/class-sidebar-login-widget.php:287
 msgid "Password"
@@ -117,7 +117,7 @@ msgstr "Entrar"
 
 #: sidebar-login.php:80
 msgid "Please enter your username"
-msgstr "Por favor, entre com seu nome de usuário"
+msgstr "Por favor, entre com seu e-mail"
 
 #: sidebar-login.php:81
 msgid "Please enter your password"
@@ -125,7 +125,7 @@ msgstr "Por favor, entre com sua senha"
 
 #: sidebar-login.php:169
 msgid "Please enter your username and password to login."
-msgstr "Por favor, entre com seu nome de usuário e senha para se conectar."
+msgstr "Por favor, entre com seu e-mail e senha para se conectar."
 
 #. Plugin URI of the plugin/theme
 msgid "http://wordpress.org/extend/plugins/sidebar-login/"

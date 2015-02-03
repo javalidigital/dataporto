@@ -2,13 +2,17 @@
 # This file is distributed under the same license as the Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-01-05 20:15:34+0000\n"
+"PO-Revision-Date: 2015-02-02 21:30-0300\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: GlotPress/1.0-alpha-1000\n"
+"X-Generator: Poedit 1.7.1\n"
 "Project-Id-Version: Development\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
 
 #. translators: 'rtl' or 'ltr'. This sets the text direction for WordPress.
 #: wp-includes/locale.php:189
@@ -5023,7 +5027,8 @@ msgid "Insert/edit image"
 msgstr "Inserir/editar imagem"
 
 #: wp-includes/class-wp-editor.php:890 wp-includes/class-wp-editor.php:1444
-#: wp-includes/js/tinymce/wp-mce-help.php:106 wp-includes/script-loader.php:362
+#: wp-includes/js/tinymce/wp-mce-help.php:106
+#: wp-includes/script-loader.php:362
 msgid "Insert/edit link"
 msgstr "Inserir/editar link"
 
@@ -5473,7 +5478,7 @@ msgstr "[%s] Senha perdida/alterada"
 #: wp-includes/pluggable.php:1643 wp-includes/pluggable.php:1651
 #: wp-login.php:364
 msgid "Username: %s"
-msgstr "Nome de usuário: %s"
+msgstr "E-mail: %s"
 
 #: wp-includes/pluggable.php:1646
 msgid "[%s] New User Registration"
@@ -5485,7 +5490,7 @@ msgstr "Senha: %s"
 
 #: wp-includes/pluggable.php:1655
 msgid "[%s] Your username and password"
-msgstr "[%s] Seu nome de usuário e senha"
+msgstr "[%s] Seu e-mail e senha"
 
 #: wp-includes/post-template.php:130
 msgid "Protected: %s"
@@ -5774,7 +5779,7 @@ msgstr "Senha perdida"
 
 #: wp-login.php:536
 msgid "Username or E-mail:"
-msgstr "Nome de usuário ou email:"
+msgstr "E-mail:"
 
 #: wp-login.php:547
 msgid "Get New Password"
@@ -6321,7 +6326,8 @@ msgstr "Site"
 msgid "Strength indicator"
 msgstr "Indicador de força"
 
-#: wp-includes/admin-bar.php:687 wp-includes/class-wp-customize-widgets.php:437
+#: wp-includes/admin-bar.php:687
+#: wp-includes/class-wp-customize-widgets.php:437
 #: wp-includes/functions.php:3258
 msgid "Widgets"
 msgstr "Widgets"
@@ -6895,7 +6901,7 @@ msgstr "Arquivos"
 
 #: wp-includes/general-template.php:390 wp-login.php:716 wp-login.php:876
 msgid "Username"
-msgstr "Nome de usuário"
+msgstr "E-mail"
 
 #: wp-includes/general-template.php:391 wp-login.php:880
 msgid "Password"

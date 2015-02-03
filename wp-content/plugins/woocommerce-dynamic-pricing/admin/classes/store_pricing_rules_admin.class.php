@@ -17,7 +17,14 @@ class woocommerce_store_pricing_rules_admin {
 			add_action('admin_enqueue_scripts', array(&$this, 'enqueue'));
 			add_action('admin_init', array(&$this, 'register_settings'));
 			add_action('admin_menu', array(&$this, 'on_admin_menu'), 99);
+			add_filter('woocommerce_screen_ids', array($this, 'get_woocommerce_screen_ids'));
 		}
+	}
+	
+	public function get_woocommerce_screen_ids($screens){
+		
+		$screens[] = 'woocommerce_page_wc_dynamic_pricing';
+		return $screens;
 	}
 
 	public function enqueue($hook) {

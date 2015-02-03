@@ -4,7 +4,7 @@
   Plugin Name: WooCommerce Dynamic Pricing
   Plugin URI: http://www.woothemes.com/woocommerce
   Description: WooCommerce Dynamic Pricing lets you configure dynamic pricing rules for products, categories and members. For WooCommerce 1.4+
-  Version: 2.8.0
+  Version: 2.9.1
   Author: Lucas Stark
   Author URI: http://lucasstark.com
   Requires at least: 3.3
@@ -145,20 +145,22 @@ class WC_Dynamic_Pricing {
 
 
 			//Filters for simple adjustment types
-			add_filter( 'woocommerce_grouped_price_html', array(&$this, 'on_price_html'), 10, 2 );
-			add_filter( 'woocommerce_variable_price_html', array(&$this, 'on_price_html'), 10, 2 );
-			add_filter( 'woocommerce_sale_price_html', array(&$this, 'on_price_html'), 10, 2 );
-			add_filter( 'woocommerce_price_html', array(&$this, 'on_price_html'), 10, 2 );
-
-			add_filter( 'woocommerce_empty_price_html', array(&$this, 'on_price_html'), 10, 2 );
-
-			add_filter( 'woocommerce_variable_price_html', array($this, 'on_price_html'), 10, 2 );
-			add_filter( 'woocommerce_variable_sale_price_html', array($this, 'on_price_html'), 10, 2 );
+			//add_filter( 'woocommerce_grouped_price_html', array(&$this, 'on_price_html'), 10, 2 );
+			//add_filter( 'woocommerce_sale_price_html', array(&$this, 'on_price_html'), 10, 2 );
+			//add_filter( 'woocommerce_price_html', array(&$this, 'on_price_html'), 10, 2 );
+			//add_filter( 'woocommerce_empty_price_html', array(&$this, 'on_price_html'), 10, 2 );
+			//Dont think the following filter is required, because regular get price filter is also called. 
+			//add_filter( 'woocommerce_variable_price_html', array($this, 'on_price_html'), 10, 2 );
+			//add_filter( 'woocommerce_variable_sale_price_html', array($this, 'on_price_html'), 10, 2 );
+			//Filters the variation price displayed when a variation is selected. 
 
 			add_filter( 'woocommerce_variation_price_html', array(&$this, 'on_price_html'), 10, 2 );
-			add_filter( 'woocommerce_variation_sale_price_html', array(&$this, 'on_price_html'), 10, 2 );
+
+			//add_filter( 'woocommerce_variation_sale_price_html', array(&$this, 'on_price_html'), 10, 2 );
+
 
 			add_filter( 'woocommerce_get_variation_price', array($this, 'on_get_variation_price'), 10, 4 );
+			add_filter( 'woocommerce_get_price_html', array(&$this, 'on_price_html'), 10, 2 );
 			add_filter( 'woocommerce_get_price', array($this, 'on_get_price'), 10, 2 );
 		}
 
@@ -167,7 +169,7 @@ class WC_Dynamic_Pricing {
 
 	public function convert_decimals( $amount, $rule, $cart_item, $module ) {
 		if ( function_exists( 'wc_format_decimal' ) ) {
-			$amount = wc_format_decimal( str_replace( get_option( 'woocommerce_price_thousand_sep' ), '', $amount ) ); 
+			$amount = wc_format_decimal( str_replace( get_option( 'woocommerce_price_thousand_sep' ), '', $amount ) );
 		}
 		return $amount;
 	}
@@ -178,6 +180,11 @@ class WC_Dynamic_Pricing {
 		$sorted_cart = array();
 		if ( sizeof( $cart->cart_contents ) > 0 ) {
 			foreach ( $cart->cart_contents as $cart_item_key => $values ) {
+				
+				if ( isset( $cart->cart_contents[$cart_item_key]['discounts'] ) ) {
+					unset( $cart->cart_contents[$cart_item_key]['discounts'] );
+				}
+				
 				$sorted_cart[$cart_item_key] = $values;
 			}
 		}
@@ -240,24 +247,36 @@ class WC_Dynamic_Pricing {
 	public function on_get_variation_price( $price, $product, $min_or_max, $display ) {
 		$min_price = null;
 		$max_price = null;
+		$tax_display_mode = get_option( 'woocommerce_tax_display_shop' );
+
 		if ( isset( $product->children ) && !empty( $product->children ) ) {
-			foreach ( $product->children as $child ) {
-				$variation = $product->get_child( $child );
-				$discounted_price = $this->on_get_price( $price, $variation );
-				if ( $min_price == null || $discounted_price < $min_price ) {
-					$min_price = $discounted_price;
+			foreach ( $product->children as $variation_id ) {
+				if ( $display ) {
+					$variation = $product->get_child( $variation_id );
+					if ( $variation ) {
+						$price = $tax_display_mode == 'incl' ? $variation->get_price_including_tax() : $variation->get_price_excluding_tax();
+					} else {
+						$price = '';
+					}
+				} else {
+					$price = get_post_meta( $variation_id, '_price', true );
 				}
 
-				if ( $max_price == null || $discounted_price > $max_price ) {
-					$max_price = $discounted_price;
+
+				if ( $min_price == null || $price < $min_price ) {
+					$min_price = $price;
+				}
+
+				if ( $max_price == null || $price > $max_price ) {
+					$max_price = $price;
 				}
 			}
 		}
 
 		if ( $min_or_max == 'min' ) {
-			return $min_price !== null ? $min_price : $price;
+			return $min_price;
 		} else {
-			return $max_price !== null ? $max_price : $price;
+			return $max_price;
 		}
 	}
 

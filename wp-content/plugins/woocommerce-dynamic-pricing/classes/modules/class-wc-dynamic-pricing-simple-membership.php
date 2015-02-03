@@ -159,7 +159,8 @@ class WC_Dynamic_Pricing_Simple_Membership extends WC_Dynamic_Pricing_Simple_Bas
 			default:
 				break;
 		}
-
+		
+		$result = apply_filters('woocommerce_dynamic_pricing_is_rule_set_valid_for_user', $result, $condition, $this);
 		return $result;
 	}
 

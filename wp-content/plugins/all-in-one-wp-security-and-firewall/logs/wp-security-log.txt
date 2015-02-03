@@ -44,3 +44,7 @@
 [01/29/2015 12:59 AM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
 [01/29/2015 12:59 AM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
 [01/29/2015 1:16 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
+[02/02/2015 7:56 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
+[02/02/2015 10:51 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
+[02/02/2015 10:51 PM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity
+[02/03/2015 12:05 AM] - FAILURE : Error inserting record into 1qg84i_aiowps_login_activity

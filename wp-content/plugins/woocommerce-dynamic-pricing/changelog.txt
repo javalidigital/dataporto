@@ -1,4 +1,19 @@
 *** Dynamic Pricing Changelog ***
+2015.01.28 - version 2.9.1
+	* Added woocommerce_dynamic_pricing_process_product_discounts to the groups module. 
+	
+2015.01.03 - version 2.9.0
+	* Updates to show prices in discount format when the discount result is free. 
+	* Added category filter and category targets to the advanced order total module. This allows order total discounts
+		to be applied only when a specific amount of products categories is ordered and allows the selection of 
+		which products should receive the order total discount. 
+	* Removed redundant price filters for variable and grouped products. 
+	* Update to show the lowest prices for a variation when 0 based product or category rules are used. 
+	* Update to remove validation from product rule inputs. Seems to cause problems in other languages. 
+	* Update to enqueue scripts for dynamic pricing properly with WooCommerce >= 2.3
+	* Updates for WooCommerce to remove the 'discounts' key from the cart when it is loaded from the session with WooCommerce >= 2.3
+	* Update for the admin icon on the product edit dashboard with WooCommerce >= 2.3
+		
 2014.12.16 - version 2.8.0
 	* Update advanced category counter to correctly count quantities when the targets and source categories are different. 
 	* Only process rules when 1 or more of either clean or mixed souce quantities are found. 

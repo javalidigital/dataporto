@@ -254,35 +254,37 @@ class WC_Dynamic_Pricing_Simple_Group extends WC_Dynamic_Pricing_Simple_Base {
 		}
 
 
+		$process_discounts = apply_filters( 'woocommerce_dynamic_pricing_process_product_discounts', true, $fake_cart_item['data'], 'groups', $this );
+		if ( $process_discounts ) {
+			if (!$this->is_cumulative($fake_cart_item, false)) {
 
-		if (!$this->is_cumulative($fake_cart_item, false)) {
+				if (get_class($_product) == 'WC_Product' && $_product->is_type('variable') && $lowest_price) {
+					return $lowest_price;
+				} elseif ($applied_rule) {
+					return $this->get_adjusted_price_by_product_rule($applied_rule, $a_working_price);
+				} elseif ($this->available_rulesets && count($this->available_rulesets)) {
+					$available_rule = reset($this->available_rulesets);
 
-			if (get_class($_product) == 'WC_Product' && $_product->is_type('variable') && $lowest_price) {
-				return $lowest_price;
-			} elseif ($applied_rule) {
-				return $this->get_adjusted_price_by_product_rule($applied_rule, $a_working_price);
-			} elseif ($this->available_rulesets && count($this->available_rulesets)) {
-				$available_rule = reset($this->available_rulesets);
-
-				$s_working_price = apply_filters('woocommerce_dyanmic_pricing_working_price', $working_price, 'membership', $fake_cart_item);
-				return $this->get_adjusted_price($available_rule, $s_working_price);
-			}
-		} else {
-
-			$discounted_price = null;
-			if (get_class($_product) == 'WC_Product' && $_product->is_type('variable') && $lowest_price) {
-				$discounted_price = $lowest_price;
-			} elseif ($applied_rule) {
-				$discounted_price = $this->get_adjusted_price_by_product_rule($applied_rule, $a_working_price);
-			}
-
-			if ($this->available_rulesets && count($this->available_rulesets)) {
-				$available_rule = reset($this->available_rulesets);
-
-				$s_working_price = apply_filters('woocommerce_dyanmic_pricing_working_price', $discounted_price, 'membership', $fake_cart_item);
-				return $this->get_adjusted_price($available_rule, $s_working_price);
+					$s_working_price = apply_filters('woocommerce_dyanmic_pricing_working_price', $working_price, 'membership', $fake_cart_item);
+					return $this->get_adjusted_price($available_rule, $s_working_price);
+				}
 			} else {
-				return $discounted_price;
+
+				$discounted_price = null;
+				if (get_class($_product) == 'WC_Product' && $_product->is_type('variable') && $lowest_price) {
+					$discounted_price = $lowest_price;
+				} elseif ($applied_rule) {
+					$discounted_price = $this->get_adjusted_price_by_product_rule($applied_rule, $a_working_price);
+				}
+
+				if ($this->available_rulesets && count($this->available_rulesets)) {
+					$available_rule = reset($this->available_rulesets);
+
+					$s_working_price = apply_filters('woocommerce_dyanmic_pricing_working_price', $discounted_price, 'membership', $fake_cart_item);
+					return $this->get_adjusted_price($available_rule, $s_working_price);
+				} else {
+					return $discounted_price;
+				}
 			}
 		}
 

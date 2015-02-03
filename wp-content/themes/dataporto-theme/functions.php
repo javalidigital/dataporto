@@ -159,6 +159,16 @@ function dataporto_theme_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Home - Lateral', 'dataporto-theme' ),
+		'id'            => 'sidebar-left-home',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<div class="title-sidebar"><h4 class="widget-title">',
+		'after_title'   => '</h4></div>',
+	) );
 	
 	register_sidebar( array(
 		'name'          => __( 'Footer - Boxes', 'dataporto-theme' ),

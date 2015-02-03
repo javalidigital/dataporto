@@ -20,7 +20,7 @@
 <?php wp_head(); ?>
 <script type="text/javascript" src="<?php echo get_bloginfo('template_url') ?>/js/jquery.validate.min.js"></script>
 <?php
-   $placeholder_user = __( 'Nome de Usuário' );
+   $placeholder_user = __( 'E-mail' );
    $placeholder_pass = __( 'Senha' );
 ?>
 <script type="text/javascript">
